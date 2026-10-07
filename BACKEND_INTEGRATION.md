@@ -165,6 +165,38 @@ Response:
 `account.role` must be one of:
 customer, financer, installer, merchant, super-admin, direct-engineer
 
+### Passwords (frontend pages are ready)
+
+Pages: `forgot-password.html` and `set-password.html` (project root).
+Logic: `shared/hello-solar-login.js` (requestPasswordReset, verifyPasswordToken, setPassword).
+
+POST /auth/password/forgot { identifier }
+
+- Always return 200, even if no account matches (do not reveal which emails exist).
+- If the account exists, email a reset link.
+
+GET /auth/password/token?token=...
+
+- Valid: 200 { purpose: "activate" | "reset", email }
+- Invalid or expired: 400 or 410 { error }
+
+POST /auth/password/set { token, password }
+
+- Success: 200
+- Invalid or expired token: 400 or 410 { error }
+- Weak password: 422 { error }
+- Hash the password, mark the token as used, and activate the account when purpose is "activate".
+
+Email links:
+
+- New account (Super Admin creates it, no password): `<site>/set-password.html?token=<token>&type=activate`
+- Password reset: `<site>/set-password.html?token=<token>&type=reset`
+
+Password rule (checked in the browser and must be checked again on the server):
+at least 8 characters, with at least one letter and one number.
+
+After success the page sends the user to `login.html?password=updated`.
+
 ### Landing Page
 
 POST /public/inquiries

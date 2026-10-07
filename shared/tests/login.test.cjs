@@ -16,7 +16,7 @@ function env() {
     removeItem: k => map.delete(k)
   });
   const c = {
-    console, crypto,
+    console, crypto, setTimeout,
     location: { protocol: 'http:', pathname: '/login.html', replace() {} },
     localStorage: mem(store), sessionStorage: mem(session),
     document: { documentElement: { hasAttribute: () => false } },
@@ -106,4 +106,26 @@ test('unified login: demo account list covers every dashboard', () => {
   const roles = c.HSLogin.demoAccounts().map(d => d.role);
   ['customer', 'financer', 'installer', 'merchant', 'super-admin', 'direct-engineer'].forEach(r => assert.ok(roles.includes(r), r));
   c.HSLogin.demoAccounts().forEach(d => assert.equal(env().HSLogin.login(d.identifier, d.password).ok, true, d.label));
+});
+
+test('passwords: rules and matching confirmation', () => {
+  const c = env();
+  const L = c.HSLogin;
+  assert.equal(L.validatePassword('short1').ok, false);
+  assert.equal(L.validatePassword('longenough').ok, false);
+  assert.equal(L.validatePassword('12345678').ok, false);
+  assert.equal(L.validatePassword('solar2026', 'solar2027').field, 'confirm');
+  assert.equal(L.validatePassword('solar2026', 'solar2026').ok, true);
+});
+
+test('passwords: local mode requests and token handling', async () => {
+  const c = env();
+  const L = c.HSLogin;
+  assert.equal((await L.requestPasswordReset('')).ok, false);
+  assert.equal((await L.requestPasswordReset('customer@hellosolar.ph')).ok, true);
+  assert.equal((await L.verifyPasswordToken('')).ok, false);
+  assert.equal((await L.verifyPasswordToken('abc123')).ok, true);
+  assert.equal((await L.setPassword('', 'solar2026', 'solar2026')).ok, false);
+  assert.equal((await L.setPassword('abc123', 'weak', 'weak')).ok, false);
+  assert.equal((await L.setPassword('abc123', 'solar2026', 'solar2026')).ok, true);
 });

@@ -170,5 +170,75 @@
         return list;
     }
 
-    window.HSLogin = { login, destinationFor, activeSessionFor, normalizeHint, demoAccounts, sessionExtras, DESTINATIONS };
+    // ------------------------------------------------------------------
+    // Passwords: forgot-password.html and set-password.html
+    // api mode (see BACKEND_INTEGRATION.md §6):
+    //   POST /auth/password/forgot { identifier }            → 200 always (never reveals whether the account exists)
+    //   GET  /auth/password/token?token=…                    → { purpose: "activate" | "reset", email }
+    //   POST /auth/password/set    { token, password }       → 200 on success; 400/410 when the link is invalid/expired
+    // local mode has no email service: requests succeed without sending anything, and any non-empty token opens the form.
+    // ------------------------------------------------------------------
+    const PASSWORD_MIN = 8;
+
+    function passwordChecks(password) {
+        const pw = String(password || "");
+        return {
+            length: pw.length >= PASSWORD_MIN,
+            letter: /[A-Za-z]/.test(pw),
+            number: /\d/.test(pw)
+        };
+    }
+
+    function validatePassword(password, confirm) {
+        const checks = passwordChecks(password);
+        if (!checks.length || !checks.letter || !checks.number) {
+            return { ok: false, field: "password", error: `Use at least ${PASSWORD_MIN} characters with a letter and a number.` };
+        }
+        if (confirm !== undefined && String(confirm) !== String(password)) {
+            return { ok: false, field: "confirm", error: "The passwords don't match." };
+        }
+        return { ok: true };
+    }
+
+    const delay = (value, ms) => new Promise(resolve => setTimeout(() => resolve(value), ms || 400));
+    const api = () => (config().isApi && window.HSApi ? window.HSApi : null);
+    const apiError = (res, fallback) => (res && res.data && res.data.error) || (res && res.status === 0 ? res.error : "") || fallback;
+
+    function requestPasswordReset(identifier) {
+        const id = String(identifier || "").trim();
+        if (!id) return Promise.resolve({ ok: false, field: "identifier", error: "Please enter your email or account ID." });
+        const API = api();
+        if (!API) return delay({ ok: true });
+        return API.request("POST", "/auth/password/forgot", { identifier: id }, { role: "public", auth: false })
+            .then(res => (res.ok || res.status === 404) ? { ok: true }
+                : { ok: false, error: apiError(res, "We couldn't send the link right now. Please try again.") });
+    }
+
+    function verifyPasswordToken(token) {
+        const t = String(token || "").trim();
+        if (!t) return Promise.resolve({ ok: false, error: "This link is incomplete. Open the full link from your email." });
+        const API = api();
+        if (!API) return delay({ ok: true, purpose: null, email: "" }, 150);
+        return API.request("GET", `/auth/password/token?token=${encodeURIComponent(t)}`, null, { role: "public", auth: false })
+            .then(res => res.ok
+                ? { ok: true, purpose: (res.data && res.data.purpose) || null, email: (res.data && res.data.email) || "" }
+                : { ok: false, error: apiError(res, "This link is invalid or has expired.") });
+    }
+
+    function setPassword(token, password, confirm) {
+        const check = validatePassword(password, confirm);
+        if (!check.ok) return Promise.resolve(check);
+        const t = String(token || "").trim();
+        if (!t) return Promise.resolve({ ok: false, error: "This link is incomplete. Open the full link from your email." });
+        const API = api();
+        if (!API) return delay({ ok: true });
+        return API.request("POST", "/auth/password/set", { token: t, password: String(password) }, { role: "public", auth: false })
+            .then(res => res.ok ? { ok: true }
+                : { ok: false, expired: res.status === 400 || res.status === 410, error: apiError(res, "We couldn't save your password. Please try again.") });
+    }
+
+    window.HSLogin = {
+        login, destinationFor, activeSessionFor, normalizeHint, demoAccounts, sessionExtras, DESTINATIONS,
+        PASSWORD_MIN, passwordChecks, validatePassword, requestPasswordReset, verifyPasswordToken, setPassword
+    };
 })(window);
