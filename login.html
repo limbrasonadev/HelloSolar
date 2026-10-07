@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to Hello Solar — one sign-in for customers, financers, installers, merchants and the Hello Solar team.">
+    <title>Log In | Hello Solar</title>
+    <link rel="icon" type="image/png" href="Hello_Solar_Customer/assets/images/logofortab.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #ff8a00;
+            --orange-dark: #d96500;
+            --orange-soft: #fff6eb;
+            --navy: #101a2e;
+            --ink: #1c1917;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --field-line: #cbd5e1;
+            --bg: #fffdf9;
+            --white: #fff;
+            --danger: #b91c1c;
+            --danger-bg: #fef2f2;
+            --danger-line: #fecaca;
+            --success: #16a34a;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            padding: 32px 16px;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255, 179, 0, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(255, 138, 0, 0.08) 0%, transparent 45%),
+                linear-gradient(135deg, #ffffff 0%, var(--bg) 50%, #fff9ef 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 440px;
+            padding: 36px 34px 30px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(16, 26, 46, 0.08);
+        }
+
+        .auth-logo { display: flex; width: fit-content; margin-bottom: 24px; }
+        .auth-logo img { height: 38px; width: auto; display: block; }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            background: rgba(255, 138, 0, 0.08);
+            color: var(--orange-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 12px 0 6px;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+        }
+
+        h1 span { color: var(--orange); }
+
+        .lede { margin: 0 0 24px; font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+        form { display: flex; flex-direction: column; gap: 18px; }
+
+        .field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+
+        label { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+        .link-btn {
+            padding: 0;
+            border: 0;
+            background: none;
+            font: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--orange-dark);
+            cursor: pointer;
+        }
+
+        .link-btn:hover { text-decoration: underline; }
+
+        .input-wrap { position: relative; }
+
+        .field-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        input {
+            width: 100%;
+            height: 48px;
+            padding: 0 46px 0 42px;
+            border: 1px solid var(--field-line);
+            border-radius: 12px;
+            background: var(--white);
+            color: var(--ink);
+            font: inherit;
+            font-size: 14px;
+            transition: border-color .15s, box-shadow .15s;
+        }
+
+        input::placeholder { color: #8793a3; }
+        input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.14); }
+        input[aria-invalid="true"] { border-color: var(--danger-line); }
+
+        .password-toggle {
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: 0;
+            border-radius: 10px;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .password-toggle:hover { color: var(--orange); background: var(--orange-soft); }
+
+        svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .password-toggle svg { width: 20px; height: 20px; }
+
+        .notice {
+            display: none;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .notice.visible { display: flex; }
+        .notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+        .notice-error { color: var(--danger); background: var(--danger-bg); border: 1px solid var(--danger-line); }
+        .notice-info { color: #7c3d00; background: var(--orange-soft); border: 1px solid #ffe2bf; }
+
+        .submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 50px;
+            margin-top: 4px;
+            border: 0;
+            border-radius: 12px;
+            background: linear-gradient(110deg, #ff9c00, #ff7a00);
+            box-shadow: 0 8px 20px rgba(255, 132, 0, 0.16);
+            color: #fff;
+            font: inherit;
+            font-size: 15.5px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: filter .15s, transform .15s;
+        }
+
+        .submit svg { width: 18px; height: 18px; stroke-width: 2; }
+        .submit:hover:not(:disabled) { filter: brightness(0.96); }
+        .submit:active:not(:disabled) { transform: translateY(1px); }
+        .submit:disabled { cursor: progress; opacity: .9; }
+        .submit.success { background: var(--success); box-shadow: none; }
+
+        button:focus-visible, a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+
+
+
+        .back-home { display: block; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--muted); text-decoration: none; }
+        .back-home:hover { color: var(--orange-dark); }
+
+        @media (max-width: 480px) {
+            .auth-card { padding: 28px 22px 24px; border-radius: 20px; }
+            h1 { font-size: 27px; }
+        }
+    </style>
+
+    <script src="shared/hello-solar-config.js"></script>
+    <script src="hello_solar_super_admin/data.js"></script>
+    <script src="shared/hello-solar-shared.js"></script>
+    <script src="hello_solar_super_admin/auth.js"></script>
+    <script src="shared/hello-solar-login.js"></script>
+</head>
+
+<body>
+    <main class="auth-card" aria-labelledby="loginHeading">
+        <a class="auth-logo" href="Hello_Solar/index.html" aria-label="Hello Solar home">
+            <img src="Hello_Solar_Customer/assets/images/hello_solar.png" alt="Hello Solar">
+        </a>
+
+        <span class="eyebrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+            </svg>
+            Hello Solar Portal
+        </span>
+        <h1 id="loginHeading">Welcome <span>back.</span></h1>
+        <p class="lede">Log in with your email or account ID. We'll take you to your dashboard.</p>
+
+        <form id="loginForm" novalidate>
+            <div class="notice notice-error" id="loginError" role="alert">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>
+                <span id="loginErrorText"></span>
+            </div>
+            <div class="notice notice-info" id="forgotNotice" role="status">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg>
+                <span>To reset your password, email <strong>support@hellosolar.ph</strong> from your registered email address, and we'll send you a reset link.</span>
+            </div>
+
+            <div>
+                <div class="field-head">
+                    <label for="identifier">Email or Account ID</label>
+                </div>
+                <div class="input-wrap">
+                    <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <input id="identifier" name="username" type="text" autocomplete="username" spellcheck="false"
+                        autocapitalize="none" placeholder="you@email.com or CUS-1010" required>
+                </div>
+            </div>
+
+            <div>
+                <div class="field-head">
+                    <label for="password">Password</label>
+                    <button type="button" class="link-btn" id="forgotPasswordLink">Forgot password?</button>
+                </div>
+                <div class="input-wrap">
+                    <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                    <button type="button" class="password-toggle" id="passwordToggle" aria-label="Show password" aria-pressed="false">
+                        <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="submit" id="loginBtn">
+                <span id="loginBtnText">Log In</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+            </button>
+        </form>
+
+
+
+
+        <a class="back-home" href="Hello_Solar/index.html">← Back to Hello Solar website</a>
+    </main>
+
+    <script>
+        (function () {
+            "use strict";
+            const params = new URLSearchParams(window.location.search);
+            const hint = params.get("portal");
+            const L = window.HSLogin;
+
+            // Opened from a portal while already signed in to it → straight to that dashboard
+            const active = L.activeSessionFor(hint);
+            if (active) {
+                window.location.replace(L.destinationFor(active).url);
+                return;
+            }
+
+            const form = document.getElementById("loginForm");
+            const idInput = document.getElementById("identifier");
+            const passInput = document.getElementById("password");
+            const btn = document.getElementById("loginBtn");
+            const btnText = document.getElementById("loginBtnText");
+            const errorBox = document.getElementById("loginError");
+            const errorText = document.getElementById("loginErrorText");
+            const forgotNotice = document.getElementById("forgotNotice");
+            const toggle = document.getElementById("passwordToggle");
+            const eyeIcon = document.getElementById("eyeIcon");
+
+            function showError(msg, field) {
+                errorText.textContent = msg;
+                errorBox.classList.add("visible");
+                forgotNotice.classList.remove("visible");
+                const input = field === "password" ? passInput : field === "identifier" ? idInput : null;
+                [idInput, passInput].forEach(i => i.removeAttribute("aria-invalid"));
+                if (input) input.setAttribute("aria-invalid", "true");
+                (input || passInput).focus();
+            }
+
+            function hideError() {
+                errorBox.classList.remove("visible");
+                [idInput, passInput].forEach(i => i.removeAttribute("aria-invalid"));
+            }
+
+            toggle.addEventListener("click", () => {
+                const show = passInput.type === "password";
+                passInput.type = show ? "text" : "password";
+                toggle.setAttribute("aria-label", show ? "Hide password" : "Show password");
+                toggle.setAttribute("aria-pressed", String(show));
+                eyeIcon.innerHTML = show
+                    ? '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/>'
+                    : '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>';
+            });
+
+            document.getElementById("forgotPasswordLink").addEventListener("click", () => {
+                hideError();
+                forgotNotice.classList.toggle("visible");
+            });
+
+            form.addEventListener("input", hideError);
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                hideError();
+                forgotNotice.classList.remove("visible");
+                btn.disabled = true;
+                btnText.textContent = "Verifying...";
+
+                // Let the button state paint before the (synchronous) credential check
+                setTimeout(() => {
+                    const result = L.login(idInput.value, passInput.value, hint);
+                    if (!result.ok) {
+                        btn.disabled = false;
+                        btnText.textContent = "Log In";
+                        showError(result.error, result.field);
+                        return;
+                    }
+                    const dest = L.destinationFor(result.role);
+                    btn.classList.add("success");
+                    btnText.textContent = `Opening ${dest.label}…`;
+                    setTimeout(() => window.location.replace(dest.url), 350);
+                }, 250);
+            });
+
+
+            idInput.focus();
+        })();
+    </script>
+</body>
+
+</html>

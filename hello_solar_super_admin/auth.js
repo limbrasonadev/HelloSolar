@@ -57,17 +57,11 @@
       // POST /auth/login { role: "admin", identifier, password } → { token, account: { id, name, title, role } }
       // account.role is "super-admin" or "direct-engineer"
       const res = API.requestSync('POST', '/auth/login', { role: 'admin', identifier: id, password }, { role: 'admin', auth: false });
-      const account = res.data && res.data.account;
-      if (!res.ok || !account || !ROLES.includes(account.role)) {
+      if (!res.ok) {
         lastError = (res.data && res.data.error) || (res.status === 0 ? res.error : '');
         return false;
       }
-      API.tokens.set('admin', res.data.token);
-      startSession({
-        role: account.role, name: account.name, title: account.title || (account.role === 'direct-engineer' ? ENGINEER_TITLE : 'Super Admin'),
-        actorId: account.id, accountId: account.role === 'direct-engineer' ? account.id : undefined
-      });
-      return true;
+      return acceptApiLogin(res.data);
     }
 
     // 1. Super Admin–created Direct Installation Engineer accounts (by email or Engineer ID)
@@ -91,6 +85,18 @@
     startSession({ role: account.role, name: account.name, title: account.title, actorId: account.actorId || 'ADMIN-01' });
     return true;
   }
+  // api mode: starts the Super Admin / Direct Engineer session from a successful POST /auth/login response
+  // ({ token, account: { id, name, title, role } }). Also used by the unified Hello Solar login page (../login.html).
+  function acceptApiLogin(data) {
+    const account = data && data.account;
+    if (!IS_API || !account || !ROLES.includes(account.role) || !data.token) return false;
+    API.tokens.set('admin', data.token);
+    startSession({
+      role: account.role, name: account.name, title: account.title || (account.role === 'direct-engineer' ? ENGINEER_TITLE : 'Super Admin'),
+      actorId: account.id, accountId: account.role === 'direct-engineer' ? account.id : undefined
+    });
+    return true;
+  }
   function getLastError() {
     return lastError;
   }
@@ -102,7 +108,7 @@
     sessionStorage.removeItem(SESSION_KEY);
     window.location.replace('login.html');
   }
-  window.SuperAdminAuth = { isSignedIn, login, logout, getRole, getSession, getLastError };
+  window.SuperAdminAuth = { isSignedIn, login, logout, getRole, getSession, getLastError, acceptApiLogin };
   if (document.documentElement.hasAttribute('data-admin-protected')) {
     const guard = () => {
       if (!isSignedIn()) {

@@ -82,9 +82,21 @@ Can manage the entire Hello Solar system.
 ID: ENG-###
 Can only manage Hello Solar Direct installations.
 
-All portals keep their own login pages.
+All portals share one login page: `login.html` (project root).
+The old `<portal>/login.html` pages only redirect to it (`../login.html?portal=<role>`).
 
-The backend can use one authentication system with role checks.
+After login, the account's role decides the dashboard:
+
+- customer → Hello_Solar_Customer/mysystem.html
+- financer → Hello_Solar_Financer/dashboard.html
+- installer → Hello_Solar_Installer/myjob.html
+- merchant → Hello_Solar_Merchant/dashboard.html
+- super-admin / direct-engineer → hello_solar_super_admin/index.html
+
+Login logic: `shared/hello-solar-login.js` (window.HSLogin).
+Sessions are still stored per role, so the dashboards are unchanged.
+
+The backend uses one authentication system with role checks.
 
 ## 4. Main IDs
 
@@ -137,6 +149,21 @@ POST /auth/register
 GET /bootstrap
 
 `/bootstrap` returns only data allowed for the logged-in role.
+
+Unified login page (`login.html`) calls:
+
+POST /auth/login { identifier, password, role? }
+
+`role` is omitted unless the user came from a specific portal
+(`customer`, `financer`, `installer`, `merchant` or `admin`).
+Without `role`, the backend finds the account by email / username / account ID across all account types.
+
+Response:
+
+{ token, account: { id, name, role, ... } }
+
+`account.role` must be one of:
+customer, financer, installer, merchant, super-admin, direct-engineer
 
 ### Landing Page
 

@@ -34,7 +34,7 @@
         ["hello_solar_installer", "installer"],
         ["hello_solar_merchant", "merchant"],
         ["hello_solar_super_admin", "admin"],
-        ["hello solar 2.0", "public"]
+        ["hello_solar", "public"]
     ];
     function detectPortalRole() {
         let path = "";

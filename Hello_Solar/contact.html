@@ -92,6 +92,18 @@
 
             <!-- Actions -->
             <div class="flex items-center gap-3">
+                <!-- Log In: one login page for every Hello Solar dashboard -->
+                <a href="../login.html"
+                    class="hidden sm:flex bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm 2xl:text-base font-extrabold px-6 2xl:px-8 py-2.5 2xl:py-3.5 rounded-full items-center gap-2 shadow-xs hover:shadow-md transition cursor-pointer">
+                    <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>Log In</span>
+                    <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
+                </a>
 
                 <!-- Mobile & Tablet Menu Button (< 1280px) -->
                 <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
@@ -149,13 +161,17 @@
             </nav>
 
             <div class="pt-2 border-t border-stone-100">
-                <button data-action="recommend"
+                <a href="../login.html"
                     class="w-full bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-xs transition cursor-pointer">
-                    <span>Get My Recommendation</span>
-                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>Log In</span>
+                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
                     </svg>
-                </button>
+                </a>
             </div>
         </div>
 
