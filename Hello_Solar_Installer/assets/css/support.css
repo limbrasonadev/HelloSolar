@@ -1,0 +1,784 @@
+/* ==========================================================================
+   INSTALLER SUPPORT VIEW STYLES (support.html)
+   Simplified, production-grade, and immediately understandable
+   Hierarchy:
+   1. Support Header
+   2. Topic (Select)
+   3. Job Reference (Input)
+   4. What happened? (Textarea)
+   5. Send Request (Primary CTA)
+   Secondary: Direct Dispatch line, Collapsible Common Answers FAQ
+   Tokens: #FAF7F2 (bg), #FFFFFF (card surface), #E5E0D8 (border), #FF8400 (accent), #101A2E (navy)
+   ========================================================================== */
+
+/* Page Background */
+.support-page {
+    background: var(--bg-main, #FAF7F2);
+}
+
+.support-page .main {
+    background: var(--bg-main, #FAF7F2);
+}
+
+.support-page .content {
+    flex: 0 0 auto;
+    padding-bottom: 36px;
+}
+
+/* Left-aligned Support Container */
+.support-container {
+    max-width: 620px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Page Header & Compact Direct Dispatch Row
+   -------------------------------------------------------------------------- */
+.support-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.support-head-info {
+    min-width: 0;
+}
+
+.support-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy, #101A2E);
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+.support-subtitle {
+    font-size: 13.5px;
+    color: var(--gray-500, #57534E);
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}
+
+/* Compact Dispatch Contact Row */
+.dispatch-compact-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.dispatch-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500, #57534E);
+}
+
+.btn-dispatch-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--white, #FFFFFF);
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 6px);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.btn-dispatch-call:hover {
+    border-color: var(--solar-orange, #FF8400);
+    color: #000000;
+    background: var(--white, #FFFFFF);
+}
+
+.btn-dispatch-call svg {
+    color: var(--solar-orange, #FF8400);
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Support Card (The ONE Primary Destination)
+   -------------------------------------------------------------------------- */
+.support-card-main {
+    background: var(--white, #FFFFFF);
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 8px);
+    padding: 28px 28px 26px;
+    box-shadow: var(--shadow-card, 0 1px 3px rgba(0, 0, 0, 0.04));
+    transition: border-color var(--transition-fast, 0.15s ease);
+}
+
+.support-card-main:hover {
+    border-color: var(--solar-orange, #FF8400);
+}
+
+.support-card-header {
+    margin-bottom: 22px;
+}
+
+.support-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy, #101A2E);
+    line-height: 1.25;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.015em;
+}
+
+.support-card-helper {
+    font-size: 13.5px;
+    color: var(--gray-500, #57534E);
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Form Styles */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.support-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.support-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy, #101A2E);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.label-optional {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--gray-400, #78716C);
+}
+
+.support-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 6px);
+    font-size: 13.5px;
+    font-family: inherit;
+    background: var(--white, #FFFFFF);
+    color: var(--navy, #101A2E);
+    outline: none;
+    min-height: 44px;
+    box-sizing: border-box;
+    transition: border-color var(--transition-fast, 0.15s ease), box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.support-input:focus {
+    border-color: var(--solar-orange, #FF8400);
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15);
+}
+
+/* Custom Accessible Dropdown Component */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.custom-dropdown-trigger {
+    width: 100%;
+    min-height: 44px;
+    height: 44px;
+    padding: 0 14px;
+    background: var(--white, #FFFFFF);
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 6px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--navy, #101A2E);
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: left;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color var(--transition-fast, 0.15s ease), box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.custom-dropdown-trigger:hover {
+    border-color: var(--solar-orange, #FF8400);
+}
+
+.custom-dropdown.open .custom-dropdown-trigger,
+.custom-dropdown-trigger:focus-visible {
+    border-color: var(--solar-orange, #FF8400) !important;
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15) !important;
+}
+
+.custom-dropdown-selected {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 8px;
+    color: var(--navy, #101A2E);
+    font-weight: 500;
+}
+
+.custom-dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    stroke: var(--navy, #101A2E);
+    flex-shrink: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+}
+
+.custom-dropdown.open .custom-dropdown-arrow {
+    transform: rotate(180deg);
+    stroke: var(--solar-orange, #FF8400);
+}
+
+.custom-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1.5px solid #FFD8A8;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.10), 0 4px 10px -2px rgba(255, 132, 0, 0.06);
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    z-index: 1000;
+    box-sizing: border-box;
+    animation: customDropdownFade 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 260px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+@keyframes customDropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-dropdown.open .custom-dropdown-menu {
+    display: block;
+}
+
+.custom-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy, #101A2E);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 40px;
+    box-sizing: border-box;
+    gap: 8px;
+}
+
+.custom-dropdown-item:hover,
+.custom-dropdown-item:focus-visible {
+    background-color: #FFF7ED;
+    color: #EA580C;
+}
+
+.custom-dropdown-item.active {
+    background-color: #FFF2E5;
+    color: var(--solar-orange, #FF8400);
+    font-weight: 700;
+}
+
+.custom-dropdown-check {
+    width: 15px;
+    height: 15px;
+    stroke: var(--solar-orange, #FF8400);
+    opacity: 0;
+    flex-shrink: 0;
+    transition: opacity 0.15s ease;
+}
+
+.custom-dropdown-item.active .custom-dropdown-check {
+    opacity: 1;
+}
+
+/* Hidden backing select element */
+.support-native-select-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.support-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.5;
+}
+
+/* Primary CTA Button */
+.support-action-wrap {
+    margin-top: 4px;
+}
+
+.btn-send-request {
+    width: 100%;
+    min-height: 46px;
+    height: 46px;
+    background: var(--solar-orange, #FF8400);
+    color: #000000;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    border: 1.5px solid var(--solar-orange, #FF8400);
+    border-radius: var(--radius-sm, 6px);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.btn-send-request:hover {
+    background: var(--white, #FFFFFF);
+    border-color: var(--solar-orange, #FF8400);
+    color: #000000;
+}
+
+/* Confirmation Status Banner */
+#supportStatusMsg:empty {
+    display: none;
+}
+
+#supportStatusMsg.status-msg-success {
+    display: block;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--white, #FFFFFF);
+    border: 1.5px solid #10B981;
+    border-radius: var(--radius-sm, 6px);
+    color: #10B981;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.45;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+#supportStatusMsg.status-msg-error {
+    display: block;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--white, #FFFFFF);
+    border: 1.5px solid #EF4444;
+    border-radius: var(--radius-sm, 6px);
+    color: #EF4444;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.45;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   3. Secondary Help: Common Answers Link
+   -------------------------------------------------------------------------- */
+.support-secondary-help {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 4px 0 8px;
+    font-size: 13px;
+    color: var(--gray-500, #57534E);
+}
+
+.secondary-help-text {
+    font-weight: 500;
+}
+
+.btn-link-faq {
+    background: transparent;
+    border: 0;
+    padding: 4px 6px;
+    color: var(--solar-orange, #FF8400);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color var(--transition-fast, 0.15s ease);
+}
+
+.btn-link-faq:hover {
+    color: #E67600;
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   4. Common Answers FAQ Modal Dialog
+   -------------------------------------------------------------------------- */
+.faq-modal-dialog {
+    max-width: 600px;
+    width: 100%;
+}
+
+.faq-modal-body {
+    padding: 0;
+    max-height: 68vh;
+    overflow-y: auto;
+}
+
+.support-faq-search {
+    padding: 16px 24px 10px;
+}
+
+.toolbar-search {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    background: var(--white, #FFFFFF);
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 6px);
+    box-sizing: border-box;
+    transition: border-color var(--transition-fast, 0.15s ease), box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.toolbar-search:focus-within {
+    border-color: var(--solar-orange, #FF8400);
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15);
+}
+
+.toolbar-search svg {
+    width: 16px;
+    height: 16px;
+    color: var(--gray-400, #78716C);
+    flex-shrink: 0;
+}
+
+.toolbar-search input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    font-size: 13px;
+    color: var(--navy, #101A2E);
+    background: transparent;
+    font-family: inherit;
+}
+
+.faq-list {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border: 0;
+    border-bottom: 1px solid var(--border, #E5E0D8);
+    background: transparent;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item summary {
+    padding: 13px 0;
+    min-height: 44px;
+    gap: 12px;
+    line-height: 1.4;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--navy, #101A2E);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: color var(--transition-fast, 0.15s ease);
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:hover {
+    color: var(--solar-orange, #FF8400);
+}
+
+.accordion-chevron {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: var(--gray-400, #78716C);
+    transition: transform var(--transition-fast, 0.15s ease), color var(--transition-fast, 0.15s ease);
+}
+
+.faq-item[open] .accordion-chevron {
+    transform: rotate(180deg);
+    color: var(--solar-orange, #FF8400);
+}
+
+.faq-answer {
+    padding: 0 0 14px;
+    font-size: 12.5px;
+    color: var(--gray-600, #57534E);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+.faq-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-top: 1px solid var(--border, #E5E0D8);
+    background: var(--white, #FFFFFF);
+}
+
+.faq-modal-footer .btn-action {
+    min-height: 38px;
+    padding: 0 18px;
+    font-size: 12.5px;
+    font-weight: 600;
+    background: var(--white, #FFFFFF);
+    border: 1px solid var(--border, #E5E0D8);
+    border-radius: var(--radius-sm, 6px);
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .support-container {
+        max-width: 100%;
+        gap: 12px;
+    }
+
+    .support-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .support-title {
+        font-size: 18px !important;
+        line-height: 1.25;
+    }
+
+    .support-subtitle {
+        font-size: 12px !important;
+        margin: 3px 0 0 0 !important;
+    }
+
+    .dispatch-compact-row {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dispatch-label {
+        font-size: 11px !important;
+    }
+
+    .btn-dispatch-call {
+        font-size: 11.5px !important;
+        padding: 5px 10px !important;
+    }
+
+    .support-card-main {
+        padding: 16px 14px;
+        border-radius: var(--radius-sm, 8px);
+    }
+
+    .support-card-title {
+        font-size: 15px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .support-card-helper {
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
+    }
+
+    .support-form {
+        gap: 14px;
+    }
+
+    .support-field-group {
+        gap: 4px;
+    }
+
+    .support-field-group label,
+    .support-label {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+
+    .label-optional {
+        font-size: 11px !important;
+    }
+
+    .support-input,
+    .support-textarea {
+        font-size: 13.5px !important;
+        padding: 9px 12px !important;
+        min-height: 42px !important;
+        border-radius: 6px !important;
+    }
+
+    .support-textarea {
+        min-height: 90px !important;
+    }
+
+    /* Mobile Custom Dropdown Sizing & Fitting */
+    .custom-dropdown-trigger {
+        height: 42px !important;
+        min-height: 42px !important;
+        font-size: 13.5px !important;
+        padding: 0 12px !important;
+        border-radius: 6px !important;
+    }
+
+    .custom-dropdown-selected {
+        font-size: 13.5px !important;
+    }
+
+    .custom-dropdown-menu {
+        border-radius: 10px !important;
+        padding: 4px !important;
+        max-height: 220px !important;
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.12), 0 3px 8px -2px rgba(255, 132, 0, 0.08) !important;
+    }
+
+    .custom-dropdown-item {
+        padding: 9px 12px !important;
+        font-size: 13px !important;
+        min-height: 38px !important;
+        border-radius: 6px !important;
+    }
+
+    .custom-dropdown-item-text {
+        font-size: 13px !important;
+    }
+
+    .custom-dropdown-check {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    .btn-send-request {
+        font-size: 13.5px !important;
+        padding: 10px 16px !important;
+        min-height: 44px !important;
+        height: 44px !important;
+        border-radius: 6px !important;
+    }
+
+    .support-action-wrap {
+        margin-top: 2px;
+    }
+
+    .support-secondary-help {
+        margin-top: 8px;
+    }
+
+    .secondary-help-text {
+        font-size: 12px !important;
+    }
+
+    .btn-common-answers {
+        font-size: 12px !important;
+    }
+
+    .faq-drawer-header {
+        padding: 12px 14px;
+    }
+
+    .faq-drawer-header .faq-title {
+        font-size: 13.5px !important;
+    }
+
+    .faq-drawer-header .faq-subtitle {
+        font-size: 11px !important;
+    }
+
+    .support-faq-search {
+        padding: 10px 14px 6px;
+    }
+
+    .support-faq-search .faq-search-input {
+        font-size: 12px !important;
+    }
+
+    .faq-list {
+        padding: 0 14px;
+    }
+
+    .faq-item-question {
+        font-size: 12.5px !important;
+    }
+
+    .faq-item-answer {
+        font-size: 11.5px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .support-card-main {
+        padding: 16px 12px;
+    }
+
+    .btn-send-request {
+        font-size: 13.5px;
+    }
+}

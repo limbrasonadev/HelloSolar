@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello Solar Financer Dashboard — Approved & Funded Loans">
+    <title>Hello Solar Financer — Approved & Funded Loans</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="css/approved.css">
+    <link rel="stylesheet" href="css/notifications.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="dashboard.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Financer Portal</div>
+
+            <nav class="nav" id="nav" aria-label="Financer navigation">
+                <a class="nav-link" href="dashboard.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    Dashboard
+                </a>
+
+                <a class="nav-link" href="applications.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Applications
+                </a>
+
+                <a class="nav-link active" href="approved.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    Approved
+                </a>
+
+                <a class="nav-link" href="rejected.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="15" y1="9" x2="9" y2="15" />
+                        <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                    Rejected
+                </a>
+
+                <a class="nav-link" href="support.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="index.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <div class="mobile-header">
+                        <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                            aria-expanded="false" aria-controls="sidebar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <line x1="4" y1="6" x2="20" y2="6" />
+                                <line x1="4" y1="12" x2="20" y2="12" />
+                                <line x1="4" y1="18" x2="20" y2="18" />
+                            </svg>
+                        </button>
+
+                        <a class="mobile-logo" href="dashboard.html">
+                            <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                        </a>
+                    </div>
+                    <div>
+                        <div class="topbar-title">Approved Loans</div>
+                        <div class="topbar-subtitle">
+                            <span id="topbarFinancerName">SolarTech Financer</span> &middot; <span>Financer Hub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="profile" title="Financer Profile & Settings" role="button" tabindex="0">
+                        <div class="profile-avatar">SF</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <!-- Clear Page Header -->
+                <!-- Clear Page Header -->
+                <div class="page-header financer-page-header">
+                    <div class="page-header-info">
+                        <h1 class="page-title">Approved Loans</h1>
+                        <p class="page-subtitle">
+                        </p>
+                    </div>
+                    <div class="page-actions">
+
+                    </div>
+                </div>
+
+                <!-- Balanced Summary Cards (Four Equal-Width, Equal-Height Cards) -->
+                <div class="stats-grid approved-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Disbursed</div>
+                        <div class="stat-value">₱42.12M</div>
+                        <div class="stat-subtext">176 active solar loans</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Monthly Inflow</div>
+                        <div class="stat-value">₱1.18M</div>
+                        <div class="stat-subtext">Next billing Sep 15, 2026</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">On-Time Repayment</div>
+                        <div class="stat-value" style="color: var(--green);">99.2%</div>
+                        <div class="stat-subtext">Automated direct debit</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Average Loan</div>
+                        <div class="stat-value">₱239,318</div>
+                        <div class="stat-subtext">36–60 month terms</div>
+                    </div>
+                </div>
+
+                <!-- Loan Records Section (Main Focus) -->
+                <div class="panel-card approved-panel-card">
+                    <div class="panel-card-header approved-section-header">
+                        <div class="panel-card-title-wrap">
+                            <h2 class="panel-title">Loan Records</h2>
+                            <span class="records-count-badge" id="approvedRecordsCount">5 matching loans</span>
+                        </div>
+                    </div>
+
+                    <!-- Filter Bar (Clean 1-Row Layout) -->
+                    <div class="pipeline-filter-container">
+                        <div class="pipeline-filter-primary-row">
+                            <div class="search-input-group pipeline-search-group">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                                <input type="text" id="approvedSearchInput" placeholder="Search">
+                            </div>
+
+                            <select class="filter-select pipeline-size-select" id="merchantFilterSelect"
+                                aria-label="Filter by merchant installer">
+                                <option value="all">All Merchant Installers</option>
+                                <option value="SunPower Manila">SunPower Manila</option>
+                                <option value="Helios Solar PH">Helios Solar PH</option>
+                                <option value="Visayas Green Energy">Visayas Green Energy</option>
+                                <option value="Mindanao Solar Corp">Mindanao Solar Corp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Table (Streamlined 5 Columns with Expandable Detail Rows) -->
+                    <div class="panel-body no-padding">
+                        <div class="table-responsive">
+                            <table class="data-table approved-data-table approved-table" id="approvedTable">
+
+                                <thead>
+                                    <tr>
+                                        <th class="col-applicant">Applicant ID</th>
+                                        <th class="col-system text-center">System Size</th>
+                                        <th class="col-amount text-center">Funded Amount</th>
+                                        <th class="col-payment text-center">Monthly Payment</th>
+                                        <th class="col-term text-center">Term</th>
+                                        <th class="col-status text-center">Repayment Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows are rendered from the signed-in financer's shared applications -->
+                                </tbody>
+                            </table>
+
+                            <!-- See More / See Less Toggle Control -->
+                            <div class="panel-footer-action" id="approvedPaginationFooter">
+                                <button type="button" class="btn-toggle-applications btn-toggle-see-more"
+                                    id="toggleApprovedRowsBtn" aria-expanded="false">
+                                    <span id="toggleApprovedText">See more (2 more loans)</span>
+                                    <svg class="toggle-icon toggle-chevron" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Empty state card when search returns 0 results -->
+                            <div class="table-empty-state" id="approvedEmptyState" style="display: none;">
+                                <h3>No approved loans found</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Contract Details Modal -->
+            <div class="review-modal-backdrop" id="loanDetailModal" aria-hidden="true" role="dialog" aria-modal="true"
+                aria-labelledby="modalBorrowerTitle">
+                <div class="review-modal-card modal-portrait-card" style="max-width: 460px;">
+                    <!-- Header -->
+                    <div class="review-modal-header">
+                        <div class="review-modal-header-left">
+                            <div class="review-modal-tag">APPROVED LOAN FACILITY</div>
+                            <div class="review-modal-title-row">
+                                <h2 class="review-modal-appid" id="modalBorrowerTitle">David Tan</h2>
+                                <span class="badge badge-approved" id="modalLoanStatusBadge">
+                                    <span class="dot"></span> Approved
+                                </span>
+                            </div>
+                            <div class="review-modal-location">
+                                <span class="review-contract-pill">Contract ID: <span id="modalLoanContract">HS-CTR-2026-1107</span></span>
+                                &middot;
+                                <span class="review-appid-pill" style="font-weight: 700; color: #1E293B;">Application ID: <span id="modalLoanAppId">—</span></span>
+                                &middot; <span id="modalLoanLocation">Cebu City</span>
+                            </div>
+                        </div>
+                        <button type="button" class="profile-modal-close" id="closeLoanModalBtn"
+                            aria-label="Close modal">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="review-modal-body">
+                        <!-- Top Highlight Strip -->
+                        <div class="fin-highlight-strip">
+                            <div class="fin-pill">
+                                <span class="fin-pill-val" id="modalLoanAmount">₱780,000</span>
+                                <span class="fin-pill-sub">Total Funded</span>
+                            </div>
+                            <div class="fin-pill">
+                                <span class="fin-pill-val" id="modalLoanPayment">₱15,920/mo</span>
+                                <span class="fin-pill-sub">Amortization</span>
+                            </div>
+                            <div class="fin-pill">
+                                <span class="fin-pill-val" id="modalLoanTerm">60 mos</span>
+                                <span class="fin-pill-sub">Term</span>
+                            </div>
+                        </div>
+
+                        <!-- Portrait Precision Stack -->
+                        <div class="review-panels-grid">
+                            <!-- Card 1: Facility & Payment Terms -->
+                            <div class="review-card-panel">
+                                <div class="review-panel-title">CONTRACT &amp; FACILITY TERMS</div>
+                                <div class="precision-data-list">
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Application ID</span>
+                                        <span class="precision-val" id="modalLoanAppIdDetail" style="font-family: ui-monospace, monospace; font-weight: 700; color: #0F172A;">—</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Contract ID</span>
+                                        <span class="precision-val" id="modalLoanContractDetail" style="font-family: ui-monospace, monospace; color: #475569;">HS-CTR-2026-1107</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Merchant Installer</span>
+                                        <span class="precision-val" id="modalLoanMerchant">Visayas Green Energy</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Disbursal Date</span>
+                                        <span class="precision-val" id="modalLoanDate">Sep 02, 2026</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Collection Schedule</span>
+                                        <span class="precision-val" id="modalLoanSchedule">15th monthly (ACH Auto-Debit)</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Legal Instrument</span>
+                                        <span class="precision-val val-green">Promissory Note &amp; Chattel Mortgage Signed ✓</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Solar System & Performance -->
+                            <div class="review-card-panel">
+                                <div class="review-panel-title">SOLAR ASSET &amp; PERFORMANCE</div>
+                                <div class="precision-data-list">
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Solar PV System</span>
+                                        <span class="precision-val" id="modalLoanSystem">Commercial Solar (12.0 kWp)</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Installation Site</span>
+                                        <span class="precision-val" id="modalLoanLocation2">Cebu City</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Repayment Status</span>
+                                        <span class="precision-val val-green">100% On-Time Record ✓</span>
+                                    </div>
+                                    <div class="precision-data-row">
+                                        <span class="precision-lbl">Covenant Compliance</span>
+                                        <span class="precision-val val-green">Verified &amp; Active ✓</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Actions -->
+                    <div class="review-modal-footer">
+                        <button type="button" class="btn btn-review-reqdocs" id="closeLoanModalFooterBtn">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-review-approve" id="downloadNoteBtn">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-right: 6px; vertical-align: -2px;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            Download Promissory Note (PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Plan & Repayment Status Modal -->
+            <div class="review-modal-backdrop" id="paymentPlanModal" aria-hidden="true" role="dialog" aria-modal="true"
+                aria-labelledby="planBorrowerTitle">
+                <div class="review-modal-card" style="max-width: 620px;">
+                    <div class="review-modal-header">
+                        <div>
+                            <div
+                                style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--solar-orange-dark); letter-spacing: 0.06em;">
+                                Repayment &amp; Financing Schedule</div>
+                            <h2 style="font-size: 19px; font-weight: 800; color: var(--navy); margin-top: 2px;"
+                                id="planBorrowerTitle">David Tan</h2>
+                            <div style="font-size: 12px; color: var(--slate); margin-top: 3px;">
+                                Application ID: <strong id="planAppIdTag" style="font-family: ui-monospace, monospace; color: #0F172A;">—</strong> &middot; Contract ID: <span id="planContractTag" style="font-family: ui-monospace, monospace;">HS-CTR-2026-1107</span>
+                            </div>
+                        </div>
+                        <button type="button" class="profile-modal-close" id="closePaymentPlanModalBtn"
+                            aria-label="Close modal">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="review-modal-body">
+                        <!-- Repayment Progress Card -->
+                        <div class="plan-progress-card">
+                            <div class="plan-progress-header">
+                                <span id="planProgressLabel">18 of 60 Payments Completed</span>
+                                <span class="badge" id="planStatusBadge"><span class="dot"></span> Paid</span>
+                            </div>
+                            <div class="plan-progress-track">
+                                <div class="plan-progress-bar bar-paid" id="planProgressBar" style="width: 30%;"></div>
+                            </div>
+                            <div class="plan-metrics-grid">
+                                <div class="plan-metric-box">
+                                    <div class="plan-metric-label">Total Funded</div>
+                                    <div class="plan-metric-val" id="planMetricFunded"
+                                        style="color: var(--solar-orange-dark);">₱780,000</div>
+                                </div>
+                                <div class="plan-metric-box">
+                                    <div class="plan-metric-label">Amount Paid</div>
+                                    <div class="plan-metric-val" id="planMetricPaid" style="color: #10B981;">₱286,560
+                                    </div>
+                                </div>
+                                <div class="plan-metric-box">
+                                    <div class="plan-metric-label">Balance Remaining</div>
+                                    <div class="plan-metric-val" id="planMetricRemaining">₱493,440</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loan Terms & Next Due Information -->
+                        <div class="review-section-box">
+                            <div class="review-section-header">
+                                <div class="review-section-title">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                        <line x1="2" y1="10" x2="22" y2="10"></line>
+                                    </svg>
+                                    Payment Plan &amp; Schedule Details
+                                </div>
+                            </div>
+                            <div class="review-data-grid">
+                                <div class="review-data-item">
+                                    <span class="review-data-label">Payment Plan Term</span>
+                                    <span class="review-data-val" id="planDataTerm">60 Months</span>
+                                </div>
+                                <div class="review-data-item">
+                                    <span class="review-data-label">Monthly Amortization</span>
+                                    <span class="review-data-val" id="planDataPayment"
+                                        style="font-weight: 700;">₱15,920/mo</span>
+                                </div>
+                                <div class="review-data-item">
+                                    <span class="review-data-label">Next Due Date</span>
+                                    <span class="review-data-val" id="planDataNextDue" style="font-weight: 700;">Oct 15,
+                                        2026</span>
+                                </div>
+                                <div class="review-data-item">
+                                    <span class="review-data-label">Remaining Installments</span>
+                                    <span class="review-data-val" id="planDataRemainingMonths">42 Months</span>
+                                </div>
+                                <div class="review-data-item" style="grid-column: 1 / -1;">
+                                    <span class="review-data-label">Payment Channel &amp; Rule</span>
+                                    <span class="review-data-val" id="planDataSchedule">15th monthly (ACH Auto-Debit)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Installment Records -->
+                        <div class="review-section-box" style="margin-top: 14px;">
+                            <div class="review-section-header">
+                                <div class="review-section-title">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                        <line x1="16" y1="13" x2="8" y2="13" />
+                                        <line x1="16" y1="17" x2="8" y2="17" />
+                                    </svg>
+                                    Recent Payment Activity
+                                </div>
+                            </div>
+                            <div class="plan-installments-container">
+                                <table class="plan-installments-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Installment &amp; Date</th>
+                                            <th>Reference</th>
+                                            <th>Amount</th>
+                                            <th style="text-align: right;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="planInstallmentsList">
+                                        <!-- Dynamically generated rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-modal-footer">
+                        <button type="button" class="btn btn-outline-review btn-sm" id="closePaymentPlanModalFooterBtn">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" id="openFullFacilityFromPlanBtn">
+                            View Full Loan Facility
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Bottom Navigation Bar -->
+            <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+                <a class="bottom-nav-item" href="dashboard.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    Dashboard
+                </a>
+                <a class="bottom-nav-item" href="applications.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                    Applications
+                </a>
+                <a class="bottom-nav-item active" href="approved.html" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    Approved
+                </a>
+                <a class="bottom-nav-item" href="rejected.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="15" y1="9" x2="9" y2="15" />
+                        <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                    Declined
+                </a>
+                <a class="bottom-nav-item" href="support.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/portal_data.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="js/approved.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+[
+  {
+    "accountNo": "HS-88219",
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@hellosolar.ph",
+    "phone": "+63 917 555 0199",
+    "address": "142 Solar Crest Way, Quezon City, Metro Manila",
+    "role": "Solar Customer",
+    "preferredPayment": "gcash",
+    "paymentAccount": "+63 917 555 0199",
+    "avatarUrl": null,
+    "linkedSystemIds": [
+      "pkg-home-5k4",
+      "pkg-villa-10k8",
+      "pkg-farm-3k6",
+      "pkg-biz-6k0"
+    ]
+  },
+  {
+    "accountNo": "HS-72301",
+    "name": "Maria Santos",
+    "email": "maria.santos@gmail.com",
+    "phone": "+63 918 765 4321",
+    "address": "Quezon City, Metro Manila",
+    "role": "Solar Customer",
+    "preferredPayment": "maya",
+    "paymentAccount": "+63 918 765 4321",
+    "avatarUrl": null,
+    "linkedSystemIds": [
+      "pkg-home-5k4"
+    ]
+  }
+]

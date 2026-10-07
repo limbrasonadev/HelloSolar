@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello Solar Financer Dashboard — Declined Applications">
+    <title>Hello Solar Financer — Declined Applications</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/portal.css">
+    <link rel="stylesheet" href="css/rejected.css">
+    <link rel="stylesheet" href="css/notifications.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="dashboard.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Financer Portal</div>
+
+            <nav class="nav" id="nav" aria-label="Financer navigation">
+                <a class="nav-link" href="dashboard.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    Dashboard
+                </a>
+
+                <a class="nav-link" href="applications.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Applications
+                </a>
+
+                <a class="nav-link" href="approved.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    Approved
+                </a>
+
+                <a class="nav-link active" href="rejected.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="15" y1="9" x2="9" y2="15" />
+                        <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                    Rejected
+                </a>
+
+                <a class="nav-link" href="support.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="index.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <div class="mobile-header">
+                        <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                            aria-expanded="false" aria-controls="sidebar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <line x1="4" y1="6" x2="20" y2="6" />
+                                <line x1="4" y1="12" x2="20" y2="12" />
+                                <line x1="4" y1="18" x2="20" y2="18" />
+                            </svg>
+                        </button>
+
+                        <a class="mobile-logo" href="dashboard.html">
+                            <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                        </a>
+                    </div>
+                    <div>
+                        <div class="topbar-title">Declined Applications</div>
+                        <div class="topbar-subtitle">
+                            <span id="topbarFinancerName">SolarTech Financer</span> &middot; <span>Financer Hub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="profile" title="Financer Profile & Settings" role="button" tabindex="0">
+                        <div class="profile-avatar">SF</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <!-- Clear Page Header -->
+                <div class="page-header financer-page-header">
+                    <div class="page-header-info">
+                        <h1 class="page-title">Declined Applications</h1>
+
+                    </div>
+                    <div class="page-actions">
+
+                    </div>
+                </div>
+
+                <!-- Balanced Summary Cards (Four Equal-Width, Equal-Height Cards) -->
+                <div class="stats-grid rejected-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Decline Rate</div>
+                        <div class="stat-value">6.4%</div>
+                        <div class="stat-subtext">14 of 218 total loans</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Declined Loans</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-subtext">₱4.12M total volume</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Can Add Co-Signer</div>
+                        <div class="stat-value" style="color: var(--solar-orange);">9</div>
+                        <div class="stat-subtext">Eligible for second review</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">Active Disputes</div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-subtext">All notices resolved</div>
+                    </div>
+                </div>
+
+                <!-- Declined Records Section (Main Focus) -->
+                <div class="panel-card rejected-panel-card">
+                    <div class="panel-card-header rejected-section-header">
+                        <div class="panel-card-title-wrap">
+                            <h2 class="panel-title">Decline Records</h2>
+                            <span class="records-count-badge" id="rejectedRecordsCount">4 declined applications</span>
+                        </div>
+                    </div>
+
+                    <!-- Filter Bar (Clean 1-Row Layout) -->
+                    <div class="pipeline-filter-container">
+                        <div class="pipeline-filter-primary-row">
+                            <div class="search-input-group pipeline-search-group">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                                <input type="text" id="rejectedSearchInput" placeholder="Search">
+                            </div>
+
+                            <select class="filter-select pipeline-size-select" id="reasonFilterSelect"
+                                aria-label="Filter by decline reason">
+                                <option value="all">All Decline Reasons</option>
+                                <option value="dti">Excessive Debt vs Income</option>
+                                <option value="score">Low Credit Score (&lt; 620)</option>
+                                <option value="utility">Missing Electric Bill Consent</option>
+                                <option value="roof">Roof Needs Reinforcement</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Table (Streamlined 5 Columns with Expandable Detail Rows) -->
+                    <div class="panel-body no-padding">
+                        <div class="table-responsive">
+                            <table class="data-table rejected-data-table" id="rejectedTable">
+
+                                <thead>
+                                    <tr>
+                                        <th class="col-applicant">Applicant ID</th>
+                                        <th class="col-system text-center">System</th>
+                                        <th class="col-amount text-center">Requested Amount</th>
+                                        <th class="col-reason text-center">Decline Reason</th>
+                                        <th class="col-date text-center">Decision Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows are rendered from the signed-in financer's shared applications -->
+                                </tbody>
+                            </table>
+
+                            <!-- See More / See Less Toggle Control -->
+                            <div class="table-pagination-footer" id="rejectedPaginationFooter">
+                                <button type="button" class="btn-toggle-see-more" id="toggleRejectedRowsBtn"
+                                    aria-expanded="false">
+                                    <span id="toggleRejectedText">See more (1 more application)</span>
+                                    <svg class="toggle-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Empty state card when search returns 0 results -->
+                            <div class="table-empty-state" id="rejectedEmptyState" style="display: none;">
+
+                                <h3>No declined records found</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Declined Application Details Modal -->
+            <div class="review-modal-backdrop" id="declineDetailModal" aria-hidden="true" role="dialog"
+                aria-modal="true" aria-labelledby="modalDeclineApplicantTitle">
+                <div class="review-modal-card">
+                    <div class="review-modal-header">
+                        <div>
+                            <div
+                                style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.06em;">
+                                Adverse Action Dossier</div>
+                            <h2 style="font-size: 19px; font-weight: 800; color: var(--navy); margin-top: 2px;"
+                                id="modalDeclineApplicantTitle">Antonio Reyes</h2>
+                        </div>
+                        <button type="button" class="profile-modal-close" id="closeDeclineModalBtn"
+                            aria-label="Close modal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="review-modal-body">
+                        <div class="review-sections-container">
+                            <!-- Section 1: Application Overview -->
+                            <div class="review-section-box">
+                                <div class="review-section-header">
+                                    <div class="review-section-title">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
+                                        Application Overview
+                                    </div>
+                                    <span class="badge badge-pending" id="modalDeclineStatusBadge"><span
+                                            class="dot"></span> Co-Maker Eligible</span>
+                                </div>
+                                <div class="review-data-grid">
+                                    <div class="review-data-item">
+                                        <span class="review-data-label">Application Reference</span>
+                                        <span class="review-data-val" id="modalDeclineAppId"
+                                            style="font-family: ui-monospace, monospace; font-weight: 700;">HS-APP-4079</span>
+                                    </div>
+                                    <div class="review-data-item">
+                                        <span class="review-data-label">Merchant Installer</span>
+                                        <span class="review-data-val" id="modalDeclineMerchant">SolarTech Luzon</span>
+                                    </div>
+                                    <div class="review-data-item">
+                                        <span class="review-data-label">Requested Financing</span>
+                                        <span class="review-data-val" id="modalDeclineAmount"
+                                            style="color: var(--solar-orange-dark); font-weight: 800; font-size: 15px;">₱240,000</span>
+                                    </div>
+                                    <div class="review-data-item">
+                                        <span class="review-data-label">Decision Date</span>
+                                        <span class="review-data-val" id="modalDeclineDate">Sep 05, 2026</span>
+                                    </div>
+                                    <div class="review-data-item" style="grid-column: 1 / -1;">
+                                        <span class="review-data-label">Location &amp; Contact</span>
+                                        <span class="review-data-val" id="modalDeclineContact">Cavite &middot; 0922 444 7890</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 2: Decline Reason & Next Steps -->
+                            <div class="review-section-box">
+                                <div class="review-section-header">
+                                    <div class="review-section-title">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                            <line x1="12" y1="9" x2="12" y2="13" />
+                                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                                        </svg>
+                                        Decline Reason &amp; Next Steps
+                                    </div>
+                                </div>
+                                <div class="review-data-grid" style="margin-bottom: 12px;">
+                                    <div class="review-data-item" style="grid-column: 1 / -1;">
+                                        <span class="review-data-label">Primary Factor</span>
+                                        <span class="review-data-val" id="modalDeclinePrimaryReason"
+                                            style="color: var(--red); font-weight: 700; font-size: 14.5px;">High Debt-to-Income (48%)</span>
+                                    </div>
+                                </div>
+                                <div style="padding: 12px 14px; background: var(--bg-body); border-radius: var(--radius-xs); border: 1px solid var(--border); font-size: 13px; line-height: 1.5; color: var(--text-main);"
+                                    id="modalDeclinePolicy">
+                                    Monthly debt payments (48%) exceed the 40% limit. Can qualify by adding an employed co-maker.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-modal-footer">
+                        <button type="button" class="btn btn-outline-review btn-sm" id="closeDeclineModalFooterBtn">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm" id="downloadAdverseNoticeBtn">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-right: 6px;">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg>
+                            Adverse Notice (PDF)
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" id="modalDeclineActionBtn">
+                            Invite Co-Maker
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Bottom Navigation Bar -->
+            <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+                <a class="bottom-nav-item" href="dashboard.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    Dashboard
+                </a>
+                <a class="bottom-nav-item" href="applications.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                    Applications
+                </a>
+                <a class="bottom-nav-item" href="approved.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg>
+                    Approved
+                </a>
+                <a class="bottom-nav-item active" href="rejected.html" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="15" y1="9" x2="9" y2="15" />
+                        <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                    Declined
+                </a>
+                <a class="bottom-nav-item" href="support.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+        </main>
+    </div>
+
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/portal_data.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="js/rejected.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar Merchant Support — Submit technical tickets, verify billing queries, and browse partner documentation.">
+    <title>Support | Hello Solar Merchant</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+</head>
+
+<body data-page="support">
+    <div class="app" id="app">
+        <!-- Mobile Drawer Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" aria-label="Merchant navigation"></aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main" tabindex="-1">
+            <!-- Glassmorphism Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <a href="dashboard.html" class="topbar-logo" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar" class="topbar-logo-img">
+                    </a>
+                    <div class="topbar-subtitle">
+                        <span id="topbarMerchantName">SolarTech Manila</span> · <span>Partner Helpdesk</span>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Interactive Merchant Profile Avatar -->
+                    <div class="profile" id="topbarProfile" role="button" tabindex="0" aria-haspopup="dialog"
+                        aria-label="Merchant Profile & Settings" title="Click to view and update merchant profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <!-- Clean Simple Page Header -->
+                <div class="support-page-header">
+                    <h1 class="support-page-title">Support</h1>
+                    <p class="support-page-subtitle">Need help with a customer, payment, installer, or job?</p>
+                </div>
+
+                <!-- Main Support Card Container (Single Focused Column) -->
+                <div class="support-card-container">
+                    <section class="panel-card support-card" aria-labelledby="supportHeading">
+                        <div class="support-card-header">
+                            <h2 id="supportHeading" class="support-card-title">Need help?</h2>
+                            <p class="support-card-desc">Tell us what you need help with and we'll help you figure out the next step.</p>
+                        </div>
+
+                        <!-- Safe Prefill Context Notice (Hidden unless incoming reference link) -->
+                        <div id="incomingContextNotice" style="display:none;">
+                            <span id="incomingContextText"></span>
+                            <button id="applyContextBtn" type="button" class="btn btn-secondary btn-sm" style="margin-left:8px;">Apply Reference</button>
+                        </div>
+
+                        <form id="supportTicketForm" novalidate>
+                            <!-- Hidden Fields to maintain 100% compatibility with dashboard.js logic -->
+                            <input type="hidden" id="ticketProjectRef" name="projectRef" value="">
+                            <input type="hidden" id="ticketPriority" name="priority" value="Normal">
+                            <input type="hidden" id="ticketSubject" name="subject" value="Support Request">
+
+                            <!-- Field 1: Topic -->
+                            <div class="form-group">
+                                <label class="form-label" for="ticketTopic">Topic</label>
+                                <select class="form-select" id="ticketTopic" name="topic" required>
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="Customer">Customer</option>
+                                    <option value="Payment">Payment</option>
+                                    <option value="Installer">Installer</option>
+                                    <option value="Job">Job</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Field 2: What's happening? -->
+                            <div class="form-group">
+                                <label class="form-label" for="ticketDescription">What's happening?</label>
+                                <textarea class="form-textarea" id="ticketDescription" name="description"
+                                    placeholder="Tell us what happened..." rows="5" required></textarea>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="support-form-actions">
+                                <button class="btn btn-primary support-submit-btn" id="downloadDraftBtn" type="button">
+                                    Send Request
+                                </button>
+                                <!-- Preserved hooks for auto-save status and legacy handlers -->
+                                <span id="draftStatusMessage" class="draft-status-msg" style="display:none;"></span>
+                                <button id="saveDraftBtn" type="button" style="display:none;" aria-hidden="true"></button>
+                                <button id="clearDraftBtn" type="button" style="display:none;" aria-hidden="true"></button>
+                            </div>
+                        </form>
+
+                        <!-- Secondary Small Action: View common help → -->
+                        <div class="support-common-help-trigger">
+                            <button type="button" class="btn-common-help" id="toggleCommonHelpBtn" aria-expanded="false" aria-controls="commonHelpSection">
+                                <span id="commonHelpToggleText">View common help →</span>
+                            </button>
+                        </div>
+
+                        <!-- Collapsible Compact FAQ Section (Collapsed by default) -->
+                        <div class="common-help-section" id="commonHelpSection" style="display:none;">
+                            <div class="common-help-divider"></div>
+                            <h3 class="common-help-title">Frequently Asked Questions</h3>
+
+                            <!-- Hidden search/filter elements to support dashboard.js renderFaqs() without runtime errors -->
+                            <input type="hidden" id="faqSearch" value="">
+                            <input type="hidden" id="faqCategoryFilter" value="All">
+
+                            <div class="faq-list" id="faqList" aria-label="Frequently Asked Questions">
+                                <!-- Populated dynamically by dashboard.js -->
+                            </div>
+
+                            <!-- See More Toggle for FAQs -->
+                            <div class="panel-card-footer" id="faqSeeMoreWrap" style="display:none;margin-top:14px;">
+                                <button class="btn-toggle-expand" id="faqToggleBtn" type="button" aria-expanded="false">
+                                    <span id="faqToggleText">See More</span>
+                                    <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Screens <= 768px) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+        <a href="dashboard.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                <path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z" />
+            </svg>
+            <span>Dashboard</span>
+        </a>
+        <a href="payments.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="3" />
+                <path d="M3 10h18M7 15h3" stroke-linecap="round" />
+            </svg>
+            <span>Payments</span>
+        </a>
+        <a href="installers.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m14.5 6.5 3-3 3 3-3 3m-2 0-6 6m-2 0-4 4 1 1 4-4m2-10 7 7" />
+            </svg>
+            <span>Installers</span>
+        </a>
+        <a href="support.html" class="mobile-bottom-nav-item active" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                    d="M4 13v-2a8 8 0 0 1 16 0v2M6 18H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h1v5Zm12 0h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1v5Zm0 0c0 2-2 3-5 3" />
+            </svg>
+            <span>Support</span>
+        </a>
+    </nav>
+
+    <!-- Centralized Data Loading & Interactions -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="assets/js/merchant_data.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/notifications.js"></script>
+
+    <!-- Support Page Common Help Toggle Interaction -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggleCommonHelpBtn");
+            const helpSection = document.getElementById("commonHelpSection");
+            const toggleText = document.getElementById("commonHelpToggleText");
+            if (toggleBtn && helpSection) {
+                toggleBtn.addEventListener("click", () => {
+                    const isHidden = helpSection.style.display === "none" || helpSection.style.display === "";
+                    helpSection.style.display = isHidden ? "block" : "none";
+                    toggleBtn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+                    if (toggleText) {
+                        toggleText.textContent = isHidden ? "Hide common help ↑" : "View common help →";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script>
+        // Installer session guard: a valid installer session for an Active partner INS-### account is required
+        (function () {
+            try {
+                if (!window.HSShared || !window.HSShared.session.isValid("installer")) {
+                    if (window.HSShared) window.HSShared.session.clear("installer");
+                    window.location.replace("login.html");
+                }
+            } catch (e) {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello Solar Installer — My Profile & Credentials">
+    <title>Hello Solar Installer — My Profile</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/workspace.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/portal-polish.css">
+</head>
+
+<body class="profile-page">
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="myjob.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Installer Portal</div>
+
+            <nav class="nav" id="nav" aria-label="Installer navigation">
+                <a class="nav-link" href="myjob.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    My Jobs
+                </a>
+
+                <a class="nav-link active" href="profile.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
+                </a>
+
+                <a class="nav-link" href="payout.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                        <path d="M6 15h4" />
+                    </svg>
+                    Payout
+                </a>
+
+                <a class="nav-link" href="support.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 11a9 9 0 0 1 18 0" />
+                        <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                        <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                        <path d="M17 17c0 2-2 3-5 3" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Account / Logout -->
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="login.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-title">My Profile</h1>
+                    <a class="mobile-logo" href="myjob.html" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="mobile-header">
+                    <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                        aria-expanded="false" aria-controls="sidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="profile.html" class="profile" aria-label="View installer profile">
+                        <div class="profile-avatar" title="Installer Profile">SI</div>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <div class="profile-container">
+
+                    <!-- 1. Hero Identity Card with Key Highlights -->
+                    <section class="profile-main-card" aria-label="Installer Identity">
+                        <div class="profile-main-body">
+                            <div class="profile-main-left">
+                                <div class="profile-avatar-wrap" id="heroProfileAvatar"
+                                    title="Click to customize photo">
+                                    <span id="heroAvatarInitials">AR</span>
+                                    <label class="avatar-photo-btn" for="pageAvatarFileInput" title="Change photo"
+                                        aria-label="Change photo">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                            </path>
+                                            <circle cx="12" cy="13" r="4"></circle>
+                                        </svg>
+                                    </label>
+                                </div>
+
+                                <div class="profile-main-info">
+                                    <div class="profile-title-row">
+                                        <h2 class="profile-main-name" id="displayProfileName">Alex Rivera</h2>
+                                        <span class="installer-status-pill status-pill-green" id="displayProfileStatus"
+                                            title="Verified Hello Solar Partner">
+                                            <span class="status-dot"></span>Verified Partner
+                                        </span>
+                                    </div>
+                                    <p class="profile-main-sub" id="displayProfileSub">Installer · SolarTech Installer
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="profile-main-actions">
+
+                                <button type="button" class="btn btn-primary" id="btnOpenEditProfile">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. Rich & Balanced Overview Cards Grid -->
+                    <section class="profile-overview-grid" aria-label="Profile Overview">
+
+                        <!-- Contact Card -->
+                        <div class="profile-card" id="contactCard">
+                            <div class="profile-card-header">
+                                <div class="card-title-wrap">
+                                    <div class="card-icon-badge">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="profile-card-title">Contact Information</h3>
+                                </div>
+                            </div>
+
+                            <div class="profile-card-body">
+                                <div class="profile-field-row">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">Email Address</span>
+                                        <span class="profile-field-value"
+                                            id="displayEmail">installer@hellosolar.ph</span>
+                                    </div>
+                                    <button type="button" class="btn-copy" data-copy-target="displayEmail"
+                                        title="Copy email address" aria-label="Copy email">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                        <span>Copy</span>
+                                    </button>
+                                </div>
+
+                                <div class="profile-field-row">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">Dispatch Phone</span>
+                                        <span class="profile-field-value" id="displayPhone">+63 917 555 0199</span>
+                                    </div>
+                                    <button type="button" class="btn-copy" data-copy-target="displayPhone"
+                                        title="Copy phone number" aria-label="Copy phone">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                        <span>Copy</span>
+                                    </button>
+                                </div>
+
+                                <div class="profile-field-row no-border">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">Service Area</span>
+                                        <span class="profile-field-value" id="displayCoverageArea">Metro Manila, Cavite,
+                                            Laguna, Rizal</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work & Team Card -->
+                        <div class="profile-card" id="workCard">
+                            <div class="profile-card-header">
+                                <div class="card-title-wrap">
+                                    <div class="card-icon-badge">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="profile-card-title">Work & Team</h3>
+                                </div>
+                            </div>
+
+                            <div class="profile-card-body">
+                                <div class="profile-field-row">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">Company / Team</span>
+                                        <span class="profile-field-value" id="displayTeam">SolarTech Installer</span>
+                                    </div>
+                                    <span class="installer-status-pill status-pill-green"
+                                        style="font-size: 11px;">Active</span>
+                                </div>
+
+                                <div class="profile-field-row no-border">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">Primary Specialization</span>
+                                        <span class="profile-field-value" id="displaySpecialization">Rooftop Grid-Tie &
+                                            Hybrid Solar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Credentials & Safety Card -->
+                        <div class="profile-card" id="credentialsCard">
+                            <div class="profile-card-header">
+                                <div class="card-title-wrap">
+                                    <div class="card-icon-badge">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="profile-card-title">Credentials</h3>
+                                </div>
+                            </div>
+
+                            <div class="profile-card-body">
+                                <div class="profile-field-row">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">PCAB Solar License</span>
+                                        <span class="profile-field-value" id="displayLicenseNo">#2024-8841</span>
+                                    </div>
+                                    <span class="installer-status-pill status-pill-green" id="displayLicenseStatus">
+                                        <span class="status-dot"></span>On File
+                                    </span>
+                                </div>
+
+                                <div class="profile-field-row no-border">
+                                    <div class="profile-field-group">
+                                        <span class="profile-field-label">PRC Electrical Engineer ID</span>
+                                        <span class="profile-field-value" id="displayPrcNo">#0078421</span>
+                                    </div>
+                                    <span class="installer-status-pill status-pill-green" id="displayPrcStatus">
+                                        <span class="status-dot"></span>Verified
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Hidden file input for photo upload -->
+                    <input type="file" id="pageAvatarFileInput" accept="image/*" style="display: none;">
+
+                    <!-- Headless Data Loader (preserves background developer tools) -->
+                    <div id="previewDataContainer" style="display: none;" aria-hidden="true">
+                        <input type="file" id="jsonFileInput" accept=".json,application/json">
+                        <button type="button" id="btnResetJsonOverride">Restore Default Data</button>
+                        <div id="jsonStatusAlert"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Feature-Packed "Edit Profile" Modal Studio -->
+        <div class="installer-modal-backdrop" id="editProfileModal" role="dialog" aria-modal="true"
+            aria-labelledby="editProfileTitle" style="display: none;">
+            <div class="installer-modal-card edit-profile-dialog">
+
+                <!-- Modal Header -->
+                <div class="installer-modal-header">
+                    <div>
+                        <h3 class="installer-modal-title" id="editProfileTitle">Edit Profile & Credentials</h3>
+                        <p class="installer-modal-sub">Customize your avatar, contact details, and certifications.</p>
+                    </div>
+                    <button type="button" class="installer-modal-close" id="btnCloseEditProfile"
+                        aria-label="Close edit profile dialog">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="installer-modal-body edit-modal-body">
+
+                    <!-- 1. Live Interactive Profile Preview Card -->
+                    <div class="modal-live-preview" id="modalLivePreview">
+                        <div class="live-preview-avatar" id="modalAvatarWrap">
+                            <span id="modalAvatarInitials">AR</span>
+                        </div>
+                        <div class="live-preview-details">
+                            <div class="live-preview-name" id="previewLiveName">Alex Rivera</div>
+                            <div class="live-preview-sub" id="previewLiveSub">Installer · SolarTech Installer</div>
+                            <div class="live-preview-tags">
+                                <span class="badge-mini badge-green">✓ Verified</span>
+                                <span class="badge-mini" id="previewLiveArea">Metro Manila</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Avatar Studio: 1-Click Presets & Custom Upload -->
+                    <div class="avatar-studio-section">
+
+
+                        <div class="avatar-custom-actions">
+                            <label class="btn btn-secondary btn-sm" for="modalAvatarFileInput"
+                                style="margin: 0; cursor: pointer;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                Upload Photo
+                                <input type="file" id="modalAvatarFileInput" accept="image/*" style="display: none;">
+                            </label>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btnPageRemoveAvatar">
+                                Revert to Initials
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Modern Segmented Tab Navigation -->
+                    <div class="edit-modal-tabs" role="tablist" aria-label="Profile edit sections">
+                        <button type="button" class="modal-tab-btn active" role="tab" aria-selected="true"
+                            data-tab="tabPersonal">
+                            👤 Personal & Contact
+                        </button>
+                        <button type="button" class="modal-tab-btn" role="tab" aria-selected="false" data-tab="tabTeam">
+                            🏢 Team & Work
+                        </button>
+                        <button type="button" class="modal-tab-btn" role="tab" aria-selected="false"
+                            data-tab="tabLicenses">
+                            🛡️ Licenses & ID
+                        </button>
+                    </div>
+
+                    <!-- 4. Form Panels -->
+                    <form id="pageProfileForm" class="edit-profile-form" onsubmit="return false;">
+
+                        <!-- TAB 1: Personal & Contact -->
+                        <div class="tab-pane active" id="tabPersonal" role="tabpanel">
+                            <div class="form-grid">
+                                <div class="form-group col-full">
+                                    <label for="pageFullName" class="form-label">Full Name *</label>
+                                    <input type="text" id="pageFullName" class="form-input" required
+                                        placeholder="e.g. Alex Rivera">
+                                </div>
+
+                                <div class="form-group col-half">
+                                    <label for="pageEmail" class="form-label">Work Email *</label>
+                                    <input type="email" id="pageEmail" class="form-input" required
+                                        placeholder="installer@hellosolar.ph">
+                                </div>
+
+                                <div class="form-group col-half">
+                                    <label for="pagePhone" class="form-label">Phone Number *</label>
+                                    <input type="tel" id="pagePhone" class="form-input" required
+                                        placeholder="+63 917 555 0199">
+                                </div>
+
+                                <div class="form-group col-full">
+                                    <label for="pageCoverageArea" class="form-label">Operating Regions</label>
+                                    <input type="text" id="pageCoverageArea" class="form-input"
+                                        placeholder="Metro Manila, Cavite, Laguna, Rizal, Batangas">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: Team & Work -->
+                        <div class="tab-pane" id="tabTeam" role="tabpanel" style="display: none;">
+                            <div class="form-grid">
+                                <div class="form-group col-full">
+                                    <label for="pageBusinessName" class="form-label">Team / Company Name *</label>
+                                    <input type="text" id="pageBusinessName" class="form-input" required
+                                        placeholder="e.g. SolarTech Installer">
+                                </div>
+
+                                <div class="form-group col-full">
+                                    <label for="pageSpecialization" class="form-label">Primary Specialization</label>
+                                    <input type="text" id="pageSpecialization" class="form-input"
+                                        placeholder="Rooftop Grid-Tie Systems, Hybrid Storage, Net-Metering">
+                                </div>
+
+                                <div class="form-group col-full">
+                                    <label for="pageBio" class="form-label">Team Bio & Overview</label>
+                                    <textarea id="pageBio" class="form-input form-textarea" rows="3"
+                                        placeholder="Brief background on installation crew size, safety record, and rooftop experience..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: Licenses & ID -->
+                        <div class="tab-pane" id="tabLicenses" role="tabpanel" style="display: none;">
+                            <div class="form-grid">
+                                <div class="form-group col-half">
+                                    <label for="pageLicenseNo" class="form-label">PCAB Contractor License</label>
+                                    <input type="text" id="pageLicenseNo" class="form-input"
+                                        placeholder="PCAB Solar Contractor Lic. #2024-8841">
+                                </div>
+
+                                <div class="form-group col-half">
+                                    <label for="pagePrcNo" class="form-label">PRC Professional ID</label>
+                                    <input type="text" id="pagePrcNo" class="form-input"
+                                        placeholder="PRC Reg. Electrical Engineer #0078421">
+                                </div>
+
+                                <div class="form-group col-full">
+                                    <div class="accreditation-notice-box">
+                                        <div class="notice-icon">✓</div>
+                                        <div class="notice-text">
+                                            <strong>Accreditation in Good Standing</strong>
+                                            <p>Your contractor accreditation is active for Hello Solar Tier 1 projects
+                                                with zero pending safety flags.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="installer-modal-footer edit-modal-footer">
+                    <div class="footer-left" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                        <button type="button" class="btn btn-secondary btn-sm" id="btnResetProfileDefaults"
+                            title="Restore default demo data">
+                            Reset Defaults
+                        </button>
+                        <a href="login.html" class="btn btn-secondary btn-sm logout" id="btnEditProfileLogout" style="color: var(--red); border-color: #fca5a5; display: inline-flex; align-items: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            <span>Log Out</span>
+                        </a>
+                    </div>
+                    <div class="footer-right">
+                        <button type="button" class="btn btn-secondary" id="btnCancelEditProfile">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="btnSavePageProfile">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Digital Installer Gate Pass / ID Card Modal -->
+        <div class="installer-modal-backdrop" id="digitalIdModal" role="dialog" aria-modal="true"
+            aria-labelledby="digitalIdTitle" style="display: none;">
+            <div class="installer-modal-card digital-id-dialog">
+                <!-- Modal Header -->
+                <div class="installer-modal-header">
+                    <div>
+                        <h3 class="installer-modal-title" id="digitalIdTitle">Digital Contractor Gate Pass</h3>
+                        <p class="installer-modal-sub">Official Hello Solar accreditation for on-site access & security
+                            clearance</p>
+                    </div>
+                    <button type="button" class="modal-close-btn" id="btnCloseDigitalIdHeader"
+                        aria-label="Close ID pass">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Body: Scannable / Printable ID Badge -->
+                <div class="installer-modal-body digital-id-body">
+                    <div class="contractor-id-badge" id="contractorIdBadge">
+                        <!-- Lanyard Slot -->
+                        <div class="badge-lanyard-slot" aria-hidden="true">
+                            <span class="badge-hole"></span>
+                        </div>
+
+                        <!-- Brand Ribbon -->
+                        <div class="badge-brand-header">
+                            <div class="badge-brand-logo">
+                                <span class="badge-brand-symbol">☀️</span>
+                                <span class="badge-brand-text">HELLO SOLAR</span>
+                            </div>
+                            <span class="badge-partner-tag">OFFICIAL PARTNER</span>
+                        </div>
+
+                        <!-- Badge Profile Identity Section -->
+                        <div class="badge-profile-section">
+                            <div class="badge-avatar-wrap" id="badgeAvatarWrap">
+                                <span id="badgeAvatarInitials">AR</span>
+                            </div>
+                            <h4 class="badge-contractor-name" id="badgeContractorName">Alex Rivera</h4>
+                            <p class="badge-contractor-role" id="badgeContractorRole">Lead Solar Installer</p>
+                            <p class="badge-contractor-company" id="badgeContractorCompany">SolarTech Installer</p>
+                            <div class="badge-status-pill">
+                                <span class="status-dot"></span>Active Verified Dispatch
+                            </div>
+                        </div>
+
+                        <!-- Badge Credentials Grid -->
+                        <div class="badge-meta-grid">
+                            <div class="badge-meta-item">
+                                <span class="badge-meta-label">ID PASS NUMBER</span>
+                                <span class="badge-meta-val" id="badgePassNumber">HS-INST-2026-08841</span>
+                            </div>
+                            <div class="badge-meta-item">
+                                <span class="badge-meta-label">VALIDITY</span>
+                                <span class="badge-meta-val">DEC 2026 (ACTIVE)</span>
+                            </div>
+                            <div class="badge-meta-item">
+                                <span class="badge-meta-label">PCAB SOLAR LIC.</span>
+                                <span class="badge-meta-val" id="badgeLicenseVal">#2024-8841</span>
+                            </div>
+                            <div class="badge-meta-item">
+                                <span class="badge-meta-label">PRC ENGINEER ID</span>
+                                <span class="badge-meta-val" id="badgePrcVal">#0078421</span>
+                            </div>
+                        </div>
+
+                        <!-- High-Contrast SVG QR Code Section -->
+                        <div class="badge-qr-section">
+                            <div class="badge-qr-container">
+                                <svg class="badge-qr-svg" viewBox="0 0 120 120" width="120" height="120" role="img"
+                                    aria-label="QR Code for Gate Clearance Verification">
+                                    <rect width="120" height="120" fill="#FFFFFF" />
+                                    <!-- QR Corner Markers -->
+                                    <rect x="10" y="10" width="30" height="30" fill="#101A2E" rx="3" />
+                                    <rect x="15" y="15" width="20" height="20" fill="#FFFFFF" rx="1.5" />
+                                    <rect x="20" y="20" width="10" height="10" fill="#FF8400" rx="1" />
+
+                                    <rect x="80" y="10" width="30" height="30" fill="#101A2E" rx="3" />
+                                    <rect x="85" y="15" width="20" height="20" fill="#FFFFFF" rx="1.5" />
+                                    <rect x="90" y="20" width="10" height="10" fill="#FF8400" rx="1" />
+
+                                    <rect x="10" y="80" width="30" height="30" fill="#101A2E" rx="3" />
+                                    <rect x="15" y="85" width="20" height="20" fill="#FFFFFF" rx="1.5" />
+                                    <rect x="20" y="90" width="10" height="10" fill="#FF8400" rx="1" />
+
+                                    <!-- QR Data Pattern Pixels -->
+                                    <rect x="45" y="12" width="6" height="6" fill="#101A2E" />
+                                    <rect x="55" y="12" width="6" height="6" fill="#101A2E" />
+                                    <rect x="67" y="12" width="6" height="6" fill="#101A2E" />
+                                    <rect x="45" y="24" width="6" height="6" fill="#101A2E" />
+                                    <rect x="58" y="24" width="6" height="6" fill="#101A2E" />
+                                    <rect x="67" y="24" width="6" height="6" fill="#101A2E" />
+                                    <rect x="45" y="34" width="6" height="6" fill="#101A2E" />
+                                    <rect x="12" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="24" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="34" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="45" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="56" y="46" width="8" height="8" fill="#FF8400" rx="1" />
+                                    <rect x="70" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="82" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="94" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="104" y="46" width="6" height="6" fill="#101A2E" />
+                                    <rect x="12" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="28" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="45" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="60" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="76" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="90" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="102" y="58" width="6" height="6" fill="#101A2E" />
+                                    <rect x="12" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="22" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="36" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="52" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="65" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="78" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="92" y="68" width="6" height="6" fill="#101A2E" />
+                                    <rect x="46" y="80" width="6" height="6" fill="#101A2E" />
+                                    <rect x="60" y="80" width="6" height="6" fill="#101A2E" />
+                                    <rect x="72" y="80" width="6" height="6" fill="#101A2E" />
+                                    <rect x="85" y="80" width="6" height="6" fill="#101A2E" />
+                                    <rect x="100" y="80" width="6" height="6" fill="#101A2E" />
+                                    <rect x="46" y="92" width="6" height="6" fill="#101A2E" />
+                                    <rect x="58" y="92" width="6" height="6" fill="#101A2E" />
+                                    <rect x="70" y="92" width="6" height="6" fill="#101A2E" />
+                                    <rect x="88" y="92" width="6" height="6" fill="#101A2E" />
+                                    <rect x="102" y="92" width="6" height="6" fill="#101A2E" />
+                                    <rect x="46" y="104" width="6" height="6" fill="#101A2E" />
+                                    <rect x="62" y="104" width="6" height="6" fill="#101A2E" />
+                                    <rect x="76" y="104" width="6" height="6" fill="#101A2E" />
+                                    <rect x="90" y="104" width="6" height="6" fill="#101A2E" />
+                                </svg>
+                            </div>
+                            <p class="badge-qr-hint">Scan with mobile camera to verify credentials & gate clearance</p>
+                            <p class="badge-security-code">VERIFICATION TOKEN: <strong>HS-PASS-8841-SEC-2026</strong>
+                            </p>
+                        </div>
+
+                        <!-- Badge Footer Notice -->
+                        <div class="badge-footer">
+                            <span>HELLO SOLAR PHILIPPINES · OFFICIAL CONTRACTOR DISPATCH PASS</span>
+                        </div>
+                    </div>
+
+                    <!-- Helpful Notice for guardhouse / homeowner -->
+                    <div class="pass-info-notice">
+                        <div class="notice-icon">🛡️</div>
+                        <div class="notice-text">
+                            <strong>Subdivision & Village Security Notice:</strong>
+                            <p>This digital pass certifies that this contractor is officially dispatched by Hello Solar.
+                                Present this pass at security gates or checkpoints for instant verification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Footer Actions -->
+                <div class="installer-modal-footer digital-id-footer">
+                    <div class="footer-left">
+                        <button type="button" class="btn btn-secondary" id="btnCopyVerifyLink"
+                            title="Copy verification URL to clipboard">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Copy Verify Link</span>
+                        </button>
+                    </div>
+                    <div class="footer-right">
+                        <button type="button" class="btn btn-secondary" id="btnCloseDigitalId">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnPrintIdPass">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2">
+                                </path>
+                                <rect x="6" y="14" width="12" height="8"></rect>
+                            </svg>
+                            Print / Save Pass
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+            <a href="myjob.html" class="mobile-bottom-nav-item" aria-label="My Jobs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>My Jobs</span>
+            </a>
+            <a href="profile.html" class="mobile-bottom-nav-item active" aria-current="page" aria-label="Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="payout.html" class="mobile-bottom-nav-item" aria-label="Payout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <path d="M2 10h20" />
+                    <path d="M6 15h4" />
+                </svg>
+                <span>Payout</span>
+            </a>
+            <a href="support.html" class="mobile-bottom-nav-item" aria-label="Support">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 11a9 9 0 0 1 18 0" />
+                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                    <path d="M17 17c0 2-2 3-5 3" />
+                </svg>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/installer_data.js"></script>
+    <script src="assets/js/workspace.js"></script>
+    <script src="assets/js/notifications.js"></script>
+</body>
+
+</html>

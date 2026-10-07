@@ -1,0 +1,24 @@
+
+        /* Page layout stays below the shared dashboard theme in the cascade. */
+        @layer dashboard-legacy {
+
+            /* Receipt action: orange background matched to the supplied reference. */
+            #uploadProofBtn {
+                background: linear-gradient(110deg, #ff9900 0%, #ff7900 100%);
+                border-color: #ff8a00;
+                color: #ffffff;
+            }
+
+            #uploadProofBtn svg {
+                color: #ffffff;
+                stroke: currentColor;
+            }
+
+            #uploadProofBtn:hover:not(:disabled) {
+                background: linear-gradient(110deg, #f59000 0%, #f27100 100%);
+                border-color: #f58000;
+                color: #ffffff;
+            }
+
+        }
+    

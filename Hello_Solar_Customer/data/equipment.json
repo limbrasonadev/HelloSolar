@@ -1,0 +1,118 @@
+[
+  {
+    "systemId": "pkg-home-5k4",
+    "accountNo": "HS-88219",
+    "panels": {
+      "model": "Trina Solar Vertex S+ 450W",
+      "count": 12,
+      "totalRatingKw": 5.4,
+      "cellTechnology": "Monocrystalline N-Type TOPCon",
+      "layout": "12 Modules Rooftop Array",
+      "strings": "Dual String MPPT (PV1/PV2)"
+    },
+    "inverter": {
+      "model": "Solis 5kW Hybrid Inverter",
+      "serialNumber": "SOLIS-5K-202503-8891",
+      "type": "Residential Hybrid Inverter",
+      "ratedPowerKw": 5.0,
+      "gridSync": "230V Single-Phase · 60.0 Hz",
+      "cooling": "Fanless Natural Convection Cooling"
+    },
+    "battery": {
+      "included": true,
+      "model": "10 kWh Lithium-ion Reserve",
+      "capacityKwh": 10.0,
+      "chemistry": "LiFePO4 (Lithium Iron Phosphate)",
+      "usableCapacity": "10 kWh Usable Reserve",
+      "coupling": "High-Voltage DC Coupling",
+      "backupCapability": "18 hrs (Critical Circuits)"
+    }
+  },
+  {
+    "systemId": "pkg-villa-10k8",
+    "accountNo": "HS-99402",
+    "panels": {
+      "model": "Canadian Solar 450W HiKu6",
+      "count": 24,
+      "totalRatingKw": 10.8,
+      "cellTechnology": "Monocrystalline N-Type TOPCon",
+      "layout": "24 Modules Split-Roof Array",
+      "strings": "Triple String MPPT (PV1/PV2/PV3)"
+    },
+    "inverter": {
+      "model": "Deye 10kW Hybrid Inverter",
+      "serialNumber": "DEYE-10K-202511-9940",
+      "type": "Residential Hybrid Inverter",
+      "ratedPowerKw": 10.0,
+      "gridSync": "230V Split-Phase · 60.0 Hz",
+      "cooling": "Intelligent Smart Air Cooling"
+    },
+    "battery": {
+      "included": true,
+      "model": "Dual 10 kWh Lithium-ion Reserve",
+      "capacityKwh": 20.0,
+      "chemistry": "LiFePO4 (Lithium Iron Phosphate)",
+      "usableCapacity": "20 kWh Usable Reserve",
+      "coupling": "High-Voltage DC Coupling",
+      "backupCapability": "32 hrs (Whole Home & AC)"
+    }
+  },
+  {
+    "systemId": "pkg-farm-3k6",
+    "accountNo": "HS-77310",
+    "panels": {
+      "model": "Longi Solar Hi-MO 5 450W",
+      "count": 8,
+      "totalRatingKw": 3.6,
+      "cellTechnology": "Monocrystalline PERC",
+      "layout": "8 Modules Barn Roof Array",
+      "strings": "Dual String MPPT (PV1/PV2)"
+    },
+    "inverter": {
+      "model": "Growatt 3.6kW Hybrid Inverter",
+      "serialNumber": "GROWATT-3K6-202602-7731",
+      "type": "Residential Hybrid Inverter",
+      "ratedPowerKw": 3.6,
+      "gridSync": "220V Single-Phase · 60.0 Hz",
+      "cooling": "Natural Cooling"
+    },
+    "battery": {
+      "included": true,
+      "model": "5 kWh Lithium-ion Reserve",
+      "capacityKwh": 5.0,
+      "chemistry": "LiFePO4 (Lithium Iron Phosphate)",
+      "usableCapacity": "5 kWh Usable Reserve",
+      "coupling": "Low-Voltage DC Coupling",
+      "backupCapability": "10 hrs (Pumps & Critical Circuits)"
+    }
+  },
+  {
+    "systemId": "pkg-biz-6k0",
+    "accountNo": "HS-10492",
+    "panels": {
+      "model": "Trina Solar Vertex 500W Commercial",
+      "count": 12,
+      "totalRatingKw": 6.0,
+      "cellTechnology": "Monocrystalline Bifacial PERC",
+      "layout": "12 Modules Commercial Rooftop Array",
+      "strings": "Dual String MPPT"
+    },
+    "inverter": {
+      "model": "Huawei SUN2000-6KTL Commercial",
+      "serialNumber": "HW-SUN2000-6K-2026-1049",
+      "type": "Commercial Grid-Tied Inverter",
+      "ratedPowerKw": 6.0,
+      "gridSync": "Pending Utility Interconnection",
+      "cooling": "Natural Convection"
+    },
+    "battery": {
+      "included": false,
+      "model": "None (Grid-Tied Architecture)",
+      "capacityKwh": null,
+      "chemistry": "Not Included in Package",
+      "usableCapacity": "N/A (Direct Solar Export)",
+      "coupling": "Direct AC Grid Export",
+      "backupCapability": "Direct Grid-Tied (No Backup)"
+    }
+  }
+]

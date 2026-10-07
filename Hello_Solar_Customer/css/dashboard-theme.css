@@ -1,0 +1,659 @@
+/* Dashboard-only theme. Legacy layout rules live in one lower-priority layer so
+   page-specific selectors cannot override the shared visual language. The entry
+   and authentication pages continue to load portal.css directly. */
+@import url("portal.css") layer(dashboard-legacy);
+@import url("notifications.css") layer(dashboard-legacy);
+
+:root {
+    --page-bg: #FAF7F2;
+    --surface: #FFFFFF;
+    --ink: #1C1917;
+    --muted: #57534E;
+    --border: #E5E0D8;
+    --primary: #FDC400;
+    --primary-hover: #EAB600;
+    --button-orange-gradient: linear-gradient(135deg, #FF9E00 0%, #FF7700 100%);
+    --button-orange-hover: linear-gradient(135deg, #FF9400 0%, #E66800 100%);
+    --icon: #F59E0B;
+    --selected: #FFF4CC;
+    --focus: #92400E;
+    --navy: var(--ink);
+    --navy-soft: #292524;
+    --navy-light: #44403C;
+    --navy-surface: var(--ink);
+    --solar-yellow: var(--primary);
+    --solar-gold: var(--primary);
+    --solar-orange: var(--icon);
+    /* Dark amber is reserved for readable accent text on light surfaces. */
+    --solar-orange-dark: var(--focus);
+    --solar-gradient: linear-gradient(var(--primary), var(--primary));
+    --solar-gradient-subtle: linear-gradient(var(--selected), var(--selected));
+    --cream: var(--page-bg);
+    --cream-soft: var(--page-bg);
+    --cream-card: var(--surface);
+    --white: var(--surface);
+    --gray-50: var(--page-bg);
+    --gray-100: #F3EFE8;
+    --gray-200: var(--border);
+    --gray-300: var(--border);
+    --gray-400: var(--muted);
+    --gray-500: var(--muted);
+    --gray-600: var(--muted);
+    --gray-700: #44403C;
+    --gray-800: var(--ink);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --shadow-xs: 0 1px 3px rgb(28 25 23 / 4%);
+    --shadow-sm: 0 3px 12px rgb(28 25 23 / 5%);
+    --shadow-md: 0 5px 18px rgb(28 25 23 / 7%);
+    --shadow-lg: 0 12px 32px rgb(28 25 23 / 12%);
+    --shadow-glow: var(--shadow-sm);
+    --notif-navy: var(--ink);
+    --notif-navy-light: var(--navy-light);
+    --notif-orange: var(--icon);
+    --notif-orange-dark: var(--focus);
+    --notif-orange-light: var(--selected);
+    --notif-gray-50: var(--page-bg);
+    --notif-gray-100: var(--gray-100);
+    --notif-gray-200: var(--border);
+    --notif-gray-400: var(--muted);
+    --notif-gray-500: var(--muted);
+    --notif-gray-600: var(--muted);
+}
+
+html { scroll-behavior: auto; }
+body { background: var(--page-bg); color: var(--ink); font-weight: 400; }
+.app { background: var(--page-bg); }
+button, input, select, textarea { font-family: var(--font-main); }
+h1, h2, h3, h4, h5, h6 { color: var(--ink); font-weight: 800; }
+button, .btn, .form-label { font-weight: 600; }
+.page-intro h1 span { color: var(--ink); }
+.card-title, .circle-title { color: var(--ink); font-weight: 700; }
+.card-icon-col svg, .circle-icon-wrap svg { stroke: currentColor; }
+.card-reading, .circle-reading, .mobile-card-val.highlight { color: var(--ink); }
+.next-payment-card .summary-value, .equipment-title, .action-toggle-title { color: var(--ink); }
+.card-secondary:not(.sec-green):not(.sec-orange), .grid-sync-sub,
+.sec-meta, .circle-temp { color: var(--muted); }
+
+/* Preserve geometry and functional transforms (drawer position, centered search
+   icons, expanded chevrons). Only non-geometric properties may transition. */
+*, *::before, *::after {
+    animation: none !important;
+    transition-property: color, background-color, border-color, box-shadow !important;
+    transition-duration: 150ms !important;
+    transition-timing-function: ease !important;
+    scroll-behavior: auto !important;
+}
+.profile:active, .summary-card:hover, .support-summary-card:hover,
+.btn:hover, .btn:active, .payment-option-card:hover, .telemetry-card:hover,
+.telemetry-circle-node.node-inverter:hover, .system-card:hover,
+.system-card:hover .system-card-action-text svg, .add-account-card:hover,
+.add-account-card:hover .add-account-card-icon, .btn-back-systems:hover svg,
+.btn-back-systems:active, .detail-summary-btn:hover, .detail-summary-btn:active,
+.btn-view-details:hover svg,
+.notification-bell-btn:hover, .notification-bell-btn:hover svg,
+.mobile-nav-item.active svg, .mobile-nav-item:hover svg,
+.mobile-nav-item .mobile-nav-fab, .mobile-nav-item .mobile-nav-fab-img,
+.profile-modal-avatar:hover, .avatar-edit-badge:hover,
+#closePaymentHistoryBtn:hover { transform: none; }
+.overview-card-footer-link:hover { gap: 4px; }
+
+/* Equivalent surfaces share a radius and soft elevation; dimensions and spacing
+   remain in the existing responsive layout rules. Status badges keep their colors. */
+.panel, .summary-card, .support-summary-card, .system-card, .add-account-card,
+.equipment-card, .overview-card, .support-card, .channels-card, .faq-card,
+.support-requests-card, .support-card-item, .payment-mobile-card,
+.payment-option-card, .warranty-breakdown-card, .power-flow-stage {
+    background: var(--surface);
+    border-color: var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+}
+.summary-card:hover, .support-summary-card:hover,
+.equipment-card:hover, .telemetry-card:hover, .payment-option-card:hover {
+    background: var(--surface);
+    border-color: var(--icon);
+    box-shadow: var(--shadow-sm);
+}
+.payment-option-card.selected, .payment-option-card.selected:hover {
+    background: var(--selected);
+    border-color: var(--icon);
+    box-shadow: inset 0 0 0 1px var(--icon);
+}
+
+/* Account Cards (My System overview & selection)
+   Maintains white background (#FFFFFF) on normal, hover, and selected states.
+   Hover and selection change border color to amber-orange (#F59E0B) without
+   lifting, scaling, added glow, or border width shift. */
+.system-card,
+.add-account-card {
+    background: #FFFFFF !important;
+    border-color: var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs) !important;
+    transition: border-color 150ms ease !important;
+    transform: none !important;
+}
+.system-card.deactivated-card {
+    background: #FFFFFF !important;
+    border-style: dashed;
+    border-color: var(--border);
+}
+.system-card:hover,
+.system-card.deactivated-card:hover,
+.add-account-card:hover {
+    background: #FFFFFF !important;
+    border-color: #F59E0B !important;
+    box-shadow: var(--shadow-xs) !important;
+    transform: none !important;
+}
+.system-card.selected,
+.system-card.selected:hover,
+.system-card.deactivated-card.selected,
+.system-card.deactivated-card.selected:hover {
+    background: #FFFFFF !important;
+    border-color: #F59E0B !important;
+    box-shadow: var(--shadow-xs) !important;
+    transform: none !important;
+}
+.system-card:focus-visible,
+.add-account-card:focus-visible {
+    outline: 2px solid var(--focus) !important;
+    outline-offset: 2px;
+}
+.next-payment-card, .support-summary-card.highlight-card,
+.attention-hero-card, .attention-hero-card.attention-warning,
+.attention-hero-card.attention-pending { background: var(--surface); box-shadow: var(--shadow-xs); }
+.next-payment-card::before { background: var(--primary); }
+.telemetry-circle-node.node-inverter,
+.telemetry-circle-node.node-inverter:hover { box-shadow: var(--shadow-sm); }
+.profile-modal, .package-modal, .equipment-modal-panel, .ticket-modal, .support-modal,
+.notification-panel, dialog, .activation-modal {
+    background: var(--surface);
+    border-color: var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+.profile-modal { transform: none; }
+.notification-live-toast { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+.notification-live-toast-title { color: var(--ink); }
+.notification-live-toast-msg { color: var(--muted); }
+
+/* Keep the footprint of icon wrappers; remove only their decorative treatment.
+   Explicit selectors deliberately exclude buttons, avatars, badges and timeline
+   state indicators. Important handles inline icon colors in rendered templates. */
+.summary-icon, .support-summary-icon, .form-title-icon, .section-heading-icon,
+.channel-icon, .equipment-icon, .equipment-modal-icon, .capacity-icon,
+.package-btn-icon, .package-modal-icon, .portal-empty-icon, .attention-hero-icon,
+.add-account-card-icon, .brownout-icon-wrap, .upload-icon-circle,
+.action-toggle-icon, .card-icon-col, .circle-icon-wrap, .notification-item-icon {
+    background: transparent !important;
+    border-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: var(--icon) !important;
+}
+svg[stroke]:not(.power-flow-svg) {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.equipment-icon svg *, .equipment-modal-icon svg *,
+.card-icon-col svg *, .circle-icon-wrap svg *, .nav-link svg *,
+.mobile-nav-item svg * { stroke-width: inherit; }
+.summary-icon svg, .support-summary-icon svg, .form-title-icon svg,
+.section-heading-icon svg, .channel-icon svg, .equipment-icon svg,
+.equipment-modal-icon svg, .capacity-icon svg, .package-btn-icon svg,
+.package-modal-icon svg, .portal-empty-icon svg, .attention-hero-icon svg,
+.add-account-card-icon svg, .brownout-icon-wrap svg, .upload-icon-circle svg,
+.action-toggle-icon svg, .card-icon-col svg, .circle-icon-wrap svg,
+.nav-link svg, .mobile-nav-item svg, .quick-support-link svg,
+.notification-bell-btn svg, .system-card-info-row svg { color: var(--icon) !important; }
+
+/* Buttons retain backgrounds and target sizes. Primary actions use the same
+   palette in default, hover and pressed states, including modal actions. */
+.btn, .btn-system-support, .btn-view-details, .modal-primary-btn,
+.modal-secondary-btn, .support-secondary-btn,
+.btn-ticket-view, .form-input, .form-select, .form-textarea,
+.payments-search-input, .support-search-input { border-radius: var(--radius-sm); }
+.btn-primary, .btn-primary:hover, .btn-primary:active,
+#activationModal #activateSystemBtn:not(:disabled) {
+    background: var(--primary);
+    color: var(--ink);
+    border-color: transparent;
+    box-shadow: var(--shadow-xs);
+    font-weight: 700;
+}
+.btn-primary:hover,
+#activationModal #activateSystemBtn:not(:disabled):hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-sm);
+}
+.btn-primary svg { color: var(--ink); }
+.btn-view-details svg { stroke: currentColor; stroke-width: 2; }
+.btn-primary:disabled svg { color: inherit; }
+.btn-secondary:hover, .btn-outline:hover,
+.support-secondary-btn:hover { background: var(--page-bg); color: var(--ink); box-shadow: var(--shadow-xs); }
+.support-secondary-btn, .btn-ticket-view {
+    background: var(--surface); color: var(--ink); border-color: var(--border);
+    box-shadow: var(--shadow-xs);
+}
+.btn:disabled, #activationModal #activateSystemBtn:disabled {
+    background: var(--gray-100); color: var(--muted); border-color: var(--border); box-shadow: none;
+}
+
+/* My System quick links: white pills with golden labels, matching the reference.
+   Preserve the responsive widths, live values, status dot and keyboard focus. */
+.detail-summary-btn,
+.detail-summary-btn:hover,
+.detail-summary-btn:active {
+    background: var(--surface);
+    color: var(--primary);
+    border-color: transparent;
+    border-radius: var(--radius-full);
+    padding-inline: 14px;
+    gap: 6px;
+    box-shadow: 0 8px 18px rgb(28 25 23 / 12%);
+    transform: none;
+}
+.detail-summary-btn:hover { box-shadow: 0 10px 22px rgb(28 25 23 / 16%); }
+.detail-summary-btn:active { box-shadow: 0 3px 8px rgb(28 25 23 / 10%); }
+.detail-summary-btn .summary-btn-label,
+.detail-summary-btn .summary-btn-value,
+.detail-summary-btn .summary-btn-sep,
+.detail-summary-btn svg { color: inherit; }
+.detail-summary-btn .summary-btn-label { min-width: 0; font-weight: 700; }
+.detail-summary-btn .summary-btn-value { white-space: nowrap; }
+.detail-summary-btn .summary-btn-arrow {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    stroke: currentColor;
+}
+
+/* Distinct labels and readable status chips for the two dashboard shortcuts. */
+.detail-summary-row .detail-summary-btn {
+    width: auto;
+    min-width: 240px;
+    min-height: 64px;
+    padding: 14px 20px;
+    gap: 12px;
+    justify-content: space-between;
+}
+.detail-summary-row .summary-btn-label {
+    color: #FF8400;
+    white-space: nowrap;
+}
+.detail-summary-row .summary-btn-arrow {
+    color: #FF8400;
+}
+.summary-status-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.summary-status-value[data-status="paid"] { color: #047857; background: #ecfdf5; }
+.summary-status-value[data-status="unpaid"] { color: #b91c1c; background: #fef2f2; }
+.summary-status-value[data-status="pending"] { color: #FF8400; background: #fff7ed; }
+.summary-status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+@media (max-width: 768px) {
+    .detail-summary-row {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-bottom: 16px !important;
+    }
+    .detail-summary-row .detail-summary-btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        flex: 0 0 auto !important;
+        min-height: 52px !important;
+        padding: 12px 18px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+        border-radius: var(--radius-full, 9999px) !important;
+    }
+    .detail-summary-row .summary-btn-label {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+        margin-right: auto !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+        color: #FF8400 !important;
+    }
+    .detail-summary-row .summary-status-value {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        padding: 5px 12px !important;
+        flex-shrink: 0 !important;
+        margin-right: 6px !important;
+    }
+    .detail-summary-row .summary-btn-arrow {
+        flex-shrink: 0 !important;
+        width: 16px !important;
+        height: 16px !important;
+        color: #FF8400 !important;
+    }
+}
+
+/* Requested reference treatment for equipment and system-support actions.
+   Keep component sizing from the layout layer. These buttons alone opt into
+   the reference's small hover movement; other dashboard controls stay steady. */
+:is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn) {
+    --solar-gradient: var(--button-orange-gradient);
+    background: var(--solar-gradient);
+    color: var(--white);
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgb(255 138 0 / 32%);
+    transition-property: background, box-shadow, transform, border-color !important;
+}
+:is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn):hover {
+    background: var(--button-orange-hover);
+    color: var(--white);
+    box-shadow: 0 6px 20px rgb(255 138 0 / 42%);
+    transform: translate(-1px);
+}
+:is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn):active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgb(255 138 0 / 25%);
+}
+:is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn):focus-visible {
+    outline-offset: 3px;
+}
+:is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn) svg {
+    color: var(--white);
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+    :is(.btn-system-support, .btn-view-details, #warrantySupportBtn, #modalWarrantyHelpBtn) {
+        transition-property: background, box-shadow, border-color !important;
+        transform: none !important;
+    }
+}
+
+/* Constant weight/border width prevents selected labels and controls from
+   reflowing. A highlight remains distinct from each standalone icon. */
+.nav-link, .nav-link.active, .mobile-nav-item, .mobile-nav-item.active,
+.filter-chip, .filter-chip.active, .notification-filter-tab,
+.notification-filter-tab.active { font-weight: 700; }
+.nav-link.active, .mobile-nav-item.active,
+.filter-chip.active, .notification-filter-tab.active {
+    background: var(--selected); color: var(--ink); border-color: var(--icon);
+}
+.sidebar, .topbar, .mobile-bottom-nav { background: var(--surface); border-color: var(--border); }
+.nav-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    align-self: flex-start;
+    padding: 5px 13px 5px 11px;
+    margin-left: 4px;
+    margin-bottom: 16px;
+    background: #FFF4D6;
+    border: 1px solid #FFE29F;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy, #101a2e);
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    box-shadow: 0 1px 2px rgba(255, 138, 0, 0.04);
+}
+.nav-label::before,
+.nav-label-dot {
+    content: "";
+    display: inline-block;
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    background-color: var(--solar-orange, #ff8a00);
+    flex-shrink: 0;
+}
+.nav-label:has(.nav-label-dot)::before {
+    display: none;
+}
+.mobile-bottom-nav { box-shadow: 0 -2px 12px rgb(28 25 23 / 5%); }
+.nav-link:hover, .mobile-nav-item:hover { background: var(--page-bg); color: var(--ink); }
+.nav-link.active:hover, .mobile-nav-item.active:hover { background: var(--selected); }
+.mobile-nav-item { border-radius: var(--radius-sm); }
+.profile:hover .profile-avatar { box-shadow: var(--shadow-xs); }
+.notification-badge { box-shadow: none; }
+
+/* Topbar right action cluster: closer notification bell and profile avatar, borderless icon */
+.topbar-right {
+    gap: 12px;
+}
+.topbar-right .profile {
+    padding: 2px 4px;
+}
+.notification-bell-container {
+    margin-right: -2px;
+}
+.notification-bell-btn {
+    width: 38px;
+    height: 38px;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+    padding: 0;
+}
+.notification-bell-btn:hover {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+.notification-bell-btn:focus-visible {
+    outline: 2px solid var(--focus) !important;
+    outline-offset: 2px;
+    border: none !important;
+    box-shadow: none !important;
+}
+.notification-bell-btn svg {
+    width: 22px;
+    height: 22px;
+    color: var(--icon) !important;
+}
+
+.form-input, .form-select, .form-textarea, .payments-search-input,
+.support-search-input, #paymentHistoryModal .payments-search-input {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--surface); color: var(--ink); border-color: var(--border);
+}
+.form-select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-color: var(--surface);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23FF8400%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 16px 16px !important;
+    padding-right: 40px !important;
+    cursor: pointer;
+}
+.form-select option {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background-color: var(--surface);
+    padding: 8px 12px;
+}
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+.portal-table th, #paymentHistoryModal .portal-table th {
+    background: var(--page-bg); color: var(--muted); border-color: var(--border);
+}
+.portal-table td, #paymentHistoryModal .portal-table td { border-color: var(--border); }
+.mobile-card-body { background: var(--page-bg); }
+.mobile-card-label, .mobile-card-val-meta, .action-toggle-chevron { color: var(--muted); }
+.download-row-receipt { background: var(--surface); border-color: var(--border); color: var(--ink); }
+.activation-modal-header, .support-modal-header { background: var(--surface); }
+.equipment-modal-model, .modal-spec-label, .equipment-warranty-preview,
+.warranty-sub-label, .summary-label, .summary-meta, .support-card-label,
+.payment-method-box .method-sub, #paymentHistorySection .panel-subtitle {
+    color: var(--muted);
+}
+.modal-section-title, .support-card-subject { color: var(--ink); }
+.modal-section-title::before { background: var(--icon); }
+.modal-spec-grid, .payment-instructions-box, .payment-method-box,
+.battery-guidance-box, .support-card-body {
+    background: var(--page-bg); border-color: var(--border);
+}
+.modal-spec-row, .equipment-modal-footer, .equipment-warranty-preview,
+.action-panel-toggle, .action-collapsible-panel .panel-body { border-color: var(--border); }
+.payment-instructions-box { color: var(--muted); }
+.equipment-modal-close-btn, .ticket-modal-close-btn, #closePaymentHistoryBtn,
+.profile-copy-badge, .telemetry-sync-btn, .modal-secondary-btn,
+.payments-history-toggle-btn, #paymentScheduleBadge {
+    background: var(--page-bg); color: var(--muted); border-color: var(--border);
+}
+.equipment-modal-close-btn:hover, .ticket-modal-close-btn:hover,
+.profile-copy-badge:hover, .modal-secondary-btn:hover {
+    background: var(--gray-100); color: var(--ink); border-color: var(--border);
+}
+.system-card-status-badge.badge-deactivated, .status-pill-neutral, .package-demo-tag {
+    background: var(--gray-100); color: var(--muted); border-color: var(--border);
+}
+.portal-table tbody tr:hover td, #paymentHistoryModal .portal-table tbody tr:hover td { background: var(--page-bg); }
+.selected-system-pill, .channel-row, .faq-item,
+#paymentHistoryModal .filter-chip:not(.active) { background: var(--surface); }
+.equipment-model-pill, .equipment-metric-pill, .equipment-metric-pill.neutral {
+    color: var(--muted); background: var(--page-bg); border-color: var(--border);
+}
+.equipment-warranty-preview svg { color: var(--icon); }
+.package-selector-btn { border-radius: var(--radius-sm); box-shadow: var(--shadow-xs); max-width: 100%; }
+.package-selector-slot, .package-btn-content { min-width: 0; }
+.package-btn-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.package-dropdown-menu { min-width: min(300px, calc(100vw - 32px)); max-width: calc(100vw - 32px); box-shadow: var(--shadow-md); }
+.package-item.selected { background: var(--selected); border-color: var(--icon); }
+.package-item-check { background: var(--primary); color: var(--ink); }
+.package-item-check svg { stroke-width: 2; }
+.channel-row:hover { background: var(--page-bg); border-color: var(--icon); }
+
+/* Focus is intentionally stronger than decorative amber. Inset rings remain
+   visible inside clipped navigation, notification panels and account menus. */
+:focus-visible { outline: 2px solid var(--focus) !important; outline-offset: 2px; }
+.nav-link:focus-visible, .mobile-nav-item:focus-visible,
+.notification-item:focus-visible, .package-item:focus-visible { outline-offset: -3px; }
+.payment-option-card:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+.form-input:focus, .form-select:focus, .form-textarea:focus,
+.payments-search-input:focus, .support-search-input:focus {
+    border-color: var(--focus); box-shadow: 0 0 0 2px rgb(146 64 14 / 12%);
+}
+
+/* Existing content padding and detail-view footer clearance are retained in
+   portal.css. Native mobile notification sheets open instantly without sliding. */
+@media (max-width: 768px) {
+    .notification-panel { visibility: hidden; }
+    .notification-panel.open { visibility: visible; }
+}
+
+/* Payments: readable, aligned mobile summaries and four equal navigation tabs.
+   Keep the existing content padding that clears the fixed bar and safe area. */
+@media (max-width: 640px) {
+    .payment-summaries-wrap { gap: 10px; margin-bottom: 16px; }
+    .payment-summaries-wrap :is(.next-payment-card, .summary-card) {
+        min-width: 0;
+        padding: 12px;
+    }
+    .payment-summaries-wrap .summary-top {
+        min-height: 29px;
+        align-items: flex-start;
+        margin-bottom: 8px;
+    }
+    .payment-summaries-wrap .summary-label { line-height: 1.3; }
+    .payment-summaries-wrap .summary-content-block { justify-content: flex-start; }
+    .payment-summaries-wrap .summary-value {
+        display: block;
+        font-size: clamp(18px, 5.2vw, 22px);
+        line-height: 1.2;
+        margin: 0 0 5px;
+        overflow-wrap: anywhere;
+    }
+    .payment-summaries-wrap .summary-meta { line-height: 1.4; }
+    #paymentStandingMeta .status-dot { margin-right: 5px; }
+}
+@media (max-width: 768px) {
+    body:has(.payment-summaries-wrap) .mobile-bottom-nav-inner {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
+        padding-inline: max(4px, env(safe-area-inset-left)) max(4px, env(safe-area-inset-right));
+    }
+    body:has(.payment-summaries-wrap) .mobile-nav-item {
+        min-width: 0;
+        width: 100%;
+        padding-inline: 2px;
+    }
+    body:has(.payment-summaries-wrap) .mobile-nav-item span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 24px;
+        font-size: 10px;
+        line-height: 1.2;
+        text-wrap: balance;
+    }
+}
+
+/* Delayed Payment Reminder — pinned notification (computed from payment schedule; not dismissible) */
+.notification-item.notification-reminder.is-overdue {
+    background: #FEF2F2;
+    border-left: 3px solid #DC2626;
+}
+
+.notification-item.notification-reminder.is-review {
+    background: #FFFBEB;
+    border-left: 3px solid #F59E0B;
+}
+
+.notification-reminder-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 8px 0 6px;
+}
+
+.notification-reminder-details dt {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--muted, #57534E);
+}
+
+.notification-reminder-details dd {
+    margin: 1px 0 0;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink, #1C1917);
+}
+
+.notification-reminder-pin {
+    font-weight: 700;
+    color: #B91C1C;
+}
+
+.notification-reminder.is-review .notification-reminder-pin {
+    color: #92400E;
+}

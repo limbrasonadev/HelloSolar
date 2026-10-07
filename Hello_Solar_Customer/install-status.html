@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar — Track your rooftop solar installation progress, milestone stages, and inspection dates.">
+    <title>Hello Solar — Install Status</title>
+
+    <!-- Immediate Authentication Guard -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/install-status-page.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/dashboard-theme.css">
+
+    <link rel="stylesheet" href="css/install-status-page.css">
+    <link rel="stylesheet" href="css/customer-polish.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="mysystem.html" class="logo">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="nav-label">Customer Portal</div>
+
+            <nav class="nav" aria-label="Portal navigation">
+                <a href="mysystem.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                    My System
+                </a>
+                <a href="energy.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                    Equipment
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                    My Payments
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                    Documents
+                </a>
+                <a href="support.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-button" id="logoutButton" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+        <!-- MAIN VIEW -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="mobile-header">
+                    <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open navigation"
+                        aria-expanded="false" aria-controls="sidebar">
+                        <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round">
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </button>
+                    <a href="mysystem.html" class="mobile-logo">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="support.html" class="quick-support-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 11a9 9 0 0 1 18 0" />
+                            <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                            <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                            <path d="M17 17c0 2-2 3-5 3" />
+                        </svg>
+                        Installer Support
+                    </a>
+
+                    <div class="profile">
+                        <div class="profile-text">
+                            <span class="profile-name" id="profileName"></span>
+                            <span class="profile-role">Customer Account</span>
+                        </div>
+                        <div class="profile-avatar" id="profileAvatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <!-- CONTENT -->
+            <div class="content">
+                <section class="page-intro">
+                    <div>
+                        <p class="eyebrow">Project Tracker</p>
+                        <h1>Install <span>Status</span></h1>
+                        <p>Track the 5 major milestone stages of your rooftop solar installation.</p>
+                    </div>
+                    <div class="cta-group">
+                        <div class="package-selector-slot" id="pagePackageSelector"></div>
+                        <a href="support.html?type=installation" class="btn btn-primary" id="contactLeadBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <span id="contactLeadBtnText">Contact Project Lead</span>
+                        </a>
+                        <a href="mysystem.html#specsCard" class="btn btn-secondary" id="hardwareSpecsBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                            </svg>
+                            <span>Hardware Specs</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- SUMMARY METRICS -->
+                <section class="summary-grid" aria-label="Installation summary stats">
+                    <article class="summary-card">
+                        <div class="summary-top">
+                            <span class="summary-label">Current Phase</span>
+                            <div class="summary-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="summary-value" id="installPhaseVal">In Progress</div>
+                        <div class="summary-meta" id="installPhaseMeta"><span class="status-dot"></span>Active
+                            deployment</div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-top">
+                            <span class="summary-label">Completion</span>
+                            <div class="summary-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="m9 12 2 2 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="summary-value" id="installCompletionVal">60%</div>
+                        <div class="summary-meta" id="installCompletionMeta">3 of 5 milestones achieved</div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-top">
+                            <span class="summary-label">Next Milestone</span>
+                            <div class="summary-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="summary-value" id="installMilestoneVal">Grid Sync</div>
+                        <div class="summary-meta" id="installMilestoneMeta">Net-metering connection</div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-top">
+                            <span class="summary-label">Target Completion</span>
+                            <div class="summary-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="summary-value" id="installTargetVal">Aug 30</div>
+                        <div class="summary-meta" id="installTargetMeta">Final utility inspection</div>
+                    </article>
+                </section>
+
+                <!-- LAYOUT: PROGRESS TIMELINE & TEAM -->
+                <div class="install-layout">
+                    <!-- Progress Timeline Panel -->
+                    <section class="panel milestone-track-card">
+                        <div class="panel-header" style="padding: 0 0 16px; border-bottom: none;">
+                            <div>
+                                <h2 class="panel-title">Stage Progression</h2>
+                                <p class="panel-subtitle" id="installProgressSubtitle">From engineering site survey to
+                                    utility grid energization</p>
+                            </div>
+                            <span class="badge badge-upcoming" id="installProgressBadge">60% Complete</span>
+                        </div>
+
+                        <div class="overall-progress-bar">
+                            <div class="overall-progress-fill" id="installProgressBarFill" style="width: 60%;"></div>
+                        </div>
+
+                        <!-- 5 Milestone Stages Container -->
+                        <div class="milestone-steps-list" id="milestoneStepsList">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </section>
+
+                    <!-- Installer & Support Sidebar -->
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <section class="installer-contact-card">
+                            <span class="eyebrow">Your Assigned Team</span>
+                            <div style="display: flex; align-items: center; gap: 14px;">
+                                <div class="team-avatar" id="assignedTeamAvatar">CV</div>
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 800; color: var(--navy);"
+                                        id="assignedTeamName">—</h3>
+                                    <p style="font-size: 12.5px; color: var(--gray-500);" id="assignedTeamRole">
+                                        Certified Solar Master Installer</p>
+                                    <p style="font-size: 12px; color: var(--solar-orange-dark); font-weight: 700;"
+                                        id="assignedTeamPhone">—</p>
+                                </div>
+                            </div>
+
+                            <p style="font-size: 13px; color: var(--gray-600); line-height: 1.4;" id="assignedTeamNote">
+                                Carlos managed your rooftop installation and utility coordination. You can message him
+                                directly or request Hello Solar customer support.
+                            </p>
+
+                            <div
+                                style="padding: 10px 14px; background: var(--gray-50); border-radius: var(--radius-sm); border: 1px solid var(--gray-200); font-size: 12px; color: var(--gray-600);">
+                                <strong style="color: var(--navy); display: block; margin-bottom: 2px;">System Hardware
+                                    Scope:</strong>
+                                <span id="assignedTeamHardware">12x Trina Solar 450W Panels · Solis 5kW Hybrid Inverter
+                                    · 10 kWh Battery</span>
+                            </div>
+
+                            <a href="support.html" class="btn btn-primary btn-sm" id="messageTeamBtn"
+                                style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 11a9 9 0 0 1 18 0" />
+                                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                                    <path d="M17 17c0 2-2 3-5 3" />
+                                </svg>
+                                <span id="messageTeamBtnText">Send Message to Carlos</span>
+                            </a>
+                        </section>
+
+                        <section class="panel panel-body">
+                            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Need
+                                Scheduling Assistance?</h3>
+                            <p style="font-size: 13px; color: var(--gray-500); line-height: 1.4; margin-bottom: 14px;">
+                                If you need to adjust your on-site inspection appointment, our logistics team is
+                                available Mon-Sat, 8 AM - 6 PM.
+                            </p>
+                            <a href="tel:09175550101" id="dispatchPhoneLink" class="btn btn-outline btn-sm"
+                                style="width: 100%;">
+                                <span id="dispatchPhoneText">Call Hello Solar Dispatch</span>
+                            </a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="portal-footer">
+                <span>© 2026 Hello Solar Inc.</span>
+                <span>hellosolarph.com · support@hellosolarph.com</span>
+            </footer>
+        </main>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION (5-PILLAR CUSTOMER APP NAV) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+        <div class="mobile-bottom-nav-inner">
+            <a href="mysystem.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                <span>System</span>
+            </a>
+            <a href="energy.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                <span>Equipment</span>
+            </a>
+            <a href="payments.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                <span>Payments</span>
+            </a>
+            <a href="documents.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                <span>Documents</span>
+            </a>
+            <a href="support.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                <span>Support</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Shared Data Loader -->
+    <script src="js/data-loader.js"></script>
+
+    <!-- Core Portal JavaScript -->
+    <script src="js/portal.js"></script>
+
+    <script src="js/install-status-page-2.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>

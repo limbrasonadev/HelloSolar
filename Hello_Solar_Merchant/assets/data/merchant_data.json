@@ -1,0 +1,128 @@
+{
+  "companyName": "SolarTech Manila",
+  "merchantId": "MER-026",
+  "accountType": "Merchant",
+  "verificationStatus": "Verified",
+  "contactPerson": "Marco Santos",
+  "email": "merchant@hellosolar.ph",
+  "phone": "+63 917 888 2026",
+  "partnerTier": "Gold Certified Partner",
+  "commissionRate": "5.2% Tier A Commission",
+  "accountManager": "David Ramos",
+  "payoutPreferences": {
+    "preferredBank": "BDO Unibank",
+    "accountName": "SolarTech Manila Corp.",
+    "accountNumberMasked": "**** **** 9012",
+    "payoutSchedule": "Bi-Monthly (1st & 15th)"
+  },
+  "summary": {
+    "activeInstallsCount": 6,
+    "portfolioValuePhp": 3850000,
+    "totalPaidPhp": 2480000,
+    "pendingPayoutsPhp": 142500,
+    "activeCrewsCount": 3,
+    "completedProjectsCount": 18,
+    "totalInstalledCapacityKw": 58.4
+  },
+  "upcomingMilestones": [
+    {
+      "id": "MS-01",
+      "date": "Sept 12, 2026",
+      "projectId": "PRJ-QC-101",
+      "projectName": "Quezon City Residential Solar",
+      "title": "Final Meralco Net-Metering Inspection",
+      "status": "Scheduled"
+    },
+    {
+      "id": "MS-02",
+      "date": "Sept 15, 2026",
+      "projectId": "PRJ-MKT-102",
+      "projectName": "Makati Commercial Rooftop",
+      "title": "Bi-Monthly Merchant Payout Batch #18",
+      "status": "Processing"
+    },
+    {
+      "id": "MS-03",
+      "date": "Sept 18, 2026",
+      "projectId": "PRJ-ALB-103",
+      "projectName": "Alabang Luxury Villa Hybrid",
+      "title": "Battery Storage Commissioning & Handover",
+      "status": "Scheduled"
+    },
+    {
+      "id": "MS-04",
+      "date": "Sept 22, 2026",
+      "projectId": "PRJ-PSG-104",
+      "projectName": "Pasig Commercial Complex",
+      "title": "LGU Electrical Inspection & CFEI Issuance",
+      "status": "Pending Docs"
+    }
+  ],
+  "systemCapacityBreakdown": [
+    {
+      "type": "Residential Hybrid",
+      "percentage": 42,
+      "capacityKw": 24.5,
+      "color": "#ff8a00"
+    },
+    {
+      "type": "Commercial Grid-Tie",
+      "percentage": 38,
+      "capacityKw": 22.2,
+      "color": "#101a2e"
+    },
+    {
+      "type": "Residential Grid-Tie",
+      "percentage": 20,
+      "capacityKw": 11.7,
+      "color": "#ffb300"
+    }
+  ],
+  "operationalActivityLogs": [
+    {
+      "id": "ACT-01",
+      "timestamp": "18 minutes ago",
+      "crewId": "CREW-ALPHA",
+      "crewName": "Team Alpha",
+      "title": "Inverter wiring completed",
+      "project": "Quezon City Residential Solar",
+      "detail": "DC/AC isolation testing passed 1000V insulation resistance check."
+    },
+    {
+      "id": "ACT-02",
+      "timestamp": "2 hours ago",
+      "crewId": "CREW-BETA",
+      "crewName": "Team Beta",
+      "title": "Meralco CFEI submitted",
+      "project": "Makati Commercial Rooftop",
+      "detail": "As-built drawings stamped by PEE and submitted to Meralco Power Center."
+    },
+    {
+      "id": "ACT-03",
+      "timestamp": "5 hours ago",
+      "crewId": "CREW-GAMMA",
+      "crewName": "Team Gamma",
+      "title": "Site survey completed",
+      "project": "Laguna Industrial Warehouse",
+      "detail": "Drone thermal mapping and structural truss measurements verified."
+    },
+    {
+      "id": "ACT-04",
+      "timestamp": "Yesterday",
+      "crewId": "CREW-ALPHA",
+      "crewName": "Team Alpha",
+      "title": "Battery storage mounted",
+      "project": "Alabang Luxury Villa Hybrid",
+      "detail": "10 kWh LFP battery wall enclosure anchored and fire-rated."
+    },
+    {
+      "id": "ACT-05",
+      "timestamp": "2 days ago",
+      "crewId": "SYSTEM",
+      "crewName": "Disbursement Desk",
+      "title": "Merchant Payout Released",
+      "project": "Taguig Retail Store Solar",
+      "detail": "₱45,000 disbursement processed via BDO Bank Transfer (Ref #PAY-2026-079)."
+    }
+  ]
+}

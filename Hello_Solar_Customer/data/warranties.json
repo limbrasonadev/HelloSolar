@@ -1,0 +1,146 @@
+[
+  {
+    "systemId": "pkg-home-5k4",
+    "accountNo": "HS-88219",
+    "inverterSerial": "SOLIS-5K-202503-8891",
+    "assignedInstaller": {
+      "name": "Carlos Villanueva",
+      "role": "Master Certified Solar Installer",
+      "phone": "+63 917 555 0101"
+    },
+    "warranties": {
+      "panels": {
+        "termText": "25-Year Performance · 12-Year Product",
+        "performanceYears": 25,
+        "productYears": 12,
+        "summary": "Guarantees solar electricity output for 25 years and protects against manufacturing defects for 12 years."
+      },
+      "inverter": {
+        "termText": "10-Year Extended Warranty",
+        "warrantyYears": 10,
+        "serialNumber": "SOLIS-5K-202503-8891",
+        "summary": "Protects hybrid inverter components, internal MPPT circuits, and digital monitoring systems for 10 years."
+      },
+      "battery": {
+        "hasBattery": true,
+        "termText": "10-Year / 6,000 Cycles",
+        "warrantyYears": 10,
+        "cycleLife": 6000,
+        "summary": "Protects usable electricity storage capacity and battery cell performance for 10 years of daily use."
+      },
+      "workmanship": {
+        "termText": "5-Year Coverage",
+        "warrantyYears": 5,
+        "installerName": "Carlos Villanueva",
+        "summary": "Covers roof weather-sealing, mounting structural integrity, and system electrical wiring for 5 years."
+      }
+    }
+  },
+  {
+    "systemId": "pkg-villa-10k8",
+    "accountNo": "HS-99402",
+    "inverterSerial": "DEYE-10K-202511-9940",
+    "assignedInstaller": {
+      "name": "Engr. Alex Rivera",
+      "role": "Senior Electrical Engineer & Partner",
+      "phone": "+63 917 555 0199"
+    },
+    "warranties": {
+      "panels": {
+        "termText": "25-Year Performance · 15-Year Product",
+        "performanceYears": 25,
+        "productYears": 15,
+        "summary": "Guarantees premium monocrystalline output efficiency and protects against component defects for 15 years."
+      },
+      "inverter": {
+        "termText": "10-Year Manufacturer Warranty",
+        "warrantyYears": 10,
+        "serialNumber": "DEYE-10K-202511-9940",
+        "summary": "Comprehensive 10-year Deye factory warranty covering all power electronics and control firmware."
+      },
+      "battery": {
+        "hasBattery": true,
+        "termText": "10-Year / 6,000 Cycles",
+        "warrantyYears": 10,
+        "cycleLife": 6000,
+        "summary": "Guarantees minimum 70% capacity retention over 10 years of daily deep cycling."
+      },
+      "workmanship": {
+        "termText": "5-Year Certified Workmanship",
+        "warrantyYears": 5,
+        "installerName": "Engr. Alex Rivera",
+        "summary": "Covers architectural flashing, tile roof mounts, and all heavy-gauge electrical conduit connections."
+      }
+    }
+  },
+  {
+    "systemId": "pkg-farm-3k6",
+    "accountNo": "HS-77310",
+    "inverterSerial": "GROWATT-3K6-202602-7731",
+    "assignedInstaller": {
+      "name": "Marco Bautista",
+      "role": "Lead Installation Field Specialist",
+      "phone": "+63 917 555 8921"
+    },
+    "warranties": {
+      "panels": {
+        "termText": "25-Year Performance · 10-Year Product",
+        "performanceYears": 25,
+        "productYears": 10,
+        "summary": "Protects against panel degradation and structural framing faults in agricultural environments."
+      },
+      "inverter": {
+        "termText": "5-Year Manufacturer Warranty",
+        "warrantyYears": 5,
+        "serialNumber": "GROWATT-3K6-202602-7731",
+        "summary": "Covers inverter repair, component replacements, and wireless datalogger hardware."
+      },
+      "battery": {
+        "hasBattery": true,
+        "termText": "7-Year / 4,000 Cycles",
+        "warrantyYears": 7,
+        "cycleLife": 4000,
+        "summary": "Covers battery cell capacity retention above 70% for 7 years of agricultural off-peak usage."
+      },
+      "workmanship": {
+        "termText": "5-Year Coverage",
+        "warrantyYears": 5,
+        "installerName": "Marco Bautista",
+        "summary": "Covers barn roof penetration sealing, weatherproofing, and battery isolation subpanel."
+      }
+    }
+  },
+  {
+    "systemId": "pkg-biz-6k0",
+    "accountNo": "HS-10492",
+    "inverterSerial": "HW-SUN2000-6K-2026-1049",
+    "assignedInstaller": null,
+    "warranties": {
+      "panels": {
+        "termText": "25-Year Commercial Performance",
+        "performanceYears": 25,
+        "productYears": 12,
+        "summary": "Guarantees linear commercial generation performance and bifacial yield."
+      },
+      "inverter": {
+        "termText": "5-Year Huawei Commercial Warranty",
+        "warrantyYears": 5,
+        "serialNumber": "HW-SUN2000-6K-2026-1049",
+        "summary": "Huawei commercial grid-tied inverter factory warranty."
+      },
+      "battery": {
+        "hasBattery": false,
+        "termText": "Grid-Tied (No Battery)",
+        "warrantyYears": 0,
+        "cycleLife": 0,
+        "summary": "Not applicable — this system is configured for direct daytime solar feed without a battery storage unit."
+      },
+      "workmanship": {
+        "termText": "5-Year Certified Commercial Workmanship",
+        "warrantyYears": 5,
+        "installerName": "Hello Solar Dispatch Team",
+        "summary": "Covers commercial roof clamping, electrical conduit installation, and utility interconnection safety."
+      }
+    }
+  }
+]

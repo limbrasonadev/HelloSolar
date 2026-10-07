@@ -1,0 +1,695 @@
+/* approved.html — page-specific styles. Shared components: portal.css. */
+
+/* Repayment & Financing Schedule Modal (#paymentPlanModal) Layout Scoping */
+#paymentPlanModal .review-modal-card {
+    width: 94% !important;
+    max-width: 640px !important;
+    min-width: 320px !important;
+    max-height: 90vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: auto !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.28), 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #E2E8F0 !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .review-modal-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding: 16px 22px 14px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: #FFFFFF !important;
+}
+
+#paymentPlanModal .review-modal-header > div:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+#paymentPlanModal #planBorrowerTitle {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+#paymentPlanModal .review-modal-body {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 18px 22px !important;
+    background: #F8FAFC !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+}
+
+#paymentPlanModal .review-modal-footer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    padding: 14px 22px !important;
+    border-top: 1px solid #E2E8F0 !important;
+    background: #FFFFFF !important;
+    border-radius: 0 0 16px 16px !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .plan-progress-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    padding: 16px 18px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .plan-progress-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+#paymentPlanModal .plan-progress-track {
+    width: 100% !important;
+    height: 8px !important;
+    background: #E2E8F0 !important;
+    border-radius: 9999px !important;
+    overflow: hidden !important;
+    margin-bottom: 14px !important;
+}
+
+#paymentPlanModal .plan-metrics-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .plan-metric-box {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 8px !important;
+    padding: 10px 8px !important;
+    text-align: center !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .plan-metric-label {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    color: #64748B !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 4px !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    line-height: 1.2 !important;
+}
+
+#paymentPlanModal .plan-metric-val {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #0F172A !important;
+    white-space: nowrap !important;
+}
+
+#paymentPlanModal .review-section-box {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    padding: 16px 18px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+}
+
+#paymentPlanModal .review-section-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+}
+
+#paymentPlanModal .review-section-title {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #334155 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+#paymentPlanModal .review-data-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#paymentPlanModal .review-data-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+}
+
+#paymentPlanModal .review-data-label {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    line-height: 1.25 !important;
+}
+
+#paymentPlanModal .review-data-val {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    word-break: break-word !important;
+}
+
+#paymentPlanModal .plan-installments-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 8px !important;
+    background: #FFFFFF !important;
+}
+
+#paymentPlanModal .plan-installments-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 12.5px !important;
+    margin-top: 0 !important;
+}
+
+#paymentPlanModal .plan-installments-table th {
+    background: #F8FAFC !important;
+    color: #475569 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    padding: 10px 14px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+#paymentPlanModal .plan-installments-table th:last-child {
+    text-align: right !important;
+}
+
+#paymentPlanModal .plan-installments-table td {
+    padding: 10px 14px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    vertical-align: middle !important;
+    font-size: 12.5px !important;
+    color: #334155 !important;
+}
+
+#paymentPlanModal .plan-installments-table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Loan Detail Modal Scoping */
+#loanDetailModal .review-modal-card {
+    width: 92% !important;
+    max-width: 480px !important;
+    min-width: 320px !important;
+    max-height: 92vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: auto !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+#loanDetailModal .review-modal-body {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+}
+
+#loanDetailModal .review-panels-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+}
+
+#loanDetailModal .fin-highlight-strip {
+    display: grid !important;
+    grid-template-columns: 1.15fr 1.25fr 0.8fr !important;
+    align-items: center !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    margin-bottom: 0 !important;
+    gap: 6px !important;
+}
+
+#loanDetailModal .fin-pill {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1px !important;
+}
+
+#loanDetailModal .fin-pill-sub {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #64748B !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    white-space: nowrap !important;
+}
+
+#loanDetailModal .fin-pill-val {
+    font-size: 16.5px !important;
+    font-weight: 800 !important;
+    color: #0F172A !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+}
+
+#loanDetailModal #modalLoanAmount {
+    color: #FF8400 !important;
+}
+
+@media (max-width: 768px) {
+
+    #paymentPlanModal .review-modal-card {
+        width: 95% !important;
+        max-width: 95% !important;
+        margin: 10px auto !important;
+        max-height: 94vh !important;
+    }
+
+    #paymentPlanModal .review-modal-header {
+        padding: 12px 16px !important;
+    }
+
+    #paymentPlanModal .review-modal-body {
+        padding: 14px 16px !important;
+        gap: 12px !important;
+    }
+
+    #paymentPlanModal .review-modal-footer {
+        padding: 12px 16px !important;
+    }
+
+    #paymentPlanModal .review-data-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Repayment Plan Progress Card Precision */
+    .plan-progress-card {
+        padding: 12px 14px !important;
+        border-radius: 10px !important;
+    }
+
+    .plan-progress-header {
+        font-size: 12px !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+    }
+
+    /* Three Metrics Boxes on Mobile: Total Funded, Amount Paid, Balance Remaining */
+    .plan-metrics-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .plan-metric-box {
+        padding: 8px 4px !important;
+        min-width: 0 !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .plan-metric-label {
+        font-size: 9px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.01em !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        margin-bottom: 3px !important;
+        color: #64748B !important;
+    }
+
+    .plan-metric-val {
+        font-size: 12.5px !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.02em !important;
+        white-space: nowrap !important;
+    }
+
+    /* Recent Installments Table inside Modal: Precision Mobile Card Layout */
+    .plan-installments-container {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+
+    .plan-installments-table,
+    .plan-installments-table tbody {
+        display: block !important;
+        width: 100% !important;
+        border: none !important;
+    }
+
+    .plan-installments-table thead {
+        display: none !important;
+    }
+
+    .plan-installments-table tbody tr.plan-inst-row {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        row-gap: 6px !important;
+        column-gap: 10px !important;
+        padding: 10px 12px !important;
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        margin: 0 0 8px 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .plan-installments-table tbody tr.plan-inst-row:hover {
+        border-color: #CBD5E1 !important;
+        background: #F1F5F9 !important;
+        box-shadow: none !important;
+    }
+
+    .plan-installments-table tbody tr.plan-inst-row td {
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+    }
+
+    .plan-installments-table tbody tr.plan-inst-row td::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    .plan-inst-row .plan-inst-meta {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        gap: 6px !important;
+    }
+
+    .plan-inst-row .plan-inst-meta .inst-num {
+        font-size: 13.5px !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+    }
+
+    .plan-inst-row .plan-inst-meta .inst-date {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        color: #64748B !important;
+    }
+
+    .plan-inst-row .plan-inst-status {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        justify-content: flex-end !important;
+    }
+
+    .plan-inst-row .plan-inst-ref {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+
+    .plan-inst-row .plan-inst-ref .inst-code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+        font-size: 11px !important;
+        color: #64748B !important;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+    }
+
+    .plan-inst-row .plan-inst-amount {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        justify-content: flex-end !important;
+        font-size: 13.5px !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Approved Loans Table: Precise Column Alignment & Width Distribution (Desktop)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+    .approved-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .approved-table th.col-applicant,
+    .approved-table td[data-label="Applicant ID"] {
+        width: 21%;
+        text-align: left !important;
+    }
+
+    .approved-table th.col-system,
+    .approved-table td[data-label="System Size"] {
+        width: 13%;
+        text-align: center !important;
+    }
+
+    .approved-table th.col-amount,
+    .approved-table td[data-label="Funded Amount"] {
+        width: 17%;
+        text-align: center !important;
+    }
+
+    .approved-table th.col-payment,
+    .approved-table td[data-label="Monthly Payment"] {
+        width: 17%;
+        text-align: center !important;
+    }
+
+    .approved-table th.col-term,
+    .approved-table td[data-label="Term"] {
+        width: 13%;
+        text-align: center !important;
+    }
+
+    .approved-table th.col-status,
+    .approved-table td[data-label="Repayment Status"],
+    .approved-table td[data-label="Status"] {
+        width: 19%;
+        text-align: center !important;
+    }
+}
+
+.btn-status-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+}
+
+/* Payment Plan & Repayment Modal Elements */
+.plan-progress-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.plan-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.plan-progress-track {
+    width: 100%;
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.plan-progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.4s ease;
+}
+
+.plan-progress-bar.bar-paid {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.plan-progress-bar.bar-due {
+    background: linear-gradient(90deg, #F59E0B, #D97706);
+}
+
+.plan-progress-bar.bar-unpaid {
+    background: linear-gradient(90deg, #EF4444, #DC2626);
+}
+
+.plan-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.plan-metric-box {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.plan-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+}
+
+.plan-metric-val {
+    font-size: 14px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.plan-installments-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.plan-installments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-top: 8px;
+}
+
+.plan-installments-table th {
+    background: #F8FAFC;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 9px 12px;
+    border-bottom: 1px solid #E2E8F0;
+    text-align: left;
+}
+
+.plan-installments-table th:last-child {
+    text-align: right;
+}
+
+.plan-installments-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #F1F5F9;
+    vertical-align: middle;
+}
+
+.plan-installments-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Comprehensive Mobile Responsive Card System (Max Width: 768px)
+   Applied across Approved, Rejected, Applications, and Dashboard Tables
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    tbody:not(.plan-installments-table tbody) tr:not(.plan-inst-row):hover {
+        border-color: #FF8400 !important;
+        box-shadow: 0 2px 8px rgba(255, 132, 0, 0.12) !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Approved Loans Table Container Expansion Rules
+   -------------------------------------------------------------------------- */
+.panel-card.approved-panel-card,
+.panel-card.approved-panel-card .panel-body,
+.panel-card.approved-panel-card .table-responsive {
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+#approvedTable {
+    margin-bottom: 0 !important;
+}
+

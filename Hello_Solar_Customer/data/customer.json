@@ -1,0 +1,1173 @@
+{
+  "customer": {
+    "name": "Juan Dela Cruz",
+    "email": "juan.delacruz@hellosolar.ph",
+    "phone": "+63 917 555 0199",
+    "accountNo": "HS-88219",
+    "address": "142 Solar Crest Way, Quezon City, Metro Manila",
+    "preferredPayment": "gcash",
+    "paymentAccount": "+63 917 555 0199",
+    "role": "Solar Customer",
+    "avatarUrl": null
+  },
+  "packages": [
+    {
+      "id": "pkg-home-5k4",
+      "appId": "APP-4091",
+      "hsId": "HS-88219",
+      "accountNo": "HS-88219",
+      "jobId": "HS-JOB-4091",
+      "installerAcceptanceStatus": "accepted",
+      "name": "Home Primary",
+      "packageName": "HS 6 PRO",
+      "shortLabel": "Home — 5.4 kW",
+      "capacity": "5.4 kW",
+      "location": "Quezon City · HS-88219",
+      "paymentType": "installment",
+      "projectStatus": "Active",
+      "accountStatus": "Active",
+      "applicationStatus": "Approved",
+      "paymentStatus": "Up to Date",
+      "installationStatus": "Completed",
+      "systemStatus": "Active",
+      "receiptVerificationStatus": "Verified",
+      "status": "Online · Normal",
+      "systemType": "Residential Hybrid",
+      "hasBattery": true,
+      "monthlyPayment": 9066.67,
+      "formattedMonthlyPayment": "₱9,066.67",
+      "nextDueDate": "Oct 15, 2026",
+      "totalInstallments": 60,
+      "downPayment": 10000,
+      "formattedDownPayment": "₱10,000",
+      "paymentPlan": {
+        "packageName": "HS 6 PRO",
+        "term": "5 Years",
+        "totalInstallments": 60,
+        "downPayment": 10000,
+        "formattedDownPayment": "₱10,000",
+        "monthlyInstallment": 9066.67,
+        "formattedMonthlyPayment": "₱9,066.67",
+        "totalContractAmount": 554000,
+        "formattedTotalContractAmount": "₱554,000"
+      },
+      "paymentsCompleted": "5 of 60",
+      "totalPaid": "₱45,333.35",
+      "panelsCount": 12,
+      "panelsModel": "Trina Solar Vertex S+ 450W",
+      "inverterModel": "Solis 5kW Hybrid Inverter",
+      "batteryCapacity": "10 kWh Lithium-ion Reserve",
+      "inverterSerial": "SOLIS-5K-202503-8891",
+      "installationDate": "March 15, 2025",
+      "notice": "Primary residential hybrid solar system",
+      "telemetry": {
+        "status": "live",
+        "lastUpdated": "2026-09-10T05:14:30.000Z",
+        "baseSolar": 3.85,
+        "baseHome": 1.95,
+        "baseBattery": 1.25,
+        "batterySoc": 92,
+        "pvStrings": "PV1: 342V · PV2: 338V",
+        "gridSync": "231.8 V · 60.0 Hz",
+        "inverterTemp": "41.2°C (Optimal)",
+        "gridStatus": "Luzon Grid Locked · PF 0.99",
+        "backupReady": true,
+        "backupStatusText": "Backup Ready"
+      },
+      "energy": {
+        "hasReadings": true,
+        "todayGenerated": "7.1 kWh",
+        "savingsPeriod": "This month",
+        "batteryReserve": "10 kWh",
+        "batterySoc": 92,
+        "backupHours": "18 hrs",
+        "chart": {
+          "today": {
+            "values": [
+              0,
+              1.1,
+              2.4,
+              4.2,
+              6.4,
+              7.2,
+              6.5,
+              5.1,
+              3.3,
+              1.5,
+              0.4
+            ],
+            "labels": [
+              "7 AM",
+              "8 AM",
+              "9 AM",
+              "10 AM",
+              "11 AM",
+              "12 PM",
+              "1 PM",
+              "2 PM",
+              "3 PM",
+              "4 PM",
+              "5 PM"
+            ],
+            "maxLabel": "8 kWh"
+          },
+          "week": {
+            "values": [
+              4.1,
+              5.8,
+              6.4,
+              7.2,
+              5.9,
+              7.6,
+              6.8
+            ],
+            "labels": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat",
+              "Sun"
+            ],
+            "maxLabel": "8 kWh"
+          },
+          "month": {
+            "values": [
+              12,
+              15,
+              17,
+              14,
+              19,
+              18,
+              21,
+              20,
+              24,
+              22,
+              26,
+              25
+            ],
+            "labels": [
+              "1",
+              "4",
+              "7",
+              "10",
+              "13",
+              "16",
+              "19",
+              "22",
+              "25",
+              "28",
+              "30",
+              "31"
+            ],
+            "maxLabel": "30 kWh"
+          }
+        },
+        "breakdown": {
+          "solarDirect": "64%",
+          "batteryStorage": "26%",
+          "gridExport": "10%"
+        },
+        "ecoImpact": {
+          "trees": "14",
+          "co2Kg": "312"
+        }
+      },
+      "payments": {
+        "hasBills": true,
+        "term": "5 Years",
+        "planTerm": "5-Year Lease-to-Own",
+        "termBadge": "5-Year Term",
+        "totalInstallments": 60,
+        "downPayment": 10000,
+        "formattedDownPayment": "₱10,000",
+        "monthlyInstallmentAmount": 9066.67,
+        "formattedMonthlyPayment": "₱9,066.67",
+        "paidInstallments": "5 of 60",
+        "totalPaid": "₱45,333.35",
+        "standing": "Good",
+        "standingMeta": "Account up to date",
+        "currentBillRef": "HS-88219-0926",
+        "paymentPlan": {
+          "packageName": "HS 6 PRO",
+          "term": "5 Years",
+          "totalInstallments": 60,
+          "downPayment": 10000,
+          "formattedDownPayment": "₱10,000",
+          "monthlyInstallment": 9066.67,
+          "formattedMonthlyPayment": "₱9,066.67",
+          "totalContractAmount": 554000,
+          "formattedTotalContractAmount": "₱554,000"
+        },
+        "schedule": [
+          {
+            "id": "bill-88219-05",
+            "period": "May 2026",
+            "due": "May 1, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱9,066.67",
+            "receiptId": "REC-88219-05"
+          },
+          {
+            "id": "bill-88219-06",
+            "period": "Jun 2026",
+            "due": "Jun 1, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱9,066.67",
+            "receiptId": "REC-88219-06"
+          },
+          {
+            "id": "bill-88219-07",
+            "period": "Jul 2026",
+            "due": "Jul 1, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱9,066.67",
+            "receiptId": "REC-88219-07"
+          },
+          {
+            "id": "bill-88219-08",
+            "period": "Aug 2026",
+            "due": "Aug 1, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱9,066.67",
+            "receiptId": "REC-88219-08"
+          },
+          {
+            "id": "bill-88219-09",
+            "period": "Sep 2026",
+            "due": "Sep 1, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱9,066.67",
+            "receiptId": "REC-88219-09"
+          },
+          {
+            "id": "bill-88219-10",
+            "period": "Oct 2026",
+            "due": "Oct 15, 2026",
+            "status": "Upcoming",
+            "badgeClass": "badge-upcoming",
+            "amount": "₱9,066.67",
+            "receiptId": null
+          }
+        ]
+      },
+      "install": {
+        "hasInstallation": true,
+        "phase": "Completed",
+        "phaseStatusText": "Commissioned",
+        "phaseMeta": "Active rooftop generation",
+        "completionPct": 100,
+        "milestonesAchieved": "5 of 5 milestones achieved",
+        "nextMilestone": "Routine Maintenance",
+        "nextMilestoneMeta": "Annual inspection",
+        "targetCompletion": "Aug 15, 2025",
+        "targetCompletionMeta": "Fully energized",
+        "handoverDate": "May 2, 2025",
+        "milestones": [
+          {
+            "num": "1",
+            "title": "1. Site Assessment & Engineering Survey",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Roof structural audit, solar irradiation modeling, and electrical panel inspection completed.",
+            "date": "Completed March 1, 2025"
+          },
+          {
+            "num": "2",
+            "title": "2. Solar PV Panels Installed",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "12x Trina Solar 450W Monocrystalline modules mounted and DC wired.",
+            "date": "Completed March 10, 2025"
+          },
+          {
+            "num": "3",
+            "title": "3. Inverter & Battery Storage Setup",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Solis 5kW hybrid inverter, 10 kWh battery enclosure, and ATS backup switch mounted.",
+            "date": "Completed March 15, 2025"
+          },
+          {
+            "num": "4",
+            "title": "4. Utility Grid Connection (Net Metering)",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Utility bi-directional meter testing and distribution utility coordination completed.",
+            "date": "Completed April 20, 2025"
+          },
+          {
+            "num": "5",
+            "title": "5. Final Commissioning & Handover",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Final safety commissioning, net-metering sign-off, and customer handover completed.",
+            "date": "Completed May 2, 2025"
+          }
+        ],
+        "assignedTeam": {
+          "name": "Carlos Villanueva",
+          "initials": "CV",
+          "role": "Certified Solar Master Installer",
+          "phone": "+63 917 555 0101",
+          "note": "Carlos managed your Quezon City rooftop installation and utility coordination. You can message him directly or call dispatch."
+        },
+        "hardwareSpecs": "12x Trina Solar 450W Panels · Solis 5kW Hybrid Inverter · 10 kWh Lithium Battery"
+      },
+      "support": {
+        "hasSupport": true,
+        "leadTechnician": "Carlos Villanueva",
+        "leadPhone": "+63 917 555 0101",
+        "leadContact": "+63 917 555 0101 (Carlos)",
+        "tickets": [
+          {
+            "id": "HS-SR-8120",
+            "subject": "Annual Inverter Efficiency & Panel Inspection",
+            "status": "Resolved",
+            "date": "July 12, 2026",
+            "category": "Routine Maintenance"
+          },
+          {
+            "id": "HS-SR-7091",
+            "subject": "Wi-Fi Datalogger Reconnection Assistance",
+            "status": "Closed",
+            "date": "May 4, 2026",
+            "category": "Monitoring Gateway"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pkg-villa-10k8",
+      "appId": "APP-4088",
+      "hsId": "HS-99402",
+      "accountNo": "HS-99402",
+      "jobId": "HS-JOB-4088",
+      "installerAcceptanceStatus": "accepted",
+      "name": "Tagaytay Villa",
+      "packageName": "Tagaytay Villa (10.8 kW)",
+      "shortLabel": "Villa — 10.8 kW",
+      "capacity": "10.8 kW",
+      "location": "Tagaytay · HS-94021",
+      "paymentType": "installment",
+      "projectStatus": "Active",
+      "accountStatus": "Active",
+      "applicationStatus": "Approved",
+      "paymentStatus": "Up to Date",
+      "installationStatus": "Completed",
+      "systemStatus": "Active",
+      "receiptVerificationStatus": "Verified",
+      "status": "Online · Normal",
+      "systemType": "High-Capacity Hybrid",
+      "hasBattery": true,
+      "monthlyPayment": 17450,
+      "formattedMonthlyPayment": "₱17,450",
+      "nextDueDate": "Oct 20, 2026",
+      "totalInstallments": 84,
+      "downPayment": 25000,
+      "formattedDownPayment": "₱25,000",
+      "paymentPlan": {
+        "packageName": "Tagaytay Villa (10.8 kW)",
+        "term": "7 Years",
+        "totalInstallments": 84,
+        "downPayment": 25000,
+        "formattedDownPayment": "₱25,000",
+        "monthlyInstallment": 17450,
+        "formattedMonthlyPayment": "₱17,450",
+        "totalContractAmount": 1490800,
+        "formattedTotalContractAmount": "₱1,490,800"
+      },
+      "paymentsCompleted": "4 of 84",
+      "totalPaid": "₱69,800",
+      "panelsCount": 24,
+      "panelsModel": "Canadian Solar 450W Monocrystalline",
+      "inverterModel": "Deye 10kW Hybrid Inverter",
+      "batteryCapacity": "20 kWh Dual Lithium Rack",
+      "inverterSerial": "DEYE-10K-202511-9402",
+      "installationDate": "January 20, 2026",
+      "notice": "High-capacity hybrid solar system",
+      "telemetry": {
+        "status": "live",
+        "lastUpdated": "2026-09-10T05:14:30.000Z",
+        "baseSolar": 7.42,
+        "baseHome": 3.1,
+        "baseBattery": 2.8,
+        "batterySoc": 100,
+        "pvStrings": "PV1: 380V · PV2: 376V",
+        "gridSync": "230.5 V · 60.0 Hz",
+        "inverterTemp": "39.8°C (Optimal)",
+        "gridStatus": "Southern Grid Locked · PF 0.99",
+        "backupReady": true,
+        "backupStatusText": "Backup Ready"
+      },
+      "energy": {
+        "hasReadings": true,
+        "todayGenerated": "14.8 kWh",
+        "savingsPeriod": "This month",
+        "batteryReserve": "20 kWh",
+        "batterySoc": 100,
+        "backupHours": "36 hrs",
+        "chart": {
+          "today": {
+            "values": [
+              0,
+              2.3,
+              5.1,
+              8.4,
+              12.8,
+              14.5,
+              13.2,
+              10.1,
+              6.7,
+              3.1,
+              0.8
+            ],
+            "labels": [
+              "7 AM",
+              "8 AM",
+              "9 AM",
+              "10 AM",
+              "11 AM",
+              "12 PM",
+              "1 PM",
+              "2 PM",
+              "3 PM",
+              "4 PM",
+              "5 PM"
+            ],
+            "maxLabel": "16 kWh"
+          },
+          "week": {
+            "values": [
+              9.2,
+              12.4,
+              13.8,
+              15.1,
+              12,
+              15.6,
+              14.8
+            ],
+            "labels": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat",
+              "Sun"
+            ],
+            "maxLabel": "18 kWh"
+          },
+          "month": {
+            "values": [
+              25,
+              29,
+              34,
+              30,
+              42,
+              38,
+              45,
+              41,
+              49,
+              44,
+              52,
+              50
+            ],
+            "labels": [
+              "1",
+              "4",
+              "7",
+              "10",
+              "13",
+              "16",
+              "19",
+              "22",
+              "25",
+              "28",
+              "30",
+              "31"
+            ],
+            "maxLabel": "60 kWh"
+          }
+        },
+        "breakdown": {
+          "solarDirect": "58%",
+          "batteryStorage": "30%",
+          "gridExport": "12%"
+        },
+        "ecoImpact": {
+          "trees": "32",
+          "co2Kg": "680"
+        }
+      },
+      "payments": {
+        "hasBills": true,
+        "term": "7 Years",
+        "planTerm": "7-Year Lease-to-Own",
+        "termBadge": "7-Year Term",
+        "totalInstallments": 84,
+        "downPayment": 25000,
+        "formattedDownPayment": "₱25,000",
+        "monthlyInstallmentAmount": 17450,
+        "formattedMonthlyPayment": "₱17,450",
+        "paidInstallments": "4 of 84",
+        "totalPaid": "₱69,800",
+        "standing": "Good",
+        "standingMeta": "All installments paid on time",
+        "currentBillRef": "HS-94021-0926",
+        "paymentPlan": {
+          "packageName": "Tagaytay Villa (10.8 kW)",
+          "term": "7 Years",
+          "totalInstallments": 84,
+          "downPayment": 25000,
+          "formattedDownPayment": "₱25,000",
+          "monthlyInstallment": 17450,
+          "formattedMonthlyPayment": "₱17,450",
+          "totalContractAmount": 1490800,
+          "formattedTotalContractAmount": "₱1,490,800"
+        },
+        "schedule": [
+          {
+            "id": "bill-94021-06",
+            "period": "Jun 2026",
+            "due": "Jun 20, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱17,450",
+            "receiptId": "REC-94021-06"
+          },
+          {
+            "id": "bill-94021-07",
+            "period": "Jul 2026",
+            "due": "Jul 20, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱17,450",
+            "receiptId": "REC-94021-07"
+          },
+          {
+            "id": "bill-94021-08",
+            "period": "Aug 2026",
+            "due": "Aug 20, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱17,450",
+            "receiptId": "REC-94021-08"
+          },
+          {
+            "id": "bill-94021-09",
+            "period": "Sep 2026",
+            "due": "Sep 20, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱17,450",
+            "receiptId": "REC-94021-09"
+          },
+          {
+            "id": "bill-94021-10",
+            "period": "Oct 2026",
+            "due": "Oct 20, 2026",
+            "status": "Upcoming",
+            "badgeClass": "badge-upcoming",
+            "amount": "₱17,450",
+            "receiptId": null
+          }
+        ]
+      },
+      "install": {
+        "hasInstallation": true,
+        "phase": "Completed",
+        "phaseStatusText": "Commissioned",
+        "phaseMeta": "100% capacity energized",
+        "completionPct": 100,
+        "milestonesAchieved": "5 of 5 milestones achieved",
+        "nextMilestone": "Quarterly Thermal Scan",
+        "nextMilestoneMeta": "Scheduled Q4",
+        "targetCompletion": "Jan 20, 2026",
+        "targetCompletionMeta": "Utility grid active",
+        "handoverDate": "Jan 20, 2026",
+        "milestones": [
+          {
+            "num": "1",
+            "title": "1. Site Assessment & Engineering Survey",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Structural load calculations for ceramic tile roof completed.",
+            "date": "Completed Nov 12, 2025"
+          },
+          {
+            "num": "2",
+            "title": "2. Solar PV Panels Installed",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "24x Canadian Solar 450W Monocrystalline panels mounted with anodized rails.",
+            "date": "Completed Nov 28, 2025"
+          },
+          {
+            "num": "3",
+            "title": "3. Inverter & Battery Storage Setup",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Deye 10kW hybrid inverter and dual 10 kWh battery rack installed.",
+            "date": "Completed Dec 10, 2025"
+          },
+          {
+            "num": "4",
+            "title": "4. Utility Grid Connection (Net Metering)",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Meralco bi-directional meter installed and net-metering tariff enabled.",
+            "date": "Completed Jan 12, 2026"
+          },
+          {
+            "num": "5",
+            "title": "5. Final Commissioning & Handover",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "System performance verified at 10.8 kW peak output.",
+            "date": "Completed Jan 20, 2026"
+          }
+        ],
+        "assignedTeam": {
+          "name": "Engr. Alex Rivera",
+          "initials": "AR",
+          "role": "Senior Electrical Engineer & Partner",
+          "phone": "+63 917 555 0199",
+          "note": "Engr. Rivera supervises the Tagaytay high-capacity hybrid solar installation and remote performance tuning."
+        },
+        "hardwareSpecs": "24x Canadian Solar 450W Panels · Deye 10kW Hybrid Inverter · Dual 10 kWh Battery Rack"
+      },
+      "support": {
+        "hasSupport": true,
+        "leadTechnician": "Engr. Alex Rivera",
+        "leadPhone": "+63 917 555 0199",
+        "leadContact": "+63 917 555 0199 (Engr. Rivera)",
+        "tickets": [
+          {
+            "id": "HS-SR-9104",
+            "subject": "Net-Metering Bi-Directional Tariff Verification",
+            "status": "Resolved",
+            "date": "Feb 18, 2026",
+            "category": "Billing / Net-Metering"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pkg-farm-3k6",
+      "appId": "APP-4085",
+      "hsId": "HS-77310",
+      "accountNo": "HS-77310",
+      "jobId": "HS-JOB-4085",
+      "installerAcceptanceStatus": "accepted",
+      "name": "Batangas Farmhouse",
+      "packageName": "Batangas Farmhouse (3.6 kW)",
+      "shortLabel": "Farmhouse — 3.6 kW",
+      "capacity": "3.6 kW",
+      "location": "Lipa, Batangas · HS-77310",
+      "paymentType": "installment",
+      "projectStatus": "Installation In Progress",
+      "accountStatus": "Active",
+      "applicationStatus": "Financing Approved",
+      "paymentStatus": "Overdue",
+      "installationStatus": "Installation In Progress",
+      "systemStatus": "Setup Pending",
+      "receiptVerificationStatus": "Verified",
+      "status": "Setup Pending",
+      "systemType": "Provincial Residential Hybrid",
+      "hasBattery": true,
+      "monthlyPayment": 6200,
+      "formattedMonthlyPayment": "₱6,200",
+      "nextDueDate": "Sep 30, 2026",
+      "totalInstallments": 36,
+      "downPayment": 8000,
+      "formattedDownPayment": "₱8,000",
+      "paymentPlan": {
+        "packageName": "Batangas Farmhouse (3.6 kW)",
+        "term": "3 Years",
+        "totalInstallments": 36,
+        "downPayment": 8000,
+        "formattedDownPayment": "₱8,000",
+        "monthlyInstallment": 6200,
+        "formattedMonthlyPayment": "₱6,200",
+        "totalContractAmount": 231200,
+        "formattedTotalContractAmount": "₱231,200"
+      },
+      "paymentsCompleted": "2 of 36",
+      "totalPaid": "₱12,400",
+      "panelsCount": 8,
+      "panelsModel": "Longi 450W Hi-MO",
+      "inverterModel": "Growatt 3.6kW Inverter",
+      "batteryCapacity": "5 kWh Battery",
+      "inverterSerial": "GW-3K6-202607-7731",
+      "installationDate": "In Progress",
+      "assignedInstaller": {
+        "name": "Marco Bautista",
+        "role": "Lead Installation Field Specialist",
+        "phone": "+63 917 555 8921",
+        "note": "Marco is currently coordinating the Batangas local cooperative utility interconnection and testing."
+      },
+      "notice": "Provincial installation in stage 4 of 5",
+      "telemetry": {
+        "status": "live",
+        "lastUpdated": "2026-09-10T05:14:30.000Z",
+        "baseSolar": 2.45,
+        "baseHome": 1.6,
+        "baseBattery": 0.6,
+        "batterySoc": 68,
+        "pvStrings": "PV1: 310V · PV2: 305V",
+        "gridSync": "229.2 V · 60.0 Hz",
+        "inverterTemp": "43.5°C (Optimal)",
+        "gridStatus": "Batangas Co-op Grid · PF 0.98",
+        "backupReady": true,
+        "backupStatusText": "Backup Ready"
+      },
+      "energy": {
+        "hasReadings": true,
+        "todayGenerated": "4.6 kWh",
+        "savingsPeriod": "This month",
+        "batteryReserve": "5 kWh",
+        "batterySoc": 68,
+        "backupHours": "10 hrs",
+        "chart": {
+          "today": {
+            "values": [
+              0,
+              0.8,
+              1.6,
+              2.7,
+              3.4,
+              3.6,
+              3.2,
+              2.5,
+              1.7,
+              0.8,
+              0.2
+            ],
+            "labels": [
+              "7 AM",
+              "8 AM",
+              "9 AM",
+              "10 AM",
+              "11 AM",
+              "12 PM",
+              "1 PM",
+              "2 PM",
+              "3 PM",
+              "4 PM",
+              "5 PM"
+            ],
+            "maxLabel": "5 kWh"
+          },
+          "week": {
+            "values": [
+              2.9,
+              3.8,
+              4.1,
+              4.6,
+              3.5,
+              4.8,
+              4.2
+            ],
+            "labels": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat",
+              "Sun"
+            ],
+            "maxLabel": "6 kWh"
+          },
+          "month": {
+            "values": [
+              8,
+              9,
+              11,
+              10,
+              13,
+              12,
+              14,
+              13,
+              15,
+              14,
+              16,
+              15
+            ],
+            "labels": [
+              "1",
+              "4",
+              "7",
+              "10",
+              "13",
+              "16",
+              "19",
+              "22",
+              "25",
+              "28",
+              "30",
+              "31"
+            ],
+            "maxLabel": "20 kWh"
+          }
+        },
+        "breakdown": {
+          "solarDirect": "72%",
+          "batteryStorage": "20%",
+          "gridExport": "8%"
+        },
+        "ecoImpact": {
+          "trees": "9",
+          "co2Kg": "185"
+        }
+      },
+      "payments": {
+        "hasBills": true,
+        "term": "3 Years",
+        "planTerm": "3-Year Lease-to-Own",
+        "termBadge": "3-Year Term",
+        "totalInstallments": 36,
+        "downPayment": 8000,
+        "formattedDownPayment": "₱8,000",
+        "monthlyInstallmentAmount": 6200,
+        "formattedMonthlyPayment": "₱6,200",
+        "paidInstallments": "2 of 36",
+        "totalPaid": "₱12,400",
+        "standing": "Overdue",
+        "standingMeta": "Bill due on September 30, 2026",
+        "currentBillRef": "HS-77310-0926",
+        "paymentPlan": {
+          "packageName": "Batangas Farmhouse (3.6 kW)",
+          "term": "3 Years",
+          "totalInstallments": 36,
+          "downPayment": 8000,
+          "formattedDownPayment": "₱8,000",
+          "monthlyInstallment": 6200,
+          "formattedMonthlyPayment": "₱6,200",
+          "totalContractAmount": 231200,
+          "formattedTotalContractAmount": "₱231,200"
+        },
+        "schedule": [
+          {
+            "id": "bill-77310-07",
+            "period": "Jul 2026",
+            "due": "Jul 30, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱6,200",
+            "receiptId": "REC-77310-07"
+          },
+          {
+            "id": "bill-77310-08",
+            "period": "Aug 2026",
+            "due": "Aug 30, 2026",
+            "status": "Paid",
+            "badgeClass": "badge-paid",
+            "amount": "₱6,200",
+            "receiptId": "REC-77310-08"
+          },
+          {
+            "id": "bill-77310-09",
+            "period": "Sep 2026",
+            "due": "Sep 30, 2026",
+            "status": "Unpaid",
+            "badgeClass": "badge-overdue",
+            "amount": "₱6,200",
+            "receiptId": null
+          },
+          {
+            "id": "bill-77310-10",
+            "period": "Oct 2026",
+            "due": "Oct 30, 2026",
+            "status": "Upcoming",
+            "badgeClass": "badge-upcoming",
+            "amount": "₱6,200",
+            "receiptId": null
+          }
+        ]
+      },
+      "install": {
+        "hasInstallation": true,
+        "phase": "In Progress",
+        "phaseStatusText": "Stage 4 of 5",
+        "phaseMeta": "Active grid synchronization",
+        "completionPct": 60,
+        "milestonesAchieved": "3 of 5 milestones achieved",
+        "nextMilestone": "Grid Sync",
+        "nextMilestoneMeta": "Batelec connection scheduled",
+        "targetCompletion": "Sep 30, 2026",
+        "targetCompletionMeta": "Estimated final inspection",
+        "handoverDate": null,
+        "milestones": [
+          {
+            "num": "1",
+            "title": "1. Site Assessment & Engineering Survey",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Farmhouse roof pitch and battery location surveyed.",
+            "date": "Completed July 1, 2026"
+          },
+          {
+            "num": "2",
+            "title": "2. Solar PV Panels Installed",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "8x Longi 450W panels mounted on metal roof structure.",
+            "date": "Completed July 15, 2026"
+          },
+          {
+            "num": "3",
+            "title": "3. Inverter & Battery Storage Setup",
+            "status": "Completed",
+            "badgeClass": "badge-paid",
+            "desc": "Growatt 3.6kW inverter and 5 kWh lithium battery installed.",
+            "date": "Completed August 2, 2026"
+          },
+          {
+            "num": "4",
+            "title": "4. Utility Grid Connection (Net Metering)",
+            "status": "In Progress",
+            "badgeClass": "badge-upcoming",
+            "desc": "Batelec II distribution transformer connection and testing in progress.",
+            "date": "Current Stage · Estimated 5-7 days"
+          },
+          {
+            "num": "5",
+            "title": "5. Final Safety Inspection & Handover",
+            "status": "Scheduled",
+            "badgeClass": "badge-neutral",
+            "desc": "Final electrical engineering safety certification and customer walk-through.",
+            "date": "Target: September 30, 2026"
+          }
+        ],
+        "assignedTeam": {
+          "name": "Marco Bautista",
+          "initials": "MB",
+          "role": "Lead Installation Field Specialist",
+          "phone": "+63 917 555 8921",
+          "note": "Marco is currently coordinating the Batangas local cooperative utility interconnection and testing."
+        },
+        "hardwareSpecs": "8x Longi 450W Panels · Growatt 3.6kW Inverter · 5 kWh Battery"
+      },
+      "support": {
+        "hasSupport": true,
+        "leadTechnician": "Marco Bautista",
+        "leadPhone": "+63 917 555 8921",
+        "leadContact": "+63 917 555 8921 (Marco)",
+        "tickets": [
+          {
+            "id": "HS-SR-9488",
+            "subject": "Pre-Commissioning Utility Meter Inspection Schedule",
+            "status": "In Progress",
+            "date": "Aug 24, 2026",
+            "category": "Utility Grid Connection"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pkg-biz-6k0",
+      "appId": "APP-8821",
+      "hsId": "HS-10492",
+      "accountNo": "HS-10492",
+      "jobId": "HS-JOB-10492",
+      "installerAcceptanceStatus": "accepted",
+      "name": "Commercial Unit B",
+      "packageName": "Commercial Unit B (6.0 kW)",
+      "shortLabel": "Business — 6.0 kW",
+      "capacity": "6.0 kW",
+      "location": "Ortigas, Pasig · HS-10492",
+      "paymentType": "full_payment",
+      "projectStatus": "Payment Required",
+      "accountStatus": "Active",
+      "applicationStatus": "Approved",
+      "paymentStatus": "Payment Required",
+      "installationStatus": "Ready for Installation",
+      "systemStatus": "Pending",
+      "receiptVerificationStatus": "Awaiting Submission",
+      "totalAmount": 320000,
+      "amountDue": 320000,
+      "formattedTotalAmount": "₱320,000",
+      "formattedAmountDue": "₱320,000",
+      "downPayment": 320000,
+      "formattedDownPayment": "₱320,000",
+      "paymentPlan": {
+        "packageName": "Commercial Unit B (6.0 kW)",
+        "term": "Full Upfront Payment",
+        "totalInstallments": 1,
+        "downPayment": 320000,
+        "formattedDownPayment": "₱320,000",
+        "monthlyInstallment": 0,
+        "formattedMonthlyPayment": "₱0",
+        "totalContractAmount": 320000,
+        "formattedTotalContractAmount": "₱320,000"
+      },
+      "assignedInstaller": null,
+      "status": "Setup Pending",
+      "systemType": "Commercial Grid-Tied (Battery Not Included)",
+      "hasBattery": false,
+      "panelsCount": 14,
+      "panelsModel": "Longi 430W Bifacial Modules",
+      "inverterModel": "Huawei 6kW Three-Phase Grid-Tied Inverter",
+      "batteryCapacity": "None (Grid-Tie Architecture)",
+      "inverterSerial": "HW-6K-202609-1049",
+      "installationDate": "Pending Commissioning",
+      "notice": "Commercial grid-tied system on Full Payment terms",
+      "telemetry": null,
+      "energy": {
+        "hasReadings": false,
+        "todayGenerated": null,
+        "billSaved": null,
+        "savingsPeriod": null,
+        "batteryReserve": null,
+        "batterySoc": null,
+        "backupHours": null,
+        "chart": null,
+        "breakdown": null,
+        "ecoImpact": null
+      },
+      "payments": {
+        "hasBills": true,
+        "paymentType": "full_payment",
+        "term": "Full Upfront Payment",
+        "termBadge": "Full Payment",
+        "totalAmount": 320000,
+        "amountDue": 320000,
+        "formattedTotalAmount": "₱320,000",
+        "formattedAmountDue": "₱320,000",
+        "downPayment": 320000,
+        "formattedDownPayment": "₱320,000",
+        "standing": "Payment Required",
+        "standingMeta": "Awaiting initial upfront payment or deposit receipt",
+        "currentBillRef": "HS-10492-FP",
+        "receiptVerificationStatus": "Awaiting Submission",
+        "paymentPlan": {
+          "packageName": "Commercial Unit B (6.0 kW)",
+          "term": "Full Upfront Payment",
+          "totalInstallments": 1,
+          "downPayment": 320000,
+          "formattedDownPayment": "₱320,000",
+          "monthlyInstallment": 0,
+          "formattedMonthlyPayment": "₱0",
+          "totalContractAmount": 320000,
+          "formattedTotalContractAmount": "₱320,000"
+        },
+        "schedule": [
+          {
+            "id": "bill-10492-01",
+            "period": "Full System Payment",
+            "due": "Oct 15, 2026",
+            "status": "Payment Required",
+            "badgeClass": "badge-due",
+            "amount": "₱320,000",
+            "receiptId": null
+          }
+        ]
+      },
+      "install": {
+        "hasInstallation": true,
+        "phase": "Scheduled",
+        "phaseStatusText": "Stage 1 of 5",
+        "phaseMeta": "Site assessment scheduled",
+        "completionPct": 10,
+        "milestonesAchieved": "0 of 5 milestones achieved",
+        "nextMilestone": "Site Survey",
+        "nextMilestoneMeta": "Pending contractor dispatch",
+        "targetCompletion": "November 15, 2026",
+        "targetCompletionMeta": "Target commissioning",
+        "handoverDate": null,
+        "milestones": [
+          {
+            "num": "1",
+            "title": "1. Site Assessment & Engineering Survey",
+            "status": "Scheduled",
+            "badgeClass": "badge-neutral",
+            "desc": "Structural assessment and panel layout design scheduled.",
+            "date": "Scheduled for October 5, 2026"
+          },
+          {
+            "num": "2",
+            "title": "2. Solar PV Panels Installed",
+            "status": "Pending",
+            "badgeClass": "badge-neutral",
+            "desc": "Awaiting engineering review approval.",
+            "date": "Pending Stage 1"
+          },
+          {
+            "num": "3",
+            "title": "3. Inverter Setup (Grid-Tied)",
+            "status": "Pending",
+            "badgeClass": "badge-neutral",
+            "desc": "Huawei commercial inverter installation scheduled upon roof mounting.",
+            "date": "Pending Stage 2"
+          },
+          {
+            "num": "4",
+            "title": "4. Utility Grid Connection (Net Metering)",
+            "status": "Pending",
+            "badgeClass": "badge-neutral",
+            "desc": "Distribution utility application to follow.",
+            "date": "Pending Stage 3"
+          },
+          {
+            "num": "5",
+            "title": "5. Final Commissioning & Handover",
+            "status": "Pending",
+            "badgeClass": "badge-neutral",
+            "desc": "Target completion Q4 2026.",
+            "date": "Pending Stage 4"
+          }
+        ],
+        "assignedTeam": {
+          "name": "Hello Solar Dispatch Team",
+          "initials": "HS",
+          "role": "Project Engineering Coordinator",
+          "phone": "+63 2 8888 0100",
+          "note": "Your project engineering lead will be assigned upon site inspection sign-off."
+        },
+        "hardwareSpecs": "Specifications pending on-site electrical audit"
+      },
+      "support": {
+        "hasSupport": true,
+        "leadTechnician": "Hello Solar Dispatch",
+        "leadPhone": "+63 2 8888 0100",
+        "leadContact": "+63 2 8888 0100 (Central Dispatch)",
+        "tickets": []
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-1",
+      "question": "How does Net Metering work with my utility provider?",
+      "answer": "Net Metering allows you to export excess solar electricity produced during sunny daytime hours back to the electrical grid (such as Meralco or your local electric cooperative). In return, you earn billing credits that offset the electricity you consume at night or on overcast days, lowering your overall monthly bill."
+    },
+    {
+      "id": "faq-2",
+      "question": "Does my solar system continue operating during a power brownout?",
+      "answer": "If your Hello Solar package includes a Hybrid Inverter with battery storage (such as the 10 kWh or 20 kWh lithium reserves in Home Primary or Tagaytay Villa), your system automatically engages an Automatic Transfer Switch (ATS) to provide backup electricity to your designated critical household circuits. Systems without battery storage (grid-tied only) automatically shut down during grid outages for utility lineman safety."
+    },
+    {
+      "id": "faq-3",
+      "question": "How do I maximize my solar savings each month?",
+      "answer": "Run your high-consumption household appliances (such as washing machines, dishwashers, water heaters, and pool pumps) between 10:00 AM and 2:00 PM when your solar panels are producing peak kilowatt output. This maximizes direct solar self-consumption and reduces reliance on the grid."
+    },
+    {
+      "id": "faq-4",
+      "question": "How often do my solar panels require cleaning and maintenance?",
+      "answer": "In most Philippine suburban areas, regular rainfall keeps panel surfaces clean. However, during the dry season or in areas with higher dust levels, a gentle rinse with water every 2–3 months prevents dust buildup from decreasing your solar yield. Avoid abrasive detergents or pressure washers."
+    },
+    {
+      "id": "faq-5",
+      "question": "What should I do if my inverter monitoring goes offline?",
+      "answer": "Check that your home Wi-Fi router is turned on and that the signal reaches your inverter's datalogger stick. If you changed your home Wi-Fi name or password, refer to our datalogger reconnection guide or submit a support draft via the Support tab."
+    }
+  ]
+}

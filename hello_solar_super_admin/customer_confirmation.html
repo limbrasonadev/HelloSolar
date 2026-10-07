@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello Solar — Inquiry Confirmation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --surface: #FFFFFF;
+      --primary: #FF8400;
+      --primary-hover: #E07500;
+      --ink: #1C1917;
+      --ink-secondary: #44403C;
+      --muted: #57534E;
+      --line: #E5E0D8;
+      --line-subtle: #EFECE6;
+      --success: #16A34A;
+      --success-hover: #15803D;
+      --success-bg: #F0FDF4;
+      --success-border: #BBF7D0;
+      --danger: #DC2626;
+      --danger-hover: #B91C1C;
+      --danger-bg: #FEF2F2;
+      --danger-border: #FECACA;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 48px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 620px;
+    }
+
+    /* Brand Header */
+    .brand-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .brand-logo svg {
+      width: 34px;
+      height: 34px;
+      color: var(--primary);
+    }
+
+    .brand-logo span {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .brand-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Main Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    .badge-inq {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #FFF7ED;
+      color: #9A3412;
+      border: 1px solid #FFEDD5;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-family: monospace;
+    }
+
+    .pill-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    .pill-status.success {
+      background: var(--success-bg);
+      color: #15803D;
+      border: 1px solid var(--success-border);
+    }
+
+    .pill-status.danger {
+      background: var(--danger-bg);
+      color: #B91C1C;
+      border: 1px solid var(--danger-border);
+    }
+
+    .pill-status.warn {
+      background: #FFFBEB;
+      color: #B45309;
+      border: 1px solid #FDE68A;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 20px 18px; }
+      .detail-row { flex-direction: column; gap: 2px; }
+      .detail-value { text-align: left; }
+    }
+
+    .greeting-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .greeting-desc {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink-secondary);
+      margin-bottom: 20px;
+    }
+
+    /* Super Admin message (shown exactly as saved) */
+    .admin-message {
+      background: #FFFBF5;
+      border: 1px solid #F5E6D3;
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      margin-bottom: 18px;
+    }
+
+    /* Details Grid */
+    .details-box {
+      background: #FAFAF9;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 22px;
+    }
+
+    .details-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 12px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--line-subtle);
+      font-size: 13px;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .detail-label {
+      color: var(--muted);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .detail-value {
+      font-weight: 700;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    /* Action Decision Box */
+    .decision-section {
+      text-align: center;
+      padding-top: 4px;
+    }
+
+    .decision-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .decision-subheading {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .decision-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 500px) {
+      .decision-buttons {
+        flex-direction: row;
+      }
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.18s ease-in-out;
+      border: 1px solid transparent;
+      outline: none;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-proceed {
+      background: var(--success);
+      color: #FFFFFF;
+      border-color: var(--success);
+      box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+    }
+
+    .btn-proceed:hover {
+      background: var(--success-hover);
+      border-color: var(--success-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(22, 163, 74, 0.25);
+    }
+
+    .btn-not-proceed {
+      background: #FFFFFF;
+      color: var(--danger);
+      border-color: var(--danger-border);
+    }
+
+    .btn-not-proceed:hover {
+      background: var(--danger-bg);
+      border-color: #F87171;
+      color: var(--danger-hover);
+    }
+
+    .btn-action:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Response Notification Cards */
+    .response-card {
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .response-card.proceed-active {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: #14532D;
+    }
+
+    .response-card.declined-active {
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      color: #7C2D12;
+    }
+
+    .response-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .proceed-active .response-icon {
+      background: #DCFCE7;
+      color: var(--success);
+    }
+
+    .declined-active .response-icon {
+      background: #FFEDD5;
+      color: #C2410C;
+    }
+
+    .response-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .response-desc {
+      font-size: 13.5px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .btn-switch-response {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 4px 8px;
+    }
+
+    .btn-switch-response:hover {
+      color: var(--ink);
+    }
+
+    /* Error / Warning Card */
+    .error-card {
+      text-align: center;
+      padding: 36px 24px;
+    }
+
+    .error-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #FEE2E2;
+      color: #DC2626;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    /* Footer */
+    .portal-footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .portal-footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .portal-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Brand Header -->
+    <header class="brand-header">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span>Hello Solar</span>
+      </div>
+      <div class="brand-tagline">Inquiry Confirmation</div>
+    </header>
+
+    <!-- Main Card Body (Rendered via JS) -->
+    <main id="mainPortalCard" class="card">
+      <div style="text-align:center; padding: 40px 20px;">
+        <div style="font-size:14px; color:var(--muted);">Loading inquiry details...</div>
+      </div>
+    </main>
+
+    <!-- Secure Footer -->
+    <footer class="portal-footer">
+      <div>© 2026 Hello Solar Philippines · Clean Energy Onboarding</div>
+      <div>Questions? Reach out to <a href="mailto:support@hellosolar.ph">support@hellosolar.ph</a> or call +63 917 554 1000</div>
+    </footer>
+  </div>
+
+  <!-- Shared Data Store -->
+  <script src="../shared/hello-solar-config.js"></script>
+  <script src="data.js?v=20261006-api"></script>
+
+  <script>
+    /**
+     * Inquiry Confirmation Page Client
+     * 
+     * Backend-Ready Architecture:
+     * In a production environment with a cloud backend, this client posts to:
+     * POST /api/inquiries/confirm
+     * {
+     *   inquiryId: string,
+     *   token: string,
+     *   decision: "Proceed" | "Not Proceeding"
+     * }
+     * 
+     * For this standalone prototype, we read and mutate the shared localStorage:
+     * `HELLO_SOLAR_SUPER_ADMIN_DATA_V2` via `HELLO_SOLAR_DB`.
+     */
+
+    const STORAGE_KEY = "HELLO_SOLAR_SUPER_ADMIN_DATA_V2";
+
+    // 1. Parse URL Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const inquiryId = urlParams.get('id') || urlParams.get('inquiryId');
+    const token = urlParams.get('token');
+
+    // api mode (shared/hello-solar-config.js): the backend validates the token and returns only this inquiry
+    const IS_API = !!(window.HS_CONFIG && window.HS_CONFIG.isApi && window.HSApi);
+    let apiInquiry = null;
+    let apiTokenRejected = false;
+    if (IS_API && inquiryId) {
+      // GET /public/inquiries/:id?token=… → { inquiry } (403 when the token is invalid or expired)
+      const res = window.HSApi.requestSync('GET', `/public/inquiries/${encodeURIComponent(inquiryId)}?token=${encodeURIComponent(token || '')}`, null, { auth: false });
+      if (res.ok && res.data) apiInquiry = res.data.inquiry || res.data;
+      apiTokenRejected = res.status === 401 || res.status === 403;
+    }
+
+    // 2. Fetch Inquiry Data (Backend Mock / Shared Store)
+    function loadInquiry() {
+      if (!inquiryId) return null;
+      if (IS_API) return apiInquiry;
+      const db = window.HELLO_SOLAR_DB;
+      if (!db || typeof db.getInquiries !== 'function') return null;
+      const inqs = db.getInquiries();
+      return inqs.find(i => i.id === inquiryId) || null;
+    }
+
+    // 3. Render State
+    function renderPortal() {
+      const card = document.getElementById('mainPortalCard');
+      if (!card) return;
+
+      if (!inquiryId) {
+        card.innerHTML = `
+          <div class="error-card">
+            <div class="error-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h2 style="font-size:20px; font-weight:800; margin-bottom:8px;">Missing Inquiry Link</h2>
+            <p style="font-size:14px; color:var(--ink-secondary); line-height:1.5; margin-bottom:16px;">
+              No inquiry reference was provided. Please check the link sent to your email address or contact Hello Solar support.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const inquiry = loadInquiry() || (apiTokenRejected ? {} : null);
+      if (!inquiry) {
+        card.innerHTML = `
+          <div class="error-card">
+            <div class="error-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h2 style="font-size:20px; font-weight:800; margin-bottom:8px;">Inquiry Not Found</h2>
+            <p style="font-size:14px; color:var(--ink-secondary); line-height:1.5;">
+              Inquiry reference <strong>${escapeHtml(inquiryId)}</strong> could not be located in our records.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      // Token Verification (Security check)
+      if (apiTokenRejected || (!IS_API && inquiry.confirmationToken && token && inquiry.confirmationToken !== token)) {
+        card.innerHTML = `
+          <div class="error-card">
+            <div class="error-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h2 style="font-size:20px; font-weight:800; margin-bottom:8px;">Invalid Confirmation Token</h2>
+            <p style="font-size:14px; color:var(--ink-secondary); line-height:1.5;">
+              The security token in this confirmation link has expired or is invalid. Please request a new confirmation email.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const isProceed = inquiry.customerResponse === 'Proceed' || inquiry.inquiryStatus === 'Proceed';
+      const isNotProceed = inquiry.customerResponse === 'Not Proceed' || inquiry.inquiryStatus === 'Not Proceeding';
+      const hasResponded = isProceed || isNotProceed;
+
+      const solarModel = inquiry.selectedSolarModel || inquiry.package || 'Custom Solar Package';
+      const paymentPref = inquiry.paymentPreference || '—';
+      const bill = inquiry.electricBill || inquiry.monthlyBill || '';
+      const location = inquiry.location || '';
+      const db = window.HELLO_SOLAR_DB;
+      const adminMessage = inquiry.confirmationMessage
+        || (db && typeof db.getDefaultInquiryConfirmationMessage === 'function' ? db.getDefaultInquiryConfirmationMessage(inquiry) : '');
+
+      let decisionHtml = '';
+
+      if (isProceed) {
+        decisionHtml = `
+          <div class="response-card proceed-active">
+            <div class="response-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="response-title">You chose to proceed</div>
+            <div class="response-desc">
+              Thank you. Our team will prepare your project and email your account activation link.
+            </div>
+            <button type="button" class="btn-switch-response" onclick="handleCustomerDecision('Not Proceeding')">
+              Change to Not Proceeding
+            </button>
+          </div>
+        `;
+      } else if (isNotProceed) {
+        decisionHtml = `
+          <div class="response-card declined-active">
+            <div class="response-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="response-title">You chose not to proceed</div>
+            <div class="response-desc">
+              Thank you for letting us know. Your inquiry is closed for now — reach out any time if you change your mind.
+            </div>
+            <button type="button" class="btn-switch-response" onclick="handleCustomerDecision('Proceed')">
+              Change to Proceed
+            </button>
+          </div>
+        `;
+      } else {
+        decisionHtml = `
+          <div class="decision-section">
+            <div class="decision-heading">Would you like to proceed?</div>
+            <div class="decision-subheading">
+              Your choice is sent to the Hello Solar team right away.
+            </div>
+            <div class="decision-buttons">
+              <button type="button" class="btn-action btn-proceed" id="btnCustomerProceed" onclick="handleCustomerDecision('Proceed')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Proceed
+              </button>
+              <button type="button" class="btn-action btn-not-proceed" id="btnCustomerNotProceed" onclick="handleCustomerDecision('Not Proceeding')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                Not Proceeding
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="badge-inq">REF: ${escapeHtml(inquiry.id)}</div>
+          <div>
+            ${
+              isProceed 
+                ? '<span class="pill-status success">✓ Proceed Confirmed</span>'
+                : isNotProceed 
+                  ? '<span class="pill-status danger">Not Proceeding</span>'
+                  : '<span class="pill-status warn">Awaiting Your Reply</span>'
+            }
+          </div>
+        </div>
+
+        <h1 class="greeting-title">Hello, ${escapeHtml(inquiry.name)}</h1>
+        ${adminMessage ? `<div class="admin-message">${escapeHtml(adminMessage)}</div>` : ''}
+
+        <div class="details-box">
+          <div class="details-title">Inquiry Summary</div>
+          <div class="detail-row">
+            <span class="detail-label">Solar Model</span>
+            <span class="detail-value">${escapeHtml(solarModel)}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Payment</span>
+            <span class="detail-value">${escapeHtml(paymentPref)}</span>
+          </div>
+          ${bill ? `<div class="detail-row">
+            <span class="detail-label">Monthly Bill</span>
+            <span class="detail-value">${escapeHtml(bill)}</span>
+          </div>` : ''}
+          ${location ? `<div class="detail-row">
+            <span class="detail-label">Location</span>
+            <span class="detail-value">${escapeHtml(location)}</span>
+          </div>` : ''}
+        </div>
+
+        ${decisionHtml}
+      `;
+    }
+
+    // 4. Handle Customer Action (Backend Ready)
+    async function handleCustomerDecision(decision) {
+      const isProceed = decision === 'Proceed' || decision === 'Proceed with Application';
+      const cleanDecision = isProceed ? 'Proceed' : 'Not Proceeding';
+
+      // Disable buttons while processing
+      const btnProceed = document.getElementById('btnCustomerProceed');
+      const btnNotProceed = document.getElementById('btnCustomerNotProceed');
+      if (btnProceed) btnProceed.disabled = true;
+      if (btnNotProceed) btnNotProceed.disabled = true;
+
+      try {
+        /**
+         * PRODUCTION API ENDPOINT SPECIFICATION:
+         * -------------------------------------------------------------
+         * const response = await fetch('/api/inquiries/confirm', {
+         *   method: 'POST',
+         *   headers: { 'Content-Type': 'application/json' },
+         *   body: JSON.stringify({
+         *     inquiryId: inquiryId,
+         *     token: token,
+         *     decision: cleanDecision
+         *   })
+         * });
+         * const result = await response.json();
+         * -------------------------------------------------------------
+         */
+
+        if (IS_API) {
+          // POST /public/inquiries/:id/response { token, decision } → { inquiry }
+          const res = await window.HSApi.request('POST', `/public/inquiries/${encodeURIComponent(inquiryId)}/response`, { token, decision: cleanDecision }, { auth: false });
+          if (!res.ok) throw new Error(res.error || 'Could not save the decision.');
+          apiInquiry = (res.data && (res.data.inquiry || res.data)) || apiInquiry;
+          renderPortal();
+          return;
+        }
+
+        // LOCAL PROTOTYPE EXECUTION:
+        const db = window.HELLO_SOLAR_DB;
+        if (db && typeof db.updateInquiryCustomerResponse === 'function') {
+          const updated = db.updateInquiryCustomerResponse(inquiryId, cleanDecision, `CUSTOMER (${inquiryId})`);
+          if (updated) {
+            // Also log explicit confirmation activity
+            db.logActivity(
+              "Customer",
+              updated.name || "Customer",
+              `Customer (${updated.name}) submitted decision: "${cleanDecision}" via confirmation link`,
+              inquiryId,
+              {
+                actorId: inquiryId,
+                recordType: "Contact Inquiry",
+                details: { inquiryId, decision: cleanDecision, token }
+              }
+            );
+          }
+        }
+
+        // Notify other open tabs (e.g. Super Admin dashboard)
+        try {
+          window.dispatchEvent(new Event('storage'));
+        } catch (e) {}
+
+        // Re-render portal view with updated decision
+        renderPortal();
+
+      } catch (err) {
+        console.error("Confirmation error:", err);
+        alert("An error occurred while saving your confirmation. Please try again or contact Hello Solar.");
+        renderPortal();
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPortal();
+    });
+  </script>
+</body>
+</html>

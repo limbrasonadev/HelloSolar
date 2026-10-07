@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script>
+        // Installer session guard: a valid installer session for an Active partner INS-### account is required
+        (function () {
+            try {
+                if (!window.HSShared || !window.HSShared.session.isValid("installer")) {
+                    if (window.HSShared) window.HSShared.session.clear("installer");
+                    window.location.replace("login.html");
+                }
+            } catch (e) {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar Installer Portal — Assigned installation jobs, site details, and field checklist.">
+    <title>Hello Solar Installer — My Jobs</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/workspace.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/installation-progress.css">
+    <link rel="stylesheet" href="assets/css/portal-polish.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="myjob.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Installer Portal</div>
+
+
+            <nav class="nav" id="nav" aria-label="Installer navigation">
+                <a class="nav-link active" href="myjob.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    My Jobs
+                </a>
+
+                <a class="nav-link" href="profile.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
+                </a>
+
+                <a class="nav-link" href="payout.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                        <path d="M6 15h4" />
+                    </svg>
+                    Payout
+                </a>
+
+                <a class="nav-link" href="support.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 11a9 9 0 0 1 18 0" />
+                        <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                        <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                        <path d="M17 17c0 2-2 3-5 3" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Account / Logout -->
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="login.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-title">My Jobs</h1>
+                    <a class="mobile-logo" href="myjob.html" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="mobile-header">
+                    <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                        aria-expanded="false" aria-controls="sidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="profile.html" class="profile" aria-label="View installer profile">
+                        <div class="profile-avatar" title="Installer Profile">SI</div>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <div class="installer-workspace">
+                    <!-- Page Header with Clean Greeting -->
+                    <div class="workspace-head">
+                        <div>
+                            <h1 class="workspace-title">My Jobs</h1>
+
+                        </div>
+                    </div>
+
+                    <!-- SUMMARY: 3 Interactive KPI Cards -->
+                    <section class="installer-stats-grid" id="jobsStatsGrid" aria-label="Job Statistics">
+                        <button type="button" class="stat-card stat-card-interactive" id="kpiCardNewJobs"
+                            data-category="new" aria-label="View New Jobs requiring confirmation">
+                            <div class="stat-card-header">
+                                <span class="stat-label">New Jobs</span>
+                                <span class="stat-card-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="stat-value" id="statNewJobs">0</div>
+
+                        </button>
+                        <button type="button" class="stat-card stat-card-interactive" id="kpiCardInProgress"
+                            data-category="in_progress" aria-label="View In Progress Jobs">
+                            <div class="stat-card-header">
+                                <span class="stat-label">In Progress</span>
+                                <span class="stat-card-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="stat-value" id="statInProgress">0</div>
+                        </button>
+                        <button type="button" class="stat-card stat-card-interactive" id="kpiCardMaintenance"
+                            data-category="maintenance" aria-label="View Maintenance Work">
+                            <div class="stat-card-header">
+                                <span class="stat-label">Maintenance</span>
+                                <span class="stat-card-arrow" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="stat-value" id="statMaintenance">0</div>
+
+                        </button>
+                    </section>
+
+                    <!-- MAIN: My Jobs Panel -->
+                    <section class="panel-card" id="myJobsPanel">
+                        <div class="panel-header jobs-panel-header">
+                            <h2 class="panel-title">Jobs</h2>
+                            <div class="jobs-filter-wrap">
+                                <div class="custom-filter-dropdown" id="jobsStatusFilterDropdown">
+                                    <button type="button" class="custom-filter-trigger" id="jobFilterTrigger"
+                                        aria-haspopup="listbox" aria-expanded="false" aria-label="Filter jobs by status">
+                                        <span class="custom-filter-icon-prefix" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                            </svg>
+                                        </span>
+                                        <span class="custom-filter-status-dot dot-all" id="jobFilterStatusDot"></span>
+                                        <span class="custom-filter-selected" id="jobFilterSelected">All Jobs</span>
+                                        <svg class="custom-filter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <ul class="custom-filter-menu" id="jobFilterMenu" role="listbox" aria-label="Filter jobs by status" tabindex="-1">
+                                        <li class="custom-filter-item active" role="option" aria-selected="true" data-value="ALL" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-all"></span>
+                                                <span class="custom-filter-item-text">All Jobs</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="New Job" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-new"></span>
+                                                <span class="custom-filter-item-text">New Jobs</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="In Progress" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-progress"></span>
+                                                <span class="custom-filter-item-text">In Progress</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Maintenance" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-maintenance"></span>
+                                                <span class="custom-filter-item-text">Maintenance</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Completed" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-completed"></span>
+                                                <span class="custom-filter-item-text">Completed</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                    <!-- Hidden native select for full programmatic compatibility -->
+                                    <select class="filter-native-select-hidden" id="jobStatusFilter" aria-hidden="true" tabindex="-1">
+                                        <option value="ALL" selected>All Jobs</option>
+                                        <option value="New Job">New Jobs</option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Responsive Table (Desktop) / Cards (Mobile) -->
+                        <div class="table-responsive">
+                            <table class="data-table" id="jobsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Application ID</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="jobsTableBody">
+                                    <!-- Rendered dynamically via workspace.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination / See More Expansion Controls -->
+                        <div class="table-pagination-footer" id="jobsPaginationFooter" style="display: none;">
+                            <button type="button" class="btn-see-more" id="btnToggleJobsExpand">
+                                <span id="seeMoreJobsText">See more</span>
+                                <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Preserved Data-Loader elements (Hidden from UI) -->
+                    <div style="display: none;" aria-hidden="true">
+                        <input type="file" id="jsonFileInput" accept=".json,application/json">
+                        <button type="button" id="btnResetJsonOverride"></button>
+                        <div id="jsonStatusAlert"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+            <a href="myjob.html" class="mobile-bottom-nav-item active" aria-current="page" aria-label="My Jobs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>My Jobs</span>
+            </a>
+            <a href="profile.html" class="mobile-bottom-nav-item" aria-label="Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="payout.html" class="mobile-bottom-nav-item" aria-label="Payout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <path d="M2 10h20" />
+                    <path d="M6 15h4" />
+                </svg>
+                <span>Payout</span>
+            </a>
+            <a href="support.html" class="mobile-bottom-nav-item" aria-label="Support">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 11a9 9 0 0 1 18 0" />
+                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                    <path d="M17 17c0 2-2 3-5 3" />
+                </svg>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- KPI Category Modal: Shows All Jobs in Clicked KPI Category -->
+    <div class="installer-modal-backdrop" id="kpiModal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="modalKpiTitle">
+        <div class="kpi-modal-card">
+            <div class="kpi-modal-header">
+                <div class="kpi-modal-header-info">
+                    <div class="kpi-modal-title-wrap">
+                        <h3 class="kpi-modal-title" id="modalKpiTitle">Jobs</h3>
+                        <span class="kpi-modal-count-badge" id="modalKpiCount">0</span>
+                    </div>
+                    <p class="kpi-modal-sub" id="modalKpiSubtitle">Job details</p>
+                </div>
+                <button type="button" class="installer-modal-close" id="closeKpiModal" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="kpi-modal-body" id="modalKpiList">
+                <!-- Populated dynamically via workspace.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Progressive Disclosure Modal: 6-Tier Technical Job Details -->
+    <div class="installer-modal-backdrop" id="jobModal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="modalJobTitle">
+        <div class="installer-modal-card">
+            <!-- 1. JOB HEADER -->
+            <div class="installer-modal-header">
+                <div>
+                    <div class="modal-eyebrow" id="modalJobId">APPLICATION ID</div>
+                    <h3 class="installer-modal-title" id="modalJobTitle">Job Details</h3>
+                    <p class="installer-modal-sub" id="modalJobSub"></p>
+                </div>
+                <button type="button" class="installer-modal-close" id="closeJobModal" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="installer-modal-body">
+                <!-- Status & schedule -->
+                <div class="modal-status-strip">
+                    <div class="modal-status-item">
+                        <span class="modal-status-label">Status</span>
+                        <div id="modalJobStatus"></div>
+                    </div>
+                    <div class="modal-status-item">
+                        <span class="modal-status-label">Schedule</span>
+                        <span class="modal-status-val" id="modalJobDate">—</span>
+                    </div>
+                </div>
+
+                <!-- Next step + the only place job actions appear -->
+                <div class="modal-workflow-section" id="modalWorkflowSection">
+                    <div class="modal-workflow-head">
+                        <span class="modal-section-label">Next step</span>
+                        <span class="modal-workflow-status-tag" id="modalWorkflowStatusTag" hidden>Awaiting Action</span>
+                    </div>
+                    <p class="modal-task-text" id="modalJobNextTask">—</p>
+                    <div class="modal-workflow-actions" id="modalWorkflowActions">
+                        <!-- Populated dynamically via workspace.js -->
+                    </div>
+                    <!-- Inline progress updater (maintenance) -->
+                    <div class="modal-progress-updater" id="modalProgressUpdater" style="display: none;">
+                        <div class="progress-updater-label">Set progress</div>
+                        <div class="progress-quick-chips">
+                            <button type="button" class="chip-progress" data-pct="25">25%</button>
+                            <button type="button" class="chip-progress" data-pct="50">50%</button>
+                            <button type="button" class="chip-progress" data-pct="75">75%</button>
+                            <button type="button" class="chip-progress" data-pct="90">90%</button>
+                            <button type="button" class="chip-progress" data-pct="100">100%</button>
+                        </div>
+                        <div class="progress-input-row">
+                            <label class="sr-only" for="inputCustomProgress">Progress percent</label>
+                            <input type="number" id="inputCustomProgress" min="0" max="100" class="input-progress-val" placeholder="0–100" inputmode="numeric">
+                            <span class="input-progress-suffix" aria-hidden="true">%</span>
+                            <button type="button" class="btn btn-primary btn-sm" id="btnSaveProgress">Save</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btnCancelProgress">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress (installation or maintenance) -->
+                <div class="modal-progress-section">
+                    <div class="modal-progress-head">
+                        <span class="modal-section-label">Installation Progress</span>
+                        <span class="modal-progress-pct" id="modalProgressPct">0%</span>
+                    </div>
+                    <div class="modal-progress-track">
+                        <div class="modal-progress-bar" id="modalProgressBar" style="width: 0%;"></div>
+                    </div>
+                    <div class="modal-progress-stage" id="modalProgressStage">—</div>
+                </div>
+
+                <!-- Job details -->
+                <dl class="modal-snapshot-grid">
+                    <div class="snapshot-card">
+                        <dt class="snapshot-label">System</dt>
+                        <dd class="snapshot-val" id="modalSnapshotSystem">—</dd>
+                    </div>
+                    <div class="snapshot-card">
+                        <dt class="snapshot-label">Coordinator</dt>
+                        <dd class="snapshot-val" id="modalSnapshotCoord">—</dd>
+                    </div>
+                    <div class="snapshot-card full">
+                        <dt class="snapshot-label">Site access</dt>
+                        <dd class="snapshot-val" id="modalSnapshotAccess">—</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="installer-modal-footer" id="modalJobFooter">
+                <a href="support.html" id="modalSupportBtn" class="btn btn-secondary btn-sm">Contact Coordinator</a>
+                <div class="modal-footer-primary-actions" id="modalFooterPrimaryActions">
+                    <!-- Dynamic primary action mirror -->
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnCloseJobModalFooter">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Installation Progress Modal (accepted jobs; data keyed by APP ID, shared with Super Admin) -->
+    <div class="installer-modal-backdrop" id="progressModal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="progressModalTitle">
+        <div class="installer-modal-card progress-modal-card">
+            <div class="installer-modal-header">
+                <div>
+                    <div class="modal-eyebrow" id="progressModalAppId">APPLICATION ID</div>
+                    <h3 class="installer-modal-title" id="progressModalTitle">Installation Progress</h3>
+                    <p class="installer-modal-sub" id="progressModalSub"></p>
+                </div>
+                <button type="button" class="installer-modal-close" id="closeProgressModal" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <form class="installer-modal-body progress-form" id="progressForm" novalidate>
+                <div class="progress-form-alert" id="progressFormAlert" role="alert" hidden></div>
+
+                <fieldset class="progress-fieldset progress-fieldset-plain">
+                    <div class="progress-field full">
+                        <label for="pfReference">Reference Number <span class="req" aria-hidden="true">*</span></label>
+                        <input type="text" id="pfReference" name="referenceNumber" maxlength="60"
+                            placeholder="e.g., JO-2026-0142" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="progress-fieldset">
+                    <legend class="modal-section-label">Solar Panels</legend>
+                    <div class="progress-grid">
+                        <div class="progress-field"><label for="pfPanelBrand">Brand</label>
+                            <input type="text" id="pfPanelBrand" data-group="solarPanels" data-key="brand" maxlength="60"></div>
+                        <div class="progress-field"><label for="pfPanelModel">Model</label>
+                            <input type="text" id="pfPanelModel" data-group="solarPanels" data-key="model" maxlength="80"></div>
+                        <div class="progress-field"><label for="pfPanelWattage">Wattage per Panel (W)</label>
+                            <input type="number" id="pfPanelWattage" data-group="solarPanels" data-key="wattage" data-unit="W" min="0" inputmode="decimal"></div>
+                        <div class="progress-field"><label for="pfPanelQty">Quantity Installed</label>
+                            <input type="number" id="pfPanelQty" data-group="solarPanels" data-key="quantity" min="0" inputmode="numeric"></div>
+                        <div class="progress-field full"><label for="pfPanelSerials">Serial Numbers</label>
+                            <textarea id="pfPanelSerials" data-group="solarPanels" data-key="serialNumbers" rows="2"
+                                placeholder="One per line or comma-separated"></textarea></div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="progress-fieldset">
+                    <legend class="modal-section-label">Inverter</legend>
+                    <div class="progress-grid">
+                        <div class="progress-field"><label for="pfInvBrand">Brand</label>
+                            <input type="text" id="pfInvBrand" data-group="inverter" data-key="brand" maxlength="60"></div>
+                        <div class="progress-field"><label for="pfInvModel">Model</label>
+                            <input type="text" id="pfInvModel" data-group="inverter" data-key="model" maxlength="80"></div>
+                        <div class="progress-field"><label for="pfInvCapacity">Capacity (kW)</label>
+                            <input type="number" id="pfInvCapacity" data-group="inverter" data-key="capacityKw" data-unit="kW" min="0" step="0.1" inputmode="decimal"></div>
+                        <div class="progress-field"><label for="pfInvSerial">Serial Number</label>
+                            <input type="text" id="pfInvSerial" data-group="inverter" data-key="serialNumber" maxlength="80"></div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="progress-fieldset">
+                    <legend class="modal-section-label">Battery</legend>
+                    <div class="progress-grid">
+                        <div class="progress-field"><label for="pfBatBrand">Brand</label>
+                            <input type="text" id="pfBatBrand" data-group="battery" data-key="brand" maxlength="60"></div>
+                        <div class="progress-field"><label for="pfBatModel">Model</label>
+                            <input type="text" id="pfBatModel" data-group="battery" data-key="model" maxlength="80"></div>
+                        <div class="progress-field"><label for="pfBatCapacity">Capacity (kWh)</label>
+                            <input type="number" id="pfBatCapacity" data-group="battery" data-key="capacityKwh" data-unit="kWh" min="0" step="0.1" inputmode="decimal"></div>
+                        <div class="progress-field"><label for="pfBatQty">Quantity</label>
+                            <input type="number" id="pfBatQty" data-group="battery" data-key="quantity" min="0" inputmode="numeric"></div>
+                        <div class="progress-field full"><label for="pfBatSerials">Serial Numbers</label>
+                            <textarea id="pfBatSerials" data-group="battery" data-key="serialNumbers" rows="2"
+                                placeholder="Leave blank if no battery is included"></textarea></div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="progress-fieldset">
+                    <legend class="modal-section-label">Progress</legend>
+                    <div class="progress-grid">
+                        <div class="progress-field"><label for="pfPercent">Progress (%)</label>
+                            <input type="number" id="pfPercent" min="0" max="99" inputmode="numeric">
+                        </div>
+                        <div class="progress-field"><label for="pfStage">Current Stage</label>
+                            <select id="pfStage"><option value="">Select stage</option></select>
+                        </div>
+                        <div class="progress-field full">
+                            <div class="modal-progress-track"><div class="modal-progress-bar" id="pfProgressBar" style="width: 0%;"></div></div>
+                            <p class="progress-hint" id="pfPercentHint"></p>
+                        </div>
+                        <div class="progress-field full"><label for="pfNotes">Progress Notes</label>
+                            <textarea id="pfNotes" rows="3" maxlength="1000"
+                                placeholder="Work completed, issues found, next steps…"></textarea></div>
+                    </div>
+                </fieldset>
+
+                <p class="progress-meta" id="progressLastUpdated"></p>
+            </form>
+
+            <div class="installer-modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnCancelProgressModal">Close</button>
+                <button type="submit" form="progressForm" class="btn btn-workflow-primary btn-sm" id="btnSaveProgressModal">
+                    Save Progress
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/installer_data.js"></script>
+    <script src="assets/js/workspace.js"></script>
+    <script src="assets/js/installation-progress.js"></script>
+    <script src="assets/js/notifications.js"></script>
+</body>
+
+</html>

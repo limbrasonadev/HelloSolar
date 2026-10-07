@@ -1,0 +1,1381 @@
+/* ==========================================================================
+   HELLO SOLAR INSTALLER PORTAL — UI CONSISTENCY LAYER
+   Loaded last on My Jobs, Payout, Support and Profile. Visual only: it
+   normalises cards, tables, badges, buttons and modals to one scale.
+   Scale: card radius 14px · control radius 8px · gaps 12/16/20px
+   ========================================================================== */
+
+:root {
+    --ui-radius-card: 14px;
+    --ui-radius-inner: 10px;
+    --ui-radius-ctrl: 8px;
+    --ui-border: var(--border, #E5E0D8);
+    --ui-divider: #F0ECE5;
+    --ui-muted: var(--text-muted, #57534E);
+    --ui-faint: var(--text-light, #78716C);
+    --ui-ink: var(--ink, #1C1917);
+    --ui-orange: var(--orange, #FF8400);
+    --ui-orange-hover: #F07C00;
+    --ui-subtle-bg: #FAF7F2;
+    --ui-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. PAGE RHYTHM
+   On desktop the top bar already names the page, so the repeated in-page
+   heading is hidden. On mobile (logo in the top bar) the heading returns.
+   -------------------------------------------------------------------------- */
+.installer-workspace {
+    gap: 16px;
+    padding-bottom: 8px;
+}
+
+@media (min-width: 769px) {
+    .installer-workspace > .workspace-head,
+    .support-head-info {
+        display: none;
+    }
+}
+
+.profile-container {
+    max-width: 1280px;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. KPI CARDS
+   -------------------------------------------------------------------------- */
+.stat-card,
+#payoutStatsGrid > .stat-card:nth-child(2) {
+    border: 1px solid var(--ui-border);
+    border-radius: var(--ui-radius-card);
+    padding: 16px 18px;
+    min-height: 92px;
+    gap: 8px;
+    box-shadow: var(--ui-shadow);
+    justify-content: space-between;
+}
+
+#payoutStatsGrid > .stat-card:hover {
+    border-color: var(--ui-border);
+    box-shadow: var(--ui-shadow);
+}
+
+button.stat-card.stat-card-interactive:hover {
+    transform: none;
+    border-color: var(--ui-orange);
+    box-shadow: 0 2px 8px rgba(255, 132, 0, 0.10);
+}
+
+.stat-label {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--ui-muted);
+    margin: 0;
+}
+
+.stat-card-arrow {
+    width: 22px;
+    height: 22px;
+}
+
+.stat-value {
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+/* "Next payout" holds a date or a short sentence, not a currency figure */
+#statNextRelease {
+    font-size: 18px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   3. PANELS & TABLES
+   -------------------------------------------------------------------------- */
+.panel-card {
+    border: 1px solid var(--ui-border);
+    border-radius: var(--ui-radius-card);
+    box-shadow: var(--ui-shadow);
+    background: #FFFFFF;
+}
+
+.jobs-panel-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--ui-border);
+    border-radius: var(--ui-radius-card) var(--ui-radius-card) 0 0;
+}
+
+.jobs-panel-header .panel-title {
+    font-size: 16px;
+}
+
+.custom-filter-trigger {
+    height: 36px;
+    border-width: 1px;
+    border-radius: var(--ui-radius-ctrl);
+    box-shadow: none;
+}
+
+.table-responsive {
+    border-radius: 0 0 var(--ui-radius-card) var(--ui-radius-card);
+}
+
+.data-table th {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ui-faint);
+    padding: 11px 16px;
+    background: var(--ui-subtle-bg);
+    border-bottom: 1px solid var(--ui-border);
+}
+
+.data-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--ui-divider);
+}
+
+#jobsTable th:first-child,
+#jobsTable td:first-child,
+#payoutsTable th:first-child,
+#payoutsTable td:first-child {
+    padding-left: 20px;
+}
+
+#jobsTable th:last-child,
+#jobsTable td:last-child,
+#payoutsTable th:last-child,
+#payoutsTable td:last-child {
+    padding-right: 20px;
+    text-align: right;
+}
+
+/* My Jobs: ID gets the room, status and action stay compact */
+#jobsTable th:nth-child(1),
+#jobsTable td:nth-child(1) { width: 52%; }
+#jobsTable th:nth-child(2),
+#jobsTable td:nth-child(2) { width: 28%; }
+#jobsTable th:nth-child(3),
+#jobsTable td:nth-child(3) { width: 20%; }
+
+/* Payouts: Job | Net | Status | Date | Action */
+#payoutsTable th:nth-child(1),
+#payoutsTable td:nth-child(1) { width: 32%; }
+#payoutsTable th:nth-child(2),
+#payoutsTable td:nth-child(2) { width: 18%; }
+#payoutsTable th:nth-child(3),
+#payoutsTable td:nth-child(3) { width: 20%; }
+#payoutsTable th:nth-child(4),
+#payoutsTable td:nth-child(4) { width: 15%; }
+#payoutsTable th:nth-child(5),
+#payoutsTable td:nth-child(5) { width: 15%; }
+
+/* Row hover: quiet tint instead of an orange outline per cell */
+.data-table tbody tr:hover td,
+.data-table tbody tr:hover td:first-child,
+.data-table tbody tr:hover td:last-child {
+    box-shadow: none;
+    background: #FFFCF7;
+}
+
+.applicant-id-text,
+#jobsTable .applicant-id-text {
+    font-size: 14px;
+}
+
+.applicant-location-sub,
+#jobsTable .applicant-location-sub {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.cell-applicant-link:hover .applicant-location-sub,
+#jobsTable .cell-applicant-link:hover .applicant-location-sub {
+    color: var(--ui-muted) !important;
+}
+
+.payout-customer-name {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.payout-job-id,
+#payoutsTable .payout-job-id {
+    font-family: inherit !important;
+    font-size: 12px;
+    color: var(--ui-faint);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.payout-table-amount {
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.table-pagination-footer {
+    padding: 8px 20px;
+    border-top: 1px solid var(--ui-divider);
+    background: transparent;
+    border-radius: 0 0 var(--ui-radius-card) var(--ui-radius-card);
+}
+
+.btn-see-more {
+    font-size: 13px;
+    padding: 6px 12px;
+}
+
+.table-empty {
+    padding: 32px 20px;
+}
+
+.table-empty strong {
+    font-size: 14px;
+}
+
+.table-empty p {
+    font-size: 12.5px;
+}
+
+/* --------------------------------------------------------------------------
+   4. STATUS BADGES — one size everywhere
+   -------------------------------------------------------------------------- */
+.status-badge {
+    gap: 6px;
+    min-height: 24px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.data-table .status-badge,
+#jobsTable .status-badge,
+#payoutsTable .status-badge {
+    margin: 0 auto;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   5. BUTTONS
+   Primary: orange with dark text (matches the design source of truth).
+   Secondary: white with border. Activate stays green.
+   -------------------------------------------------------------------------- */
+.btn,
+.btn-action,
+.btn-view-job-details,
+.btn-view-payout-breakdown,
+.modal-workflow-actions .btn {
+    font-family: inherit;
+    border-radius: var(--ui-radius-ctrl);
+    line-height: 1.2;
+}
+
+.btn {
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+}
+
+.btn-sm {
+    min-height: 36px;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.btn-primary,
+.btn-workflow-primary,
+.profile-page .btn-primary {
+    background: var(--ui-orange) !important;
+    border: 1px solid var(--ui-orange) !important;
+    color: #1C1917 !important;
+    font-weight: 700;
+    box-shadow: none !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible,
+.btn-workflow-primary:hover,
+.btn-workflow-primary:focus-visible,
+.profile-page .btn-primary:hover,
+.profile-page .btn-primary:focus-visible {
+    background: var(--ui-orange-hover) !important;
+    border-color: var(--ui-orange-hover) !important;
+    color: #1C1917 !important;
+}
+
+.btn-secondary,
+.btn-workflow-secondary {
+    background: #FFFFFF !important;
+    border: 1px solid var(--ui-border) !important;
+    color: var(--ui-ink) !important;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible,
+.btn-workflow-secondary:hover,
+.btn-workflow-secondary:focus-visible {
+    border-color: var(--ui-orange) !important;
+    color: var(--ui-ink) !important;
+    background: #FFFCF7 !important;
+}
+
+.btn-workflow-activate {
+    box-shadow: none !important;
+}
+
+.btn:focus-visible,
+.btn-action:focus-visible,
+.btn-view-job-details:focus-visible,
+.btn-view-payout-breakdown:focus-visible {
+    outline: 2px solid var(--ui-orange);
+    outline-offset: 2px;
+}
+
+/* Row-level "View" button (tables + KPI list) */
+.btn-action,
+.btn-view-job-details,
+.btn-view-payout-breakdown,
+.data-table .btn-action {
+    min-height: 32px;
+    height: 32px;
+    padding: 0 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border: 1px solid var(--ui-border);
+    background: #FFFFFF;
+    color: var(--ui-ink);
+}
+
+.btn-action:hover,
+.btn-view-job-details:hover,
+.btn-view-payout-breakdown:hover {
+    border-color: var(--ui-orange);
+    color: var(--ui-ink);
+    background: #FFFCF7;
+}
+
+#jobsTable .btn-view-job-details,
+#payoutsTable .btn-view-payout-breakdown {
+    margin: 0 0 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. MODALS — shared shell
+   -------------------------------------------------------------------------- */
+.installer-modal-backdrop {
+    background: rgba(28, 25, 23, 0.45);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.installer-modal-card,
+.kpi-modal-card {
+    border-radius: var(--ui-radius-card);
+    border: 1px solid var(--ui-border);
+    box-shadow: 0 20px 50px rgba(28, 25, 23, 0.18);
+}
+
+.installer-modal-card {
+    max-width: 540px;
+}
+
+.installer-modal-header,
+.kpi-modal-header {
+    padding: 16px 20px;
+    gap: 12px;
+    border-bottom: 1px solid var(--ui-border);
+    align-items: flex-start;
+}
+
+.installer-modal-header > div:first-child,
+.kpi-modal-header-info {
+    min-width: 0;
+}
+
+.modal-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+}
+
+.installer-modal-title,
+.kpi-modal-title {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.installer-modal-sub,
+.kpi-modal-sub {
+    font-size: 12.5px;
+    color: var(--ui-muted);
+    margin-top: 2px;
+}
+
+.installer-modal-sub:empty {
+    display: none;
+}
+
+.installer-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--ui-radius-ctrl);
+    background: transparent;
+    border: 1px solid var(--ui-border);
+}
+
+.installer-modal-close:hover {
+    background: var(--ui-subtle-bg);
+    border-color: var(--border-strong, #D6D0C5);
+}
+
+.installer-modal-body {
+    padding: 16px 20px;
+    gap: 12px;
+}
+
+.installer-modal-footer {
+    padding: 12px 20px;
+    gap: 8px;
+    background: var(--ui-subtle-bg);
+    border-top: 1px solid var(--ui-border);
+}
+
+.modal-footer-primary-actions:empty {
+    display: none;
+}
+
+/* Shared inner blocks: one border, one radius, one padding */
+.modal-status-strip,
+.modal-workflow-section,
+.modal-progress-section,
+.snapshot-card,
+.spec-item,
+.payout-breakdown-card {
+    border: 1px solid var(--ui-border);
+    border-radius: var(--ui-radius-inner);
+    background: #FFFFFF;
+    padding: 12px 14px;
+}
+
+.modal-section-label,
+.modal-status-label,
+.snapshot-label,
+.spec-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ui-faint);
+}
+
+.snapshot-val,
+.spec-value,
+.modal-status-val {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ui-ink);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   7. JOB DETAILS MODAL
+   -------------------------------------------------------------------------- */
+.modal-status-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+    background: var(--ui-subtle-bg);
+}
+
+.modal-status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+}
+
+/* Next step + actions */
+.modal-workflow-section {
+    gap: 10px;
+    border-left: 3px solid var(--ui-orange);
+}
+
+.modal-workflow-status-tag[hidden] {
+    display: none;
+}
+
+.modal-task-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ui-ink);
+    line-height: 1.45;
+}
+
+.modal-workflow-actions {
+    gap: 8px;
+}
+
+.modal-workflow-actions:empty {
+    display: none;
+}
+
+.modal-workflow-actions .btn {
+    min-height: 38px;
+    padding: 0 16px;
+    font-size: 13px;
+    gap: 6px;
+}
+
+/* Inline progress updater (maintenance) */
+.modal-progress-updater {
+    margin-top: 2px;
+    padding: 12px;
+    gap: 10px;
+    border-radius: var(--ui-radius-ctrl);
+    background: var(--ui-subtle-bg);
+    border: 1px solid var(--ui-border);
+}
+
+.progress-updater-label {
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.progress-quick-chips {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.chip-progress {
+    min-height: 30px;
+    padding: 0 12px;
+    font-size: 12.5px;
+    font-family: inherit;
+}
+
+.chip-progress:hover {
+    background: #FFF4E5;
+    border-color: var(--ui-orange);
+    color: var(--ui-ink);
+}
+
+.chip-progress.active {
+    background: var(--ui-orange);
+    border-color: var(--ui-orange);
+    color: #1C1917;
+}
+
+.progress-input-row {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.input-progress-val {
+    width: 84px;
+    height: 36px;
+    font-family: inherit;
+    border-radius: var(--ui-radius-ctrl);
+}
+
+.input-progress-val:focus {
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15);
+}
+
+.input-progress-suffix {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ui-muted);
+    margin-left: -4px;
+    margin-right: 4px;
+}
+
+/* Progress block */
+.modal-progress-section {
+    gap: 8px;
+}
+
+.modal-progress-section[hidden] {
+    display: none;
+}
+
+.modal-progress-pct {
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+
+.modal-progress-track {
+    height: 8px;
+    background: #EFEAE2;
+}
+
+.modal-progress-stage {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ui-muted);
+}
+
+/* Details grid (dl) */
+.modal-snapshot-grid {
+    margin: 0;
+    gap: 8px;
+}
+
+.modal-snapshot-grid dd {
+    margin: 0;
+}
+
+.snapshot-card {
+    gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   8. KPI LIST MODAL
+   -------------------------------------------------------------------------- */
+.kpi-modal-card {
+    max-width: 560px;
+}
+
+.kpi-modal-count-badge {
+    font-size: 11.5px;
+    padding: 2px 8px;
+}
+
+.kpi-modal-body {
+    padding: 14px 20px 18px;
+    gap: 8px;
+    background: var(--ui-subtle-bg);
+}
+
+.kpi-job-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--ui-radius-inner);
+    box-shadow: none;
+}
+
+.kpi-job-item:hover {
+    border-color: var(--border-strong, #D6D0C5);
+    box-shadow: none;
+}
+
+.kpi-job-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+}
+
+.kpi-job-title-group {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+}
+
+.kpi-id-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ui-ink);
+}
+
+.kpi-job-customer {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ui-muted);
+}
+
+.kpi-job-meta {
+    font-size: 12px;
+    color: var(--ui-faint);
+    line-height: 1.4;
+}
+
+.kpi-job-side {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.kpi-modal-empty {
+    padding: 28px 16px;
+}
+
+/* --------------------------------------------------------------------------
+   9. PAYOUT MODAL
+   -------------------------------------------------------------------------- */
+.payout-breakdown-card {
+    gap: 8px;
+}
+
+.payout-row {
+    font-size: 13px;
+    color: var(--ui-ink);
+}
+
+.payout-row.sub {
+    font-size: 12.5px;
+    color: var(--ui-muted);
+}
+
+.payout-deduction {
+    color: #B91C1C;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.payout-row.highlight {
+    padding-top: 8px;
+    border-top: 1px solid var(--ui-divider);
+    font-size: 14.5px;
+}
+
+.payout-row.highlight .amount {
+    color: #047857;
+    font-variant-numeric: tabular-nums;
+}
+
+.specs-grid {
+    gap: 8px;
+}
+
+#modalPayoutId,
+#modalJobRef,
+#modalBankRef {
+    font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   10. INSTALLATION PROGRESS FORM MODAL
+   -------------------------------------------------------------------------- */
+.progress-modal-card {
+    max-width: 620px;
+}
+
+.progress-form {
+    gap: 12px;
+}
+
+.progress-fieldset {
+    border-radius: var(--ui-radius-inner);
+    padding: 10px 14px 14px;
+}
+
+.progress-fieldset-plain {
+    padding-top: 12px;
+}
+
+.progress-fieldset legend {
+    padding: 0 6px;
+}
+
+.progress-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ui-muted);
+}
+
+.progress-field input,
+.progress-field select,
+.progress-field textarea {
+    min-height: 38px;
+    border-radius: var(--ui-radius-ctrl);
+}
+
+.progress-field textarea {
+    min-height: 60px;
+}
+
+.progress-hint,
+.progress-meta {
+    font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   11. SUPPORT — compact form
+   -------------------------------------------------------------------------- */
+.support-container {
+    max-width: 640px;
+    gap: 12px;
+}
+
+.support-head {
+    margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+    .support-head {
+        display: none;
+    }
+}
+
+.dispatch-compact-row {
+    gap: 0;
+}
+
+.btn-dispatch-call {
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: var(--ui-radius-ctrl);
+    font-size: 13px;
+    color: var(--ui-ink);
+}
+
+.support-card-main {
+    border-radius: var(--ui-radius-card);
+    padding: 20px 22px 22px;
+    box-shadow: var(--ui-shadow);
+}
+
+.support-card-main:hover {
+    border-color: var(--ui-border);
+}
+
+.support-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.support-card-title {
+    font-size: 16px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.btn-dispatch-call {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.support-form {
+    gap: 14px;
+}
+
+.support-label {
+    font-size: 12.5px;
+}
+
+.support-input,
+.custom-dropdown-trigger {
+    min-height: 40px;
+    border-radius: var(--ui-radius-ctrl);
+}
+
+.support-textarea {
+    min-height: 104px;
+}
+
+.btn-send-request {
+    min-height: 42px;
+    height: 42px;
+    border-radius: var(--ui-radius-ctrl);
+    font-size: 14px;
+    font-weight: 700;
+    color: #1C1917;
+}
+
+.btn-send-request:hover {
+    background: var(--ui-orange-hover);
+    border-color: var(--ui-orange-hover);
+    color: #1C1917;
+}
+
+.support-secondary-help {
+    padding: 0 2px;
+    font-size: 13px;
+}
+
+.btn-link-faq {
+    padding: 4px 2px;
+    color: #C2410C;
+}
+
+.btn-link-faq:hover {
+    color: #9A3412;
+}
+
+/* --------------------------------------------------------------------------
+   12. TABLET
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+    #jobsTable td:first-child,
+    #payoutsTable td:first-child,
+    #jobsTable th:first-child,
+    #payoutsTable th:first-child {
+        text-align: left;
+    }
+
+    #jobsTable td:last-child,
+    #payoutsTable td:last-child,
+    #jobsTable th:last-child,
+    #payoutsTable th:last-child {
+        text-align: right;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    /* Payouts: let columns size to content so badges and dates never collide */
+    #payoutsTable {
+        table-layout: auto !important;
+    }
+
+    #payoutsTable th,
+    #payoutsTable td {
+        width: 1% !important;
+        white-space: nowrap;
+        padding: 11px 8px !important;
+    }
+
+    #payoutsTable th:first-child,
+    #payoutsTable td:first-child {
+        padding-left: 16px !important;
+        width: auto !important;
+        white-space: normal;
+    }
+
+    #payoutsTable th:last-child,
+    #payoutsTable td:last-child {
+        padding-right: 16px !important;
+    }
+
+    #payoutsTable .status-badge {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    #payoutsTable .payout-table-amount,
+    #payoutsTable .payout-table-date {
+        white-space: nowrap;
+    }
+
+    /* Three KPI tiles still fit side by side on tablets */
+    .installer-stats-grid,
+    #jobsStatsGrid,
+    #payoutStatsGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+    }
+
+    .installer-stats-grid > .stat-card:nth-child(3),
+    #jobsStatsGrid > .stat-card:nth-child(3),
+    #payoutStatsGrid > .stat-card:nth-child(3) {
+        grid-column: auto !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   13. MOBILE (≤ 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .installer-workspace {
+        gap: 12px !important;
+    }
+
+    .workspace-title {
+        font-size: 20px !important;
+    }
+
+    /* KPI cards: three compact tiles */
+    .stat-card,
+    #payoutStatsGrid > .stat-card:nth-child(2) {
+        padding: 10px 10px 11px !important;
+        min-height: 68px !important;
+        border-radius: var(--ui-radius-inner) !important;
+        border: 1px solid var(--ui-border) !important;
+        box-shadow: var(--ui-shadow) !important;
+    }
+
+    .stat-label {
+        font-size: 10px !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .stat-value {
+        font-size: 20px !important;
+    }
+
+    #payoutStatsGrid .stat-value {
+        font-size: 15px !important;
+    }
+
+    #payoutStatsGrid #statNextRelease {
+        font-size: 12px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Panels */
+    .panel-card {
+        border-radius: var(--ui-radius-card) !important;
+    }
+
+    .jobs-panel-header {
+        padding: 12px 14px !important;
+    }
+
+    .jobs-panel-header .panel-title {
+        font-size: 15px !important;
+    }
+
+    .custom-filter-trigger {
+        height: 34px !important;
+        min-height: 34px !important;
+        border-radius: var(--ui-radius-ctrl) !important;
+    }
+
+    #jobsTable tbody,
+    #payoutsTable tbody {
+        gap: 8px !important;
+        padding: 10px !important;
+        background: var(--ui-subtle-bg);
+        border-radius: 0 0 var(--ui-radius-card) var(--ui-radius-card);
+    }
+
+    .table-pagination-footer {
+        padding: 4px 12px !important;
+    }
+
+    /* My Jobs card: ID + location left, badge + View stacked right */
+    #jobsTable tbody tr {
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        grid-template-areas:
+            "applicant status"
+            "applicant action" !important;
+        align-items: center !important;
+        gap: 8px 12px !important;
+        padding: 12px 14px !important;
+        border-radius: var(--ui-radius-inner) !important;
+        box-shadow: none !important;
+    }
+
+    #jobsTable tbody tr:hover {
+        border-color: var(--border-strong, #D6D0C5) !important;
+        box-shadow: none !important;
+    }
+
+    #jobsTable td[data-label="Application ID"] {
+        align-self: center;
+    }
+
+    #jobsTable .applicant-id-text {
+        font-size: 15px !important;
+    }
+
+    #jobsTable .applicant-location-sub {
+        font-size: 12px !important;
+        margin-top: 2px !important;
+    }
+
+    #jobsTable td[data-label="Status"] {
+        align-items: center !important;
+    }
+
+    #jobsTable td[data-label="Status"] .status-badge,
+    #payoutsTable td[data-label="Status"] .status-badge {
+        font-size: 11.5px !important;
+        padding: 3px 9px !important;
+        margin: 0 !important;
+    }
+
+    #jobsTable td[data-label="Action"] {
+        grid-column: auto !important;
+        width: auto !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        border-top: 0 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    #jobsTable td[data-label="Action"] .btn-action,
+    #jobsTable td[data-label="Action"] .btn-view-job-details {
+        width: auto !important;
+        min-width: 72px;
+        min-height: 36px !important;
+        height: 36px !important;
+        padding: 0 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        margin: 0 !important;
+    }
+
+    /* Payout card: name + badge, then amount · date · View on one line */
+    #payoutsTable tbody tr {
+        grid-template-columns: minmax(0, 1fr) auto auto !important;
+        grid-template-areas:
+            "job job status"
+            "amount date action" !important;
+        align-items: end !important;
+        gap: 10px 14px !important;
+        padding: 12px 14px !important;
+        border-radius: var(--ui-radius-inner) !important;
+        box-shadow: none !important;
+    }
+
+    #payoutsTable tbody tr:hover {
+        border-color: var(--border-strong, #D6D0C5) !important;
+        box-shadow: none !important;
+    }
+
+    #payoutsTable .payout-customer-name {
+        font-size: 14.5px !important;
+    }
+
+    #payoutsTable .payout-job-id {
+        font-size: 12px !important;
+    }
+
+    #payoutsTable tbody td[data-label="Status"] {
+        align-items: flex-start !important;
+        align-self: start !important;
+    }
+
+    #payoutsTable tbody td[data-label="Net Amount"],
+    #payoutsTable tbody td[data-label="Date"] {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        gap: 2px;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        border-top: 0 !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+        justify-self: stretch !important;
+    }
+
+    #payoutsTable.data-table tbody td[data-label="Net Amount"]::before,
+    #payoutsTable.data-table tbody td[data-label="Date"]::before {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ui-faint);
+        margin: 0;
+        display: block;
+    }
+
+    #payoutsTable.data-table tbody td[data-label="Net Amount"]::before {
+        content: "Net";
+    }
+
+    #payoutsTable.data-table tbody td[data-label="Date"]::before {
+        content: "Date";
+    }
+
+    #payoutsTable .payout-table-amount {
+        font-size: 15px !important;
+        text-align: left !important;
+    }
+
+    #payoutsTable .payout-table-date {
+        font-size: 13px !important;
+        text-align: left !important;
+    }
+
+    #payoutsTable tbody td[data-label="Action"] {
+        grid-column: auto !important;
+        width: auto !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        border-top: 0 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
+    }
+
+    #payoutsTable td[data-label="Action"] .btn-action,
+    #payoutsTable td[data-label="Action"] .btn-view-payout-breakdown {
+        width: auto !important;
+        min-width: 64px;
+        min-height: 36px !important;
+        height: 36px !important;
+        padding: 0 14px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+    }
+
+    /* Modals: near-full-width sheet, sticky footer with side-by-side buttons */
+    .installer-modal-backdrop {
+        padding: 10px !important;
+    }
+
+    .installer-modal-card,
+    .kpi-modal-card {
+        max-height: calc(100dvh - 20px) !important;
+        border-radius: var(--ui-radius-card) !important;
+    }
+
+    .installer-modal-header,
+    .kpi-modal-header {
+        padding: 14px 16px !important;
+    }
+
+    .installer-modal-body {
+        padding: 14px 16px !important;
+        gap: 10px !important;
+    }
+
+    .installer-modal-footer {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+        gap: 8px !important;
+    }
+
+    .installer-modal-footer > .btn,
+    .installer-modal-footer > .btn-action {
+        flex: 1 1 0;
+        width: auto !important;
+        min-height: 42px !important;
+    }
+
+    .modal-status-strip {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        flex-direction: unset !important;
+        align-items: start !important;
+        padding: 12px !important;
+    }
+
+    .modal-workflow-actions .btn {
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 42px;
+        padding: 0 10px;
+    }
+
+    /* Progress form keeps two columns for short fields */
+    .progress-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .progress-fieldset {
+        padding: 8px 12px 12px !important;
+    }
+
+    .modal-snapshot-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .specs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .kpi-modal-body {
+        padding: 10px 12px 14px !important;
+        gap: 8px !important;
+    }
+
+    .kpi-job-item {
+        padding: 12px !important;
+        gap: 10px !important;
+        border-radius: var(--ui-radius-inner) !important;
+    }
+
+    /* Two rows: ID + customer | badge, then meta | View */
+    .kpi-job-item {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "title badge"
+            "meta view";
+        align-items: center;
+        gap: 6px 10px !important;
+    }
+
+    .kpi-job-main,
+    .kpi-job-side {
+        display: contents;
+    }
+
+    .kpi-job-title-group { grid-area: title; }
+    .kpi-job-meta { grid-area: meta; }
+    .kpi-job-side .status-badge { grid-area: badge; justify-self: end; }
+    .kpi-job-side .btn-view-job-details { grid-area: view; justify-self: end; }
+
+    .kpi-job-side .btn-view-job-details {
+        min-height: 36px !important;
+        height: 36px !important;
+        min-width: 72px;
+        font-size: 13px !important;
+        width: auto !important;
+    }
+
+    /* Support */
+    .support-head {
+        justify-content: space-between;
+    }
+
+    .support-card-main {
+        padding: 16px !important;
+    }
+
+    .support-head .support-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-workflow-actions .btn {
+        flex-basis: 100%;
+    }
+
+    #payoutsTable tbody tr {
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        grid-template-areas:
+            "job status"
+            "amount date"
+            "action action" !important;
+    }
+
+    #payoutsTable tbody td[data-label="Action"] {
+        grid-column: 1 / -1 !important;
+        border-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    #payoutsTable td[data-label="Action"] .btn-view-payout-breakdown {
+        width: 100% !important;
+    }
+
+}

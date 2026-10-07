@@ -1,0 +1,135 @@
+/* rejected.html — page-specific styles. Shared components: portal.css. */
+/* ==========================================================================
+   Table Column Alignment & Proportional Typography (Desktop: >= 769px)
+   Unified for Dashboard (Applications to Review), Applications Table, and Declined Table
+   ========================================================================== */
+@media (min-width: 769px) {
+
+    /* 2. Declined / Rejected Applications Table (rejected.html) */
+    #rejectedTable,
+    .rejected-data-table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #rejectedTable thead th,
+    .rejected-data-table thead th {
+        font-size: 13px;
+        font-weight: 600;
+        color: #6B7280;
+        letter-spacing: 0.01em;
+        vertical-align: middle;
+        padding: 16px 14px;
+        border-bottom: 1px solid #F0ECE4;
+    }
+
+    #rejectedTable th.col-applicant,
+    #rejectedTable td[data-label="Applicant ID"],
+    .rejected-data-table th.col-applicant,
+    .rejected-data-table td[data-label="Applicant ID"] {
+        width: 24%;
+        text-align: left !important;
+        padding-left: 0 !important;
+        padding-right: 14px !important;
+        vertical-align: middle;
+    }
+
+    #rejectedTable th.col-system,
+    #rejectedTable td[data-label="System"],
+    #rejectedTable td[data-label="System Size"],
+    .rejected-data-table th.col-system,
+    .rejected-data-table td[data-label="System"] {
+        width: 19%;
+        text-align: center !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        vertical-align: middle;
+    }
+
+    #rejectedTable th.col-amount,
+    #rejectedTable td[data-label="Requested Amount"],
+    #rejectedTable td[data-label="Amount"],
+    .rejected-data-table th.col-amount,
+    .rejected-data-table td[data-label="Requested Amount"],
+    .rejected-data-table td[data-label="Amount"] {
+        width: 18%;
+        text-align: center !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        vertical-align: middle;
+    }
+
+    #rejectedTable th.col-reason,
+    #rejectedTable td[data-label="Decline Reason"],
+    .rejected-data-table th.col-reason,
+    .rejected-data-table td[data-label="Decline Reason"] {
+        width: 24%;
+        text-align: center !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        vertical-align: middle;
+    }
+
+    #rejectedTable th.col-date,
+    #rejectedTable td[data-label="Decision Date"],
+    .rejected-data-table th.col-date,
+    .rejected-data-table td[data-label="Decision Date"],
+    #rejectedTable thead th:last-child,
+    #rejectedTable tbody td:last-child {
+        width: 15%;
+        text-align: center !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        vertical-align: middle;
+    }
+
+    #rejectedTable td[data-label="System Size"],
+    .rejected-data-table td[data-label="System Size"] {
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+        color: #374151 !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+
+    #rejectedTable td[data-label="Amount"],
+    .rejected-data-table td[data-label="Amount"],
+    #rejectedTable .table-amount,
+    .rejected-data-table .table-amount {
+        font-size: 14.5px !important;
+        font-weight: 800 !important;
+        color: #111827 !important;
+        text-align: center !important;
+        letter-spacing: -0.01em !important;
+        line-height: 1.3 !important;
+    }
+}
+
+.text-muted-recorded {
+    color: #9CA3AF !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Comprehensive Mobile Responsive Card System (Max Width: 768px)
+   Applied across Approved, Rejected, Applications, and Dashboard Tables
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    tbody td[data-label="System Size"] .text-muted-recorded,
+    .text-muted-recorded {
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #9CA3AF !important;
+        white-space: nowrap !important;
+        display: inline-block !important;
+    }
+
+    #rejectedTable tbody td[data-label="System"]::before { content: "System"; }
+    #rejectedTable tbody td[data-label="Requested Amount"]::before { content: "Requested Amount"; }
+    #rejectedTable tbody td[data-label="Decline Reason"]::before { content: "Decline Reason"; }
+    #rejectedTable tbody td[data-label="Decision Date"]::before { content: "Decision Date"; }
+}

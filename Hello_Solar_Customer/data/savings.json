@@ -1,0 +1,175 @@
+[
+  {
+    "systemId": "pkg-home-5k4",
+    "accountNo": "HS-88219",
+    "hasReadings": true,
+    "todayGeneratedKwh": 7.1,
+    "todayGenerated": "7.1 kWh",
+    "estimatedMonthlySavings": 3650,
+    "billSaved": "₱3,650",
+    "savingsPeriod": "This month",
+    "batteryReserveKwh": 10.0,
+    "batteryReserve": "10 kWh",
+    "batterySoc": 92,
+    "backupHours": 18,
+    "chart": {
+      "today": {
+        "unit": "kWh",
+        "values": [0, 1.1, 2.4, 4.2, 6.4, 7.2, 6.5, 5.1, 3.3, 1.5, 0.4],
+        "labels": ["7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"],
+        "maxLabel": "8 kWh"
+      },
+      "week": {
+        "unit": "kWh",
+        "values": [4.1, 5.8, 6.4, 7.2, 5.9, 7.6, 6.8],
+        "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        "maxLabel": "8 kWh"
+      },
+      "month": {
+        "unit": "kWh",
+        "values": [12, 15, 17, 14, 19, 18, 21, 20, 24, 22, 26, 25],
+        "labels": ["1", "4", "7", "10", "13", "16", "19", "22", "25", "28", "30", "31"],
+        "maxLabel": "30 kWh"
+      }
+    },
+    "breakdownPercent": {
+      "solarDirect": 64,
+      "batteryStorage": 26,
+      "gridExport": 10
+    },
+    "breakdown": {
+      "solarDirect": "64%",
+      "batteryStorage": "26%",
+      "gridExport": "10%"
+    },
+    "ecoImpact": {
+      "treesEquivalent": 14,
+      "co2AvoidedKg": 312,
+      "trees": "14",
+      "co2Kg": "312"
+    }
+  },
+  {
+    "systemId": "pkg-villa-10k8",
+    "accountNo": "HS-99402",
+    "hasReadings": true,
+    "todayGeneratedKwh": 14.8,
+    "todayGenerated": "14.8 kWh",
+    "estimatedMonthlySavings": 7820,
+    "billSaved": "₱7,820",
+    "savingsPeriod": "This month",
+    "batteryReserveKwh": 20.0,
+    "batteryReserve": "20 kWh",
+    "batterySoc": 98,
+    "backupHours": 32,
+    "chart": {
+      "today": {
+        "unit": "kWh",
+        "values": [0, 2.2, 4.8, 8.4, 12.8, 14.5, 13.0, 10.2, 6.6, 3.0, 0.8],
+        "labels": ["7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"],
+        "maxLabel": "16 kWh"
+      },
+      "week": {
+        "unit": "kWh",
+        "values": [8.2, 11.6, 12.8, 14.4, 11.8, 15.2, 13.6],
+        "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        "maxLabel": "16 kWh"
+      },
+      "month": {
+        "unit": "kWh",
+        "values": [24, 30, 34, 28, 38, 36, 42, 40, 48, 44, 52, 50],
+        "labels": ["1", "4", "7", "10", "13", "16", "19", "22", "25", "28", "30", "31"],
+        "maxLabel": "60 kWh"
+      }
+    },
+    "breakdownPercent": {
+      "solarDirect": 58,
+      "batteryStorage": 32,
+      "gridExport": 10
+    },
+    "breakdown": {
+      "solarDirect": "58%",
+      "batteryStorage": "32%",
+      "gridExport": "10%"
+    },
+    "ecoImpact": {
+      "treesEquivalent": 31,
+      "co2AvoidedKg": 680,
+      "trees": "31",
+      "co2Kg": "680"
+    }
+  },
+  {
+    "systemId": "pkg-farm-3k6",
+    "accountNo": "HS-77310",
+    "hasReadings": true,
+    "todayGeneratedKwh": 4.6,
+    "todayGenerated": "4.6 kWh",
+    "estimatedMonthlySavings": 2410,
+    "billSaved": "₱2,410",
+    "savingsPeriod": "This month",
+    "batteryReserveKwh": 5.0,
+    "batteryReserve": "5 kWh",
+    "batterySoc": 68,
+    "backupHours": 10,
+    "chart": {
+      "today": {
+        "unit": "kWh",
+        "values": [0, 0.8, 1.6, 2.7, 3.4, 3.6, 3.2, 2.5, 1.7, 0.8, 0.2],
+        "labels": ["7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"],
+        "maxLabel": "5 kWh"
+      },
+      "week": {
+        "unit": "kWh",
+        "values": [2.9, 3.8, 4.1, 4.6, 3.5, 4.8, 4.2],
+        "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        "maxLabel": "6 kWh"
+      },
+      "month": {
+        "unit": "kWh",
+        "values": [8, 9, 11, 10, 13, 12, 14, 13, 15, 14, 16, 15],
+        "labels": ["1", "4", "7", "10", "13", "16", "19", "22", "25", "28", "30", "31"],
+        "maxLabel": "20 kWh"
+      }
+    },
+    "breakdownPercent": {
+      "solarDirect": 72,
+      "batteryStorage": 20,
+      "gridExport": 8
+    },
+    "breakdown": {
+      "solarDirect": "72%",
+      "batteryStorage": "20%",
+      "gridExport": "8%"
+    },
+    "ecoImpact": {
+      "treesEquivalent": 9,
+      "co2AvoidedKg": 185,
+      "trees": "9",
+      "co2Kg": "185"
+    }
+  },
+  {
+    "systemId": "pkg-biz-6k0",
+    "accountNo": "HS-10492",
+    "hasReadings": false,
+    "todayGeneratedKwh": 0.0,
+    "todayGenerated": "0 kWh",
+    "estimatedMonthlySavings": 0,
+    "billSaved": "₱0",
+    "savingsPeriod": "Pending installation",
+    "batteryReserveKwh": null,
+    "batteryReserve": "Battery not included",
+    "batterySoc": null,
+    "backupHours": null,
+    "chart": null,
+    "breakdownPercent": null,
+    "breakdown": null,
+    "ecoImpact": {
+      "treesEquivalent": 0,
+      "co2AvoidedKg": 0,
+      "trees": "0",
+      "co2Kg": "0"
+    }
+  }
+]

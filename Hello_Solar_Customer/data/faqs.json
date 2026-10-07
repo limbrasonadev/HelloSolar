@@ -1,0 +1,27 @@
+[
+  {
+    "id": "faq-1",
+    "question": "How does Net Metering work with my utility provider?",
+    "answer": "Net Metering allows you to export excess solar electricity produced during sunny daytime hours back to the electrical grid (such as Meralco or your local electric cooperative). In return, you earn billing credits that offset the electricity you consume at night or on overcast days, lowering your overall monthly bill."
+  },
+  {
+    "id": "faq-2",
+    "question": "Does my solar system continue operating during a power brownout?",
+    "answer": "If your Hello Solar package includes a Hybrid Inverter with battery storage (such as the 10 kWh or 20 kWh lithium reserves in Home Primary or Tagaytay Villa), your system automatically engages an Automatic Transfer Switch (ATS) to provide backup electricity to your designated critical household circuits. Systems without battery storage (grid-tied only) automatically shut down during grid outages for utility lineman safety."
+  },
+  {
+    "id": "faq-3",
+    "question": "How do I maximize my solar savings each month?",
+    "answer": "Run your high-consumption household appliances (such as washing machines, dishwashers, water heaters, and pool pumps) between 10:00 AM and 2:00 PM when your solar panels are producing peak kilowatt output. This maximizes direct solar self-consumption and reduces reliance on the grid."
+  },
+  {
+    "id": "faq-4",
+    "question": "How often do my solar panels require cleaning and maintenance?",
+    "answer": "In most Philippine suburban areas, regular rainfall keeps panel surfaces clean. However, during the dry season or in areas with higher dust levels, a gentle rinse with water every 2–3 months prevents dust buildup from decreasing your solar yield. Avoid abrasive detergents or pressure washers."
+  },
+  {
+    "id": "faq-5",
+    "question": "What should I do if my inverter monitoring goes offline?",
+    "answer": "Check that your home Wi-Fi router is turned on and that the signal reaches your inverter's datalogger stick. If you changed your home Wi-Fi name or password, refer to our datalogger reconnection guide or submit a support draft via the Support tab."
+  }
+]

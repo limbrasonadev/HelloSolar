@@ -1,0 +1,286 @@
+/* ==========================================================================
+   Live Telemetry — visual refinements + UI states
+   States are driven by data-state on #telemetryMasterPanel:
+   online | loading | offline | unavailable  (set in mysystem-page-2.js)
+   Layout/positions are unchanged; this file only refines hierarchy and states.
+   ========================================================================== */
+
+/* ---------- Header badge (per state) ---------- */
+.telemetry-live-badge {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.telemetry-live-badge[data-state="loading"] {
+    background: #fff7ed;
+    color: #c2410c;
+    border-color: #fed7aa;
+}
+
+.telemetry-live-badge[data-state="loading"] .telemetry-pulse-dot {
+    background: #f97316;
+    animation: telemetryBlink 1s ease-in-out infinite;
+}
+
+.telemetry-live-badge[data-state="offline"] {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.telemetry-live-badge[data-state="offline"] .telemetry-pulse-dot {
+    background: #dc2626;
+    animation: none;
+    box-shadow: none;
+}
+
+.telemetry-live-badge[data-state="unavailable"] {
+    background: #f1f5f9;
+    color: #475569;
+    border-color: #e2e8f0;
+}
+
+.telemetry-live-badge[data-state="unavailable"] .telemetry-pulse-dot {
+    background: #94a3b8;
+    animation: none;
+    box-shadow: none;
+}
+
+@keyframes telemetryBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.telemetry-sync-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ---------- Readings: value + unit hierarchy ---------- */
+.card-reading,
+.circle-reading {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    letter-spacing: -0.01em;
+}
+
+.circle-reading {
+    justify-content: center;
+}
+
+.tel-val {
+    font-variant-numeric: tabular-nums;
+}
+
+.tel-unit {
+    font-size: 0.58em;
+    font-weight: 600;
+    color: var(--muted, #64748b);
+    letter-spacing: 0;
+}
+
+.card-title,
+.circle-title {
+    color: var(--muted, #57534e);
+}
+
+/* ---------- Energy-flow connections ---------- */
+.flow-line-base {
+    stroke-opacity: 0.22;
+    stroke-width: 3.2;
+}
+
+.flow-line-anim {
+    stroke-width: 3.2;
+    stroke-dasharray: 2 10;
+    stroke-linecap: round;
+}
+
+.flow-anim-orange,
+.flow-anim-green {
+    animation-duration: 0.9s;
+}
+
+.flow-anim-orange.flow-reverse,
+.flow-anim-green.flow-reverse {
+    animation-duration: 0.9s;
+}
+
+.flow-svg-overlay .flow-line-base,
+.flow-svg-overlay .flow-line-anim,
+.flow-svg-overlay .flow-arrow,
+.flow-svg-overlay .flow-dot {
+    transition: stroke 0.3s ease, fill 0.3s ease, opacity 0.3s ease;
+}
+
+/* ---------- Footer status ---------- */
+.telemetry-footer-bar {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+}
+
+.telemetry-status-msg {
+    min-width: 0;
+}
+
+.telemetry-status-msg svg {
+    flex-shrink: 0;
+}
+
+.telemetry-status-spinner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fed7aa;
+    border-top-color: #f97316;
+    animation: telemetrySpin 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes telemetrySpin {
+    to { transform: rotate(360deg); }
+}
+
+#telemetryMasterPanel[data-state="offline"] .telemetry-status-msg { color: #b91c1c; }
+#telemetryMasterPanel[data-state="unavailable"] .telemetry-status-msg { color: #475569; }
+#telemetryMasterPanel[data-state="loading"] .telemetry-status-msg { color: #c2410c; }
+
+/* ---------- LOADING: skeleton readings ---------- */
+#telemetryMasterPanel[data-state="loading"] .card-reading,
+#telemetryMasterPanel[data-state="loading"] .circle-reading,
+#telemetryMasterPanel[data-state="loading"] .card-secondary,
+#telemetryMasterPanel[data-state="loading"] .circle-eff,
+#telemetryMasterPanel[data-state="loading"] .circle-temp {
+    color: transparent !important;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: telemetryShimmer 1.2s ease-in-out infinite;
+    user-select: none;
+}
+
+#telemetryMasterPanel[data-state="loading"] .card-reading *,
+#telemetryMasterPanel[data-state="loading"] .circle-reading *,
+#telemetryMasterPanel[data-state="loading"] .card-secondary * {
+    color: transparent !important;
+}
+
+#telemetryMasterPanel[data-state="loading"] .circle-reading {
+    width: 70%;
+    margin-inline: auto;
+}
+
+#telemetryMasterPanel[data-state="loading"] .flow-line-anim,
+#telemetryMasterPanel[data-state="loading"] .flow-arrow,
+#telemetryMasterPanel[data-state="loading"] .flow-dot {
+    opacity: 0;
+}
+
+@keyframes telemetryShimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+/* ---------- OFFLINE / UNAVAILABLE: paused, muted diagram ---------- */
+#telemetryMasterPanel[data-state="offline"] .flow-line-anim,
+#telemetryMasterPanel[data-state="unavailable"] .flow-line-anim,
+#telemetryMasterPanel[data-state="offline"] .flow-arrow,
+#telemetryMasterPanel[data-state="unavailable"] .flow-arrow {
+    opacity: 0;
+    animation-play-state: paused;
+}
+
+#telemetryMasterPanel[data-state="offline"] .flow-line-base,
+#telemetryMasterPanel[data-state="unavailable"] .flow-line-base {
+    stroke: #cbd5e1;
+    stroke-opacity: 0.8;
+    stroke-dasharray: 4 6;
+}
+
+#telemetryMasterPanel[data-state="offline"] .flow-dot,
+#telemetryMasterPanel[data-state="unavailable"] .flow-dot {
+    fill: #cbd5e1;
+}
+
+#telemetryMasterPanel[data-state="offline"] .telemetry-node,
+#telemetryMasterPanel[data-state="unavailable"] .telemetry-node {
+    filter: grayscale(0.85);
+    opacity: 0.55;
+}
+
+#telemetryMasterPanel[data-state="offline"] .circle-eff,
+#telemetryMasterPanel[data-state="unavailable"] .circle-eff,
+#telemetryMasterPanel[data-state="offline"] #nodeGrid .sec-meta,
+#telemetryMasterPanel[data-state="unavailable"] #nodeGrid .sec-meta {
+    visibility: hidden;
+}
+
+/* State notice centered over the diagram */
+.telemetry-state-notice {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: min(360px, calc(100% - 32px));
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--border, #e5e0d8);
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.1);
+    text-align: center;
+}
+
+.telemetry-state-notice[hidden] {
+    display: none;
+}
+
+.telemetry-state-notice-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink, #1c1917);
+    margin-bottom: 4px;
+}
+
+#telemetryMasterPanel[data-state="offline"] .telemetry-state-notice-title { color: #b91c1c; }
+
+.telemetry-state-notice-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--muted, #57534e);
+}
+
+/* ---------- Mobile refinements ---------- */
+@media (max-width: 768px) {
+    .flow-line-base,
+    .flow-line-anim {
+        stroke-width: 2.6;
+    }
+
+    .telemetry-state-notice {
+        padding: 12px 14px;
+    }
+
+    .telemetry-state-notice-title {
+        font-size: 14px;
+    }
+
+    .telemetry-state-notice-desc {
+        font-size: 12px;
+    }
+
+    .telemetry-footer-bar {
+        font-size: 11.5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .telemetry-status-spinner,
+    #telemetryMasterPanel[data-state="loading"] .card-reading,
+    #telemetryMasterPanel[data-state="loading"] .circle-reading,
+    #telemetryMasterPanel[data-state="loading"] .card-secondary,
+    .telemetry-live-badge .telemetry-pulse-dot {
+        animation: none !important;
+    }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "notif-inst-001",
+    "recipientRole": "installer",
+    "recipientId": "*",
+    "eventType": "new_job_assigned",
+    "sourceEventId": "evt-app-1024-assign",
+    "recordId": "APP-1024",
+    "title": "New Job Assigned",
+    "message": "APP-1024 · Cebu City (5.4 kW Hybrid installation assigned, confirmation required)",
+    "timestamp": "2026-09-23T04:10:00.000Z",
+    "readAt": null,
+    "targetUrl": "myjob.html?job=APP-1024",
+    "actionLabel": "Review Assignment"
+  },
+  {
+    "id": "notif-inst-002",
+    "recipientRole": "installer",
+    "recipientId": "*",
+    "eventType": "job_accepted",
+    "sourceEventId": "evt-app-1027-accepted",
+    "recordId": "APP-1027",
+    "title": "Job Accepted",
+    "message": "APP-1027 moved to In Progress · Mandaue City",
+    "timestamp": "2026-09-23T03:55:00.000Z",
+    "readAt": null,
+    "targetUrl": "myjob.html?job=APP-1027",
+    "actionLabel": "View Work Order"
+  },
+  {
+    "id": "notif-inst-003",
+    "recipientRole": "installer",
+    "recipientId": "*",
+    "eventType": "maintenance_required",
+    "sourceEventId": "evt-app-1031-maint",
+    "recordId": "APP-1031",
+    "title": "Maintenance Required",
+    "message": "APP-1031 · Mandaue City (Inverter diagnostic & battery inspection scheduled)",
+    "timestamp": "2026-09-23T01:30:00.000Z",
+    "readAt": null,
+    "targetUrl": "myjob.html?job=APP-1031",
+    "actionLabel": "Inspect Service Job"
+  },
+  {
+    "id": "notif-inst-004",
+    "recipientRole": "installer",
+    "recipientId": "*",
+    "eventType": "installation_completed",
+    "sourceEventId": "evt-app-1018-completed",
+    "recordId": "APP-1018",
+    "title": "Installation Completed",
+    "message": "APP-1018 has been completed · Muntinlupa City (Handover signed)",
+    "timestamp": "2026-09-22T08:00:00.000Z",
+    "readAt": "2026-09-22T10:00:00.000Z",
+    "targetUrl": "myjob.html?job=APP-1018",
+    "actionLabel": "View Completed Record"
+  },
+  {
+    "id": "notif-inst-005",
+    "recipientRole": "installer",
+    "recipientId": "*",
+    "eventType": "payout_cleared",
+    "sourceEventId": "evt-pay-inst-101",
+    "recordId": "PAY-2026-101",
+    "title": "Milestone Payout Disbursed",
+    "message": "₱18,130 credited to BDO Unibank for APP-1018 final handover.",
+    "timestamp": "2026-09-21T06:00:00.000Z",
+    "readAt": "2026-09-21T08:00:00.000Z",
+    "targetUrl": "payout.html?payout=PAY-2026-101",
+    "actionLabel": "View Receipt"
+  }
+]

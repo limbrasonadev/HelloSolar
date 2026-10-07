@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script>
+        // Installer session guard: a valid installer session for an Active partner INS-### account is required
+        (function () {
+            try {
+                if (!window.HSShared || !window.HSShared.session.isValid("installer")) {
+                    if (window.HSShared) window.HSShared.session.clear("installer");
+                    window.location.replace("login.html");
+                }
+            } catch (e) {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar Installer Portal — Milestone earnings, net payouts, and BIR 2307 tax details.">
+    <title>Hello Solar Installer — Payout</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/workspace.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/portal-polish.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="myjob.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Installer Portal</div>
+
+
+            <nav class="nav" id="nav" aria-label="Installer navigation">
+                <a class="nav-link" href="myjob.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    My Jobs
+                </a>
+
+                <a class="nav-link" href="profile.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
+                </a>
+
+                <a class="nav-link active" href="payout.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                        <path d="M6 15h4" />
+                    </svg>
+                    Payout
+                </a>
+
+                <a class="nav-link" href="support.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 11a9 9 0 0 1 18 0" />
+                        <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                        <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                        <path d="M17 17c0 2-2 3-5 3" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Account / Logout -->
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="login.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-title">Payouts</h1>
+                    <a class="mobile-logo" href="myjob.html" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="mobile-header">
+                    <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                        aria-expanded="false" aria-controls="sidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="profile.html" class="profile" aria-label="View installer profile">
+                        <div class="profile-avatar" title="Installer Profile">SI</div>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <div class="installer-workspace">
+                    <!-- Page Header -->
+                    <div class="workspace-head">
+                        <div>
+                            <h1 class="workspace-title">Payouts</h1>
+
+                        </div>
+                    </div>
+
+                    <!-- 3 Focused Financial Summary KPI Cards -->
+                    <section class="installer-stats-grid" id="payoutStatsGrid" aria-label="Payouts Summary">
+                        <div class="stat-card">
+                            <span class="stat-label">Total Paid</span>
+                            <div class="stat-value" id="statPaidTotal">—</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Pending Review</span>
+                            <div class="stat-value" id="statPendingTotal">—</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Next Payout</span>
+                            <div class="stat-value" id="statNextRelease">—</div>
+                        </div>
+                    </section>
+
+                    <!-- Payout Ledger Panel -->
+                    <section class="panel-card" aria-label="Payout History">
+                        <div class="jobs-panel-header">
+                            <div>
+                                <h2 class="panel-title">Payout History</h2>
+                            </div>
+                            <div class="jobs-filter-wrap">
+                                <div class="custom-filter-dropdown" id="payoutStatusFilterDropdown">
+                                    <button type="button" class="custom-filter-trigger" id="payoutFilterTrigger"
+                                        aria-haspopup="listbox" aria-expanded="false" aria-label="Filter payouts by status">
+                                        <span class="custom-filter-icon-prefix" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                            </svg>
+                                        </span>
+                                        <span class="custom-filter-status-dot dot-all" id="payoutFilterStatusDot"></span>
+                                        <span class="custom-filter-selected" id="payoutFilterSelected">All Statuses</span>
+                                        <svg class="custom-filter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <ul class="custom-filter-menu" id="payoutFilterMenu" role="listbox" aria-label="Filter payouts by status" tabindex="-1">
+                                        <li class="custom-filter-item active" role="option" aria-selected="true" data-value="ALL" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-all"></span>
+                                                <span class="custom-filter-item-text">All Statuses</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Paid" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-completed"></span>
+                                                <span class="custom-filter-item-text">Paid</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Approved" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-approved"></span>
+                                                <span class="custom-filter-item-text">Approved</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Scheduled" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-scheduled"></span>
+                                                <span class="custom-filter-item-text">Scheduled</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="Pending Review" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-pending-review"></span>
+                                                <span class="custom-filter-item-text">Pending Review</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-filter-item" role="option" aria-selected="false" data-value="On Hold" tabindex="0">
+                                            <div class="custom-filter-item-left">
+                                                <span class="custom-filter-status-dot dot-on-hold"></span>
+                                                <span class="custom-filter-item-text">On Hold</span>
+                                            </div>
+                                            <svg class="custom-filter-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                    <select class="filter-native-select-hidden" id="payoutStatusFilter" aria-hidden="true" tabindex="-1">
+                                        <option value="ALL" selected>All Statuses</option>
+                                        <option value="Paid">Paid</option>
+                                        <option value="Approved">Approved</option>
+                                        <option value="Scheduled">Scheduled</option>
+                                        <option value="Pending Review">Pending Review</option>
+                                        <option value="On Hold">On Hold</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table Area (Responsive Cards on Mobile) -->
+                        <div class="table-responsive">
+                            <table class="data-table" id="payoutsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Job</th>
+                                        <th>Net Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="payoutsTableBody">
+                                    <!-- Populated dynamically via workspace.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination / See More Expansion Controls -->
+                        <div class="table-pagination-footer" id="payoutPaginationFooter" style="display: none;">
+                            <button type="button" class="btn-see-more" id="btnTogglePayoutsExpand">
+                                <span id="seeMorePayoutsText">See more</span>
+                                <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Preserved Data-Loader elements (Hidden from UI) -->
+                    <div style="display: none;" aria-hidden="true">
+                        <input type="file" id="jsonFileInput" accept=".json,application/json">
+                        <button type="button" id="btnResetJsonOverride"></button>
+                        <div id="jsonStatusAlert"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+            <a href="myjob.html" class="mobile-bottom-nav-item" aria-label="My Jobs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>My Jobs</span>
+            </a>
+            <a href="profile.html" class="mobile-bottom-nav-item" aria-label="Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="payout.html" class="mobile-bottom-nav-item active" aria-current="page" aria-label="Payout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <path d="M2 10h20" />
+                    <path d="M6 15h4" />
+                </svg>
+                <span>Payout</span>
+            </a>
+            <a href="support.html" class="mobile-bottom-nav-item" aria-label="Support">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 11a9 9 0 0 1 18 0" />
+                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                    <path d="M17 17c0 2-2 3-5 3" />
+                </svg>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Progressive Disclosure Modal: Itemized Payout Breakdown -->
+    <div class="installer-modal-backdrop" id="payoutModal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="modalPayoutTitle">
+        <div class="installer-modal-card">
+            <div class="installer-modal-header">
+                <div>
+                    <h3 class="installer-modal-title" id="modalPayoutTitle">Milestone Payout Breakdown</h3>
+                    <p class="installer-modal-sub" id="modalPayoutSub"></p>
+                </div>
+                <button type="button" class="installer-modal-close" id="closePayoutModal" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="installer-modal-body">
+                <!-- Financial Breakdown Card -->
+                <div class="payout-breakdown-card">
+                    <div class="payout-row">
+                        <span class="sidebar-info-label">Gross Labor Fee</span>
+                        <strong id="modalGrossAmount" class="sidebar-info-value">₱0</strong>
+                    </div>
+                    <div class="payout-row sub">
+                        <span>Less 2% CWT (BIR)</span>
+                        <span id="modalCwtDeduction" class="payout-deduction">− ₱0</span>
+                    </div>
+                    <div class="payout-row highlight">
+                        <span>Net Payout</span>
+                        <span id="modalNetAmount" class="amount">₱0</span>
+                    </div>
+                </div>
+
+                <!-- Essential Milestone & Disbursement Details -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Payout ID</span>
+                        <span class="spec-value" id="modalPayoutId">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Linked APP ID</span>
+                        <span class="spec-value" id="modalJobRef">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Milestone</span>
+                        <span class="spec-value" id="modalMilestoneStage">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Status</span>
+                        <span class="spec-value" id="modalPayoutStatus">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Date</span>
+                        <span class="spec-value" id="modalPayoutDate">—</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bank Reference</span>
+                        <span class="spec-value" id="modalBankRef">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="installer-modal-footer">
+                <a href="support.html" id="modalPayoutSupportBtn" class="btn btn-secondary btn-sm">Ask About Payout</a>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnClosePayoutModal">Close</button>
+                <button type="button" id="btnExportCsv" style="display: none;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/installer_data.js"></script>
+    <script src="assets/js/workspace.js"></script>
+    <script src="assets/js/notifications.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+/* Hello Solar — contact page styles */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FAF7F2;
+    color: #1C1917;
+    overflow-x: hidden;
+}
+
+/* Universal No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+.no-scrollbar {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+}
+
+/* 4K Precision-Blended Edge Mask */
+.hero-seamless-mask {
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 10%, rgba(0, 0, 0, 0.6) 28%, rgba(0, 0, 0, 1) 48%),
+        linear-gradient(to bottom, #000 86%, rgba(0, 0, 0, 0.65) 94%, transparent 100%),
+        radial-gradient(ellipse 42% 30% at 100% 100%, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.15) 38%, rgba(0, 0, 0, 0.65) 65%, #000 100%);
+    -webkit-mask-composite: destination-in, destination-in;
+    mask-image:
+        linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.04) 10%, rgba(0, 0, 0, 0.6) 28%, rgba(0, 0, 0, 1) 48%),
+        linear-gradient(to bottom, #000 86%, rgba(0, 0, 0, 0.65) 94%, transparent 100%),
+        radial-gradient(ellipse 42% 30% at 100% 100%, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.15) 38%, rgba(0, 0, 0, 0.65) 65%, #000 100%);
+    mask-composite: intersect, intersect;
+}
+
+/* End the photo fade at the banner's bottom, before the wrapper clips it. */
+@media (min-width: 1024px) {
+    .hero-photo-backdrop {
+        height: 100%;
+    }
+}
+
+.hero-bottom-cloud {
+    position: absolute;
+    inset: 76% -4% -5% 60%;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 100% 100%, #FAF7F2 12%, rgba(250, 247, 242, 0.95) 28%, rgba(250, 247, 242, 0.6) 45%, rgba(250, 247, 242, 0.15) 65%, transparent 80%);
+    filter: blur(16px);
+}
+
+/* GPU Layer Promotion for Crisp 4K Scaling */
+.render-4k {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* Ambient Warm Solar Glow */
+.ambient-solar-glow {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Modern, Spacious, Lightly Bordered Form Inputs */
+.hs-input {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1.5px solid #E5E0D8;
+    border-radius: 14px;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1C1917;
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+}
+
+@media (min-width: 640px) {
+    .hs-input {
+        padding: 14px 18px;
+        font-size: 15px;
+        border-radius: 16px;
+    }
+}
+
+.hs-input::placeholder {
+    color: #A8A29E;
+    font-weight: 500;
+}
+
+.hs-input:hover {
+    border-color: #D6D0C5;
+    background-color: #FCFAF8;
+}
+
+.hs-input:focus {
+    border-color: #F59E0B;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+}
+
+.hs-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2378716C' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 15px;
+    padding-right: 44px !important;
+    cursor: pointer;
+}
+
+/* Subtle Card Shadows */
+.hs-card-shadow {
+    box-shadow: 0 20px 45px -15px rgba(28, 25, 23, 0.07), 0 0 0 1px rgba(231, 226, 215, 0.8);
+}
+
+/* Navigation Underline Styles */
+.nav-link {
+    transition: color 200ms ease, border-color 200ms ease;
+}
+
+/* Success screen keyframe */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.animate-pop-in {
+    animation: popIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Contact layout uses the homepage's ivory, ink, and solar-yellow palette. */
+.contact-main {
+    max-width: 1600px;
+    padding-top: clamp(28px, 4vw, 64px);
+    padding-bottom: clamp(48px, 6vw, 96px);
+}
+
+.contact-layout {
+    gap: clamp(32px, 4vw, 64px);
+}
+
+.contact-intro {
+    padding-top: 8px;
+}
+
+.contact-title {
+    font-size: clamp(34px, 3.4vw, 54px);
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.contact-title span {
+    color: #B57800;
+}
+
+.contact-description {
+    max-width: 45ch;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.85;
+}
+
+.contact-details>div {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(28, 25, 23, 0.02);
+}
+
+.contact-details>div>div:last-child {
+    min-width: 0;
+}
+
+.contact-details a {
+    overflow-wrap: anywhere;
+}
+
+.contact-panel {
+    padding: clamp(24px, 2.8vw, 44px);
+    border-radius: 28px;
+    box-shadow: 0 16px 48px -24px rgba(28, 25, 23, 0.16);
+}
+
+.contact-form-heading {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.contact-form-heading h2 {
+    font-size: clamp(24px, 2.2vw, 30px);
+}
+
+#contactUsForm label {
+    font-size: 11px;
+    letter-spacing: 0.055em;
+}
+
+#contactUsForm .hs-input {
+    min-height: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    border-width: 1px;
+    border-radius: 14px;
+    background-color: #FEFDFC;
+}
+
+#contactUsForm .hs-input::placeholder {
+    color: #8A827B;
+}
+
+#contactUsForm .hs-input:focus {
+    background-color: #FFF;
+}
+
+#contactUsForm select.hs-select {
+    height: 50px;
+    line-height: 1.25;
+    color: #1C1917;
+    font-size: 16px;
+}
+
+#contactUsForm select.hs-select:has(option[value=""]:checked),
+#contactUsForm select.hs-select.is-placeholder {
+    color: #8A827B;
+}
+
+#contactUsForm select.hs-select option {
+    color: #1C1917;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+#contactUsForm select.hs-select option[value=""][disabled] {
+    color: #8A827B;
+}
+
+/* Custom Dropdown Styling (Design, Size & Font Matched) */
+.hs-custom-trigger {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.hs-custom-menu {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-shadow: 0 16px 40px -10px rgba(28, 25, 23, 0.16), 0 0 0 1px rgba(231, 226, 215, 0.9);
+    scrollbar-width: thin;
+    scrollbar-color: #D6D0C5 #F5F3EF;
+}
+
+.hs-custom-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+.hs-custom-menu::-webkit-scrollbar-track {
+    background: #F5F3EF;
+    border-radius: 9999px;
+}
+
+.hs-custom-menu::-webkit-scrollbar-thumb {
+    background: #D6D0C5;
+    border-radius: 9999px;
+}
+
+#contactUsForm textarea {
+    min-height: 120px;
+    line-height: 1.65;
+}
+
+#submitContactBtn {
+    min-height: 54px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #B57800;
+    outline-offset: 4px;
+}
+
+/* ── Contact form: labels, validation, inquiry type ── */
+.contact-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    color: #44403c;
+}
+
+.field-error {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+#contactUsForm .hs-input.is-invalid,
+#contactUsForm .hs-input.is-invalid:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.inquiry-type {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.inquiry-type-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+
+.inquiry-type-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    min-height: 60px;
+    padding: 10px 14px;
+    text-align: left;
+    background: #FEFDFC;
+    border: 1px solid #E5E0D8;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color 200ms, background-color 200ms, box-shadow 200ms;
+}
+
+.inquiry-type-option:hover {
+    border-color: #F59E0B;
+}
+
+.inquiry-type-option.is-active {
+    border-color: #F59E0B;
+    background: #FFFBEB;
+    box-shadow: 0 0 0 1px #F59E0B inset;
+}
+
+.inquiry-type-title {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1C1917;
+}
+
+.inquiry-type-sub {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #78716c;
+}
+
+.inquiry-type-option.is-active .inquiry-type-sub {
+    color: #b45309;
+}
+
+/* Partner Type (revealed when Inquiry Type = Partner) */
+.partner-type-field {
+    margin-top: 16px;
+    animation: partner-type-in 220ms ease-out;
+}
+
+.partner-type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.partner-type-grid.is-invalid .partner-type-option {
+    border-color: #dc2626;
+}
+
+@media (max-width: 479px) {
+    .partner-type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-type-option {
+        min-height: 52px;
+    }
+}
+
+@keyframes partner-type-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .partner-type-field { animation: none; }
+}
+
+.financer-proposal {
+    padding: 16px;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    background: rgba(255, 251, 235, 0.6);
+    border-radius: 18px;
+}
+
+.financer-proposal-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 12px;
+    margin-bottom: 12px;
+}
+
+.financer-proposal-title {
+    font-size: 14px;
+    font-weight: 900;
+    color: #1C1917;
+}
+
+.financer-proposal-note {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #b45309;
+}
+
+#contactUsForm input[type="date"].hs-input {
+    height: 50px;
+}
+
+@media (max-width: 639px) {
+    .contact-panel {
+        padding: 24px 20px;
+        border-radius: 24px;
+    }
+
+    .contact-description {
+        display: none;
+    }
+
+    .contact-title {
+        font-size: 36px;
+    }
+
+    #contactUsForm .hs-input,
+    #contactUsForm select.hs-select {
+        min-height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

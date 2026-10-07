@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Installation Progress — Job Details modal form (Update / View Progress)
+   Reuses installer-modal-* shell and existing design tokens.
+   ========================================================================== */
+
+/* Modal: stacked above the job details modal */
+#progressModal {
+    z-index: 1010;
+}
+
+.progress-modal-card {
+    max-width: 640px;
+}
+
+.progress-form {
+    gap: 12px;
+    margin: 0;
+}
+
+.progress-fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm, 10px);
+    padding: 10px 14px 14px;
+    margin: 0;
+    min-width: 0;
+    background: var(--surface, #fff);
+}
+
+.progress-fieldset legend {
+    padding: 0 6px;
+    margin-left: -6px;
+}
+
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+}
+
+.progress-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.progress-field.full {
+    grid-column: 1 / -1;
+}
+
+.progress-field label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--muted, #57534e);
+}
+
+.progress-field .req {
+    color: #dc2626;
+}
+
+.progress-field input,
+.progress-field select,
+.progress-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--ink, #1c1917);
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs, 7px);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.progress-field textarea {
+    resize: vertical;
+    min-height: 40px;
+}
+
+.progress-field input:focus,
+.progress-field select:focus,
+.progress-field textarea:focus {
+    outline: none;
+    border-color: var(--primary, #ff8400);
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15);
+}
+
+.progress-field input:disabled,
+.progress-field select:disabled,
+.progress-field textarea:disabled {
+    background: var(--hover-bg, #f5f1eb);
+    color: var(--muted, #57534e);
+    cursor: not-allowed;
+}
+
+/* View Progress: saved values as clean text instead of disabled inputs */
+.progress-form.is-readonly .progress-field input,
+.progress-form.is-readonly .progress-field select,
+.progress-form.is-readonly .progress-field textarea {
+    display: none;
+}
+
+.progress-form.is-readonly .progress-field .req {
+    display: none;
+}
+
+.progress-ro {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink, #1c1917);
+    line-height: 1.4;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+    padding: 2px 0;
+}
+
+.progress-ro.is-empty {
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-light, #78716c);
+}
+
+.progress-hint {
+    margin: 2px 0 0;
+    font-size: 11.5px;
+    color: var(--text-light, #78716c);
+}
+
+.progress-meta {
+    margin: 0;
+    font-size: 11.5px;
+    color: var(--text-light, #78716c);
+}
+
+.progress-form-alert {
+    padding: 8px 12px;
+    border-radius: var(--radius-xs, 7px);
+    font-size: 12.5px;
+    font-weight: 600;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.progress-form-alert[data-type="success"] {
+    background: #ecfdf5;
+    color: #047857;
+    border-color: #a7f3d0;
+}
+
+.progress-form-alert[hidden] {
+    display: none;
+}
+
+#btnSaveProgressModal[hidden] {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .progress-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .progress-fieldset {
+        padding: 8px 12px 12px;
+    }
+
+    .progress-field input,
+    .progress-field select,
+    .progress-field textarea {
+        font-size: 16px; /* prevents iOS zoom on focus */
+    }
+}

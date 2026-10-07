@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Register as an authorized solar financing partner with Hello Solar. Review applicant credit, underwrite solar loans, and manage project fund disbursements.">
+    <title>Hello Solar Financer — Sign Up</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/portal.css">
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+    <main class="auth-page">
+        <section class="auth-card" aria-labelledby="signupHeading">
+            <!-- Brand Logo -->
+            <a href="login.html" class="auth-logo" title="Hello Solar Financer Portal">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <!-- Header -->
+            <header class="auth-header">
+                <span class="eyebrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    Financing Network
+                </span>
+                <h1 id="signupHeading">Join <span>Financing Network.</span></h1>
+
+            </header>
+
+            <!-- Sign Up Form -->
+            <form class="auth-form" id="signupForm" novalidate>
+                <!-- Company Name -->
+                <div class="form-group" id="businessNameGroup">
+                    <label class="form-label" for="businessName">Financing Institution / Firm Name</label>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                            <path d="M9 22v-4h6v4"></path>
+                            <path d="M8 6h.01"></path>
+                            <path d="M16 6h.01"></path>
+                            <path d="M8 10h.01"></path>
+                            <path d="M16 10h.01"></path>
+                        </svg>
+                        <input class="form-input" id="businessName" name="businessName" type="text"
+                            placeholder="e.g. Solar Capital & Finance Corp." required>
+                    </div>
+                    <div class="error-message" id="businessNameError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Please enter your financial institution or firm name.
+                    </div>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group" id="fullNameGroup">
+                    <label class="form-label" for="fullName">Authorized Representative / Full Name</label>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <input class="form-input" id="fullName" name="fullName" type="text"
+                            placeholder="e.g. Ma. Elena Santos" autocomplete="name" required>
+                    </div>
+                    <div class="error-message" id="fullNameError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Please enter the representative's full name.
+                    </div>
+                </div>
+
+                <!-- Profile Avatar Picture Chooser -->
+                <div class="form-group" id="avatarPickerGroup">
+                    <label class="form-label">Profile Avatar Picture <span class="signup-avatar-label-note">(Choose
+                            photo or keep
+                            initials)</span></label>
+                    <div class="signup-avatar-box">
+                        <div class="signup-avatar-preview" id="signupAvatarPreview" title="Current avatar preview">
+                            <span id="signupAvatarInitials">ST</span>
+                        </div>
+                        <div class="signup-avatar-picker">
+                            <div class="signup-avatar-hint">Click a picture below to change initials into a photo:</div>
+                            <div class="signup-presets-row" id="signupPresetsRow">
+                                <button type="button" class="avatar-preset-btn initials-btn active"
+                                    id="signupPresetInitials" data-type="initials" title="Use Name Initials">
+                                    <span id="signupPresetInitialsText">ST</span>
+                                </button>
+                                <button type="button" class="avatar-preset-btn"
+                                    data-src="assets/images/avatars/avatar_female_2.jpg"
+                                    title="Corporate Executive (Female)">
+                                    <img src="assets/images/avatars/avatar_female_2.jpg" alt="Executive 1">
+                                </button>
+                                <button type="button" class="avatar-preset-btn"
+                                    data-src="assets/images/avatars/avatar_male_2.jpg" title="Finance Director (Male)">
+                                    <img src="assets/images/avatars/avatar_male_2.jpg" alt="Executive 2">
+                                </button>
+                                <button type="button" class="avatar-preset-btn"
+                                    data-src="assets/images/avatars/avatar_female_1.jpg"
+                                    title="Senior Underwriter (Female)">
+                                    <img src="assets/images/avatars/avatar_female_1.jpg" alt="Executive 3">
+                                </button>
+                                <button type="button" class="avatar-preset-btn"
+                                    data-src="assets/images/avatars/avatar_male_1.jpg"
+                                    title="Investment Officer (Male)">
+                                    <img src="assets/images/avatars/avatar_male_1.jpg" alt="Executive 4">
+                                </button>
+                            </div>
+                            <div class="signup-upload-row">
+                                <label for="signupCustomAvatarInput" class="signup-upload-btn">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    Upload Custom Picture
+                                </label>
+                                <input class="signup-avatar-input" type="file" id="signupCustomAvatarInput"
+                                    accept="image/png,image/jpeg,image/webp,image/svg+xml">
+                                <button type="button" class="signup-reset-avatar" id="signupResetAvatar">Use
+                                    Initials</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Phone -->
+                <div class="form-group" id="phoneGroup">
+                    <label class="form-label" for="phone">Mobile / Direct Phone Number</label>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <input class="form-input" id="phone" name="phone" type="tel" placeholder="0917 888 2345"
+                            autocomplete="tel" required>
+                    </div>
+                    <div class="error-message" id="phoneError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Please enter a valid phone number.
+                    </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group" id="emailGroup">
+                    <label class="form-label" for="email">Work Email Address</label>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <input class="form-input" id="email" name="email" type="email"
+                            placeholder="officer@solarcapital.ph" autocomplete="email" required>
+                    </div>
+                    <div class="error-message" id="emailError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Please enter a valid work email address.
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group" id="passwordGroup">
+                    <div class="label-row">
+                        <label class="form-label" for="password">Create Password</label>
+                        <div class="password-strength-compact" id="passwordStrengthWrap" aria-live="polite">
+                            <div class="strength-bars-compact">
+                                <span class="strength-segment" id="strSeg1"></span>
+                                <span class="strength-segment" id="strSeg2"></span>
+                                <span class="strength-segment" id="strSeg3"></span>
+                                <span class="strength-segment" id="strSeg4"></span>
+                            </div>
+                            <span class="strength-text" id="strengthText">Weak</span>
+                        </div>
+                    </div>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <input class="form-input has-toggle" id="password" name="password" type="password"
+                            placeholder="Create password (min. 6 characters)" autocomplete="new-password" required>
+                        <button type="button" class="password-toggle-btn" id="passwordToggle"
+                            aria-label="Toggle password visibility">
+                            <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                        <div class="password-meter-line" id="passwordMeterLine"></div>
+                    </div>
+                    <div class="error-message" id="passwordError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Password must be at least 6 characters.
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group" id="confirmPasswordGroup">
+                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <div class="input-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <input class="form-input has-toggle" id="confirmPassword" name="confirmPassword" type="password"
+                            placeholder="Re-enter your password" autocomplete="new-password" required>
+                        <span class="password-match-badge" id="matchBadge">✓ Passwords match</span>
+                        <button type="button" class="password-toggle-btn" id="confirmToggle"
+                            aria-label="Toggle password visibility">
+                            <svg id="confirmEyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="error-message" id="confirmPasswordError">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Passwords do not match.
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="auth-btn" id="signupButton">
+                    <span id="signupBtnText">Create Financer Account</span>
+                    <svg id="signupArrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </button>
+
+            </form>
+
+            <p class="terms-note">
+                By creating an account, you agree to Hello Solar's
+                <a href="#" id="termsLink">Financer Partner Agreement</a> and Lending Regulations.
+            </p>
+
+            <p class="auth-footer">
+                Already have a financer account?
+                <a href="login.html">Log in</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- Financer Authentication Logic -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- Sign Up Page Logic -->
+    <script src="js/signup.js"></script>
+</body>
+
+</html>

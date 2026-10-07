@@ -1,0 +1,121 @@
+/* Support-only refinements; shared dashboard tokens remain the source of truth. */
+#supportContactSummary, #supportHistorySection, #supportFaqSection { scroll-margin-top: 100px; }
+.support-card .support-system-context { margin: 0 0 20px; padding: 12px 14px; background: var(--bg, #faf7f2); border-radius: var(--radius-sm); }
+.support-system-context a { color: var(--ink); font-size: 13px; padding: 10px 0; text-underline-offset: 3px; }
+.page-intro { align-items: center; gap: 16px; margin-bottom: 24px; }
+.page-intro h1 { font-size: 26px; font-weight: 800; color: var(--navy, #0f172a); margin: 0 0 4px; }
+.page-intro p { font-size: 14px; color: var(--muted, #64748b); margin: 0; }
+.support-workspace-grid { grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr); align-items: start; gap: 24px; }
+.support-workspace-grid > *, .support-side-stack > * { min-width: 0; }
+.support-card { overflow: visible; }
+.support-card, .support-side-stack .support-summary-card, .support-history-panel, .support-faq-wide {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs); padding: 24px; min-height: 0;
+}
+.support-card-header-bar { display: block; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
+.support-card h2, .support-history-panel h2 { font-size: 19px; margin: 0; font-weight: 800; color: var(--ink); }
+.support-card p.subtitle, .support-history-heading p { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin: 4px 0 0; }
+.form-title-wrap { display: flex; align-items: center; gap: 10px; }
+.form-title-icon { width: 22px; height: 22px; background: transparent; border: 0; color: var(--solar-orange, #f97316); flex-shrink: 0; }
+.form-title-icon svg { width: 22px; height: 22px; stroke-width: 2.2; }
+.support-system-context { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.support-system-context > div { min-width: 0; max-width: 100%; }
+.support-system-context strong, #ticketTargetAccountLabel { display: block; overflow-wrap: anywhere; }
+.support-context-label, #ticketTargetAccountLabel { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.support-system-context strong { font-size: 14px; color: var(--ink); margin: 2px 0; }
+.support-card .form-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.support-card .form-label, .support-history-tools label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+.required-mark { color: var(--solar-orange, #f97316); font-weight: 800; margin-left: 2px; }
+.support-card .form-input, .support-card .form-select, .support-card .form-textarea,
+.support-history-tools .form-input, .support-history-tools .form-select {
+    min-height: 46px; width: 100%; max-width: 100%; background: var(--surface); color: var(--ink);
+    border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 11px 12px; font-family: inherit; font-size: 14px;
+}
+.support-card .form-select, .support-history-tools .form-select { padding-right: 30px; }
+.support-card .form-textarea { min-height: 120px; line-height: 1.6; }
+.support-card .form-group { min-width: 0; margin-bottom: 18px; }
+.support-card .form-input:focus, .support-card .form-select:focus, .support-card .form-textarea:focus,
+.support-history-tools input:focus, .support-history-tools select:focus { outline: 2px solid var(--solar-orange, #f97316); outline-offset: 2px; box-shadow: none; border-color: var(--icon); }
+.support-card .form-actions-row { display: flex; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+.support-secondary-btn, .support-request-details { min-height: 44px; color: var(--muted); font: 600 13px var(--font-main); background: transparent; border: 0; box-shadow: none; cursor: pointer; padding: 8px 0; }
+.support-secondary-btn:hover, .support-request-details:hover { color: var(--ink); background: transparent; box-shadow: none; text-decoration: underline; }
+.support-form-error { font-size: 13px; line-height: 1.6; color: #b42318; margin: 12px 0 0; }
+.support-draft-feedback { font-size: 13px; color: var(--muted); margin: 12px 0 0; line-height: 1.5; }
+.support-draft-feedback:empty { display: none; }
+.ticket-success-alert { margin-top: 16px; }
+.ticket-success-title { align-items: start; overflow-wrap: anywhere; }
+.support-side-stack { display: grid; gap: 16px; }
+.support-summary-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 14px; }
+.support-summary-top h2 { color: var(--ink); font-size: 15px; font-weight: 700; margin: 0; }
+.support-contact-icon { width: 22px; height: 22px; color: var(--icon); flex-shrink: 0; }
+#routingLeadName { font-size: 18px; line-height: 1.4; font-weight: 800; color: var(--ink); margin: 0 0 4px; }
+#routingLeadRole, .support-side-stack p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0 0 10px; }
+.support-side-stack .contact-phone-link { display: inline-flex; gap: 8px; width: fit-content; min-height: 40px; align-items: center; font-size: 13.5px; font-weight: 600; color: var(--ink); text-decoration: none; padding: 8px 14px; background: var(--bg, #f8fafc); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all var(--transition-fast); }
+.support-side-stack .contact-phone-link:hover { background: #fff7ed; border-color: #fed7aa; color: var(--solar-orange-dark, #c2410c); }
+.contact-phone-link svg { width: 16px; height: 16px; color: var(--icon); flex-shrink: 0; }
+.support-installer-contact { display: grid; gap: 4px; font-size: 13px; margin: 12px 0; padding-top: 12px; border-top: 1px solid var(--border); }
+.support-installer-contact a { min-height: 40px; display: flex; align-items: center; color: var(--ink); }
+.support-response-target { display: block; font-size: 19px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+.support-side-stack .support-hours { display: grid; gap: 4px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px; }
+.support-hours strong { color: var(--ink); font-weight: 600; }
+.support-history-panel { margin-bottom: 24px; }
+.support-history-heading { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+.support-history-heading .badge { flex-shrink: 0; }
+.support-history-tools { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 240px); gap: 16px; margin: 20px 0 6px; }
+.support-request-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 24px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.support-request-row:last-child { border-bottom: 0; }
+.support-request-row h3 { font-size: 14px; color: var(--ink); font-weight: 700; margin: 0 0 6px; overflow-wrap: anywhere; }
+.support-request-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--muted); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.support-request-actions { display: flex; align-items: center; gap: 16px; }
+.support-request-details { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); white-space: nowrap; }
+.support-request-details svg { width: 16px; height: 16px; color: var(--icon); }
+.support-request-status { display: inline-block; padding: 3px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 11.5px; line-height: 1.5; font-weight: 700; color: var(--muted); }
+.support-request-status.resolved { background: #ecfdf5; border-color: #a7f3d0; color: #047857; }
+.support-request-status.open { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.support-history-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 12px; color: var(--muted); padding-top: 8px; min-height: 44px; }
+.support-empty-history { padding: 20px 0 10px; margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.support-faq-wide .faq-item { border: 0; border-bottom: 1px solid var(--border); padding: 0; border-radius: 0; }
+.support-faq-wide .faq-item:last-child { border-bottom: 0; }
+.support-faq-wide .faq-question { padding: 14px 0; gap: 16px; min-height: 48px; font-size: 14px; line-height: 1.5; text-align: left; }
+.support-faq-wide .faq-answer { padding: 0 0 14px; font-size: 13px; line-height: 1.7; }
+.support-faq-wide .faq-arrow { flex-shrink: 0; color: var(--icon); }
+.ticket-modal-panel { background: var(--surface); border-color: var(--border); overscroll-behavior: contain; }
+.ticket-modal-close-btn { width: 44px; height: 44px; flex-shrink: 0; }
+#modalTicketNotes { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--surface) !important; border-color: var(--border) !important; }
+.ticket-modal-val, #modalTicketTitle { overflow-wrap: anywhere; }
+.support-side-stack [hidden], .support-history-panel [hidden], .support-card [hidden], .ticket-modal-panel [hidden], .support-faq-wide [hidden] { display: none; }
+.support-workspace-grid *, .support-history-panel *, .support-faq-wide *, .ticket-modal-backdrop { animation: none !important; transition-property: color, border-color, box-shadow !important; }
+.support-workspace-grid button:hover, .support-workspace-grid button:active, .support-history-panel button:hover, .support-history-panel button:active, .support-faq-wide .faq-arrow { transform: none !important; }
+@media (max-width: 1100px) {
+    .support-workspace-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .support-side-stack { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+}
+@media (max-width: 680px) {
+    .page-intro { align-items: flex-start; gap: 8px; margin-bottom: 18px; }
+    .support-card, .support-side-stack .support-summary-card, .support-history-panel, .support-faq-wide { padding: 18px 16px; }
+    .support-side-stack, .support-card .form-row, .support-history-tools { grid-template-columns: minmax(0, 1fr); }
+    .support-history-tools { gap: 12px; margin-top: 16px; }
+    .support-card .form-input, .support-card .form-select, .support-card .form-textarea, .support-history-tools input, .support-history-tools select { font-size: 16px; }
+    .support-card .form-primary-actions, #submitTicketBtn { width: 100%; }
+    .support-system-context { align-items: flex-start; flex-direction: column; }
+    .support-history-heading { flex-wrap: wrap; gap: 8px; }
+    .support-request-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .support-request-actions { justify-content: space-between; gap: 12px; }
+    .ticket-modal-backdrop { padding: 12px; }
+    .ticket-modal-panel { padding: 20px; max-height: 85dvh; }
+}
+
+/* Custom Dropdown Overrides & Smooth Motion */
+.custom-dropdown-arrow {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.custom-dropdown.open .custom-dropdown-arrow {
+    transform: rotate(180deg) !important;
+}
+.custom-dropdown.open .custom-dropdown-menu {
+    display: block !important;
+}
+.custom-dropdown-item {
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+

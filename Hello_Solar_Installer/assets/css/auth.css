@@ -1,0 +1,600 @@
+/* ==========================================================================
+   HELLO SOLAR INSTALLER — AUTHENTICATION STYLESHEET
+   Clean energy. Lower bills. Brighter future.
+   Used by login.html & signup.html
+   ========================================================================== */
+
+:root {
+    --navy: #101a2e;
+    --navy-soft: #18273d;
+    --navy-light: #24344d;
+    --solar-orange: #ff8a00;
+    --solar-orange-dark: #f47718;
+    --solar-yellow: #ffb300;
+    --solar-gold: #f8b319;
+    --white: #ffffff;
+    --cream: #fffdf9;
+    --cream-soft: #fffaf2;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --shadow-sm: 0 4px 16px rgba(16, 26, 46, 0.05);
+    --shadow-card: 0 20px 60px rgba(16, 26, 46, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    color: var(--navy);
+    background: #fffdf9;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   PAGE WRAPPER & CARD
+   -------------------------------------------------------------------------- */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 20px;
+    background: radial-gradient(circle at 10% 12%, rgba(255, 179, 0, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 88%, rgba(255, 138, 0, 0.08) 0%, transparent 45%),
+        linear-gradient(135deg, #ffffff 0%, #fffdfa 50%, #fff9ef 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: 2;
+    transition: box-shadow 0.3s ease;
+}
+
+.auth-card.wide {
+    max-width: 520px;
+}
+
+/* --------------------------------------------------------------------------
+   LOGO & HEADER
+   -------------------------------------------------------------------------- */
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 24px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.auth-logo:hover {
+    opacity: 0.9;
+}
+
+.auth-logo img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.auth-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(255, 138, 0, 0.1);
+    color: var(--solar-orange-dark);
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+
+.auth-header {
+    margin-bottom: 24px;
+}
+
+.auth-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.auth-header h1 span {
+    color: var(--solar-orange);
+}
+
+.auth-header p {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   FORM ELEMENTS
+   -------------------------------------------------------------------------- */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.error-msg {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.4;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+}
+
+.label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forgot-link {
+    font-size: 12.5px;
+    color: var(--solar-orange);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.forgot-link:hover {
+    color: var(--solar-orange-dark);
+    text-decoration: underline;
+}
+
+.input-icon-wrap,
+.password-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--gray-400);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.form-input {
+    width: 100%;
+    height: 48px;
+    padding-left: 42px;
+    padding-right: 16px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+    color: var(--navy);
+    background: #ffffff;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.password-wrap .form-input {
+    padding-right: 44px;
+}
+
+.form-input::placeholder {
+    color: var(--gray-400);
+}
+
+.form-input:focus {
+    border-color: var(--solar-orange);
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.15);
+}
+
+/* Password Toggle */
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--gray-400);
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.15s ease;
+}
+
+.password-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+    pointer-events: none;
+}
+
+.password-toggle-btn:hover {
+    color: var(--navy);
+}
+
+.password-toggle-btn:focus-visible {
+    outline: 2px solid var(--solar-orange);
+    outline-offset: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   STRENGTH METER & MATCH BADGE
+   -------------------------------------------------------------------------- */
+.strength-meter {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.strength-meter.active {
+    display: flex;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 4px;
+    height: 4px;
+    width: 100%;
+}
+
+.strength-seg {
+    flex: 1;
+    height: 100%;
+    background: var(--gray-200);
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+}
+
+.strength-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: var(--gray-500);
+}
+
+.strength-info strong {
+    font-weight: 700;
+}
+
+.match-badge {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    color: #16a34a;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.match-badge.visible {
+    display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   CHECKBOX & TERMS
+   -------------------------------------------------------------------------- */
+.terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--gray-600);
+    line-height: 1.4;
+    cursor: pointer;
+    user-select: none;
+}
+
+.terms-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: var(--solar-orange);
+    cursor: pointer;
+}
+
+.terms-row a {
+    color: var(--solar-orange);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.terms-row a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.primary-btn {
+    width: 100%;
+    height: 48px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 12px;
+    background: var(--solar-orange);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(255, 138, 0, 0.28);
+    font-family: inherit;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: var(--solar-orange-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 138, 0, 0.36);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+.primary-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.4;
+    transition: transform 0.15s ease;
+}
+
+.primary-btn:hover svg {
+    transform: translateX(2px);
+}
+
+.demo-btn {
+    width: 100%;
+    height: 40px;
+    margin-top: -6px;
+    background: transparent;
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.demo-btn:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-300);
+    color: var(--navy);
+}
+
+/* --------------------------------------------------------------------------
+   DEMO CREDENTIALS BOX
+   -------------------------------------------------------------------------- */
+.demo-credentials-box {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--gray-600);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.4;
+}
+
+.demo-credentials-box strong {
+    color: var(--navy);
+}
+
+.demo-credentials-box code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: #ffffff;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-200);
+    color: var(--solar-orange-dark);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.auth-footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--gray-500);
+}
+
+.auth-footer a {
+    color: var(--solar-orange-dark);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   MODAL DIALOG (FORGOT PASSWORD / TERMS)
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(16, 26, 46, 0.45);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal-backdrop.active {
+    display: flex;
+}
+
+.modal-card {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 138, 0, 0.1);
+    color: var(--solar-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.modal-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.modal-card p {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-close-btn {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 10px;
+    background: var(--solar-orange);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    background: var(--solar-orange-dark);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 520px) {
+    .auth-card {
+        padding: 30px 22px;
+        border-radius: var(--radius-lg);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-header h1 {
+        font-size: 24px;
+    }
+
+    .auth-logo img {
+        height: 34px;
+    }
+}

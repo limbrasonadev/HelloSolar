@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar — View payment schedule, account amortization status, bank channels, and upload proof of payment.">
+    <title>Hello Solar — My Payments</title>
+
+    <!-- Immediate Authentication Guard -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/payments-page.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/dashboard-theme.css">
+
+    <link rel="stylesheet" href="css/payments-page.css">
+
+    <link rel="stylesheet" href="css/payments-page-2.css">
+    <link rel="stylesheet" href="css/customer-polish.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="mysystem.html" class="logo">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="nav-label">Customer Portal</div>
+
+            <nav class="nav" aria-label="Portal navigation">
+                <a href="mysystem.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                    My System
+                </a>
+                <a href="energy.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                    Equipment
+                </a>
+                <a href="payments.html" class="nav-link active" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                    My Payments
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                    Documents
+                </a>
+                <a href="support.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-button" id="logoutButton" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+        <!-- MAIN VIEW -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="mobile-header">
+
+                    <a href="mysystem.html" class="mobile-logo">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="support.html" class="quick-support-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 11a9 9 0 0 1 18 0" />
+                            <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                            <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                            <path d="M17 17c0 2-2 3-5 3" />
+                        </svg>
+                        Billing Help
+                    </a>
+
+                    <div class="profile">
+
+                        <div class="profile-avatar" id="profileAvatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <section class="page-intro">
+                    <div>
+                        <h1>My <span>Payments</span></h1>
+                    </div>
+                    <div class="cta-group">
+                        <div class="package-selector-slot" id="pagePackageSelector"></div>
+                    </div>
+                </section>
+
+                <!-- 1. NEXT PAYMENT & ACCOUNT SUMMARIES (2x2 GRID ON MOBILE) -->
+                <section class="payment-summaries-wrap" aria-label="Payment summary cards">
+                    <!-- 1. Next Payment (Top-Left on Mobile) -->
+                    <article class="next-payment-card" id="cardNextPayment">
+                        <div class="summary-top">
+                            <span class="summary-label" id="summaryCard1Label">Next payment</span>
+                            <div class="summary-icon highlight">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <path d="M2 10h20" />
+                                    <path d="M6 15h4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="summary-content-block">
+                            <div class="summary-value large-val" id="paymentNextAmount">₱9,067</div>
+                            <div class="summary-meta due-meta" id="paymentNextDueMeta">Due on October 15, 2026</div>
+                        </div>
+                    </article>
+
+                    <!-- 3 Secondary Summaries (Distributed in 2x2 Grid on Mobile) -->
+                    <div class="secondary-summaries-grid">
+                        <!-- 2. Payment Status (Top-Right on Mobile) -->
+                        <article class="summary-card secondary-card" id="cardPaymentStatus">
+                            <div class="summary-top">
+                                <span class="summary-label" id="summaryCard2Label">Payment status</span>
+                                <div class="summary-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="summary-content-block">
+                                <div class="summary-value" id="paymentStandingVal">Good</div>
+                                <div class="summary-meta" id="paymentStandingMeta"><span
+                                        class="status-dot"></span>Account up to date</div>
+                            </div>
+                        </article>
+
+                        <!-- 3. Payment Plan (Bottom-Left on Mobile) -->
+                        <article class="summary-card secondary-card" id="cardPaymentPlan">
+                            <div class="summary-top">
+                                <span class="summary-label" id="summaryCard3Label">Payment plan</span>
+                                <div class="summary-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="summary-content-block">
+                                <div class="summary-value" id="paymentPlanTerm">5 Years</div>
+                                <div class="summary-meta" id="paymentPlanMeta">Fixed monthly payments</div>
+                            </div>
+                        </article>
+
+                        <!-- 4. Payments Completed (Bottom-Right on Mobile) -->
+                        <article class="summary-card secondary-card" id="cardPaymentsCompleted">
+                            <div class="summary-top">
+                                <span class="summary-label" id="summaryCard4Label">Payments completed</span>
+                                <div class="summary-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 14 14" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="summary-content-block">
+                                <div class="summary-value" id="paymentPaidCount">4 of 60</div>
+                                <div class="summary-meta" id="paymentTotalPaidMeta">₱36,268 total paid</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Receipt workspace -->
+                <div class="payments-action-grid">
+                    <section class="panel" id="submitProofSection">
+
+                        <div class="panel-header desktop-panel-header">
+                            <div>
+                                <h2 class="panel-title">Upload Your Receipt</h2>
+
+                            </div>
+                        </div>
+
+                        <div class="panel-body" id="submitProofBody">
+                            <div class="verification-notice-box">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="color: var(--solar-orange); flex-shrink: 0; margin-top: 1px;">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <p style="margin: 0; font-size: 12.5px; color: #475569; line-height: 1.45;">
+                                    <strong>Your payment is confirmed after your receipt is reviewed.
+                                </p>
+                            </div>
+
+                            <input type="file" id="proofFileInput" class="upload-file-input"
+                                accept="image/png,image/jpeg,application/pdf">
+                            <div class="upload-dropzone" id="uploadDropzone" role="button" tabindex="0"
+                                aria-label="Click or drag file to upload payment proof">
+                                <div class="upload-icon-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong style="font-size: 13.5px; color: var(--navy);">Click to upload
+                                        receipt</strong>
+                                    <p style="font-size: 11.5px; color: var(--gray-400); margin-top: 2px;">PNG, JPG, or
+                                        PDF up to 10MB</p>
+                                </div>
+                            </div>
+
+                            <div class="selected-file-badge" id="selectedFileBadge">
+                                <span>📄</span>
+                                <span id="selectedFileName">receipt.png</span>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="uploadProofBtn"
+                                style="width: 100%; margin-top: 14px;">
+                                Submit Proof of Payment
+                            </button>
+
+                        </div>
+                    </section>
+                    <aside class="payment-help-column" aria-label="Payment help and history">
+                        <section class="panel action-collapsible-panel" id="howToPaySection">
+                            <button type="button" class="action-panel-toggle" id="howToPayToggleBtn"
+                                aria-expanded="false" aria-controls="howToPayBody">
+                                <div class="action-toggle-left">
+                                    <span class="action-toggle-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="5" width="20" height="14" rx="2" />
+                                            <line x1="2" y1="10" x2="22" y2="10" />
+                                        </svg>
+                                    </span>
+                                    <span class="action-toggle-title">How to Pay</span>
+                                </div>
+                                <svg class="action-toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+
+                            <div class="panel-header desktop-panel-header">
+                                <div>
+                                    <h2 class="panel-title">How to Pay</h2>
+                                    <p class="panel-subtitle">Official payment channels for your monthly solar
+                                        amortization
+                                    </p>
+                                </div>
+                                <button type="button"
+                                    onclick="window.HelloSolar && window.HelloSolar.openProfileSettings()"
+                                    style="background: none; border: none; font-size: 12px; color: var(--solar-orange-dark); font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px;">
+                                    Preferred Channel ⚙
+                                </button>
+                            </div>
+
+                            <div class="panel-body" id="howToPayBody">
+                                <div class="due-callout" id="dueCalloutBox">
+                                    <div>
+                                        <div id="dueCalloutTitle"
+                                            style="font-size: 11.5px; font-weight: 700; color: var(--solar-orange-dark); text-transform: uppercase; letter-spacing: 0.03em;">
+                                            Amount Due</div>
+                                        <div class="due-amount-large" id="dueCalloutAmount">₱9,067</div>
+                                    </div>
+                                    <div id="dueCalloutMeta"
+                                        style="font-size: 12px; text-align: right; color: var(--navy); display: flex; flex-direction: column; gap: 3px; align-items: flex-end;">
+                                        <div>Type: <strong id="dueCalloutPaymentType">5-Year Installment</strong></div>
+                                        <div><span id="dueCalloutPeriodLabel">Period</span>: <strong id="dueCalloutPeriod">Sep 2026 (Current)</strong></div>
+                                        <div>Due Date: <strong id="dueCalloutDueDate">Oct 15, 2026</strong></div>
+                                        <div style="font-size: 11px; color: var(--gray-500);" id="dueCalloutRef"></div>
+                                    </div>
+                                </div>
+
+                                <div class="payment-methods-grid">
+                                    <div class="payment-method-box" id="channelGcashMaya">
+                                        <div class="method-row-main">
+                                            <span class="method-tag">GCash / Maya</span>
+                                            <span class="method-sub">Hello Solar Official</span>
+                                        </div>
+                                        <span class="method-detail">+63 917 000 1111</span>
+                                    </div>
+                                    <div class="payment-method-box" id="channelBdo">
+                                        <div class="method-row-main">
+                                            <span class="method-tag">BDO Bank Transfer</span>
+                                            <span class="method-sub">Hello Solar Inc.</span>
+                                        </div>
+                                        <span class="method-detail">0082-1234-5678</span>
+                                    </div>
+                                </div>
+
+                                <div class="payment-instructions-box">
+                                    <strong>Payment Instructions:</strong>
+                                    <ol>
+                                        <li>Send payment to either verified channel above.</li>
+                                        <li>Add your account reference number (<span id="howToPayRefBadge"
+                                                style="font-weight: 700; color: var(--navy);"></span>) in the
+                                            remarks.</li>
+                                        <li>Save your transaction screenshot or deposit slip and upload it using the
+                                            receipt form.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+                        <button type="button" class="payment-history-launch" id="openPaymentHistoryBtn"
+                            aria-haspopup="dialog" aria-controls="paymentHistoryModal">Payment History <span
+                                aria-hidden="true">↗</span></button>
+                    </aside>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="portal-footer">
+                <span>© 2026 Hello Solar Inc.</span>
+                <span>hellosolarph.com · support@hellosolarph.com</span>
+            </footer>
+        </main>
+    </div>
+
+    <dialog id="paymentHistoryModal" aria-labelledby="paymentHistoryTitle">
+
+        <section class="panel" id="paymentHistorySection">
+            <div class="panel-header">
+                <button type="button" id="closePaymentHistoryBtn" aria-label="Close payment history"
+                    autofocus>✕</button>
+                <div>
+                    <h2 class="panel-title" id="paymentHistoryTitle">Payment History</h2>
+                    <p class="panel-subtitle" id="paymentScheduleSubtitle">Monthly installment status for
+                        your selected system</p>
+                </div>
+                <div class="panel-header-actions">
+                    <span class="badge badge-neutral desktop-only-badge" id="paymentScheduleBadge">5-Year
+                        Term</span>
+                    <button type="button" class="btn btn-outline btn-sm" id="downloadReceiptBtn">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span id="downloadStatementBtnText">Download Statement</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <!-- Table Search & Filter Controls -->
+                <div class="payments-table-controls">
+                    <div class="payments-search-wrap">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="paymentsSearchInput" class="payments-search-input"
+                            placeholder="Search billing period, receipt ID..." aria-label="Search payment records">
+                    </div>
+                    <div class="payments-filter-chips" id="paymentsFilterChips">
+                        <button type="button" class="filter-chip active" data-filter="all">All</button>
+                        <button type="button" class="filter-chip" data-filter="paid">Paid</button>
+                        <button type="button" class="filter-chip" data-filter="upcoming">Upcoming</button>
+                        <button type="button" class="filter-chip" data-filter="unpaid">Unpaid</button>
+                    </div>
+                </div>
+
+                <!-- Desktop Table View -->
+                <div class="table-responsive desktop-only-table">
+                    <table class="portal-table" id="paymentScheduleTable" aria-label="Payment history and schedule">
+                        <thead>
+                            <tr>
+                                <th>Billing Period</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentScheduleTableBody">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Stacked Card View -->
+                <div class="mobile-only-cards" id="paymentScheduleCards" aria-label="Mobile payment history cards">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- See More / See Less Toggle -->
+                <div class="payments-history-toggle-wrap" id="paymentsHistoryToggleWrap" style="display: none;">
+                    <button type="button" class="payments-history-toggle-btn" id="paymentsHistoryToggleBtn"
+                        aria-expanded="false" aria-controls="paymentScheduleTableBody paymentScheduleCards">
+                        <span id="paymentsHistoryToggleText">See more</span>
+                        <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </dialog>
+
+    <!-- SUBMIT PAYMENT PROOF MODAL -->
+    <dialog id="submitPaymentProofModal" aria-labelledby="proofModalTitle">
+        <section class="panel" id="submitProofModalSection">
+            <div class="panel-header">
+                <button type="button" id="closeProofModalBtn" aria-label="Close submit payment proof" autofocus>✕</button>
+                <div>
+                    <h2 class="panel-title" id="proofModalTitle">Submit Proof of Payment</h2>
+                    <p class="panel-subtitle" id="proofModalSubtitle">Submit payment receipt for Super Admin verification</p>
+                </div>
+            </div>
+
+            <form id="paymentProofModalForm" class="panel-body">
+                <div class="verification-notice-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="color: var(--solar-orange); flex-shrink: 0; margin-top: 1px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <p style="margin: 0; font-size: 12.5px; color: #475569; line-height: 1.45;">
+                        <strong>Super Admin verification required.</strong> Your submission status will be set to <strong>Payment Under Review</strong> only. Your account is marked Paid once verified by Super Admin.
+                    </p>
+                </div>
+
+                <div class="proof-field-group">
+                    <label class="proof-field-label" for="proofChannelInput">Bank / Payment Channel <span class="required-star">*</span></label>
+                    <select id="proofChannelInput" class="proof-field-select" required>
+                        <option value="GCash">GCash (+63 917 000 1111 - Hello Solar Official)</option>
+                        <option value="Maya">Maya (+63 917 000 1111 - Hello Solar Official)</option>
+                        <option value="BDO Bank Transfer">BDO Bank Transfer (0082-1234-5678 - Hello Solar Inc.)</option>
+                        <option value="BPI Bank Transfer">BPI Bank Transfer</option>
+                        <option value="UnionBank">UnionBank</option>
+                        <option value="Over-the-Counter / Other">Over-the-Counter / Other</option>
+                    </select>
+                </div>
+
+                <div class="proof-field-row">
+                    <div class="proof-field-group">
+                        <label class="proof-field-label" for="proofAmountInput">Amount Deposited <span class="required-star">*</span></label>
+                        <input type="text" id="proofAmountInput" class="proof-field-input" placeholder="₱9,066.67" required>
+                    </div>
+                    <div class="proof-field-group">
+                        <label class="proof-field-label" for="proofDateInput">Payment / Deposit Date <span class="required-star">*</span></label>
+                        <input type="date" id="proofDateInput" class="proof-field-input" required>
+                    </div>
+                </div>
+
+                <div class="proof-field-group">
+                    <label class="proof-field-label" for="proofRefInput">Reference Number <span class="required-star">*</span></label>
+                    <input type="text" id="proofRefInput" class="proof-field-input" placeholder="e.g. HS-12345 or Transaction Ref #" required>
+                </div>
+
+                <div class="proof-field-group">
+                    <label class="proof-field-label" id="modalFileLabel">Receipt Upload <span class="required-star">*</span></label>
+                    <input type="file" id="modalProofFileInput" class="upload-file-input" accept="image/png,image/jpeg,application/pdf">
+                    <div class="upload-dropzone" id="modalProofDropzone" role="button" tabindex="0"
+                        aria-label="Click or drag file to upload payment proof receipt">
+                        <div class="upload-icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong style="font-size: 13.5px; color: var(--navy);" id="modalDropzonePrompt">Click or drag receipt file here</strong>
+                            <p style="font-size: 11.5px; color: var(--gray-400); margin-top: 2px;">PNG, JPG, or PDF up to 10MB</p>
+                        </div>
+                    </div>
+
+                    <div class="selected-file-badge" id="modalSelectedFileBadge">
+                        <span>📄</span>
+                        <span id="modalSelectedFileName">receipt.png</span>
+                    </div>
+                </div>
+
+                <div class="proof-modal-actions">
+                    <button type="button" class="btn btn-outline" id="modalCancelProofBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="modalSubmitProofBtn">Submit Payment Proof</button>
+                </div>
+            </form>
+        </section>
+    </dialog>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+        <div class="mobile-bottom-nav-inner">
+            <a href="mysystem.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                <span>System</span>
+            </a>
+            <a href="energy.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                <span>Equipment</span>
+            </a>
+            <a href="payments.html" class="mobile-nav-item active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                <span>Payments</span>
+            </a>
+            <a href="documents.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                <span>Documents</span>
+            </a>
+            <a href="support.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                <span>Support</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Shared Data Loader -->
+    <script src="js/data-loader.js"></script>
+
+    <!-- Core Portal JavaScript -->
+    <script src="js/portal.js"></script>
+
+    <script src="js/payments-page-2.js"></script>
+    <script src="js/notifications.js"></script>
+
+    <script src="js/payments-page-3.js"></script>
+</body>
+
+</html>

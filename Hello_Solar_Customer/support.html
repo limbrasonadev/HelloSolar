@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar — Report a problem, contact your support team, and check your service requests.">
+    <title>Hello Solar — Help &amp; Support</title>
+
+    <!-- Immediate Authentication Guard -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/support-page.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/dashboard-theme.css">
+
+    <link rel="stylesheet" href="css/support-page.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="stylesheet" href="css/customer-polish.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="mysystem.html" class="logo">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="nav-label">Customer Portal</div>
+
+            <nav class="nav" aria-label="Portal navigation">
+                <a href="mysystem.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                    My System
+                </a>
+                <a href="energy.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                    Equipment
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                    My Payments
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                    Documents
+                </a>
+                <a href="support.html" class="nav-link active" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-button" id="logoutButton" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+        <!-- MAIN VIEW -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="mobile-header">
+                    <a href="mysystem.html" class="mobile-logo">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="profile">
+                        <div class="profile-avatar" id="profileAvatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <!-- 1. PAGE TITLE -->
+                <section class="page-intro">
+                    <div>
+                        <h1>Help &amp; Support</h1>
+                    </div>
+                    <div class="cta-group">
+                        <div class="package-selector-slot" id="pagePackageSelector"></div>
+                    </div>
+                </section>
+
+                <!-- 2. MAIN WORKSPACE: REQUEST FORM & CONTACT DETAILS -->
+                <div class="support-workspace-grid">
+                    <!-- Left Column: Submit Support Request Form -->
+                    <section class="panel support-card">
+                        <div class="support-card-header-bar">
+                            <div class="form-title-wrap">
+                                <div class="form-title-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h2>Submit a Support Request</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="supportTicketForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="categoryTrigger" id="categoryLabel">Issue Category <span
+                                            class="required-mark">*</span></label>
+                                    <div class="custom-dropdown" id="categoryDropdown">
+                                        <button type="button" class="custom-dropdown-trigger" id="categoryTrigger"
+                                            aria-haspopup="listbox" aria-expanded="false" aria-labelledby="categoryLabel categorySelected">
+                                            <span class="custom-dropdown-selected" id="categorySelected">Choose a topic</span>
+                                            <svg class="custom-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                        <ul class="custom-dropdown-menu" id="categoryMenu" role="listbox" aria-labelledby="categoryLabel" tabindex="-1">
+                                            <li class="custom-dropdown-item active" role="option" aria-selected="true" data-value="" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Choose a topic</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="inverter" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Inverter or error code</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="app" tabindex="0">
+                                                <span class="custom-dropdown-item-text">App or monitoring</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="battery" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Battery or backup power</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="cleaning" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Panel cleaning or inspection</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="billing" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Billing or net metering</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="other" tabindex="0">
+                                                <span class="custom-dropdown-item-text">General inquiry / Other</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                        <select id="categorySelect" name="categorySelect" class="support-native-select-hidden" tabindex="-1" aria-hidden="true">
+                                            <option value="" selected>Choose a topic</option>
+                                            <option value="inverter">Inverter or error code</option>
+                                            <option value="app">App or monitoring</option>
+                                            <option value="battery">Battery or backup power</option>
+                                            <option value="cleaning">Panel cleaning or inspection</option>
+                                            <option value="billing">Billing or net metering</option>
+                                            <option value="other">General inquiry / Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="priorityTrigger" id="priorityLabel">Priority</label>
+                                    <div class="custom-dropdown" id="priorityDropdown">
+                                        <button type="button" class="custom-dropdown-trigger" id="priorityTrigger"
+                                            aria-haspopup="listbox" aria-expanded="false" aria-labelledby="priorityLabel prioritySelected">
+                                            <span class="custom-dropdown-selected" id="prioritySelected">General inquiry / Normal</span>
+                                            <svg class="custom-dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                        <ul class="custom-dropdown-menu" id="priorityMenu" role="listbox" aria-labelledby="priorityLabel" tabindex="-1">
+                                            <li class="custom-dropdown-item active" role="option" aria-selected="true" data-value="normal" tabindex="0">
+                                                <span class="custom-dropdown-item-text">General inquiry / Normal</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                            <li class="custom-dropdown-item" role="option" aria-selected="false" data-value="urgent" tabindex="0">
+                                                <span class="custom-dropdown-item-text">Urgent — Inverter offline / No power</span>
+                                                <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                        <select id="prioritySelect" name="prioritySelect" class="support-native-select-hidden" tabindex="-1" aria-hidden="true">
+                                            <option value="normal" selected>General inquiry / Normal</option>
+                                            <option value="urgent">Urgent — Inverter offline / No power</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="ticketSubject">Subject</label>
+                                <input class="form-input" id="ticketSubject" type="text"
+                                    placeholder="Brief summary of the issue">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label class="form-label" for="ticketDescription">Description <span
+                                        class="required-mark">*</span></label>
+                                <textarea class="form-textarea" id="ticketDescription"
+                                    placeholder="Describe what's happening, error codes, or questions..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-actions-row">
+                                <div class="form-primary-actions">
+                                    <button type="submit" class="btn btn-primary" id="submitTicketBtn"
+                                        style="padding: 10px 24px;">
+                                        <span id="submitBtnText">Submit Request</span>
+                                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="support-form-error" id="ticketErrorAlert" role="alert" hidden></p>
+                            <p class="support-draft-feedback" id="draftFeedback" role="status"></p>
+                        </form>
+
+                        <div class="ticket-success-alert" id="ticketSuccessAlert" role="status">
+                            <div class="ticket-success-title">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="m5 12 4 4L19 6" />
+                                </svg>
+                                <span id="ticketNumberDisplay">Request Submitted Successfully</span>
+                            </div>
+                            <p class="ticket-success-msg" id="ticketSuccessMsg">
+                                Your service request has been received. Our team will follow up within 24 hours.
+                            </p>
+                        </div>
+                    </section>
+
+                    <aside class="support-side-stack" aria-label="Contact information">
+                        <section class="support-summary-card" id="supportContactSummary"
+                            aria-labelledby="supportContactHeading">
+                            <div class="support-summary-top">
+                                <h2 id="supportContactHeading">Your Support Contact</h2>
+                                <svg class="support-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M3 12a9 9 0 0 1 18 0M3 12v5h4v-6H5a2 2 0 0 0-2 2M21 12v5h-4v-6h2a2 2 0 0 1 2 2M17 17c0 3-2 4-5 4" />
+                                </svg>
+                            </div>
+                            <h3 id="routingLeadName">Hello Solar Support</h3>
+                            <p id="routingLeadRole">Support Specialist</p>
+                            <a href="mailto:support@hellosolarph.com" class="contact-phone-link"
+                                id="routingLeadPhoneLink">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45l2.81.7A2 2 0 0 1 22 16.92Z" />
+                                </svg>
+                                <span id="routingLeadPhone">Contact support</span>
+                            </a>
+                            <p class="support-contact-availability" id="contactAvailability" hidden></p>
+                            <div id="installerContact" class="support-installer-contact" hidden>
+                                <span class="support-context-label">Installer</span>
+                                <strong id="installerContactName"></strong>
+                                <span id="installerContactRole"></span>
+                                <a id="installerContactPhone"></a>
+                            </div>
+                        </section>
+                        <section class="support-summary-card support-response-card" aria-labelledby="responseHeading">
+                            <div class="support-summary-top">
+                                <h2 id="responseHeading">Expected Response Time</h2>
+                                <svg class="support-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M12 7v5l3 2" />
+                                </svg>
+                            </div>
+                            <strong class="support-response-target" id="responseTarget">Within 24 hours</strong>
+                            <p class="support-hours"><strong>Support hours:</strong> <span id="supportHours">Mon–Sat,
+                                    8am–6pm</span></p>
+                        </section>
+                    </aside>
+                </div>
+
+                <section class="faq-card support-faq-wide" id="supportFaqSection"
+                    aria-label="Frequently asked questions">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span class="section-heading-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </span>
+                        <div>
+                            <h3 style="font-size: 15px; font-weight: 800; color: var(--navy); margin: 0;">
+                                Frequently Asked Questions</h3>
+
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false">
+                            <span>Why is the inverter reading 0W at night?</span>
+                            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            This is completely normal. Solar photovoltaic panels require sunlight to produce
+                            electricity. At dusk and nighttime, the Solis inverter enters standby mode.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false">
+                            <span>What happens during a brownout?</span>
+                            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Your 10 kWh lithium-ion battery and Automatic Transfer Switch (ATS) instantly power
+                            your dedicated backup circuits within 10 milliseconds without flickering your
+                            appliances.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false">
+                            <span>How often should panels be cleaned?</span>
+                            <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            In the Philippines, periodic rainfall washes off light dust. We recommend a
+                            professional gentle rinse every 4 to 6 months to maintain peak 21.8% cell
+                            efficiency.
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="portal-footer">
+                <span>© 2026 Hello Solar Inc.</span>
+                <span>hellosolarph.com · support@hellosolarph.com</span>
+            </footer>
+        </main>
+    </div>
+
+    <!-- PROGRESSIVE DISCLOSURE MODAL: TICKET DETAILS -->
+    <div class="ticket-modal-backdrop" id="ticketDetailModal" role="dialog" aria-modal="true"
+        aria-labelledby="modalTicketTitle">
+        <div class="ticket-modal-panel">
+            <div class="ticket-modal-header">
+                <div>
+                    <span class="support-summary-label">Service Request Detail</span>
+                    <h3 id="modalTicketTitle"
+                        style="font-size: 18px; font-weight: 800; color: var(--navy); margin: 2px 0 0 0;">HS-SR-8120
+                    </h3>
+                </div>
+                <button type="button" class="ticket-modal-close-btn" id="modalCloseBtn"
+                    aria-label="Close dialog">✕</button>
+            </div>
+            <div class="ticket-modal-row">
+                <div class="ticket-modal-label">Status</div>
+                <div id="modalTicketStatus"></div>
+            </div>
+            <div class="ticket-modal-row">
+                <div class="ticket-modal-label">Summary</div>
+                <div class="ticket-modal-val" id="modalTicketSubject">Annual Inverter Efficiency & Panel Inspection
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                <div>
+                    <div class="ticket-modal-label">Category</div>
+                    <div class="ticket-modal-val" id="modalTicketCategory">Routine Maintenance</div>
+                </div>
+                <div>
+                    <div class="ticket-modal-label">Date Logged</div>
+                    <div class="ticket-modal-val" id="modalTicketDate">July 12, 2026</div>
+                </div>
+            </div>
+            <div class="ticket-modal-row">
+                <div class="ticket-modal-label">Assigned technician</div>
+                <div class="ticket-modal-val" id="modalTicketTechnician">—</div>
+            </div>
+            <div class="ticket-modal-row">
+                <div class="ticket-modal-label">Priority</div>
+                <div class="ticket-modal-val" id="modalTicketPriority"></div>
+            </div>
+            <div class="ticket-modal-row" style="margin-bottom: 0;">
+                <div class="ticket-modal-label">Description &amp; notes</div>
+                <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5; background: #f8fafc; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 10px 12px;"
+                    id="modalTicketNotes">
+                    Inspection completed successfully. Inverter efficiency verified at 98.4%. Solar panel array cleaned
+                    and operating at optimal rating.
+                </div>
+            </div>
+            <div style="margin-top: 18px; display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-secondary" id="modalCloseBtnBottom"
+                    style="padding: 8px 18px; font-size: 13px;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION (5-PILLAR CUSTOMER APP NAV) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+        <div class="mobile-bottom-nav-inner">
+            <a href="mysystem.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                <span>System</span>
+            </a>
+            <a href="energy.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                <span>Equipment</span>
+            </a>
+            <a href="payments.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                <span>Payments</span>
+            </a>
+            <a href="documents.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                <span>Documents</span>
+            </a>
+            <a href="support.html" class="mobile-nav-item active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                <span>Support</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Shared Data Loader -->
+    <script src="js/data-loader.js"></script>
+
+    <!-- Core Portal JavaScript -->
+    <script src="js/portal.js"></script>
+
+    <script src="js/support.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>

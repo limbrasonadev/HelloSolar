@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Contact Us | Hello Solar</title>
+    <meta name="description"
+        content="Connect with Hello Solar for clean energy solutions, customized solar proposals, zero-downpayment financing, and rooftop assessments in the Philippines." />
+
+    <!-- Brand Logo for Browser Tab -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png" />
+    <link rel="apple-touch-icon" href="assets/images/logofortab.png" />
+
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="../shared/hello-solar-config.js"></script>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+</head>
+
+<body class="relative selection:bg-amber-100 selection:text-amber-900 min-h-screen flex flex-col justify-between">
+
+    <!-- FLOATING AMBIENT GLOW BACKDROPS (Matching Hello Solar brand aesthetics) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        <div
+            class="ambient-solar-glow -top-32 left-1/4 w-[650px] h-[500px] bg-gradient-to-br from-amber-200/25 via-orange-100/15 to-transparent opacity-70">
+        </div>
+        <div
+            class="ambient-solar-glow top-[450px] -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-amber-100/20 via-orange-50/15 to-transparent opacity-60">
+        </div>
+        <div
+            class="ambient-solar-glow top-[900px] -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-amber-200/20 via-orange-100/15 to-transparent opacity-60">
+        </div>
+    </div>
+
+    <!-- UNIFIED HERO & BANNER WRAPPER -->
+    <div class="relative w-full overflow-hidden">
+
+        <!-- BACKGROUND IMAGE: 4K Viewport Anchor -->
+        <div
+            class="hero-photo-backdrop absolute right-0 top-0 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[72%] h-[820px] pointer-events-none select-none z-0">
+            <div class="w-full h-full hero-seamless-mask relative">
+                <img src="assets/images/hello_solar_pic.jpg" alt="Solar House & Rock Pathway" fetchpriority="high"
+                    decoding="async" class="w-full h-full object-cover object-[78%_55%] lg:object-[80%_65%] render-4k"
+                    onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=3840&q=95'" />
+                <!-- Mobile Ambient Readability Scrim -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-[#FAFAFB]/95 via-[#FAFAFB]/70 to-[#FAFAFB] lg:hidden">
+                </div>
+                <!-- 4K Ambient Directional Feathers -->
+                <div
+                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAFAFB] via-[#FAFAFB]/60 to-transparent hidden lg:block">
+                </div>
+                <div class="hero-bottom-cloud" aria-hidden="true"></div>
+            </div>
+
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- NAVBAR (Exact match to existing Hello Solar header)                      -->
+        <!-- ========================================================================= -->
+        <header
+            class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 py-5 sm:py-6 flex items-center justify-between relative z-30 bg-transparent">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center focus:outline-none shrink-0" aria-label="Hello Solar Home">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar Logo"
+                    class="h-8 sm:h-9 2xl:h-11 w-auto object-contain" />
+            </a>
+
+            <!-- DESKTOP NAVBAR (Home | Solar Systems | How It Works | Contact Us) -->
+            <nav id="desktopNav"
+                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[15px] 2xl:text-[16px] font-bold text-[#1C1917]">
+                <a href="index.html" data-nav="home"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">Home</a>
+                <a href="index.html#solar-systems" data-nav="solar-systems"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">Solar
+                    Systems</a>
+                <a href="index.html#how-it-works" data-nav="how-it-works"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">How It
+                    Works</a>
+                <a href="contact.html" data-nav="contact"
+                    class="text-[#1C1917] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Contact
+                    Us</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+
+                <!-- Mobile & Tablet Menu Button (< 1280px) -->
+                <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    class="xl:hidden w-11 h-11 rounded-xl bg-white/80 hover:bg-white border border-[#E7E2D7] text-[#1C1917] flex flex-col items-center justify-center gap-[4.5px] shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <span id="burgerLine1"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine2"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine3"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MOBILE & TABLET NAVIGATION BACKDROP OVERLAY -->
+        <div id="mobileMenuBackdrop"
+            class="xl:hidden fixed inset-0 z-40 bg-stone-900/40 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
+        </div>
+
+        <!-- MOBILE & TABLET NAVIGATION DRAWER -->
+        <div id="mobileMenu"
+            class="xl:hidden fixed inset-x-4 sm:inset-x-8 md:inset-x-auto md:w-[480px] md:right-8 top-[74px] sm:top-[84px] z-50 bg-[#FCFAF7]/98 backdrop-blur-xl border border-[#E7E2D7] rounded-[28px] shadow-[0_24px_55px_-12px_rgba(28,25,23,0.18)] p-6 space-y-4 transition-all duration-300 transform -translate-y-4 scale-98 opacity-0 pointer-events-none max-w-md md:max-w-lg mx-auto">
+            <div class="flex items-center justify-between px-1 pb-1 border-b border-stone-100">
+                <span class="text-[11px] font-black text-stone-400 uppercase tracking-wider">Navigation</span>
+                <span
+                    class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    Smart Solar Matching
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5 text-[15px] font-bold text-stone-700">
+                <a href="index.html" data-nav="home"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link text-[#1C1917]">
+                    <span>Home</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="index.html#solar-systems" data-nav="solar-systems"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
+                    <span>Solar Systems</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="index.html#how-it-works" data-nav="how-it-works"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
+                    <span>How It Works</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="contact.html" data-nav="contact"
+                    class="py-3 px-4 rounded-xl bg-amber-500/10 text-amber-900 border border-amber-500/20 font-black transition flex items-center justify-between mobile-nav-link">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-amber-600" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+            </nav>
+
+            <div class="pt-2 border-t border-stone-100">
+                <button data-action="recommend"
+                    class="w-full bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-xs transition cursor-pointer">
+                    <span>Get My Recommendation</span>
+                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- CONTACT US MAIN CONTENT (Clean 2-Column Desktop Layout)                    -->
+        <!-- ========================================================================= -->
+        <main class="contact-main w-full mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 relative z-10">
+
+            <div class="contact-layout grid grid-cols-1 lg:grid-cols-12 items-start">
+
+                <!-- ================================================================= -->
+                <!-- LEFT SIDE: Warm Solar / Ivory Visual Treatment + Contact Details  -->
+                <!-- ================================================================= -->
+                <div class="contact-intro lg:col-span-5 flex flex-col justify-between space-y-6 sm:space-y-8">
+
+                    <!-- Intro Header Block -->
+                    <div class="space-y-4">
+                        <!-- Hello Solar Pill Badge -->
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-800 text-xs sm:text-[13px] font-extrabold tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                            <span>Get in Touch with Hello Solar</span>
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="contact-title font-black text-[#1C1917]">
+                            Let's talk solar.
+                        </h1>
+
+                        <!-- Supporting Text -->
+                        <p class="contact-description hidden sm:block text-stone-600">
+                            Ready to grow your solar business.
+                        </p>
+                    </div>
+
+                    <!-- Subtle Hello Solar Warm Ivory Visual Cards -->
+                    <div class="contact-details space-y-3.5 pt-1">
+                        <!-- Direct Phone Card -->
+                        <div
+                            class="bg-white/80 backdrop-blur-xs border border-[#E7E2D7] rounded-2xl p-4 sm:p-5 flex items-start gap-4 transition-all duration-300 hover:border-amber-400 hover:shadow-xs group">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-amber-100 transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call w-5 h-5 stroke-[2.2]" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9" /><path d="M13 6a5 5 0 0 1 5 5" /><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
+                            </div>
+                            <div class="space-y-0.5">
+                                <span class="text-[11px] font-black text-amber-700 uppercase tracking-wider block">Call
+                                    Our Solar Specialists</span>
+                                <a href="tel:+63288887652"
+                                    class="text-sm sm:text-base font-black text-[#1C1917] hover:text-amber-600 transition block">
+                                    (02) 8888-SOLAR / +63 917 123 4567
+                                </a>
+                                <p class="text-xs font-semibold text-stone-500">Monday to Saturday: 8:00 AM – 6:00 PM
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Email Inquiry Card -->
+                        <div
+                            class="bg-white/80 backdrop-blur-xs border border-[#E7E2D7] rounded-2xl p-4 sm:p-5 flex items-start gap-4 transition-all duration-300 hover:border-amber-400 hover:shadow-xs group">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-amber-100 transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5 stroke-[2.2]" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg>
+                            </div>
+                            <div class="space-y-0.5">
+                                <span
+                                    class="text-[11px] font-black text-amber-700 uppercase tracking-wider block">Direct
+                                    Email Inquiries</span>
+                                <a href="mailto:hello@hellosolar.ph"
+                                    class="text-sm sm:text-base font-black text-[#1C1917] hover:text-amber-600 transition block">
+                                    hello@hellosolar.ph
+                                </a>
+                                <p class="text-xs font-semibold text-stone-500">We respond to all requests within 24
+                                    business hours</p>
+                            </div>
+                        </div>
+
+                        <!-- Installation Coverage Card -->
+                        <div
+                            class="bg-white/80 backdrop-blur-xs border border-[#E7E2D7] rounded-2xl p-4 sm:p-5 flex items-start gap-4 transition-all duration-300 hover:border-amber-400 hover:shadow-xs group">
+                            <div
+                                class="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-amber-100 transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-5 h-5 stroke-[2.2]" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                            </div>
+                            <div class="space-y-0.5">
+                                <span
+                                    class="text-[11px] font-black text-amber-700 uppercase tracking-wider block">Headquarters
+                                    & Service Areas</span>
+                                <p class="text-sm sm:text-base font-black text-[#1C1917]">
+                                    Metro Manila & Nationwide Philippines
+                                </p>
+                                <p class="text-xs font-semibold text-stone-500">Residential, Commercial, and Estate
+                                    installations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ================================================================= -->
+                <!-- RIGHT SIDE: Contact Us Form (Clean, Modern, Lightly Bordered)     -->
+                <!-- ================================================================= -->
+                <div class="lg:col-span-7">
+                    <div class="contact-panel bg-white border border-[#E7E2D7] relative overflow-hidden">
+
+                        <!-- Subtle Warm Top Accent Glow -->
+                        <div class="absolute -top-16 -right-16 w-44 h-44 bg-gradient-to-br from-amber-200/30 to-orange-100/20 rounded-full blur-2xl pointer-events-none"
+                            aria-hidden="true"></div>
+
+                        <!-- Form Header -->
+                        <div class="space-y-1.5 mb-7 sm:mb-8 relative z-10">
+                            <div class="contact-form-heading flex items-center justify-between">
+                                <h2 id="contactFormTitle" class="text-2xl sm:text-3xl font-black text-[#1C1917] tracking-tight">Send Us a
+                                    Message</h2>
+                                <span
+                                    class="text-[11px] font-bold text-stone-400 uppercase tracking-wider hidden sm:inline-block">
+                                    <span class="text-amber-600 font-black">*</span> Required fields
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <!-- CONTACT US FORM -->
+                        <form id="contactUsForm" onsubmit="handleContactSubmit(event)" class="space-y-5 relative z-10" novalidate>
+
+                            <!-- Inquiry Type: Customer vs Partner, then Partner Type (Financer / Installer / Merchant).
+                                 UI grouping only — the value is still stored in #companyName:
+                                 "" = Customer, otherwise the Partner Type. -->
+                            <fieldset class="inquiry-type">
+                                <legend class="contact-label">Inquiry Type <span class="text-amber-600">*</span></legend>
+                                <select id="companyName" name="companyName" class="sr-only" tabindex="-1" aria-hidden="true">
+                                    <option value="" selected>Customer</option>
+                                    <option value="Financer">Financer</option>
+                                    <option value="Installer">Installer</option>
+                                    <option value="Merchant">Merchant</option>
+                                </select>
+                                <div class="inquiry-type-grid" role="radiogroup" aria-label="Inquiry Type" id="inquiryTypeOptions">
+                                    <button type="button" role="radio" aria-checked="true" class="inquiry-type-option is-active" data-group="customer">
+                                        <span class="inquiry-type-title">Customer</span>
+                                        <span class="inquiry-type-sub">Solar for my home</span>
+                                    </button>
+                                    <button type="button" role="radio" aria-checked="false" class="inquiry-type-option" data-group="partner">
+                                        <span class="inquiry-type-title">Partner</span>
+                                        <span class="inquiry-type-sub">Financer, installer or merchant</span>
+                                    </button>
+                                </div>
+
+                                <!-- Partner Type (shown only when Inquiry Type = Partner) -->
+                                <div id="partnerTypeField" class="partner-type-field hidden">
+                                    <span class="contact-label" id="partnerTypeLabel">Partner Type <span class="text-amber-600">*</span></span>
+                                    <div class="partner-type-grid" role="radiogroup" aria-labelledby="partnerTypeLabel" aria-describedby="partnerTypeError" id="partnerTypeOptions">
+                                        <button type="button" role="radio" aria-checked="false" class="inquiry-type-option partner-type-option" data-type="Financer">
+                                            <span class="inquiry-type-title">Financer</span>
+                                            <span class="inquiry-type-sub">Financing programs</span>
+                                        </button>
+                                        <button type="button" role="radio" aria-checked="false" class="inquiry-type-option partner-type-option" data-type="Installer">
+                                            <span class="inquiry-type-title">Installer</span>
+                                            <span class="inquiry-type-sub">Installation services</span>
+                                        </button>
+                                        <button type="button" role="radio" aria-checked="false" class="inquiry-type-option partner-type-option" data-type="Merchant">
+                                            <span class="inquiry-type-title">Merchant</span>
+                                            <span class="inquiry-type-sub">Products &amp; equipment</span>
+                                        </button>
+                                    </div>
+                                    <p id="partnerTypeError" class="hidden field-error" role="alert"></p>
+                                </div>
+                            </fieldset>
+
+                            <!-- Row 1: First Name * | Last Name * -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                                <div>
+                                    <label for="firstName"
+                                        class="contact-label">
+                                        First Name <span class="text-amber-600">*</span>
+                                    </label>
+                                    <input type="text" id="firstName" aria-describedby="firstNameError" name="firstName" required placeholder="e.g. Maria"
+                                        class="hs-input" autocomplete="given-name" />
+                                    <p id="firstNameError" class="field-error hidden" role="alert"></p>
+                                </div>
+                                <div>
+                                    <label for="lastName"
+                                        class="contact-label">
+                                        Last Name <span class="text-amber-600">*</span>
+                                    </label>
+                                    <input type="text" id="lastName" aria-describedby="lastNameError" name="lastName" required placeholder="e.g. Santos"
+                                        class="hs-input" autocomplete="family-name" />
+                                    <p id="lastNameError" class="field-error hidden" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Email * | Phone * -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                                <div>
+                                    <label for="email"
+                                        class="contact-label">
+                                        Email <span class="text-amber-600">*</span>
+                                    </label>
+                                    <input type="email" id="email" aria-describedby="emailError" name="email" required
+                                        placeholder="maria@example.com" class="hs-input" autocomplete="email" />
+                                    <p id="emailError" class="field-error hidden" role="alert"></p>
+                                </div>
+                                <div>
+                                    <label for="phone"
+                                        class="contact-label">
+                                        Phone <span class="text-amber-600">*</span>
+                                    </label>
+                                    <input type="tel" id="phone" aria-describedby="phoneError" name="phone" required placeholder="0917 123 4567"
+                                        class="hs-input" autocomplete="tel" />
+                                    <p id="phoneError" class="field-error hidden" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Country * -->
+                            <div>
+                                <!-- Country Dropdown -->
+                                <div class="relative custom-dropdown-wrapper" id="countryDropdownContainer">
+                                    <label for="countryCustomTrigger"
+                                        class="contact-label">
+                                        Country <span class="text-amber-600">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <select id="country" name="country" required autocomplete="country-name"
+                                            class="sr-only">
+                                            <option value="Philippines" selected>Philippines</option>
+                                            <option value="United States">United States</option>
+                                            <option value="Singapore">Singapore</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="United Arab Emirates">United Arab Emirates</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="Other">Other Country</option>
+                                        </select>
+
+                                        <!-- Custom Trigger Button -->
+                                        <button type="button" id="countryCustomTrigger"
+                                            class="hs-custom-trigger hs-input flex items-center justify-between text-left cursor-pointer transition-all min-h-[50px] bg-[#FEFDFC] hover:bg-[#FCFAF8] border-[#E5E0D8] hover:border-[#D6D0C5]"
+                                            aria-haspopup="listbox" aria-expanded="false">
+                                            <span id="countryTriggerLabel"
+                                                class="truncate font-medium text-[#1C1917]">Philippines</span>
+                                            <svg class="w-4 h-4 text-stone-500 transition-transform duration-200 shrink-0 chevron-arrow stroke-[2.5]"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+
+                                        <!-- Custom Dropdown Menu -->
+                                        <div id="countryCustomMenu"
+                                            class="hs-custom-menu hidden absolute top-[calc(100%+6px)] left-0 w-full bg-white border border-[#E7E2D7] rounded-2xl shadow-xl z-50 p-1.5 max-h-60 overflow-y-auto space-y-0.5"
+                                            role="listbox">
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base bg-amber-100/90 text-amber-950 font-bold transition flex items-center justify-between cursor-pointer"
+                                                data-value="Philippines">
+                                                <span class="option-text">Philippines</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="United States">
+                                                <span class="option-text">United States</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="Singapore">
+                                                <span class="option-text">Singapore</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="Australia">
+                                                <span class="option-text">Australia</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="Canada">
+                                                <span class="option-text">Canada</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="United Kingdom">
+                                                <span class="option-text">United Kingdom</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="United Arab Emirates">
+                                                <span class="option-text">United Arab Emirates</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="Japan">
+                                                <span class="option-text">Japan</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <button type="button"
+                                                class="hs-custom-option w-full px-3.5 py-2.5 rounded-xl text-left text-sm sm:text-base font-semibold text-[#1C1917] hover:bg-amber-50 hover:text-amber-900 transition flex items-center justify-between cursor-pointer"
+                                                data-value="Other">
+                                                <span class="option-text">Other Country</span>
+                                                <svg class="w-4 h-4 text-amber-600 stroke-[3] option-check hidden"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Financer contract proposal (shown only when Partner Type = Financer) -->
+                            <div id="financerProposalFields" class="hidden financer-proposal">
+                                <div class="financer-proposal-head">
+                                    <span class="financer-proposal-title">Contract Proposal</span>
+                                    <span class="financer-proposal-note">Financer partners only</span>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="financerTerm" class="contact-label">
+                                            Term (months) <span class="text-amber-600">*</span>
+                                        </label>
+                                        <input type="number" id="financerTerm" name="financerTerm" min="1" max="360" step="1"
+                                            placeholder="e.g. 36" class="hs-input" inputmode="numeric" />
+                                    </div>
+                                    <div>
+                                        <label for="financerRate" class="contact-label">
+                                            Annual Rate (%) <span class="text-amber-600">*</span>
+                                        </label>
+                                        <input type="number" id="financerRate" name="financerRate" min="0" max="100" step="0.01"
+                                            placeholder="e.g. 8.5" class="hs-input" inputmode="decimal" />
+                                    </div>
+                                    <div>
+                                        <label for="financerStartDate" class="contact-label">
+                                            Start Date <span class="text-amber-600">*</span>
+                                        </label>
+                                        <input type="date" id="financerStartDate" name="financerStartDate" class="hs-input" />
+                                    </div>
+                                </div>
+                                <p id="financerProposalError" class="hidden field-error" role="alert"></p>
+                            </div>
+
+                            <!-- Row 4: Message -->
+                            <div>
+                                <label for="message" class="contact-label">
+                                    Message <span class="normal-case tracking-normal font-semibold text-stone-400">(optional)</span>
+                                </label>
+                                <textarea id="message" name="message" rows="4"
+                                    placeholder="Tell us about your home and your monthly electric bill."
+                                    class="hs-input resize-y min-h-[110px]"></textarea>
+                            </div>
+
+                            <!-- Submit Button Row -->
+                            <div class="pt-2">
+                                <button type="submit" id="submitContactBtn"
+                                    class="w-full bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-sm sm:text-base font-extrabold py-3.5 sm:py-4 px-8 rounded-full flex items-center justify-center gap-2 shadow-xs hover:shadow-md transition cursor-pointer">
+                                    <span id="submitContactLabel">Send Message</span>
+                                    <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M5 12h14m-6-6l6 6-6 6" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- SUCCESS SCREEN (Replaces form upon successful submission) -->
+                        <div id="contactSuccessScreen"
+                            class="hidden text-center py-10 sm:py-14 space-y-5 animate-pop-in relative z-10">
+                            <div
+                                class="w-16 h-16 sm:w-20 sm:h-20 bg-amber-50 border-2 border-amber-300 text-amber-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-8 h-8 sm:w-10 sm:h-10 stroke-[2.5]" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                            </div>
+
+                            <div class="space-y-2 max-w-md mx-auto">
+                                <span id="contactSuccessBadge"
+                                    class="inline-block bg-amber-500/10 text-amber-800 text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Message Sent
+                                </span>
+                                <h3 class="text-2xl sm:text-3xl font-black text-[#1C1917]">
+                                    Thank you, <span id="successLeadName" class="text-amber-600"></span>!
+                                </h3>
+                                <p class="text-xs sm:text-sm font-semibold text-stone-600 leading-relaxed">
+                                    <span id="contactSuccessIntro">We have received your message.</span> We'll reach
+                                    out to you at <span id="successLeadContact" class="text-[#1C1917] font-bold"></span>
+                                    within 24 hours.
+                                </p>
+                            </div>
+
+                            <div
+                                class="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 sm:p-5 max-w-sm mx-auto text-left space-y-1.5">
+                                <div class="text-[11px] font-black text-amber-800 uppercase tracking-wider">What Happens
+                                    Next?</div>
+                                <ol id="contactNextSteps" class="space-y-1.5"></ol>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="button" onclick="resetContactForm()"
+                                    class="bg-[#1C1917] hover:bg-stone-800 text-white text-xs sm:text-sm font-bold px-7 py-3 rounded-full transition active:scale-95 cursor-pointer">
+                                    Send Another Message
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE SOLAR RECOMMENDATION QUESTIONNAIRE MODAL                      -->
+    <!-- ========================================================================= -->
+    <div id="recommendationModal" role="dialog" aria-modal="true" aria-label="Personalized Solar Recommendation Wizard"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-xl bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-4 sm:p-7 2xl:p-8 max-h-[92vh] overflow-y-auto no-scrollbar">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('recommendationModal')" aria-label="Close recommendation wizard"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+
+            <!-- Wizard Content Dynamic Container -->
+            <div id="wizardContainer">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script src="js/icons.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+
+</html>

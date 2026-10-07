@@ -1,0 +1,153 @@
+
+        /* Page layout stays below the shared dashboard theme in the cascade. */
+        @layer dashboard-legacy {
+            .install-layout {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 20px;
+            }
+
+            .milestone-track-card {
+                padding: 28px 24px;
+            }
+
+            .overall-progress-bar {
+                height: 8px;
+                background: var(--gray-100);
+                border-radius: 4px;
+                overflow: hidden;
+                margin: 18px 0 28px;
+            }
+
+            .overall-progress-fill {
+                height: 100%;
+                width: 60%;
+                background: var(--solar-gradient);
+                border-radius: 4px;
+                transition: width var(--transition-smooth);
+            }
+
+            .milestone-steps-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                position: relative;
+            }
+
+            .milestone-step-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                position: relative;
+                padding-bottom: 28px;
+            }
+
+            .milestone-step-item:last-child {
+                padding-bottom: 0;
+            }
+
+            .step-timeline-connector {
+                position: absolute;
+                left: 17px;
+                top: 36px;
+                bottom: 0;
+                width: 2px;
+                background: var(--gray-200);
+            }
+
+            .milestone-step-item.completed .step-timeline-connector {
+                background: var(--green);
+            }
+
+            .step-indicator {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 800;
+                flex-shrink: 0;
+                z-index: 2;
+                background: var(--white);
+                border: 2px solid var(--gray-300);
+                color: var(--gray-400);
+            }
+
+            .milestone-step-item.completed .step-indicator {
+                background: var(--green);
+                border-color: var(--green);
+                color: var(--white);
+            }
+
+            .milestone-step-item.active .step-indicator {
+                background: var(--white);
+                border-color: var(--solar-orange);
+                color: var(--solar-orange-dark);
+                box-shadow: 0 0 0 4px rgba(255, 138, 0, 0.15);
+            }
+
+            .step-content {
+                flex: 1;
+                padding-top: 4px;
+            }
+
+            .step-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 4px;
+            }
+
+            .step-title {
+                font-size: 15px;
+                font-weight: 800;
+                color: var(--navy);
+            }
+
+            .step-desc {
+                font-size: 13px;
+                color: var(--gray-500);
+                line-height: 1.4;
+            }
+
+            .step-date {
+                font-size: 12px;
+                color: var(--gray-400);
+                margin-top: 4px;
+            }
+
+            /* Installer Profile Card */
+            .installer-contact-card {
+                background: var(--white);
+                border: 1px solid var(--gray-200);
+                border-radius: var(--radius-lg);
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .team-avatar {
+                width: 52px;
+                height: 52px;
+                border-radius: 50%;
+                background: var(--solar-gradient);
+                color: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 800;
+            }
+
+            @media (max-width: 1024px) {
+                .install-layout {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+        }
+    

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "FAQ-01",
+    "category": "Payout and Billing",
+    "question": "When and how are merchant commissions disbursed?",
+    "answer": "Commissions are released on a bi-monthly cycle on the 1st and 15th of each month directly to your designated bank account (e.g. BDO Unibank). For a milestone to disburse, the assigned installer team must upload the verified site completion checklist or CFEI documents at least 3 business days prior to the cycle cutoff.",
+    "keywords": [
+      "payout",
+      "commission",
+      "disbursement",
+      "schedule",
+      "bank",
+      "cutoff",
+      "bdo"
+    ],
+    "order": 1
+  },
+  {
+    "id": "FAQ-02",
+    "category": "Payout and Billing",
+    "question": "What is the 2% Withholding Tax deduction on our merchant statement?",
+    "answer": "In compliance with Bureau of Internal Revenue (BIR) regulations, a 2% Creditable Withholding Tax (CWT) is deducted from all merchant partner commission disbursements. Hello Solar issues an official BIR Form 2307 certificate on a quarterly basis, which your accounting team can credit against your income tax liabilities.",
+    "keywords": [
+      "withholding",
+      "tax",
+      "bir",
+      "2307",
+      "cwt",
+      "deduction",
+      "tax credit"
+    ],
+    "order": 2
+  },
+  {
+    "id": "FAQ-03",
+    "category": "Technical Requirements",
+    "question": "What are the structural requirements for residential solar roof mounting?",
+    "answer": "Roofs must undergo a pre-installation structural integrity check by our certified engineering lead. For long-span GI sheet roofs, aluminum standing-seam clamps or penetration-free bracket systems are required. For clay or concrete tiles, stainless steel adjustable tile hooks with waterproofing membranes are strictly mandated to avoid leaks and maintain manufacturer warranties.",
+    "keywords": [
+      "technical",
+      "structural",
+      "roof",
+      "mounting",
+      "truss",
+      "engineering",
+      "leak"
+    ],
+    "order": 3
+  },
+  {
+    "id": "FAQ-04",
+    "category": "Permitting",
+    "question": "Who handles the LGU Building Permit and Certificate of Final Electrical Inspection (CFEI)?",
+    "answer": "Hello Solar's in-house engineering and permitting desk coordinates with the local government unit (LGU) and the distribution utility (e.g., Meralco). Our Professional Electrical Engineers (PEE) prepare and stamp the Single-Line Diagrams (SLD), structural load computations, and CFEI application packages. Merchants can track real-time permit status in the Installers portal.",
+    "keywords": [
+      "permitting",
+      "cfei",
+      "lgu",
+      "building permit",
+      "meralco",
+      "pee",
+      "inspection"
+    ],
+    "order": 4
+  },
+  {
+    "id": "FAQ-05",
+    "category": "Net-Metering",
+    "question": "How long does Meralco Net-Metering bi-directional meter activation take?",
+    "answer": "Following CFEI approval by the city electrical inspector, Meralco requires approximately 10 to 20 working days for distribution impact study (DIS) validation, bi-directional smart meter installation, and test run commissioning. All projects under 100 kW qualify for the standard ERC Net-Metering rules.",
+    "keywords": [
+      "net-metering",
+      "bi-directional",
+      "meralco",
+      "meter",
+      "erc",
+      "export",
+      "grid-tie"
+    ],
+    "order": 5
+  },
+  {
+    "id": "FAQ-06",
+    "category": "Warranty and RMA",
+    "question": "What warranties apply to inverters, panels, and battery storage units?",
+    "answer": "Tier-1 solar panels (Trina Solar, Longi, JA Solar) carry a 12-year product warranty and a 25-to-30-year 80% linear performance warranty. Inverters (Huawei, SMA, Deye, Growatt) come with a standard 5-to-10-year factory warranty. Lithium battery storage systems include a 10-year or 6,000-cycle warranty. RMA replacements are prioritized within 5 business days through our Metro Manila spares depot.",
+    "keywords": [
+      "warranty",
+      "rma",
+      "replacement",
+      "inverter",
+      "battery",
+      "performance",
+      "panels"
+    ],
+    "order": 6
+  },
+  {
+    "id": "FAQ-07",
+    "category": "Installer Assignment",
+    "question": "Can I request a specific installer crew for an upcoming client site?",
+    "answer": "Yes. While crew assignment is automatically optimized based on geographic proximity and system specialization (e.g. Team Alpha for Hybrid batteries, Team Beta for commercial 3-phase), merchants can submit an assignment request via the Support Center or directly coordinate with Account Manager David Ramos prior to staging.",
+    "keywords": [
+      "installer",
+      "crew",
+      "assignment",
+      "team alpha",
+      "reassign",
+      "scheduling"
+    ],
+    "order": 7
+  },
+  {
+    "id": "FAQ-08",
+    "category": "Merchant Commissions",
+    "question": "How do partner tiers impact commission rates?",
+    "answer": "Hello Solar Merchant Partners start at Silver Tier (4.2%), advance to Gold Certified Partner (5.2% Tier A) after completing 10 installations, and reach Platinum Elite (6.5%) at 25+ installations. Your current tier (Gold Certified) is recognized across all active quotes, and expedited disbursement SLAs apply automatically.",
+    "keywords": [
+      "tier",
+      "commission rate",
+      "gold",
+      "silver",
+      "platinum",
+      "rates",
+      "merchant"
+    ],
+    "order": 8
+  },
+  {
+    "id": "FAQ-09",
+    "category": "Merchant Commissions",
+    "question": "When can a merchant request an upgrade in partner tier and commission rate?",
+    "answer": "Partners achieving over 50 kW installed capacity within a rolling 6-month period are eligible for upgrade to Platinum Partner status (5.8% commission tier with dedicated EPC priority dispatch). Contact your Hello Solar Account Manager (David Ramos) or submit an account review request via Support.",
+    "keywords": [
+      "tier",
+      "partner tier",
+      "commission rate",
+      "platinum",
+      "gold",
+      "upgrade"
+    ]
+  },
+  {
+    "id": "FAQ-10",
+    "category": "General Partner Account",
+    "question": "Are support requests submitted directly through this web interface?",
+    "answer": "Support drafts created in this portal are safely preserved in your browser and can be exported as official text request files. To ensure enterprise audit compliance and swift resolution, share your downloaded request file directly with your designated Hello Solar account manager via email or Viber dispatch.",
+    "keywords": [
+      "support ticket",
+      "draft",
+      "account manager",
+      "submission",
+      "download"
+    ]
+  }
+]

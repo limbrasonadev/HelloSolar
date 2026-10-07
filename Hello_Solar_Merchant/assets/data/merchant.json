@@ -1,0 +1,480 @@
+{
+  "merchant": {
+    "companyName": "SolarTech Manila",
+    "merchantId": "MER-026",
+    "accountType": "Merchant Partner",
+    "verificationStatus": "Accreditation on File",
+    "contactPerson": "Marco Santos",
+    "email": "merchant@hellosolar.ph",
+    "phone": "+63 917 888 2026",
+    "partnerTier": "Gold Certified Partner",
+    "commissionRate": "5.2% Tier A Commission",
+    "accountManager": "David Ramos",
+    "payoutPreferences": {
+      "preferredBank": "BDO Unibank",
+      "accountName": "SolarTech Manila Corp.",
+      "accountNumberMasked": "**** **** 9012",
+      "payoutSchedule": "Bi-Monthly (1st & 15th)"
+    }
+  },
+  "projects": [
+    {
+      "id": "PRJ-QC-101",
+      "customerName": "Atty. Fernando Mendoza",
+      "location": "Loyola Heights, Quezon City",
+      "systemCapacity": "6.5 kW",
+      "systemType": "Grid-Tie",
+      "panelBrand": "Trina Solar 550W Vertex Mono",
+      "panelQuantity": 12,
+      "inverterBrand": "Huawei SUN2000-6KTL-M1 (6 kW)",
+      "batterySpecs": "N/A (Pure Grid-Tie System)",
+      "assignedCrewId": "CREW-ALPHA",
+      "currentStage": "Inverter & Grid-Tie Testing",
+      "progress": 85,
+      "targetDate": "September 15, 2026",
+      "projectValue": 390000,
+      "permitStatus": "CFEI Issued · Ready for Meralco Bi-Directional Meter",
+      "singleLineDiagramNote": "SLD-QC-REV3: Grid-tied 230V Single-Phase with dual 32A DC isolators and surge arresters.",
+      "installationSchedule": "Survey: Aug 10 | Roof Mounting: Aug 22 | Cable Run: Sept 02 | Commissioning: Sept 14",
+      "siteNotes": "Rib-type long span GI roof with 18-degree south-facing pitch. Unobstructed solar exposure.",
+      "nextAction": "Schedule Meralco Bi-Directional Meter inspection with Engr. Torres"
+    },
+    {
+      "id": "PRJ-MKT-102",
+      "customerName": "Pacific Horizon Logistics Corp.",
+      "location": "Chino Roces Ave, Makati City",
+      "systemCapacity": "12.0 kW",
+      "systemType": "Commercial Grid-Tie",
+      "panelBrand": "JA Solar 545W DeepBlue 3.0",
+      "panelQuantity": 22,
+      "inverterBrand": "SMA Sunny Tripower 10.0 Smart Energy",
+      "batterySpecs": "N/A (Three-Phase Grid-Tie)",
+      "assignedCrewId": "CREW-BETA",
+      "currentStage": "Structural Mounting",
+      "progress": 60,
+      "targetDate": "September 24, 2026",
+      "projectValue": 720000,
+      "permitStatus": "Makati Building & Electrical Permit Approved",
+      "singleLineDiagramNote": "SLD-MKT-102-C: Three-Phase 400V/230V w/ zero-export smart meter CTs integrated.",
+      "installationSchedule": "Survey: Aug 18 | Strut Rails: Sept 01 | Panel Lifts: Sept 08 | Testing: Sept 22",
+      "siteNotes": "Flat reinforced concrete deck with ballast mounting structures. Crane access confirmed.",
+      "nextAction": "Upload warehouse delivery receipt to clear payout audit hold"
+    },
+    {
+      "id": "PRJ-ALB-103",
+      "customerName": "Dr. Victoria Santos-Tan",
+      "location": "Ayala Alabang Village, Muntinlupa",
+      "systemCapacity": "8.2 kW",
+      "systemType": "Hybrid Battery Backup",
+      "panelBrand": "Canadian Solar 540W HiKu6",
+      "panelQuantity": 15,
+      "inverterBrand": "Deye 8kW Hybrid Single Phase",
+      "batterySpecs": "Deye 10.24 kWh LiFePO4 Low-Voltage Storage",
+      "assignedCrewId": "CREW-ALPHA",
+      "currentStage": "Permitting",
+      "progress": 45,
+      "targetDate": "October 02, 2026",
+      "projectValue": 580000,
+      "permitStatus": "HOA Approved · Awaiting Muntinlupa OBO CFEI",
+      "singleLineDiagramNote": "SLD-ALB-HYB: Automatic Transfer Switch (ATS) 63A with dedicated essential loads subpanel.",
+      "installationSchedule": "Survey: Aug 25 | HOA Clearance: Sept 03 | Roof Work: Sept 16 | Battery Testing: Sept 28",
+      "siteNotes": "Spanish clay tile roof requiring stainless steel tile hooks. Zero tile breakage protocol.",
+      "nextAction": "Follow up Muntinlupa City Hall building official CFEI release"
+    },
+    {
+      "id": "PRJ-PSG-104",
+      "customerName": "Kirsten Builders & Design Inc.",
+      "location": "Ortigas Center, Pasig City",
+      "systemCapacity": "10.8 kW",
+      "systemType": "Commercial Hybrid",
+      "panelBrand": "Trina Solar 550W Vertex Mono",
+      "panelQuantity": 20,
+      "inverterBrand": "Growatt SPH 10000TL3 BH-UP Hybrid",
+      "batterySpecs": "Growatt ARK 15.3 kWh High-Voltage LFP",
+      "assignedCrewId": "CREW-BETA",
+      "currentStage": "Engineering Approval",
+      "progress": 30,
+      "targetDate": "October 10, 2026",
+      "projectValue": 790000,
+      "permitStatus": "Engineering Sign-off Completed · Pasig Permitting Filed",
+      "singleLineDiagramNote": "SLD-PSG-COM-1: Three-Phase hybrid with critical server backup sub-distribution board.",
+      "installationSchedule": "Survey: Sept 01 | Structural Sign-off: Sept 07 | Staging: Sept 20 | Handover: Oct 08",
+      "siteNotes": "Metal roof sandwich panel. High wind load rating (Category 4 typhoon engineering design).",
+      "nextAction": "Await financer 30% milestone sign-off for engineering approval"
+    },
+    {
+      "id": "PRJ-TGG-105",
+      "customerName": "Artisanal Brew Cafe & Roastery",
+      "location": "BGC High Street, Taguig City",
+      "systemCapacity": "15.0 kW",
+      "systemType": "Commercial Grid-Tie",
+      "panelBrand": "Longi Hi-MO 6 Explorer 570W",
+      "panelQuantity": 26,
+      "inverterBrand": "Huawei SUN2000-15KTL-M2 (15 kW)",
+      "batterySpecs": "N/A (Peak Shaving Solar Only)",
+      "assignedCrewId": "CREW-GAMMA",
+      "currentStage": "Completed",
+      "progress": 100,
+      "targetDate": "September 02, 2026",
+      "projectValue": 880000,
+      "permitStatus": "Meralco Net-Metering Bi-Directional Meter Activated",
+      "singleLineDiagramNote": "SLD-TGG-ROAST-F: 400V 3-Phase with Huawei Smart Power Sensor DTSU666-H.",
+      "installationSchedule": "Survey: July 20 | Installation: Aug 05 | Inspection: Aug 22 | Commissioned: Sept 02",
+      "siteNotes": "Handover complete. Real-time yield monitoring active via FusionSolar portal.",
+      "nextAction": "All installation stages completed and final commission released"
+    },
+    {
+      "id": "PRJ-LAG-106",
+      "customerName": "Engr. Gabriel Valderama",
+      "location": "Nuvali South, Santa Rosa, Laguna",
+      "systemCapacity": "5.4 kW",
+      "systemType": "Hybrid Battery Backup",
+      "panelBrand": "Trina Solar 550W Vertex Mono",
+      "panelQuantity": 10,
+      "inverterBrand": "GoodWe 5048D-ES Hybrid 5kW",
+      "batterySpecs": "Pylontech US5000 4.8 kWh LiFePO4 Rack",
+      "assignedCrewId": "CREW-GAMMA",
+      "currentStage": "Site Survey",
+      "progress": 15,
+      "targetDate": "October 18, 2026",
+      "projectValue": 490000,
+      "permitStatus": "Nuvali Estate Architectural Review Ongoing",
+      "singleLineDiagramNote": "SLD-LAG-RES-01: Residential hybrid with 3.5kW essential backup circuits for refrigeration.",
+      "installationSchedule": "Survey: Sept 05 | HOA Approval: Sept 14 | Delivery: Oct 01 | Handover: Oct 18",
+      "siteNotes": "Asphalt shingle roof with 25-degree pitch. Shading analysis shows 98.4% solar access.",
+      "nextAction": "Confirm Nuvali Estate Architectural review approval by Sept 14"
+    }
+  ],
+  "payouts": [
+    {
+      "payoutId": "PAY-2026-081",
+      "projectId": "PRJ-TGG-105",
+      "projectName": "Artisanal Brew Cafe & Roastery",
+      "milestone": "100% Final Handover & Meralco Net-Metering Commissioning",
+      "grossCommission": 45760,
+      "withholdingTax": 915.2,
+      "netDisbursement": 44844.8,
+      "status": "Released",
+      "releaseDate": "September 05, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "BDO-TXN-9982314",
+      "auditNotes": "Disbursement completed following official certificate of completion and Meralco test run verification."
+    },
+    {
+      "payoutId": "PAY-2026-082",
+      "projectId": "PRJ-QC-101",
+      "projectName": "Quezon City Residential Solar",
+      "milestone": "50% Installation Milestones & Structural Mounting Sign-off",
+      "grossCommission": 20280,
+      "withholdingTax": 405.6,
+      "netDisbursement": 19874.4,
+      "status": "Pending Review",
+      "releaseDate": "Scheduled for Sept 15, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "Batch #18 Disbursement Queue",
+      "auditNotes": "Awaiting final CFEI inspection upload from Team Alpha supervisor."
+    },
+    {
+      "payoutId": "PAY-2026-083",
+      "projectId": "PRJ-MKT-102",
+      "projectName": "Makati Commercial Rooftop",
+      "milestone": "30% Equipment Procurement & Delivery Verification",
+      "grossCommission": 37440,
+      "withholdingTax": 748.8,
+      "netDisbursement": 36691.2,
+      "status": "On Hold",
+      "releaseDate": "Under Audit Review",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "Audit Hold Pending Delivery Receipts",
+      "auditNotes": "Waybill serial numbers for SMA Sunny Tripower inverter require matching against warehouse delivery receipt."
+    },
+    {
+      "payoutId": "PAY-2026-084",
+      "projectId": "PRJ-ALB-103",
+      "projectName": "Alabang Luxury Villa Hybrid",
+      "milestone": "30% Initial Mobilization & Engineering Sign-off",
+      "grossCommission": 30160,
+      "withholdingTax": 603.2,
+      "netDisbursement": 29556.8,
+      "status": "Pending Review",
+      "releaseDate": "Scheduled for Sept 15, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "Batch #18 Disbursement Queue",
+      "auditNotes": "HOA architectural clearance received. Pending municipal building permit stamp."
+    },
+    {
+      "payoutId": "PAY-2026-085",
+      "projectId": "PRJ-PSG-104",
+      "projectName": "Pasig Commercial Complex",
+      "milestone": "30% Engineering Design & Structural Feasibility Sign-off",
+      "grossCommission": 41080,
+      "withholdingTax": 821.6,
+      "netDisbursement": 40258.4,
+      "status": "Pending Review",
+      "releaseDate": "Scheduled for Sept 30, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "Batch #19 Disbursement Queue",
+      "auditNotes": "Structural engineer review report submitted. Payout pending financer milestone sign-off."
+    },
+    {
+      "payoutId": "PAY-2026-078",
+      "projectId": "PRJ-QC-101",
+      "projectName": "Quezon City Residential Solar",
+      "milestone": "30% Downpayment & Mobilization Handover",
+      "grossCommission": 20280,
+      "withholdingTax": 405.6,
+      "netDisbursement": 19874.4,
+      "status": "Released",
+      "releaseDate": "August 20, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "BDO-TXN-8812450",
+      "auditNotes": "Cleared and disbursed on schedule. Customer contract fully ratified."
+    },
+    {
+      "payoutId": "PAY-2026-077",
+      "projectId": "PRJ-TGG-105",
+      "projectName": "Artisanal Brew Cafe & Roastery",
+      "milestone": "50% Roof Mounting & Inverter Delivery",
+      "grossCommission": 45760,
+      "withholdingTax": 915.2,
+      "netDisbursement": 44844.8,
+      "status": "Released",
+      "releaseDate": "August 15, 2026",
+      "bankDestination": "BDO Unibank (Acct: **** **** 9012)",
+      "bankConfirmation": "BDO-TXN-8761109",
+      "auditNotes": "Mounting completed on schedule by Team Gamma. Verified by engineering supervisor."
+    }
+  ],
+  "crews": [
+    {
+      "crewId": "CREW-ALPHA",
+      "teamName": "Team Alpha",
+      "leadEngineer": "Engr. Ramon Torres, REE",
+      "technicianHeadcount": 5,
+      "availability": "Active Deployment",
+      "contact": "+63 917 555 1101 · alpha.crew@hellosolar.ph",
+      "specialization": "Residential Hybrid & Battery Storage Systems",
+      "vehiclesAssigned": "Toyota Hilux Service Truck #ABC-4122",
+      "certifications": [
+        "TESDA Solar PV Installation NC II Certified",
+        "DOLE Basic Occupational Safety & Health (BOSH)",
+        "PRC Registered Electrical Engineer #0045192"
+      ],
+      "safetyCompliance": "Audit Passed · DOLE BOSH Verified"
+    },
+    {
+      "crewId": "CREW-BETA",
+      "teamName": "Team Beta",
+      "leadEngineer": "Engr. Aris David, PEE",
+      "technicianHeadcount": 4,
+      "availability": "Active Deployment",
+      "contact": "+63 918 555 2202 · beta.crew@hellosolar.ph",
+      "specialization": "Commercial Rooftop & 3-Phase Grid-Tied Inverters",
+      "vehiclesAssigned": "Isuzu NPR Boom Truck #XYZ-7789",
+      "certifications": [
+        "PRC Professional Electrical Engineer #0008412",
+        "Meralco Accredited Solar Power Contractor",
+        "DOLE Construction Occupational Safety & Health (COSH)"
+      ],
+      "safetyCompliance": "Audit Passed · DOLE COSH Verified"
+    },
+    {
+      "crewId": "CREW-GAMMA",
+      "teamName": "Team Gamma",
+      "leadEngineer": "Engr. Mark Valenzuela, REE",
+      "technicianHeadcount": 4,
+      "availability": "Standby · Available",
+      "contact": "+63 920 555 3303 · gamma.crew@hellosolar.ph",
+      "specialization": "Site Surveys, Drone Mapping & High-Speed Deployments",
+      "vehiclesAssigned": "Mitsubishi L300 Van #KLD-3310",
+      "certifications": [
+        "TESDA Solar PV Installation NC II Certified",
+        "High-Voltage Substation Safety Certified",
+        "CAAP Drone Pilot License"
+      ],
+      "safetyCompliance": "Audit Passed · CAAP & TESDA Verified"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "MS-01",
+      "date": "Sept 12, 2026",
+      "projectId": "PRJ-QC-101",
+      "projectName": "Quezon City Residential Solar",
+      "title": "Final Meralco Net-Metering Inspection",
+      "status": "Scheduled"
+    },
+    {
+      "id": "MS-02",
+      "date": "Sept 15, 2026",
+      "projectId": "PRJ-MKT-102",
+      "projectName": "Makati Commercial Rooftop",
+      "title": "Bi-Monthly Merchant Payout Batch #18",
+      "status": "Processing"
+    },
+    {
+      "id": "MS-03",
+      "date": "Sept 18, 2026",
+      "projectId": "PRJ-ALB-103",
+      "projectName": "Alabang Luxury Villa Hybrid",
+      "title": "Battery Storage Commissioning & Handover",
+      "status": "Scheduled"
+    },
+    {
+      "id": "MS-04",
+      "date": "Sept 22, 2026",
+      "projectId": "PRJ-PSG-104",
+      "projectName": "Pasig Commercial Complex",
+      "title": "LGU Electrical Inspection & CFEI Issuance",
+      "status": "Pending Docs"
+    }
+  ],
+  "support": {
+    "categories": [
+      {
+        "id": "payout-billing",
+        "name": "Payout and Billing",
+        "description": "Milestone releases, 2% CWT withholding, and bank disbursement schedules."
+      },
+      {
+        "id": "technical-permitting",
+        "name": "Technical Requirements",
+        "description": "SLD design stamps, roof mounting feasibility, and LGU electrical permits."
+      },
+      {
+        "id": "net-metering",
+        "name": "Net-Metering",
+        "description": "Meralco distribution impact study (DIS) and bi-directional meter tests."
+      },
+      {
+        "id": "warranty-rma",
+        "name": "Warranty and RMA",
+        "description": "Replacements for inverters, PV modules, and battery storage units."
+      }
+    ],
+    "faqs": [
+      {
+        "id": "FAQ-01",
+        "category": "Payout and Billing",
+        "question": "How are merchant milestone payouts calculated and released?",
+        "answer": "Merchant disbursements are triggered upon verified completion of key installation milestones (30% mobilization, 50% mounting & delivery, and final 20% net-metering commissioning). Once the assigned supervisor uploads photo proof and signed CFEI/delivery notes, funds are queued for bi-monthly release on the 1st or 15th via PESONet bank transfer.",
+        "keywords": ["payout", "disbursement", "schedule", "milestone", "release"]
+      },
+      {
+        "id": "FAQ-02",
+        "category": "Payout and Billing",
+        "question": "Why is 2% Creditable Withholding Tax (CWT) deducted from gross commission?",
+        "answer": "Under Bureau of Internal Revenue (BIR) Revenue Regulations No. 2-98 as amended, income payments to merchants, contractors, and sales partners are subject to a statutory 2% creditable withholding tax. Hello Solar issues BIR Form 2307 (Certificate of Creditable Tax Withheld at Source) quarterly so you can claim tax credits against your quarterly corporate income tax filings.",
+        "keywords": ["withholding tax", "2%", "BIR", "Form 2307", "tax credit", "deduction"]
+      },
+      {
+        "id": "FAQ-03",
+        "category": "Payout and Billing",
+        "question": "What should I do if a payout status is marked 'On Hold'?",
+        "answer": "An 'On Hold' status indicates that supporting documentation is pending verification—commonly missing equipment serial waybills, incomplete signed delivery receipts, or pending municipal building permit stamps. Open the payout details modal to read the specific audit note, then submit the missing file through the Support tab citing your payout reference.",
+        "keywords": ["on hold", "audit", "hold", "waybill", "receipt", "delayed payout"]
+      },
+      {
+        "id": "FAQ-04",
+        "category": "Technical Requirements",
+        "question": "What Single-Line Diagram (SLD) requirements are needed for Meralco net-metering?",
+        "answer": "Every grid-tied or hybrid solar installation must have an electrical single-line diagram (SLD) stamped by a Philippine Registered Professional Electrical Engineer (PEE). The diagram must detail PV array capacity, DC isolators, lightning surge protection devices (SPDs), inverter AC disconnect switch, and the bi-directional utility revenue meter connection point.",
+        "keywords": ["SLD", "Single-Line Diagram", "PEE", "Meralco", "electrical diagram"]
+      },
+      {
+        "id": "FAQ-05",
+        "category": "Permitting",
+        "question": "Who files the Certificate of Final Electrical Inspection (CFEI)?",
+        "answer": "Our assigned field installation crew coordinates the CFEI filing with the local government unit (LGU) Office of the Building Official (OBO). Once electrical roughing-in and inverter mounting are complete, the municipal inspector conducts an on-site audit. The merchant can track CFEI permit status in real time under the Project Details modal.",
+        "keywords": ["CFEI", "LGU", "permit", "OBO", "building official", "inspection"]
+      },
+      {
+        "id": "FAQ-06",
+        "category": "Net-Metering",
+        "question": "How long does the Meralco bi-directional meter activation take?",
+        "answer": "Following CFEI issuance and submission of the Certificate of Commercial Operation (CCO), Meralco typically schedules the bi-directional meter replacement within 10 to 15 business days. Once the bi-directional meter is energized, exported solar electricity is credited to the customer's monthly power bill.",
+        "keywords": ["Meralco", "net-metering", "bi-directional meter", "export", "meter activation"]
+      },
+      {
+        "id": "FAQ-07",
+        "category": "Warranty and RMA",
+        "question": "What is the warranty coverage on solar modules and inverters?",
+        "answer": "Tier-1 solar modules (Trina Solar, Longi, Canadian Solar) carry a 12-year manufacturer product warranty and a 25-to-30 year 80% linear performance guarantee. String and hybrid inverters (Huawei, Deye, GoodWe, SMA) carry a standard 5-to-10 year replacement warranty. In the event of hardware fault, Hello Solar handles RMA logistics directly with local distributor service centers.",
+        "keywords": ["warranty", "RMA", "inverter", "panels", "replacement", "defect"]
+      },
+      {
+        "id": "FAQ-08",
+        "category": "Installer Assignment",
+        "question": "How are field installer teams allocated to solar projects?",
+        "answer": "Installer crews are assigned based on geographical proximity, roof structural specialization (e.g. tile vs metal deck), and high-voltage battery certifications. Team leads are licensed REE or PEE engineers who supervise mounting safety, cable conduits, and zero-export smart meter CT calibration.",
+        "keywords": ["installer crew", "assignment", "team allocation", "technicians", "engineer"]
+      },
+      {
+        "id": "FAQ-09",
+        "category": "Merchant Commissions",
+        "question": "When can a merchant request an upgrade in partner tier and commission rate?",
+        "answer": "Partners achieving over 50 kW installed capacity within a rolling 6-month period are eligible for upgrade to Platinum Partner status (5.8% commission tier with dedicated EPC priority dispatch). Contact your Hello Solar Account Manager (David Ramos) or submit an account review request via Support.",
+        "keywords": ["tier", "partner tier", "commission rate", "platinum", "gold", "upgrade"]
+      },
+      {
+        "id": "FAQ-10",
+        "category": "General Partner Account",
+        "question": "Are support requests submitted directly through this web interface?",
+        "answer": "Support drafts created in this portal are safely preserved in your browser and can be exported as official text request files. To ensure enterprise audit compliance and swift resolution, share your downloaded request file directly with your designated Hello Solar account manager via email or Viber dispatch.",
+        "keywords": ["support ticket", "draft", "account manager", "submission", "download"]
+      }
+    ]
+  },
+  "activity": [
+    {
+      "id": "ACT-01",
+      "timestamp": "18 minutes ago",
+      "crewId": "CREW-ALPHA",
+      "crewName": "Team Alpha",
+      "title": "Inverter wiring completed",
+      "projectId": "PRJ-QC-101",
+      "projectName": "Quezon City Residential Solar",
+      "detail": "DC/AC isolation testing passed 1000V insulation resistance check. Ready for Meralco inspection."
+    },
+    {
+      "id": "ACT-02",
+      "timestamp": "2 hours ago",
+      "crewId": "CREW-BETA",
+      "crewName": "Team Beta",
+      "title": "Meralco CFEI submitted",
+      "projectId": "PRJ-MKT-102",
+      "projectName": "Makati Commercial Rooftop",
+      "detail": "As-built drawings stamped by PEE and submitted to Meralco Power Center."
+    },
+    {
+      "id": "ACT-03",
+      "timestamp": "5 hours ago",
+      "crewId": "CREW-GAMMA",
+      "crewName": "Team Gamma",
+      "title": "Site survey completed",
+      "projectId": "PRJ-LAG-106",
+      "projectName": "Nuvali South, Santa Rosa, Laguna",
+      "detail": "Drone thermal mapping and structural truss pitch verified at 25 degrees."
+    },
+    {
+      "id": "ACT-04",
+      "timestamp": "Yesterday",
+      "crewId": "CREW-ALPHA",
+      "crewName": "Team Alpha",
+      "title": "Battery storage mounted",
+      "projectId": "PRJ-ALB-103",
+      "projectName": "Alabang Luxury Villa Hybrid",
+      "detail": "10.24 kWh LFP battery wall enclosure anchored and fire-rated."
+    },
+    {
+      "id": "ACT-05",
+      "timestamp": "2 days ago",
+      "crewId": "SYSTEM",
+      "crewName": "Disbursement Desk",
+      "title": "Merchant Payout Released",
+      "projectId": "PRJ-TGG-105",
+      "projectName": "Artisanal Brew Cafe & Roastery",
+      "detail": "₱44,844.80 disbursement processed via BDO Bank Transfer (Ref #PAY-2026-081)."
+    }
+  ]
+}

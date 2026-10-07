@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar — My System customer overview, live inverter telemetry, payment status, and brownout readiness.">
+    <title>Hello Solar — My System</title>
+
+    <!-- Immediate Authentication Guard -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/mysystem-page.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/dashboard-theme.css">
+
+    <link rel="stylesheet" href="css/mysystem-page.css">
+    <link rel="stylesheet" href="css/mysystem-page-2.css">
+    <link rel="stylesheet" href="css/telemetry-ui.css">
+    <link rel="stylesheet" href="css/customer-polish.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="mysystem.html" class="logo" aria-label="Hello Solar Home">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="nav-label">Customer Portal</div>
+
+            <nav class="nav" aria-label="Portal navigation">
+                <a href="mysystem.html" class="nav-link active" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                    My System
+                </a>
+                <a href="energy.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                    Equipment
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                    My Payments
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                    Documents
+                </a>
+                <a href="support.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-button" id="logoutButton" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+        <!-- MAIN VIEWPORT -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="mobile-header">
+                    <a href="mysystem.html" class="mobile-logo">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="support.html" class="quick-support-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 11a9 9 0 0 1 18 0" />
+                            <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                            <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                            <path d="M17 17c0 2-2 3-5 3" />
+                        </svg>
+                        Need Help?
+                    </a>
+
+                    <div class="profile" id="topbarProfileTrigger" style="cursor: pointer;">
+
+                        <div class="profile-avatar" id="profileAvatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PAGE CONTENT -->
+            <div class="content">
+                <!-- 1. NEW SYSTEMS OVERVIEW GRID (DEFAULT INITIAL VIEW) -->
+                <section id="systemsOverviewView" class="systems-overview-section" aria-label="My Solar Systems">
+                    <div class="systems-overview-header">
+                        <div class="systems-overview-title-group">
+                            <h1 class="welcome-heading">Good day, <span id="customerGreetingName"></span>.
+                            </h1>
+
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Grid of User's Owned Solar Systems -->
+                    <div class="systems-grid" id="systemsGrid" role="region" aria-label="Your Solar Systems Grid">
+                        <!-- Populated dynamically via JavaScript -->
+                    </div>
+                </section>
+
+                <!-- 2. PRESERVED SYSTEM DETAIL VIEW (CLICKED SYSTEM) -->
+                <section id="systemDetailView" class="system-detail-view" aria-label="Solar System Details">
+                    <!-- Top Navigation Bar with Back Action, Model Info & Status Action Buttons -->
+                    <div class="system-detail-header-row">
+                        <div class="system-detail-topbar">
+                            <button type="button" class="btn-back-systems" id="backToSystemsBtn"
+                                aria-label="Back to My Systems">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+
+                            <div class="system-detail-title-block">
+                                <div class="system-detail-title-row">
+                                    <h2 class="system-detail-title" id="detailModelTitle">Home Primary</h2>
+                                    <span class="system-card-capacity-pill" id="detailCapacityPill">5.4 kW</span>
+                                </div>
+                                <div id="detailAccountMeta" class="system-detail-account-meta">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Status & Payment Status Quick Action Buttons Aligned to the Right -->
+                        <div class="detail-summary-row">
+                            <a href="energy.html" class="detail-summary-btn" id="detailSystemStatusCard">
+                                <span class="summary-btn-label">System Status</span>
+                                <span class="summary-status-value" id="systemStatusValue" data-status="pending">
+                                    <span class="summary-status-dot" aria-hidden="true"></span>
+                                    <span id="systemStatusLabel">Pending</span>
+                                </span>
+                                <svg class="summary-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14m-6-6 6 6-6 6" />
+                                </svg>
+                            </a>
+                            <a href="payments.html" class="detail-summary-btn" id="detailPaymentStatusCard">
+                                <span class="summary-btn-label">Payment Status</span>
+                                <span class="summary-status-value" id="paymentStatusValue" data-status="pending">
+                                    <span class="summary-status-dot" aria-hidden="true"></span>
+                                    <span id="paymentStatusLabel">Pending</span>
+                                </span>
+                                <svg class="summary-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14m-6-6 6 6-6 6" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Layout:
+                         Desktop:
+                         Header row: System info left, Status buttons right
+                         Main row: Live Telemetry spanning full width
+                         Bottom section: Responsive 5-card Project Status grid followed by support routing
+                    -->
+                    <div class="system-detail-content">
+                        <!-- Project Status Flow Tracker Panel (Hidden from customer view, preserved internally for test flows) -->
+                        <section class="panel project-status-panel" id="projectStatusTrackerPanel"
+                            style="display: none !important;" aria-hidden="true">
+                            <div class="project-status-header">
+                                <div class="project-status-title-wrap">
+                                    <span class="project-status-eyebrow" id="detailFlowTypeLabel">Installment
+                                        Flow</span>
+                                    <h3 class="project-status-heading">
+                                        <span>Project Status:</span>
+                                        <span id="detailProjectStatusValue" class="status-highlight">Active</span>
+                                    </h3>
+                                </div>
+                                <div class="project-status-actions">
+                                </div>
+                            </div>
+                            <div class="project-stepper" id="projectStepper" role="list"
+                                aria-label="Project Milestones">
+                                <!-- Populated dynamically via JS -->
+                            </div>
+                        </section>
+
+                        <!-- Row 2: Live Telemetry (Spanning Full Available Width) -->
+                        <div class="detail-telemetry-row">
+                            <!-- Telemetry Locked Panel (Displayed Before ACTIVE) -->
+                            <div class="panel telemetry-locked-panel" id="telemetryLockedPanel" style="display: none;"
+                                aria-label="Live Telemetry Locked Notice">
+                                <div class="telemetry-locked-icon">
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </div>
+                                <div class="telemetry-locked-content">
+                                    <h3 class="telemetry-locked-title">Live Telemetry Locked</h3>
+                                    <div style="margin: 8px 0 12px;">
+                                        <span class="telemetry-locked-badge">Available after system activation</span>
+                                    </div>
+                                    <p class="telemetry-locked-desc">
+                                        Real-time rooftop solar generation, inverter power flow, battery storage
+                                        reserves, and utility grid export telemetry will activate automatically once
+                                        installation and safety commissioning are finalized.
+                                    </p>
+                                    <div class="telemetry-locked-meta">
+                                        <span>Purchased Solar Model: <strong id="lockedModelName">Home Primary (5.4
+                                                kW)</strong></span>
+                                        <span>Current Project Stage: <strong id="lockedStageName">Installation In
+                                                Progress</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <section class="panel telemetry-master-panel" id="telemetryMasterPanel"
+                                aria-label="Real-time system telemetry">
+                                <div class="telemetry-master-header">
+                                    <div class="telemetry-master-title">
+                                        <h2>Live Telemetry</h2>
+                                        <span class="telemetry-live-badge">
+                                            <span class="telemetry-pulse-dot"></span>
+                                            LIVE
+                                        </span>
+                                    </div>
+                                    <button type="button" class="telemetry-sync-btn" id="telemetrySyncBtn"
+                                        title="Synchronize live inverter stream">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                                        </svg>
+                                        <span id="syncBtnLabel">Sync</span>
+                                    </button>
+                                </div>
+
+                                <!-- Interactive Energy Flow Stage -->
+                                <div class="power-flow-stage">
+                                    <!-- Offline / Data Unavailable notice (toggled by telemetry state) -->
+                                    <div class="telemetry-state-notice" id="telemetryStateNotice" role="status" hidden>
+                                        <div class="telemetry-state-notice-title"></div>
+                                        <div class="telemetry-state-notice-desc"></div>
+                                    </div>
+
+                                    <!-- Animated Flow Pipelines SVG Overlay -->
+                                    <svg class="flow-svg-overlay" id="flowSvgOverlay" aria-hidden="true">
+                                        <!-- 1. Solar to Inverter -->
+                                        <path class="flow-line-base flow-line-orange" id="flowLineSolar" />
+                                        <path class="flow-line-anim flow-anim-orange" id="flowLineSolarAnim" />
+                                        <path class="flow-arrow flow-arrow-orange" id="arrowSolar" />
+                                        <circle class="flow-dot flow-dot-orange" id="dotSolarInv" r="4.5" />
+
+                                        <!-- 2. Inverter to Home -->
+                                        <path class="flow-line-base flow-line-green" id="flowLineHome" />
+                                        <path class="flow-line-anim flow-anim-green" id="flowLineHomeAnim" />
+                                        <path class="flow-arrow flow-arrow-green" id="arrowHome" />
+                                        <circle class="flow-dot flow-dot-green" id="dotHomeInv" r="4.5" />
+                                        <circle class="flow-dot flow-dot-green" id="dotHomeEnd" r="4.5" />
+
+                                        <!-- 3. Inverter to Battery -->
+                                        <path class="flow-line-base flow-line-green" id="flowLineBattery" />
+                                        <path class="flow-line-anim flow-anim-green" id="flowLineBatteryAnim" />
+                                        <path class="flow-arrow flow-arrow-green" id="arrowBattery" />
+                                        <circle class="flow-dot flow-dot-green" id="dotBatteryInv" r="4.5" />
+                                        <circle class="flow-dot flow-dot-green" id="dotBatteryEnd" r="4.5" />
+
+                                        <!-- 4. Inverter to Grid -->
+                                        <path class="flow-line-base flow-line-orange" id="flowLineGrid" />
+                                        <path class="flow-line-anim flow-anim-orange" id="flowLineGridAnim" />
+                                        <path class="flow-arrow flow-arrow-orange" id="arrowGrid" />
+                                        <circle class="flow-dot flow-dot-orange" id="dotGridInv" r="4.5" />
+                                        <circle class="flow-dot flow-dot-orange" id="dotGridEnd" r="4.5" />
+                                    </svg>
+
+                                    <div class="power-flow-grid">
+                                        <!-- Row 1: Solar | Inverter | Home -->
+                                        <div class="power-flow-row power-flow-row-top">
+                                            <!-- Solar Panels Card -->
+                                            <div class="telemetry-node telemetry-card node-solar" id="nodeSolar"
+                                                title="Solar Array">
+                                                <div class="card-icon-col">
+                                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" aria-hidden="true">
+                                                        <rect x="3" y="4" width="18" height="13" rx="2" />
+                                                        <path d="M3 10h18M9 4v13M15 4v13M8 21h8M12 17v4" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-content-col">
+                                                    <div class="card-title">Solar Panels</div>
+                                                    <div class="card-reading" id="liveSolarWatts">3.90 kW</div>
+                                                    <div class="card-secondary" id="livePvStrings">PV1 342 V · PV2 338 V
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Hybrid Inverter (Circle Node) -->
+                                            <div class="telemetry-node telemetry-circle-node node-inverter"
+                                                id="nodeInverter" title="Hybrid Inverter System Hub">
+                                                <div class="circle-icon-wrap">
+                                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" aria-hidden="true">
+                                                        <rect x="5" y="3" width="14" height="18" rx="3" />
+                                                        <path d="m13 7-4 6h6l-4 5" />
+                                                    </svg>
+                                                </div>
+                                                <div class="circle-title">Hybrid Inverter</div>
+                                                <div class="circle-reading" id="liveInverterWatts">3.90 kW</div>
+                                                <div class="circle-eff sec-green">98.4% efficiency</div>
+                                                <div class="circle-temp" id="liveInverterTemp">41.2°C · Optimal</div>
+                                            </div>
+
+                                            <!-- Home / Usage Card -->
+                                            <div class="telemetry-node telemetry-card node-home" id="nodeHome"
+                                                title="Home Appliances Consumption">
+                                                <div class="card-icon-col">
+                                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#f97316" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+                                                        <path d="M9 21v-7h6v7" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-content-col">
+                                                    <div class="card-title">Home / Usage</div>
+                                                    <div class="card-reading" id="liveHomeWatts">1.93 kW</div>
+                                                    <div class="card-secondary sec-green" id="liveIndependence">100%
+                                                        solar powered</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Row 2: Battery | Grid -->
+                                        <div class="power-flow-row power-flow-row-bottom">
+                                            <!-- Battery Card -->
+                                            <div class="telemetry-node telemetry-card node-battery" id="nodeBattery"
+                                                title="Lithium-ion Battery Reserve">
+                                                <div class="card-icon-col">
+                                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" aria-hidden="true">
+                                                        <rect x="3" y="6" width="17" height="12" rx="3" />
+                                                        <path d="M23 10v4M7 12h3M14 10v4M12 12h4" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-content-col">
+                                                    <div class="card-title">Battery</div>
+                                                    <div class="card-reading" id="liveBatterySoc">92%</div>
+                                                    <div class="card-secondary sec-green" id="liveBatteryWatts">Charging
+                                                        · 1.25 kW</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Grid Card -->
+                                            <div class="telemetry-node telemetry-card node-grid" id="nodeGrid"
+                                                title="Net Metering: Grid Connection">
+                                                <div class="card-icon-col">
+                                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0V8ZM12 17v4" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-content-col">
+                                                    <div class="card-title">Grid</div>
+                                                    <div class="card-reading" id="liveGridWatts">0.72 kW</div>
+                                                    <div class="card-secondary grid-secondary">
+                                                        <span class="sec-orange" id="liveGridState">Exporting</span>
+                                                        <span class="grid-sync-sub" id="liveGridSync">231.6 V · 60
+                                                            Hz</span>
+                                                        <span class="sec-meta">Grid locked · PF 0.99</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Telemetry Footer Status -->
+                                <div class="telemetry-footer-bar">
+                                    <span class="telemetry-status-msg" aria-live="polite">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#16a34a" stroke="#ffffff"
+                                            stroke-width="2" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10" fill="#16a34a" />
+                                            <polyline points="16 9 10.5 15 8 12.5" stroke="#ffffff" stroke-width="2.5"
+                                                fill="none" />
+                                        </svg>
+                                        System operating normally
+                                    </span>
+                                    <span class="telemetry-timestamp" id="telemetryTimestamp">Updated 1s ago</span>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="system-support-routing-box" id="systemSupportRoutingBox">
+                            <button type="button" class="btn-system-support" id="openSystemSupportBtn"
+                                aria-haspopup="dialog">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 11a9 9 0 0 1 18 0" />
+                                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                                    <path d="M17 17c0 2-2 3-5 3" />
+                                </svg>
+                                <span>Need Help? Contact Support</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="portal-footer">
+                <span>© 2026 Hello Solar Inc.</span>
+                <span>hellosolarph.com · support@hellosolarph.com</span>
+            </footer>
+        </main>
+        <!-- LINK EXISTING SYSTEM MODAL -->
+        <div class="package-modal-backdrop" id="addAccountModalBackdrop" aria-hidden="true">
+            <div class="package-modal" id="addAccountModal" role="dialog" aria-modal="true"
+                aria-labelledby="addAccountModalTitle">
+                <div class="package-modal-header">
+                    <div class="package-modal-title-wrap">
+                        <div class="package-modal-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="package-modal-title" id="addAccountModalTitle">Link Existing System</h3>
+                            <p class="package-modal-subtitle">Connect an existing Hello Solar system to your account</p>
+                        </div>
+                    </div>
+                    <button type="button" class="package-modal-close-btn" id="closeAddAccountModal"
+                        aria-label="Close dialog">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="package-modal-body">
+                    <div class="package-modal-notice" id="linkSystemNotice">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        <p>
+                            Enter the <strong>HS ID / Account ID</strong> and the <strong>registered email or mobile number</strong> on your Hello Solar contract to verify ownership.
+                        </p>
+                    </div>
+
+                    <div id="linkSystemAlert" class="link-system-alert" style="display: none;" role="alert"></div>
+
+                    <div class="form-group" style="margin-top: 14px;">
+                        <label for="serviceAccountIdInput" class="form-label"
+                            style="font-size: 12px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">HS ID / Account ID <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="serviceAccountIdInput" class="form-input"
+                            placeholder="e.g. HS-55201 or HS-77310" autocomplete="off"
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px; box-sizing: border-box;">
+                        <span class="form-hint"
+                            style="font-size: 11.5px; color: var(--gray-400); margin-top: 5px; display: block;">Located on your Hello Solar contract, inverter placard, or statement.</span>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 14px;">
+                        <label for="serviceAccountContactInput" class="form-label"
+                            style="font-size: 12px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">Registered Email or Mobile Number <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="serviceAccountContactInput" class="form-input"
+                            placeholder="e.g. name@example.com or 0917 000 0000" autocomplete="off"
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px; box-sizing: border-box;">
+                        <span class="form-hint"
+                            style="font-size: 11.5px; color: var(--gray-400); margin-top: 5px; display: block;">Must match the contact details registered to this solar system.</span>
+                    </div>
+                </div>
+                <div class="package-modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelAddAccountBtn"
+                        style="padding: 8px 16px; font-size: 13px;">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="submitAddAccountBtn"
+                        style="padding: 8px 18px; font-size: 13px;">Link Existing System</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- IN-PAGE SUPPORT MODAL (ASSOCIATED WITH SELECTED SYSTEM) -->
+        <div class="support-modal-backdrop" id="systemSupportModalBackdrop" aria-hidden="true">
+            <div class="support-modal" id="systemSupportModal" role="dialog" aria-modal="true"
+                aria-labelledby="supportModalTitle">
+                <div class="support-modal-header">
+                    <div class="support-modal-title-group">
+                        <h3 id="supportModalTitle">Need Help with Your System?</h3>
+                        <div class="support-modal-system-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                            </svg>
+                            <span id="supportModalSystemName">Home Primary</span> · <span
+                                id="supportModalAccountNo"></span>
+                        </div>
+                    </div>
+                    <button type="button" class="support-modal-close" id="closeSupportModalBtn"
+                        aria-label="Close support dialog">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+                <form id="systemSupportForm" class="support-modal-body">
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="supportModalCategory" class="form-label"
+                            style="font-size: 12.5px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">Issue
+                            Category</label>
+                        <select id="supportModalCategory" class="form-select"
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px;"
+                            required>
+                            <option value="inverter">Inverter & Live Telemetry</option>
+                            <option value="solar">Rooftop Solar Array / Yield</option>
+                            <option value="battery">Battery Reserve & Backup</option>
+                            <option value="billing">Billing or Net-Metering Question</option>
+                            <option value="other">General Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="supportModalUrgency" class="form-label"
+                            style="font-size: 12.5px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">Urgency
+                            Level</label>
+                        <select id="supportModalUrgency" class="form-select"
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px;"
+                            required>
+                            <option value="normal">Normal (Response within 24 hours)</option>
+                            <option value="urgent">Urgent — Inverter offline / No power</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="supportModalSubject" class="form-label"
+                            style="font-size: 12.5px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">Subject
+                            Summary</label>
+                        <input type="text" id="supportModalSubject" class="form-input"
+                            placeholder="e.g. Telemetry reading 0W after grid fluctuations"
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px;"
+                            required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label for="supportModalDesc" class="form-label"
+                            style="font-size: 12.5px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 6px;">Detailed
+                            Description</label>
+                        <textarea id="supportModalDesc" class="form-textarea" rows="4"
+                            placeholder="Describe any warning indicators or observations..."
+                            style="width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 8px; font-family: inherit; font-size: 13.5px; resize: vertical;"
+                            required></textarea>
+                    </div>
+                </form>
+                <div class="support-modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelSupportModalBtn"
+                        style="padding: 8px 18px; font-size: 13px;">Cancel</button>
+                    <button type="submit" form="systemSupportForm" class="btn btn-primary" id="submitSupportModalBtn"
+                        style="padding: 8px 22px; font-size: 13px;">Send Service Request</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PER-SYSTEM INSTALLATION & ACTIVATION MODAL -->
+        <div class="activation-modal-backdrop" id="activationModalBackdrop" aria-hidden="true">
+            <div class="activation-modal" id="activationModal" role="dialog" aria-modal="true"
+                aria-labelledby="activationModalTitle">
+                <div class="activation-modal-header">
+                    <div>
+                        <h3 id="activationModalTitle"
+                            style="font-size: 17px; font-weight: 800; color: var(--navy); margin: 0 0 4px;">System
+                            Activation & Commissioning</h3>
+                        <div style="font-size: 12.5px; color: var(--gray-500); font-weight: 600;">
+                            <span id="activationModalModelName">Business Annex</span> · <span
+                                id="activationModalAccountNo"></span>
+                        </div>
+                    </div>
+                    <button type="button" class="support-modal-close" id="closeActivationModalBtn"
+                        aria-label="Close activation dialog">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="activation-modal-body">
+                    <div id="activationRequirementsNotice"
+                        style="padding: 12px 16px; background: #fffbeb; border: 1px solid #fed7aa; border-radius: 10px; margin-bottom: 20px; font-size: 13px; color: #9a3412;">
+                        <strong>Activation Notice:</strong> This system requires all 5 installation milestones and
+                        safety sign-off to be completed before grid commissioning and live telemetry activation.
+                    </div>
+
+                    <div class="activation-steps-list" id="activationStepsList">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+                <div class="activation-modal-footer">
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" class="btn btn-secondary" id="closeActivationFooterBtn"
+                            style="font-size: 12.5px; padding: 8px 16px;">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION (5-PILLAR CUSTOMER APP NAV) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+        <div class="mobile-bottom-nav-inner">
+            <a href="mysystem.html" class="mobile-nav-item active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                <span>System</span>
+            </a>
+            <a href="energy.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                <span>Equipment</span>
+            </a>
+            <a href="payments.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                <span>Payments</span>
+            </a>
+            <a href="documents.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                <span>Documents</span>
+            </a>
+            <a href="support.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                <span>Support</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Customer Authentication Logic & Registry -->
+    <script src="js/auth.js"></script>
+
+    <!-- Shared Data Loader -->
+    <script src="js/data-loader.js"></script>
+
+    <!-- Core Portal JavaScript -->
+    <script src="js/portal.js"></script>
+
+    <!-- Consolidated Overview Controller & Decoupled Data Store -->
+    <script src="js/mysystem-page-2.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>

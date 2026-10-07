@@ -1,0 +1,53 @@
+[
+  {
+    "crewId": "CREW-ALPHA",
+    "teamName": "Team Alpha",
+    "leadEngineer": "Engr. Ramon Torres, REE",
+    "technicianHeadcount": 5,
+    "activeProjectIds": ["PRJ-QC-101", "PRJ-ALB-103"],
+    "certifications": [
+      "TESDA Solar PV Installation NC II Certified",
+      "DOLE Basic Occupational Safety & Health (BOSH)",
+      "PRC Registered Electrical Engineer #0045192"
+    ],
+    "safetyCompliance": "100% Compliant (Audit passed August 2026)",
+    "availability": "Active Deployment",
+    "contact": "+63 917 555 1101 · alpha.crew@hellosolar.ph",
+    "specialization": "Residential Hybrid & Battery Storage Systems",
+    "vehiclesAssigned": "Toyota Hilux Service Truck #ABC-4122"
+  },
+  {
+    "crewId": "CREW-BETA",
+    "teamName": "Team Beta",
+    "leadEngineer": "Engr. Aris David, PEE",
+    "technicianHeadcount": 4,
+    "activeProjectIds": ["PRJ-MKT-102", "PRJ-PSG-104"],
+    "certifications": [
+      "PRC Professional Electrical Engineer #0008412",
+      "Meralco Accredited Solar Power Contractor",
+      "DOLE Construction Occupational Safety and Health (COSH)"
+    ],
+    "safetyCompliance": "100% Compliant",
+    "availability": "Active Deployment",
+    "contact": "+63 918 555 2202 · beta.crew@hellosolar.ph",
+    "specialization": "Commercial Rooftop & 3-Phase Grid-Tied Inverters",
+    "vehiclesAssigned": "Isuzu NPR Boom Truck #XYZ-7789"
+  },
+  {
+    "crewId": "CREW-GAMMA",
+    "teamName": "Team Gamma",
+    "leadEngineer": "Engr. Mark Valenzuela, REE",
+    "technicianHeadcount": 4,
+    "activeProjectIds": ["PRJ-TGG-105", "PRJ-LAG-106"],
+    "certifications": [
+      "TESDA Solar PV Installation NC II Certified",
+      "High-Voltage Substation Safety Certified",
+      "Drone Survey & Thermal Drone Pilot License"
+    ],
+    "safetyCompliance": "100% Compliant",
+    "availability": "Standby / Available for Deployment",
+    "contact": "+63 920 555 3303 · gamma.crew@hellosolar.ph",
+    "specialization": "Site Surveys, Drone Mapping & High-Speed Deployments",
+    "vehiclesAssigned": "Mitsubishi L300 Van #KLD-3310"
+  }
+]

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Solar Financer Portal</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script>
+        // Automatic routing based on the financer session only
+        if (window.HSShared && window.HSShared.session.isValid("financer")) {
+            window.location.replace("dashboard.html");
+        } else {
+            window.location.replace("login.html");
+        }
+    </script>
+</head>
+
+<body
+    style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #fffdf9; color: #101a2e;">
+    <p>Redirecting to <a href="login.html" style="color: #ff8a00; font-weight: bold; text-decoration: none;">Hello Solar
+            Financer Portal</a>...</p>
+</body>
+
+</html>

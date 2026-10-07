@@ -1,0 +1,1050 @@
+{
+  "financerProfile": {
+    "businessName": "SolarTech Financer",
+    "fullName": "Finance Officer",
+    "email": "financer@hellosolar.ph",
+    "phone": "0917 888 2345",
+    "partnerId": "",
+    "tier": "Tier 1 Accredited Financer",
+    "role": "Financer Portal",
+    "avatarUrl": ""
+  },
+  "dashboardStats": [
+    {
+      "id": "capital_financed",
+      "value": "₱48,920,000",
+      "label": "Total Funded Solar Capital",
+      "subtext": "214 active borrower loans",
+      "trend": "+14.2% from last month",
+      "trendType": "up",
+      "iconType": "orange"
+    },
+    {
+      "id": "pending_queue",
+      "value": "4 Pending",
+      "label": "Applications to Review",
+      "subtext": "₱1,240,000 requested financing",
+      "trend": "Avg turnaround: 4.2 hours",
+      "trendType": "neutral",
+      "iconType": "blue"
+    },
+    {
+      "id": "approved_month",
+      "value": "₱6,850,000",
+      "label": "Approved in September 2026",
+      "subtext": "38 solar installations funded",
+      "trend": "38 loans funded",
+      "trendType": "up",
+      "iconType": "green"
+    },
+    {
+      "id": "repayment_rate",
+      "value": "99.2% On-Time",
+      "label": "Loan On-Time Repayment Rate",
+      "subtext": "0.8% 30+ day arrears (214 loans)",
+      "trend": "Zero write-offs",
+      "trendType": "up",
+      "iconType": "purple"
+    }
+  ],
+  "portfolioAllocation": [
+    {
+      "category": "Residential Rooftop Solar",
+      "amount": "₱31.3M",
+      "percentage": 64,
+      "color": "var(--solar-orange)"
+    },
+    {
+      "category": "Commercial & SME Solar",
+      "amount": "₱12.7M",
+      "percentage": 26,
+      "color": "#2563eb"
+    },
+    {
+      "category": "Battery Storage Add-ons",
+      "amount": "₱4.9M",
+      "percentage": 10,
+      "color": "#10b981"
+    }
+  ],
+  "environmentalImpact": {
+    "cleanEnergy": "2.1 MWp Generated",
+    "carbonOffset": "1,420 Tons/Yr"
+  },
+  "recentActivities": [
+    {
+      "id": "ACT-100",
+      "title": "New solar financing application submitted by <strong>Carlos Villanueva</strong> (APP-1103)",
+      "time": "5 minutes ago · Pending Review Queue",
+      "type": "submission"
+    },
+    {
+      "id": "ACT-101",
+      "title": "Disbursement cleared for <strong>APP-1109</strong> (₱315,000)",
+      "time": "18 minutes ago · Automated ACH Clearing",
+      "type": "disbursement"
+    },
+    {
+      "id": "ACT-102",
+      "title": "Credit Bureau check completed for <strong>Maria Elena Cruz</strong> (APP-1105)",
+      "time": "45 minutes ago · Bureau Score: 742 (Prime)",
+      "type": "credit"
+    },
+    {
+      "id": "ACT-103",
+      "title": "Electric bill utility proof verified for <strong>Ricardo Gomez</strong> (APP-1104)",
+      "time": "2 hours ago · Meralco 3-mo avg verified",
+      "type": "utility"
+    }
+  ],
+  "applications": [
+    {
+      "id": "APP-1103",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Carlos Villanueva",
+        "location": "Taguig City",
+        "phone": "0917 638 4921",
+        "email": "carlos.villanueva@gmail.com",
+        "income": "₱115,000/mo",
+        "avgElectricBill": "₱11,200/mo",
+        "creditScore": 752,
+        "dti": "23%"
+      },
+      "system": {
+        "title": "6.4 kWp Hybrid Storage System",
+        "sizeCategory": "standard",
+        "systemSize": "6.4 kWp",
+        "merchant": "SolarTech Manila",
+        "cost": "₱375,000",
+        "downPayment": "₱35,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱340,000",
+        "fundedAmount": "₱340,000",
+        "monthlyPayment": "₱10,750/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "pending",
+        "statusText": "Financing Review",
+        "submittedDate": "Sep 28, 2026",
+        "nextStep": "Verify 3-month Meralco electric bill for utility offset",
+        "missingRequirement": "Proof of utility bill consumption",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": false },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "FINANCING_REVIEW",
+      "applicationStatus": "FINANCING_REVIEW",
+      "fundedAmount": "₱340,000",
+      "monthlyPayment": "₱10,750/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Pending Disbursement",
+      "installerEligible": false,
+      "declineReason": null,
+      "decisionDate": null
+    },
+    {
+      "id": "APP-1104",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Ricardo Gomez",
+        "location": "Makati City",
+        "phone": "0917 555 0192",
+        "email": "ricardo.gomez@gmail.com",
+        "income": "₱95,000/mo",
+        "avgElectricBill": "₱8,400/mo",
+        "creditScore": 748,
+        "dti": "21%"
+      },
+      "system": {
+        "title": "5.4 kWp Hybrid System",
+        "sizeCategory": "standard",
+        "systemSize": "5.4 kWp",
+        "merchant": "SunPower Manila",
+        "cost": "₱320,000",
+        "downPayment": "₱35,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱285,000",
+        "fundedAmount": "₱285,000",
+        "monthlyPayment": "₱8,997/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "docs_required",
+        "statusText": "Documents Required",
+        "submittedDate": "Sep 08, 2026",
+        "nextStep": "Verify 3-month Meralco electric bill for utility offset",
+        "missingRequirement": "Proof of utility bill consumption",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": false },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "DOCUMENTS_REQUIRED",
+      "applicationStatus": "DOCUMENTS_REQUIRED",
+      "fundedAmount": "₱285,000",
+      "monthlyPayment": "₱8,997/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Pending Disbursement",
+      "installerEligible": false,
+      "declineReason": null,
+      "decisionDate": null
+    },
+    {
+      "id": "APP-1105",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Maria Elena Cruz",
+        "location": "Quezon City",
+        "phone": "0918 444 8921",
+        "email": "elena.cruz@gmail.com",
+        "income": "₱130,000/mo",
+        "avgElectricBill": "₱14,200/mo",
+        "creditScore": 742,
+        "dti": "26%"
+      },
+      "system": {
+        "title": "8.2 kWp Grid-Tied",
+        "sizeCategory": "standard",
+        "systemSize": "8.2 kWp",
+        "merchant": "Helios Solar PH",
+        "cost": "₱465,000",
+        "downPayment": "₱45,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱420,000",
+        "fundedAmount": "₱420,000",
+        "monthlyPayment": "₱12,850/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "review",
+        "statusText": "Under Review",
+        "submittedDate": "Sep 07, 2026",
+        "nextStep": "Evaluate prime bureau score (742) and debt-to-income (26%)",
+        "missingRequirement": "Underwriter credit sign-off",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "UNDER_REVIEW",
+      "applicationStatus": "UNDER_REVIEW",
+      "fundedAmount": "₱420,000",
+      "monthlyPayment": "₱12,850/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Pending Disbursement",
+      "installerEligible": false,
+      "declineReason": null,
+      "decisionDate": null
+    },
+    {
+      "id": "APP-1106",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Jonathan Dela Cruz",
+        "location": "Pasig City",
+        "phone": "0920 111 4455",
+        "email": "jonathan.delacruz@gmail.com",
+        "income": "₱72,000/mo",
+        "avgElectricBill": "₱5,800/mo",
+        "creditScore": 710,
+        "dti": "28%"
+      },
+      "system": {
+        "title": "3.6 kWp Micro-Inverter",
+        "sizeCategory": "small",
+        "systemSize": "3.6 kWp",
+        "merchant": "SunPower Manila",
+        "cost": "₱220,000",
+        "downPayment": "₱25,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱195,000",
+        "fundedAmount": "₱195,000",
+        "monthlyPayment": "₱6,120/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "docs_required",
+        "statusText": "Documents Required",
+        "submittedDate": "Sep 06, 2026",
+        "nextStep": "Verify employer certificate of compensation & tenure",
+        "missingRequirement": "Proof of employment income",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": false },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "DOCUMENTS_REQUIRED",
+      "applicationStatus": "DOCUMENTS_REQUIRED",
+      "fundedAmount": "₱195,000",
+      "monthlyPayment": "₱6,120/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Pending Disbursement",
+      "installerEligible": false,
+      "declineReason": null,
+      "decisionDate": null
+    },
+    {
+      "id": "APP-1107",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "David Tan",
+        "location": "Cebu City",
+        "phone": "0917 890 1234",
+        "email": "david.tan@tanholdings.ph",
+        "income": "₱240,000/mo",
+        "avgElectricBill": "₱26,500/mo",
+        "creditScore": 780,
+        "dti": "18%"
+      },
+      "system": {
+        "title": "12.0 kWp Commercial",
+        "sizeCategory": "commercial",
+        "systemSize": "12.0 kWp",
+        "merchant": "Visayas Green Energy",
+        "cost": "₱850,000",
+        "downPayment": "₱70,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱780,000",
+        "fundedAmount": "₱780,000",
+        "monthlyPayment": "₱15,920/mo",
+        "term": "60 Months",
+        "financingTerm": "60 Months",
+        "status": "approved",
+        "statusText": "Approved",
+        "submittedDate": "Sep 04, 2026",
+        "nextStep": "Promissory note signed; awaiting installer delivery milestone",
+        "missingRequirement": "None — approved for disbursement",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "APPROVED",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱780,000",
+      "monthlyPayment": "₱15,920/mo",
+      "financingTerm": "60 Months",
+      "repaymentStatus": "Paid",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": "Sep 02, 2026",
+      "contractNumber": "HS-CTR-2026-1107"
+    },
+    {
+      "id": "APP-1108",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Rosanna Valenzuela",
+        "location": "Taguig City",
+        "phone": "0919 777 6622",
+        "email": "rosanna.valenzuela@gmail.com",
+        "income": "₱88,000/mo",
+        "avgElectricBill": "₱10,200/mo",
+        "creditScore": 695,
+        "dti": "32%"
+      },
+      "system": {
+        "title": "6.8 kWp Residential",
+        "sizeCategory": "standard",
+        "systemSize": "6.8 kWp",
+        "merchant": "Luzon Solar Direct",
+        "cost": "₱390,000",
+        "downPayment": "₱40,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱350,000",
+        "fundedAmount": "₱350,000",
+        "monthlyPayment": "₱11,020/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "review",
+        "statusText": "Under Review",
+        "submittedDate": "Sep 03, 2026",
+        "nextStep": "Underwrite 32% DTI (check utility savings offset)",
+        "missingRequirement": "Co-maker or utility savings mitigation",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "UNDER_REVIEW",
+      "applicationStatus": "UNDER_REVIEW",
+      "fundedAmount": "₱350,000",
+      "monthlyPayment": "₱11,020/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Pending Disbursement",
+      "installerEligible": false,
+      "declineReason": null,
+      "decisionDate": null
+    },
+    {
+      "id": "APP-1109",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Patricia Santos",
+        "location": "Davao City",
+        "phone": "0917 222 3456",
+        "email": "patricia.santos@gmail.com",
+        "income": "₱110,000/mo",
+        "avgElectricBill": "₱11,400/mo",
+        "creditScore": 760,
+        "dti": "19%"
+      },
+      "system": {
+        "title": "6.0 kWp Residential",
+        "sizeCategory": "standard",
+        "systemSize": "6.0 kWp",
+        "merchant": "Mindanao Solar Corp",
+        "cost": "₱350,000",
+        "downPayment": "₱35,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱315,000",
+        "fundedAmount": "₱315,000",
+        "monthlyPayment": "₱9,890/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "approved",
+        "statusText": "Approved",
+        "submittedDate": "Aug 28, 2026",
+        "nextStep": "Disbursed — monthly ACH amortization active",
+        "missingRequirement": "None — contract active",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "APPROVED",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱315,000",
+      "monthlyPayment": "₱9,890/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Due Date",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": "Aug 28, 2026",
+      "contractNumber": "HS-CTR-2026-1109"
+    },
+    {
+      "id": "APP-1110",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Antonio Reyes",
+        "location": "Cavite",
+        "phone": "0922 444 7890",
+        "email": "antonio.reyes@gmail.com",
+        "income": "₱45,000/mo",
+        "avgElectricBill": "₱7,100/mo",
+        "creditScore": 590,
+        "dti": "48%"
+      },
+      "system": {
+        "title": "4.8 kWp Residential",
+        "sizeCategory": "small",
+        "systemSize": "4.8 kWp",
+        "merchant": "SolarTech Luzon",
+        "cost": "₱270,000",
+        "downPayment": "₱30,000",
+        "covenantsVerified": false
+      },
+      "loan": {
+        "amount": "₱240,000",
+        "fundedAmount": "₱240,000",
+        "monthlyPayment": "₱7,540/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "rejected",
+        "statusText": "Declined",
+        "submittedDate": "Aug 25, 2026",
+        "nextStep": "Declined — DTI at 48% exceeds 40% cap; eligible with co-maker",
+        "missingRequirement": "Qualified co-maker required for appeal",
+        "declineReason": "Excessive Debt-to-Income (48%) exceeds 40% threshold",
+        "declineDate": "Sep 05, 2026"
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": false }
+      ],
+      "financingStatus": "DECLINED",
+      "applicationStatus": "FINANCING_DECLINED",
+      "fundedAmount": "₱240,000",
+      "monthlyPayment": "₱7,540/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Declined",
+      "installerEligible": false,
+      "declineReason": "Excessive Debt-to-Income (48%) exceeds 40% threshold",
+      "decisionDate": "Sep 05, 2026"
+    },
+    {
+      "id": "APP-1111",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Benjamin Alcantara",
+        "location": "Iloilo City",
+        "phone": "0917 444 3322",
+        "email": "benjamin.alcantara@gmail.com",
+        "income": "₱85,000/mo",
+        "avgElectricBill": "₱7,800/mo",
+        "creditScore": 735,
+        "dti": "22%"
+      },
+      "system": {
+        "title": "4.8 kWp Residential",
+        "sizeCategory": "small",
+        "systemSize": "4.8 kWp",
+        "merchant": "SunPower Manila",
+        "cost": "₱290,000",
+        "downPayment": "₱30,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱260,000",
+        "fundedAmount": "₱260,000",
+        "monthlyPayment": "₱8,160/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "approved",
+        "statusText": "Approved",
+        "submittedDate": "Aug 15, 2026",
+        "nextStep": "Active Disbursed loan",
+        "missingRequirement": "None",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "APPROVED",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱260,000",
+      "monthlyPayment": "₱8,160/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Unpaid",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": "Aug 19, 2026",
+      "contractNumber": "HS-CTR-2026-1111"
+    },
+    {
+      "id": "APP-1112",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Corazon Aquino-Lim",
+        "location": "Mandaluyong City",
+        "phone": "0918 333 7788",
+        "email": "corazon.lim@gmail.com",
+        "income": "₱140,000/mo",
+        "avgElectricBill": "₱13,500/mo",
+        "creditScore": 770,
+        "dti": "24%"
+      },
+      "system": {
+        "title": "7.2 kWp Residential",
+        "sizeCategory": "standard",
+        "systemSize": "7.2 kWp",
+        "merchant": "Helios Solar PH",
+        "cost": "₱540,000",
+        "downPayment": "₱50,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱490,000",
+        "fundedAmount": "₱490,000",
+        "monthlyPayment": "₱11,980/mo",
+        "term": "48 Months",
+        "financingTerm": "48 Months",
+        "status": "approved",
+        "statusText": "Approved",
+        "submittedDate": "Aug 05, 2026",
+        "nextStep": "Active Disbursed loan",
+        "missingRequirement": "None",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "APPROVED",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱490,000",
+      "monthlyPayment": "₱11,980/mo",
+      "financingTerm": "48 Months",
+      "repaymentStatus": "Paid",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": "Aug 11, 2026",
+      "contractNumber": "HS-CTR-2026-1112"
+    },
+    {
+      "id": "APP-1113",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Ferdinand Mendoza",
+        "location": "Bulacan",
+        "phone": "0917 333 9102",
+        "email": "ferdinand.mendoza@gmail.com",
+        "income": "₱65,000/mo",
+        "avgElectricBill": "₱8,900/mo",
+        "creditScore": 574,
+        "dti": "34%"
+      },
+      "system": {
+        "title": "5.4 kWp Residential",
+        "sizeCategory": "standard",
+        "systemSize": "5.4 kWp",
+        "merchant": "SunPower Manila",
+        "cost": "₱420,000",
+        "downPayment": "₱40,000",
+        "covenantsVerified": false
+      },
+      "loan": {
+        "amount": "₱380,000",
+        "fundedAmount": "₱380,000",
+        "monthlyPayment": "₱11,920/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "rejected",
+        "statusText": "Declined",
+        "submittedDate": "Aug 20, 2026",
+        "nextStep": "Declined due to low bureau credit score",
+        "missingRequirement": "Credit repair or qualified co-maker",
+        "declineReason": "Low Credit Bureau Score (574)",
+        "declineDate": "Aug 29, 2026"
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "DECLINED",
+      "applicationStatus": "FINANCING_DECLINED",
+      "fundedAmount": "₱380,000",
+      "monthlyPayment": "₱11,920/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Declined",
+      "installerEligible": false,
+      "declineReason": "Low Credit Bureau Score (574)",
+      "decisionDate": "Aug 29, 2026"
+    },
+    {
+      "id": "APP-1114",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Lourdes Villamor",
+        "location": "Batangas",
+        "phone": "0920 888 1234",
+        "email": "lourdes.villamor@gmail.com",
+        "income": "₱78,000/mo",
+        "avgElectricBill": "₱9,400/mo",
+        "creditScore": 680,
+        "dti": "29%"
+      },
+      "system": {
+        "title": "5.0 kWp Residential",
+        "sizeCategory": "standard",
+        "systemSize": "5.0 kWp",
+        "merchant": "Helios Solar PH",
+        "cost": "₱345,000",
+        "downPayment": "₱35,000",
+        "covenantsVerified": false
+      },
+      "loan": {
+        "amount": "₱310,000",
+        "fundedAmount": "₱310,000",
+        "monthlyPayment": "₱9,750/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "rejected",
+        "statusText": "Declined",
+        "submittedDate": "Aug 18, 2026",
+        "nextStep": "Declined — meter registered under tenant name without consent",
+        "missingRequirement": "Owner consent authorization",
+        "declineReason": "Missing Electric Bill Consent / Incomplete Utility Proof",
+        "declineDate": "Aug 22, 2026"
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": false },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "DECLINED",
+      "applicationStatus": "FINANCING_DECLINED",
+      "fundedAmount": "₱310,000",
+      "monthlyPayment": "₱9,750/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Declined",
+      "installerEligible": false,
+      "declineReason": "Missing Electric Bill Consent / Incomplete Utility Proof",
+      "decisionDate": "Aug 22, 2026"
+    },
+    {
+      "id": "APP-1115",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Manuel Pangilinan Jr.",
+        "location": "Pampanga",
+        "phone": "0917 555 9900",
+        "email": "manuel.pj@pangilinan.ph",
+        "income": "₱310,000/mo",
+        "avgElectricBill": "₱38,000/mo",
+        "creditScore": 790,
+        "dti": "16%"
+      },
+      "system": {
+        "title": "15.0 kWp Agricultural",
+        "sizeCategory": "commercial",
+        "systemSize": "15.0 kWp",
+        "merchant": "Visayas Green Energy",
+        "cost": "₱1,020,000",
+        "downPayment": "₱100,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱920,000",
+        "fundedAmount": "₱920,000",
+        "monthlyPayment": "₱18,780/mo",
+        "term": "60 Months",
+        "financingTerm": "60 Months",
+        "status": "approved",
+        "statusText": "Approved",
+        "submittedDate": "Jul 25, 2026",
+        "nextStep": "Active Disbursed agricultural solar facility",
+        "missingRequirement": "None",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "APPROVED",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱920,000",
+      "monthlyPayment": "₱18,780/mo",
+      "financingTerm": "60 Months",
+      "repaymentStatus": "Due Date",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": "Jul 30, 2026",
+      "contractNumber": "HS-CTR-2026-1115"
+    },
+    {
+      "id": "APP-1116",
+      "paymentType": "Installment",
+      "applicant": {
+        "name": "Gregorio Santos",
+        "location": "Rizal",
+        "phone": "0918 666 4545",
+        "email": "gregorio.santos@gmail.com",
+        "income": "₱58,000/mo",
+        "avgElectricBill": "₱6,400/mo",
+        "creditScore": 640,
+        "dti": "30%"
+      },
+      "system": {
+        "title": "3.8 kWp Residential",
+        "sizeCategory": "small",
+        "systemSize": "3.8 kWp",
+        "merchant": "SolarTech Luzon",
+        "cost": "₱245,000",
+        "downPayment": "₱30,000",
+        "covenantsVerified": false
+      },
+      "loan": {
+        "amount": "₱215,000",
+        "fundedAmount": "₱215,000",
+        "monthlyPayment": "₱6,750/mo",
+        "term": "36 Months",
+        "financingTerm": "36 Months",
+        "status": "rejected",
+        "statusText": "Declined",
+        "submittedDate": "Aug 10, 2026",
+        "nextStep": "Declined due to structural roof truss ineligibility",
+        "missingRequirement": "Structural reinforcement required",
+        "declineReason": "Roof Structural Ineligibility",
+        "declineDate": "Aug 14, 2026"
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": false }
+      ],
+      "financingStatus": "DECLINED",
+      "applicationStatus": "FINANCING_DECLINED",
+      "fundedAmount": "₱215,000",
+      "monthlyPayment": "₱6,750/mo",
+      "financingTerm": "36 Months",
+      "repaymentStatus": "Declined",
+      "installerEligible": false,
+      "declineReason": "Roof Structural Ineligibility",
+      "decisionDate": "Aug 14, 2026"
+    },
+    {
+      "id": "APP-1120",
+      "paymentType": "Cash",
+      "applicant": {
+        "name": "Juan Dela Cruz",
+        "location": "Pasay City",
+        "phone": "0917 111 2233",
+        "email": "juan.delacruz@example.com",
+        "income": "₱150,000/mo",
+        "avgElectricBill": "₱12,000/mo",
+        "creditScore": 760,
+        "dti": "15%"
+      },
+      "system": {
+        "title": "5.0 kWp Grid-Tied System",
+        "sizeCategory": "standard",
+        "systemSize": "5.0 kWp",
+        "merchant": "SunPower Manila",
+        "cost": "₱260,000",
+        "downPayment": "₱260,000",
+        "covenantsVerified": true
+      },
+      "loan": {
+        "amount": "₱0",
+        "fundedAmount": "₱0",
+        "monthlyPayment": "₱0/mo",
+        "term": "None",
+        "financingTerm": "None",
+        "status": "not_applicable",
+        "statusText": "Full Cash Payment",
+        "submittedDate": "Sep 20, 2026",
+        "nextStep": "Direct merchant cash fulfillment",
+        "missingRequirement": "None",
+        "declineReason": null,
+        "declineDate": null
+      },
+      "documents": [
+        { "name": "Government ID", "submitted": true },
+        { "name": "Proof of Income", "submitted": true },
+        { "name": "Meralco Bill", "submitted": true },
+        { "name": "Roof Ownership", "submitted": true }
+      ],
+      "financingStatus": "NOT_APPLICABLE",
+      "applicationStatus": "READY_FOR_INSTALLATION",
+      "fundedAmount": "₱0",
+      "monthlyPayment": "₱0/mo",
+      "financingTerm": "None",
+      "repaymentStatus": "Paid in Full",
+      "installerEligible": true,
+      "declineReason": null,
+      "decisionDate": null
+    }
+  ],
+  "approvedContracts": [
+    {
+      "contractNumber": "HS-CTR-2026-1107",
+      "appId": "APP-1107",
+      "borrower": {
+        "name": "David Tan",
+        "location": "Cebu City · Commercial"
+      },
+      "merchant": "Visayas Green Energy",
+      "fundedAmount": "₱780,000",
+      "terms": "60 mos · ₱15,920/mo",
+      "disbursedDate": "Sep 02, 2026",
+      "status": "Active Disbursed"
+    },
+    {
+      "contractNumber": "HS-CTR-2026-1109",
+      "appId": "APP-1109",
+      "borrower": {
+        "name": "Patricia Santos",
+        "location": "Davao City · Residential"
+      },
+      "merchant": "Mindanao Solar Corp",
+      "fundedAmount": "₱315,000",
+      "terms": "36 mos · ₱9,890/mo",
+      "disbursedDate": "Aug 28, 2026",
+      "status": "Active Disbursed"
+    },
+    {
+      "contractNumber": "HS-CTR-2026-1111",
+      "appId": "APP-1111",
+      "borrower": {
+        "name": "Benjamin Alcantara",
+        "location": "Iloilo City · Residential"
+      },
+      "merchant": "SunPower Manila",
+      "fundedAmount": "₱260,000",
+      "terms": "36 mos · ₱8,160/mo",
+      "disbursedDate": "Aug 19, 2026",
+      "status": "Active Disbursed"
+    },
+    {
+      "contractNumber": "HS-CTR-2026-1112",
+      "appId": "APP-1112",
+      "borrower": {
+        "name": "Corazon Aquino-Lim",
+        "location": "Mandaluyong City · Residential"
+      },
+      "merchant": "Helios Solar PH",
+      "fundedAmount": "₱490,000",
+      "terms": "48 mos · ₱11,980/mo",
+      "disbursedDate": "Aug 11, 2026",
+      "status": "Active Disbursed"
+    },
+    {
+      "contractNumber": "HS-CTR-2026-1115",
+      "appId": "APP-1115",
+      "borrower": {
+        "name": "Manuel Pangilinan Jr.",
+        "location": "Pampanga · Agricultural Solar"
+      },
+      "merchant": "Visayas Green Energy",
+      "fundedAmount": "₱920,000",
+      "terms": "60 mos · ₱18,780/mo",
+      "disbursedDate": "Jul 30, 2026",
+      "status": "Active Disbursed"
+    }
+  ],
+  "rejectedApplications": [
+    {
+      "id": "APP-1110",
+      "applicant": {
+        "name": "Antonio Reyes",
+        "location": "Cavite · 0922 444 7890"
+      },
+      "requestedAmount": "₱240,000",
+      "merchant": "SolarTech Luzon",
+      "reasonCode": "dti",
+      "primaryReason": "Excessive DTI (48%)",
+      "reasonDetail": "Max allowed threshold is 40%",
+      "declineDate": "Sep 05, 2026",
+      "statusBadge": "Co-Maker Eligible"
+    },
+    {
+      "id": "APP-1113",
+      "applicant": {
+        "name": "Ferdinand Mendoza",
+        "location": "Bulacan · 0917 333 9102"
+      },
+      "requestedAmount": "₱380,000",
+      "merchant": "SunPower Manila",
+      "reasonCode": "score",
+      "primaryReason": "Low Bureau Score (574)",
+      "reasonDetail": "Unresolved past-due credit card line",
+      "declineDate": "Aug 29, 2026",
+      "statusBadge": "Reapply in 90 Days"
+    },
+    {
+      "id": "APP-1114",
+      "applicant": {
+        "name": "Lourdes Villamor",
+        "location": "Batangas · 0920 888 1234"
+      },
+      "requestedAmount": "₱310,000",
+      "merchant": "Helios Solar PH",
+      "reasonCode": "utility",
+      "primaryReason": "Utility Proof Incomplete",
+      "reasonDetail": "Meter registered under tenant name without consent",
+      "declineDate": "Aug 22, 2026",
+      "statusBadge": "Co-Maker Eligible"
+    },
+    {
+      "id": "APP-1116",
+      "applicant": {
+        "name": "Gregorio Santos",
+        "location": "Rizal · 0918 666 4545"
+      },
+      "requestedAmount": "₱215,000",
+      "merchant": "SolarTech Luzon",
+      "reasonCode": "roof",
+      "primaryReason": "Roof Structural Ineligibility",
+      "reasonDetail": "Engineer report cited truss reinforcement required",
+      "declineDate": "Aug 14, 2026",
+      "statusBadge": "Structural Hold"
+    }
+  ],
+  "supportChannels": [
+    {
+      "title": "Priority Underwriting Hotline",
+      "description": "Direct line to senior credit underwriters for time-sensitive application escalations and exceptions.",
+      "contact": "(02) 8888-SOLAR (Ext. 2)",
+      "schedule": "Mon – Sat: 8:00 AM – 6:00 PM PHT"
+    },
+    {
+      "title": "ACH Disbursement Operations",
+      "description": "Batch settlement inquiries, bank clearing receipts, and installer payout confirmation status.",
+      "contact": "disbursement@hellosolar.ph",
+      "schedule": "Automated clearing daily at 3:00 PM"
+    },
+    {
+      "title": "Institutional Relationship Officer",
+      "description": "Elena Santos · Head of Institutional Partnerships for credit facility expansions and covenant audits.",
+      "contact": "+63 917 888 1234",
+      "schedule": "elena.santos@hellosolar.ph"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What are the maximum Debt-To-Income (DTI) thresholds?",
+      "answer": "Our standard policy allows a maximum DTI of 40% for tier-1 residential borrowers. If DTI falls between 40% and 48%, loan approval can proceed subject to an employed co-maker or proof of 30%+ electric utility bill savings offsetting the debt service."
+    },
+    {
+      "question": "How are equipment liens secured on funded solar panels?",
+      "answer": "Every funded installation executes a Chattel Mortgage over the solar PV modules, hybrid inverters, and battery storage units, registered with the Registry of Deeds and backed by a comprehensive warranty covenant from the accredited installer."
+    },
+    {
+      "question": "What is the merchant installer disbursement schedule?",
+      "answer": "Installers receive 40% mobilization upon borrower signing and initial permit issuance, 40% upon delivery of equipment on site, and the remaining 20% retention upon final net metering inspection and customer commissioning acceptance."
+    },
+    {
+      "question": "Are early pre-payments or loan buyouts permitted?",
+      "answer": "Yes. Hello Solar encourages customer pre-payments with 0% penalty fees. The financer receives the remaining principal in full plus accrued interest up to the settlement date."
+    }
+  ]
+}

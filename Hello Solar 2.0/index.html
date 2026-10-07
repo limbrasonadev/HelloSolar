@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Hello Solar</title>
+    <!-- Brand Logo for Browser Tab -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png" />
+    <link rel="apple-touch-icon" href="assets/images/logofortab.png" />
+    <script src="../shared/hello-solar-config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+</head>
+
+<body class="text-[#1C1917] selection:bg-amber-500/25 selection:text-amber-950 bg-[#FAF7F2] min-h-screen">
+
+    <!-- SUBTLE WARM ATMOSPHERIC AMBIENT GLOWS -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div
+            class="absolute -top-32 left-1/4 w-[650px] h-[500px] bg-gradient-to-br from-amber-200/25 via-orange-100/15 to-transparent rounded-full blur-3xl opacity-70">
+        </div>
+        <div
+            class="absolute top-[850px] -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-amber-100/20 via-orange-50/15 to-transparent rounded-full blur-3xl opacity-60">
+        </div>
+        <div
+            class="absolute top-[1750px] -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-amber-200/20 via-orange-100/15 to-transparent rounded-full blur-3xl opacity-60">
+        </div>
+    </div>
+
+    <!-- UNIFIED HERO & BANNER WRAPPER -->
+    <div class="relative w-full overflow-hidden">
+
+        <!-- BACKGROUND IMAGE: 4K Viewport Anchor -->
+        <div
+            class="hero-photo-backdrop absolute right-0 top-0 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[72%] h-[820px] pointer-events-none select-none z-0">
+            <div class="w-full h-full hero-seamless-mask relative">
+                <img src="assets/images/hello_solar_pic.jpg" alt="Solar House & Rock Pathway" fetchpriority="high"
+                    decoding="async" class="w-full h-full object-cover object-[78%_55%] lg:object-[80%_65%] render-4k"
+                    onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=3840&q=95'" />
+                <!-- Mobile Ambient Readability Scrim -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-[#FAFAFB]/95 via-[#FAFAFB]/70 to-[#FAFAFB] md:hidden">
+                </div>
+                <!-- 4K Ambient Directional Feathers -->
+                <div
+                    class="absolute inset-y-0 left-0 w-48 2xl:w-64 bg-gradient-to-r from-[#FAFAFB] via-[#FAFAFB]/60 to-transparent hidden md:block">
+                </div>
+                <div class="hero-bottom-cloud" aria-hidden="true"></div>
+            </div>
+
+        </div>
+
+        <!-- NAVBAR -->
+        <header
+            class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 py-5 sm:py-6 flex items-center justify-between relative z-30 bg-transparent">
+            <a href="index.html" class="flex items-center focus:outline-none shrink-0">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar Logo"
+                    class="h-8 sm:h-9 2xl:h-11 w-auto object-contain" />
+            </a>
+
+            <!-- DESKTOP NAVBAR (Visible ONLY on xl / 1280px+ displays where ample space exists) -->
+            <nav id="desktopNav"
+                class="hidden xl:flex items-center gap-8 2xl:gap-12 text-[15px] 2xl:text-[16px] font-bold text-[#1C1917]">
+                <a href="index.html" data-nav="home"
+                    class="text-[#1C1917] border-b-2 border-amber-500 pb-0.5 font-black nav-link transition-colors">Home</a>
+                <a href="#solar-systems" data-nav="solar-systems"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">Solar
+                    Systems</a>
+                <a href="#how-it-works" data-nav="how-it-works"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">How It
+                    Works</a>
+                <a href="contact.html" data-nav="contact"
+                    class="text-[#1C1917]/75 hover:text-[#1C1917] pb-0.5 font-bold transition-colors nav-link">Contact
+                    Us</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button data-action="recommend"
+                    class="hidden sm:flex bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm 2xl:text-base font-extrabold px-6 2xl:px-8 py-2.5 2xl:py-3.5 rounded-full items-center gap-2 shadow-xs hover:shadow-md transition cursor-pointer">
+                    <span>Get My Recommendation</span>
+                    <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
+                </button>
+
+                <!-- Mobile & Tablet Menu Button (Visible on all screens < 1280px, including iPad Mini/Tablets) -->
+                <button id="mobileMenuBtn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    class="xl:hidden w-11 h-11 rounded-xl bg-white/80 hover:bg-white border border-[#E7E2D7] text-[#1C1917] flex flex-col items-center justify-center gap-[4.5px] shadow-xs transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                    <span class="sr-only">Toggle navigation menu</span>
+                    <!-- 3 Horizontal Bars: '☰' to 'X' -->
+                    <span id="burgerLine1"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine2"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                    <span id="burgerLine3"
+                        class="w-5 h-[2px] bg-[#1C1917] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MOBILE & TABLET NAVIGATION BACKDROP OVERLAY -->
+        <div id="mobileMenuBackdrop"
+            class="xl:hidden fixed inset-0 z-40 bg-stone-900/40 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none">
+        </div>
+
+        <!-- MOBILE & TABLET NAVIGATION DRAWER -->
+        <div id="mobileMenu"
+            class="xl:hidden fixed inset-x-4 sm:inset-x-8 md:inset-x-auto md:w-[480px] md:right-8 top-[74px] sm:top-[84px] z-50 bg-[#FCFAF7]/98 backdrop-blur-xl border border-[#E7E2D7] rounded-[28px] shadow-[0_24px_55px_-12px_rgba(28,25,23,0.18)] p-6 space-y-4 transition-all duration-300 transform -translate-y-4 scale-98 opacity-0 pointer-events-none max-w-md md:max-w-lg mx-auto">
+            <div class="flex items-center justify-between px-1 pb-1 border-b border-stone-100">
+                <span class="text-[11px] font-black text-stone-400 uppercase tracking-wider">Navigation</span>
+                <span
+                    class="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    Smart Solar Matching
+                </span>
+            </div>
+
+            <nav class="flex flex-col space-y-1.5 text-[15px] font-bold text-stone-700">
+                <a href="index.html" data-nav="home"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link text-[#1C1917]">
+                    <span>Home</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="#solar-systems" data-nav="solar-systems"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
+                    <span>Solar Systems</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="#how-it-works" data-nav="how-it-works"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
+                    <span>How It Works</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <a href="contact.html" data-nav="contact"
+                    class="py-3 px-4 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition flex items-center justify-between mobile-nav-link">
+                    <span>Contact Us</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-stone-400" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+            </nav>
+
+            <div class="pt-2 border-t border-stone-100">
+                <button data-action="recommend"
+                    class="w-full bg-[#FDC400] hover:bg-[#eab300] active:scale-95 text-[#1C1917] text-xs sm:text-sm font-extrabold py-3.5 rounded-full flex items-center justify-center gap-2 shadow-xs transition cursor-pointer">
+                    <span>Get My Recommendation</span>
+                    <svg class="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- HERO TEXT & BADGES -->
+        <section id="home"
+            class="w-full max-w-[2000px] mx-auto px-6 sm:px-12 lg:px-16 2xl:px-24 relative z-10 pt-8 sm:pt-14 pb-20 lg:pb-28 2xl:pb-36">
+            <div class="hero-copy max-w-xl lg:max-w-3xl 2xl:max-w-3xl space-y-7 2xl:space-y-9">
+                <div class="space-y-3 sm:space-y-3.5">
+                    <h1
+                        class="hero-title text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] 2xl:text-[70px] font-black tracking-tight leading-[1.08] text-[#1C1917]">
+                        <span class="block sm:whitespace-nowrap">Cheaper <span class="whitespace-nowrap">Electricity for</span></span>
+                        <span class="block text-[0.78em] text-[#FDC400] sm:whitespace-nowrap mt-0.5 sm:mt-1">
+                            Every Filipino Home.
+                        </span>
+                    </h1>
+                    <p
+                        class="text-[10px] sm:text-xs 2xl:text-sm font-medium text-stone-600 leading-relaxed max-w-lg 2xl:max-w-xl">
+                        Because power shouldn't be expensive &amp; living without it shouldn't be an option.
+                    </p>
+                </div>
+
+                <!-- 3 Brand Identity Stats (Boxless, Clean, Large Animated Numbers) -->
+                <div id="featureBadgesContainer"
+                    class="hero-stats grid grid-cols-3 gap-2 sm:gap-6 2xl:gap-8 pt-4 text-center max-w-[440px] sm:max-w-[480px] 2xl:max-w-[540px]">
+                    <!-- Stat 1: Down Payment -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeDpVal"
+                            class="hero-stat-value inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl tabular-nums leading-none">
+                            ₱10,000
+                        </span>
+                        <p class="hero-stat-label text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Down Payment
+                        </p>
+                    </div>
+
+                    <!-- Stat 2: Monthly Bills -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeBillsVal"
+                            class="hero-stat-value inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl leading-none transition-all duration-150">
+                            5 Years
+                        </span>
+                        <p class="hero-stat-label text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Monthly Bills
+                        </p>
+                    </div>
+
+                    <!-- Stat 3: Brownouts -->
+                    <div class="flex flex-col items-center justify-center text-center select-none">
+                        <span id="badgeBrownoutVal"
+                            class="hero-stat-value inline-block font-black bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 bg-clip-text text-transparent tracking-tight text-xl sm:text-2xl md:text-3xl 2xl:text-4xl tabular-nums leading-none">
+                            0%
+                        </span>
+                        <p class="hero-stat-label text-xs sm:text-sm 2xl:text-base font-bold text-stone-700 mt-2">
+                            Brownouts
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR BANNER (Enhanced Solar Ambient Banner) -->
+        <div class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 relative z-20">
+            <section
+                class="relative w-full bg-gradient-to-r from-[#FFFDF5] via-[#FFF4D4] to-[#FFE59E] p-8 sm:p-10 2xl:p-12 rounded-[28px] sm:rounded-[36px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_16px_40px_-12px_rgba(245,158,11,0.22),0_2px_8px_rgba(28,25,23,0.02)] overflow-hidden">
+
+                <!-- Ambient Solar Radial Flare (Behind CTA on right) -->
+                <div
+                    class="absolute -right-8 -top-8 w-72 h-72 bg-gradient-to-br from-[#FDC400]/30 to-amber-400/10 rounded-full blur-2xl pointer-events-none select-none">
+                </div>
+
+                <!-- Left Content: Headline & Subtitle -->
+                <div class="space-y-2 text-center md:text-left relative z-10 max-w-xl">
+                    <h2
+                        class="text-2xl sm:text-[28px] lg:text-[32px] font-black text-[#101a2e] leading-tight tracking-tight">
+                        Find the right<br class="hidden sm:inline" /> solar system for your home.
+                    </h2>
+                    <p class="text-xs sm:text-[14px] 2xl:text-[15.5px] font-semibold text-stone-600/95 leading-relaxed">
+                        Answer a few questions and get a personalized recommendation in 1 minute.
+                    </p>
+                </div>
+
+                <!-- Right Content: CTA Button & Micro-Guarantee -->
+                <div class="flex flex-col items-center shrink-0 relative z-10">
+                    <div class="relative inline-block">
+                        <!-- SUNBURST / SOLAR RAYS ACCENT (Positioned outside top-right of button) -->
+                        <div
+                            class="absolute -top-3.5 -right-3 sm:-top-4 sm:-right-3.5 z-20 pointer-events-none select-none">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#F59E0B] drop-shadow-[0_2px_4px_rgba(245,158,11,0.35)]"
+                                viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3.5"
+                                stroke-linecap="round">
+                                <line x1="14" y1="5" x2="14" y2="13"></line>
+                                <line x1="22" y1="8" x2="16" y2="14"></line>
+                                <line x1="27" y1="17" x2="19" y2="17"></line>
+                            </svg>
+                        </div>
+                        <button data-action="recommend"
+                            class="bg-[#FDC400] hover:bg-[#f5bc00] active:scale-95 text-[#101a2e] font-extrabold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full flex items-center gap-2.5 shadow-[0_8px_24px_-4px_rgba(253,196,0,0.5)] hover:shadow-[0_12px_28px_-4px_rgba(253,196,0,0.65)] hover:scale-[1.02] transition-all text-xs sm:text-sm 2xl:text-base tracking-wide cursor-pointer">
+                            <span>Get My Recommendation</span>
+                            <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="text-[11px] sm:text-xs font-semibold text-stone-500 mt-2.5">
+                        No obligation. Takes less than 60 seconds.
+                    </span>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main
+        class="w-full max-w-[2000px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-24 space-y-12 2xl:space-y-16 pb-16 2xl:pb-24 relative z-10 pt-12">
+
+        <!-- MAIN RECOMMENDATION CARD -->
+        <section id="featured-recommendation"
+            class="w-full bg-white rounded-[28px] 2xl:rounded-[36px] border-[1.5px] border-[#FCD34D] p-8 sm:p-10 2xl:p-14 shadow-[0_12px_36px_-8px_rgba(217,119,6,0.08),0_2px_8px_rgba(28,25,23,0.02)]">
+            <div class="grid lg:grid-cols-12 gap-8 2xl:gap-12 items-center">
+                <!-- Specs Column -->
+                <div class="lg:col-span-5 space-y-4 2xl:space-y-6">
+                    <span
+                        class="inline-block bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] 2xl:text-[12px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                        OUR RECOMMENDATION
+                    </span>
+                    <h2 class="text-4xl 2xl:text-5xl font-black text-[#1C1917] tracking-tight">HS 6 <span
+                            class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">LITE</span>
+                    </h2>
+                    <p class="text-xs 2xl:text-sm font-bold text-[#1C1917]">Smart. Reliable. Built for Everyday Savings.
+                    </p>
+                    <div class="grid grid-cols-3 gap-3 2xl:gap-4 pt-3">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/panels.png" alt="Panels"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">4.96kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Panels</div>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/inverter.png" alt="Inverter"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">6kW</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Inverter</div>
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="h-12 sm:h-14 2xl:h-16 flex items-center justify-center mb-2">
+                                <img src="assets/images/battery.png" alt="Battery"
+                                    class="max-h-full max-w-full object-contain" />
+                            </div>
+                            <div class="text-sm sm:text-base 2xl:text-lg font-black text-[#1C1917]">4.8kWh</div>
+                            <div class="text-[10px] 2xl:text-xs text-stone-600 font-bold uppercase tracking-wider">
+                                Battery</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Column -->
+                <div
+                    class="lg:col-span-4 border-y lg:border-y-0 lg:border-x border-[#EFEBE4] py-6 lg:py-0 lg:px-10 2xl:px-14 space-y-3">
+                    <div class="text-xs 2xl:text-sm font-bold text-stone-600">Pay as low as</div>
+                    <div class="text-4xl sm:text-5xl 2xl:text-6xl font-black text-amber-600 tracking-tight">
+                        ₱7,650<span class="text-sm 2xl:text-lg font-bold text-stone-700">/month</span>
+                    </div>
+                    <div class="text-xs 2xl:text-sm font-extrabold text-[#1C1917]">for 5 years, with 10k DP</div>
+                    <div class="text-xs 2xl:text-sm text-stone-600 font-semibold pt-1">Full payment: <span
+                            class="font-extrabold text-[#1C1917]">₱270,000</span></div>
+                    <button data-product="hs6-lite" data-action="choose"
+                        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs 2xl:text-sm mt-3 shadow-sm hover:shadow cursor-pointer">
+                        Choose HS 6 Lite &rarr;
+                    </button>
+                    <button type="button" id="featuredExploreOptionsBtn"
+                        class="w-full text-center text-xs 2xl:text-sm font-bold text-stone-700 hover:text-amber-600 transition flex items-center justify-center gap-1.5 pt-2 cursor-pointer">
+                    </button>
+                </div>
+
+                <!-- Checklist Column -->
+                <div
+                    class="lg:col-span-3 bg-gradient-to-br from-amber-50/90 to-orange-50/50 rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 space-y-4 border border-amber-200/70">
+                    <div class="flex items-start gap-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lower your electric bill
+                            every month</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Keep your lights, fans
+                            and Wi-Fi running during brownouts</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle w-4 h-4 2xl:w-5 2xl:h-5 text-[#FDC400] shrink-0 mt-0.5 stroke-[2.5]" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg>
+                        <span class="text-xs 2xl:text-sm font-bold text-[#1C1917] leading-snug">Lowest upfront
+                            investment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-TIER OPTIONS SECTION -->
+        <section id="solar-systems" class="w-full space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">
+                    Explore other options
+                </h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Find the best fit for your home.
+                </p>
+            </div>
+
+            <div class="relative w-full">
+                <!-- Left Slide Arrow Button (Circular continuous carousel) -->
+                <button type="button" id="slidePrevOptionBtn" aria-label="Previous options"
+                    title="View previous options"
+                    class="flex absolute -left-3 lg:-left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
+                    <svg class="w-5 h-5 2xl:w-6 2xl:h-6 transition-transform duration-300 group-hover:-translate-x-0.5 stroke-[3]"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <!-- Carousel Viewport & Track -->
+                <div class="options-carousel-viewport">
+                    <div id="optionsCarouselTrack" class="options-carousel-track">
+                        <!-- Card 1: HS 6 Lite -->
+                        <div id="card-hs6-lite" data-product-card="hs6-lite" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span class="text-amber-500">LITE</span>
+                                    </h3>
+
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>4.96kW</span><span class="text-stone-300">|</span><span>6kW</span><span
+                                        class="text-stone-300">|</span><span>4.8kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱7,650 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱270,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs6-lite" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 2: HS 6 Pro (Most Popular) -->
+                        <div id="card-hs6-pro" data-product-card="hs6-pro" role="button" tabindex="0"
+                            class="option-card is-selected bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div id="badge-most-popular"
+                                class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] 2xl:text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-xs pointer-events-none z-10">
+                                Most Popular
+                            </div>
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7 pt-1">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span
+                                            class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">PRO</span>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-amber-900 bg-amber-50 py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl border border-amber-200/60">
+                                    <span>6.2kW</span><span class="text-amber-300">|</span><span>6kW</span><span
+                                        class="text-amber-300">|</span><span>9.6kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱5,000–₱8,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱9,066.67 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱320,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs6-pro" data-action="details"
+                                class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition shadow-sm hover:shadow flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 3: HS 6 Max -->
+                        <div id="card-hs6-max" data-product-card="hs6-max" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 6 <span class="text-amber-500">MAX</span>
+                                    </h3>
+
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8.27kW</span><span class="text-stone-300">|</span><span>8kW</span><span
+                                        class="text-stone-300">|</span><span>9.6kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱8,000–₱12,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱10,908.33 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱385,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs6-max" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 4: HS 8 Pro -->
+                        <div id="card-hs8-pro" data-product-card="hs8-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 8 <span class="text-amber-500">PRO</span>
+                                    </h3>
+
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8kW</span><span class="text-stone-300">|</span><span>8kW</span><span
+                                        class="text-stone-300">|</span><span>16kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱8,000–₱13,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱11,900 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱420,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs8-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 5: HS 8 Max -->
+                        <div id="card-hs8-max" data-product-card="hs8-max" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 8 <span class="text-amber-500">MAX</span>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>8kW</span><span class="text-stone-300">|</span><span>12kW</span><span
+                                        class="text-stone-300">|</span><span>32kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱13,000–₱18,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱16,859 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱595,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs8-max" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 6: HS 10 Pro -->
+                        <div id="card-hs10-pro" data-product-card="hs10-pro" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 10 <span class="text-amber-500">PRO</span>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-stone-600 font-bold">Enterprise & business
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>10kW</span><span class="text-stone-300">|</span><span>12kW</span><span
+                                        class="text-stone-300">|</span><span>16kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱17,000-₱21,000</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱15,159 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱535,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs10-pro" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+
+                        <!-- Card 7: HS 12 Max -->
+                        <div id="card-hs12-max" data-product-card="hs12-max" role="button" tabindex="0"
+                            class="option-card bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#FCD34D] p-5 sm:p-8 2xl:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 relative shadow-xs sm:min-h-[450px] 2xl:min-h-[500px]">
+                            <div class="space-y-5 sm:space-y-6 2xl:space-y-7">
+                                <div class="text-center space-y-1">
+                                    <h3
+                                        class="text-2xl sm:text-[28px] 2xl:text-3xl font-black text-[#1C1917] tracking-tight">
+                                        HS 12 <span class="text-amber-500">MAX</span>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-stone-600 font-bold">Commercial & industrial</p>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-2.5 text-xs sm:text-[13.5px] 2xl:text-sm font-extrabold text-[#1C1917] bg-[#F5F2EB] py-2 sm:py-2.5 2xl:py-3 px-3 rounded-xl">
+                                    <span>12kW</span><span class="text-stone-300">|</span><span>16kW</span><span
+                                        class="text-stone-300">|</span><span>32kWh</span>
+                                </div>
+                                <div class="text-center text-xs sm:text-sm 2xl:text-base text-stone-600 font-semibold">
+                                    Ideal for bills: <span class="font-extrabold text-[#1C1917]">₱18,000-₱25,000+</span>
+                                </div>
+                                <div class="text-center pt-1 sm:pt-2">
+                                    <div
+                                        class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-amber-600 tracking-tight whitespace-nowrap">
+                                        ₱21,533.33 <span
+                                            class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">/month</span>
+                                    </div>
+                                    <div class="text-xs sm:text-sm text-stone-600 font-bold mt-1">5 years, 10k DP
+                                    </div>
+                                    <div class="text-[11px] sm:text-xs text-stone-500 font-semibold mt-2 pt-2 border-t border-stone-100">
+                                        or <span class="font-extrabold text-[#1C1917]">₱760,000</span> full payment</div>
+                                </div>
+                            </div>
+                            <button data-product="hs12-max" data-action="details"
+                                class="w-full border border-stone-300 hover:bg-amber-50/40 hover:border-amber-400/80 text-[#1C1917] font-extrabold py-3.5 2xl:py-4 rounded-xl text-xs sm:text-sm 2xl:text-base transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Slide Arrow Button (Circular continuous carousel) -->
+                <button type="button" id="slideNextOptionBtn" aria-label="Slide to see the other options"
+                    title="View more options"
+                    class="flex absolute -right-3 lg:-right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 2xl:w-13 2xl:h-13 rounded-full bg-white/95 backdrop-blur-xs border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white shadow-[0_4px_16px_rgba(245,158,11,0.22)] hover:shadow-[0_8px_24px_rgba(245,158,11,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 items-center justify-center cursor-pointer group">
+                    <svg class="w-5 h-5 2xl:w-6 2xl:h-6 transition-transform duration-300 group-hover:translate-x-0.5 stroke-[3]"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Carousel Pagination Dots Indicator (7 logical packages) -->
+            <div id="optionsPageDots" class="flex items-center justify-center gap-2 pt-3"
+                aria-label="Carousel pagination">
+                <button type="button"
+                    class="options-page-dot w-6 h-2 bg-amber-500 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(1)" aria-label="Go to package 1" aria-current="true"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(2)" aria-label="Go to package 2"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(3)" aria-label="Go to package 3"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(4)" aria-label="Go to package 4"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(5)" aria-label="Go to package 5"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(6)" aria-label="Go to package 6"></button>
+                <button type="button"
+                    class="options-page-dot w-2 h-2 bg-stone-300 hover:bg-amber-300 rounded-full transition-all duration-300 cursor-pointer"
+                    onclick="goToPackage(7)" aria-label="Go to package 7"></button>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section id="how-it-works" class="w-full space-y-6 pt-6">
+            <div class="text-center space-y-1">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#1C1917]">How it works</h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-stone-600">Your 4-Step Switch to Hello Solar
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8 items-stretch pt-2">
+                <!-- Step 1 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                1</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Tell Us About Your Home</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
+                                Share basic details about your average electricity usage, monthly electric bill, and
+                                household power requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                2</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Get Your Recommendation</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
+                                Hello Solar evaluates your consumption profile and recommends the ideal kit for you
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-square w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="m16 9-5.5 5.5L8 12" /></svg>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                3</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Choose Your HS Kit</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
+                                Compare available solar kits and choose a payment plan that best fits your home and
+                                budget.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="bg-white rounded-[24px] 2xl:rounded-[32px] border border-[#E5E0D8] p-7 2xl:p-8 flex flex-col justify-between space-y-5 shadow-xs hover:border-amber-300 hover:shadow-[0_12px_28px_rgba(245,158,11,0.12)] transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-9 h-9 2xl:w-11 2xl:h-11 text-amber-500 stroke-[2.2]" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
+                            <span
+                                class="text-xs 2xl:text-sm font-black text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full uppercase tracking-wider">Step
+                                4</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg 2xl:text-xl font-black text-[#1C1917]">Activate Hello Solar</h3>
+                            <p class="text-xs 2xl:text-sm text-stone-600 font-semibold leading-relaxed">
+                                Schedule Installation, monitor and request anything 24/7 on your portal, and enjoy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CTA BANNER -->
+        <section
+            class="w-full bg-gradient-to-r from-amber-500 to-amber-400 p-8 sm:p-12 2xl:p-16 rounded-[32px] 2xl:rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-15px_rgba(245,158,11,0.25)]">
+            <div class="space-y-1.5 text-center md:text-left">
+                <h2 class="text-2xl sm:text-3xl 2xl:text-4xl font-black text-white">Start saving on electricity today.
+                </h2>
+                <p class="text-xs sm:text-sm 2xl:text-base font-bold text-amber-100">Get your personalized solar
+                    recommendation now.
+                </p>
+            </div>
+            <button data-action="recommend"
+                class="bg-white hover:bg-stone-50 active:scale-95 text-[#FDC400] text-xs sm:text-sm 2xl:text-base font-black px-8 2xl:px-10 py-4 2xl:py-5 rounded-full flex items-center gap-2 shadow-xl hover:shadow-2xl transition whitespace-nowrap cursor-pointer">
+                <span>Get My Recommendation</span>
+                <svg class="w-4 h-4 2xl:w-4.5 2xl:h-4.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                </svg>
+            </button>
+        </section>
+
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE MODALS (Styled with exact brand tokens; hidden by default)   -->
+    <!-- ========================================================================= -->
+
+    <!-- 1. RECOMMENDATION QUESTIONNAIRE MODAL -->
+    <div id="recommendationModal" role="dialog" aria-modal="true" aria-label="Personalized Solar Recommendation Wizard"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-xl bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-4 sm:p-7 2xl:p-8 max-h-[92vh] overflow-y-auto no-scrollbar">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('recommendationModal')" aria-label="Close recommendation wizard"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+
+            <!-- Wizard Content Dynamic Container -->
+            <div id="wizardContainer">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. PRODUCT DETAILS MODAL -->
+    <div id="productDetailModal" role="dialog" aria-modal="true" aria-label="Product Technical Specifications"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-xl bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-5 sm:p-7 2xl:p-8 max-h-[92vh] overflow-y-auto no-scrollbar">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('productDetailModal')" aria-label="Close details modal"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+
+            <!-- Detail Content Container -->
+            <div id="productDetailContent">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. INQUIRY / LEAD CAPTURE MODAL -->
+    <div id="inquiryModal" role="dialog" aria-modal="true" aria-label="Free Solar Assessment Request"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div
+            class="relative w-full max-w-lg bg-[#FCFAF8] rounded-[28px] 2xl:rounded-[36px] border border-[#E7E2D7] shadow-2xl p-5 sm:p-7 2xl:p-8 max-h-[92vh] overflow-y-auto no-scrollbar">
+            <!-- Accessible Close Button -->
+            <button onclick="closeModal('inquiryModal')" aria-label="Close inquiry modal"
+                class="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100/90 hover:bg-amber-100 text-stone-700 flex items-center justify-center transition active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+
+            <div id="inquiryFormContainer">
+                <div id="leadFormHeader" class="space-y-1.5 mb-5 pr-12">
+                    <span
+                        class="inline-block bg-amber-500/10 text-amber-700 text-[10px] 2xl:text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider">
+                        Free Site Assessment
+                    </span>
+                    <h3 id="inquiryTitle" class="text-2xl 2xl:text-3xl font-black text-[#1C1917] tracking-tight">Request
+                        Solar Proposal</h3>
+                    <p class="text-xs 2xl:text-sm text-stone-500 font-semibold">Get your savings estimate within 24 hours.</p>
+                </div>
+
+                <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-4" novalidate>
+                    <div>
+                        <span class="lead-label">System</span>
+                        <input type="hidden" id="leadPackage" name="leadPackage" value="hs6-lite" />
+                        <div class="hs-dropdown" data-dropdown="leadPackage">
+                            <button type="button" class="hs-dropdown-trigger" aria-haspopup="listbox"
+                                aria-expanded="false">
+                                <span class="hs-dd-label">HS 6 LITE — 4.96kW | 6kW | 4.8kWh</span>
+                                <svg class="hs-dd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="hs-dropdown-overlay"></div>
+                            <div class="hs-dropdown-panel" role="listbox">
+                                <div class="hs-dd-sheet-header">
+                                    <span style="font-size:13px;font-weight:800;color:#1C1917;">Select System</span>
+                                    <button type="button" class="hs-dd-sheet-close"
+                                        style="width:32px;height:32px;border-radius:10px;background:#f5f0e8;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#78716c"
+                                            stroke-width="2.5" stroke-linecap="round">
+                                            <path d="M18 6L6 18M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <button type="button" class="hs-dropdown-option is-active" role="option"
+                                    data-value="hs6-lite">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 6 LITE</div>
+                                        <div class="hs-dd-opt-sub">4.96kW | 6kW | 4.8kWh — ₱7,650/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs6-pro">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 6 PRO</div>
+                                        <div class="hs-dd-opt-sub">6.2kW | 6kW | 9.6kWh — ₱9,067/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs6-max">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 6 MAX</div>
+                                        <div class="hs-dd-opt-sub">8.27kW | 8kW | 9.6kWh — ₱10,908/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs8-pro">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 8 PRO</div>
+                                        <div class="hs-dd-opt-sub">8kW | 8kW | 16kWh — ₱11,900/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs8-max">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 8 MAX</div>
+                                        <div class="hs-dd-opt-sub">8kW | 12kW | 32kWh — ₱16,859/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs10-pro">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 10 PRO</div>
+                                        <div class="hs-dd-opt-sub">10kW | 12kW | 16kWh — ₱15,159/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="hs12-max">
+                                    <div>
+                                        <div class="hs-dd-opt-main">HS 12 MAX</div>
+                                        <div class="hs-dd-opt-sub">12kW | 16kW | 32kWh — ₱21,533/mo</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment type: Full Payment vs Installment (value stored in #leadPayment) -->
+                    <div>
+                        <span class="lead-label" id="leadPaymentLabel">Payment <span class="text-amber-600">*</span></span>
+                        <input type="hidden" id="leadPayment" name="leadPayment" value="Full Payment" />
+                        <div class="grid grid-cols-2 gap-3" role="radiogroup" aria-labelledby="leadPaymentLabel"
+                            id="leadPaymentOptions">
+                            <button type="button" role="radio" aria-checked="true" data-payment="Full Payment"
+                                class="pay-option is-active">
+                                <span class="pay-option-head">
+                                    <span class="pay-option-title">Full Payment</span>
+                                    <span class="pay-option-dot" aria-hidden="true"></span>
+                                </span>
+                                <span class="pay-option-price" data-pay-price="full">₱270,000</span>
+                                <span class="pay-option-sub">One-time payment</span>
+                            </button>
+                            <button type="button" role="radio" aria-checked="false" data-payment="Installment"
+                                class="pay-option">
+                                <span class="pay-option-head">
+                                    <span class="pay-option-title">Installment</span>
+                                    <span class="pay-option-dot" aria-hidden="true"></span>
+                                </span>
+                                <span class="pay-option-price" data-pay-price="installment">₱7,650<small>/mo</small></span>
+                                <span class="pay-option-sub">5 yrs · ₱10k down payment</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="leadName" class="lead-label">Full Name <span class="text-amber-600">*</span></label>
+                            <input type="text" id="leadName" required autocomplete="name" placeholder="Juan Dela Cruz"
+                                class="lead-input" aria-describedby="leadNameError" />
+                            <p id="leadNameError" class="lead-error hidden" role="alert"></p>
+                        </div>
+                        <div>
+                            <label for="leadPhone" class="lead-label">Mobile <span class="text-amber-600">*</span></label>
+                            <input type="tel" id="leadPhone" required autocomplete="tel" inputmode="tel"
+                                placeholder="0917 123 4567" class="lead-input" aria-describedby="leadPhoneError" />
+                            <p id="leadPhoneError" class="lead-error hidden" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="leadLocation" class="lead-label">City <span class="text-amber-600">*</span></label>
+                            <input type="text" id="leadLocation" required autocomplete="address-level2"
+                                placeholder="e.g. Quezon City" class="lead-input"
+                                aria-describedby="leadLocationError" />
+                            <p id="leadLocationError" class="lead-error hidden" role="alert"></p>
+                        </div>
+                        <div>
+                            <label for="leadEmail" class="lead-label">Email <span
+                                    class="normal-case tracking-normal font-semibold text-stone-400">(optional)</span></label>
+                            <input type="email" id="leadEmail" autocomplete="email" placeholder="juan@example.com"
+                                class="lead-input" aria-describedby="leadEmailError" />
+                            <p id="leadEmailError" class="lead-error hidden" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="lead-label">Monthly Bill</span>
+                        <input type="hidden" id="leadBill" name="leadBill" value="₱5,000 – ₱8,000" />
+                        <div class="hs-dropdown" data-dropdown="leadBill">
+                            <button type="button" class="hs-dropdown-trigger" aria-haspopup="listbox"
+                                aria-expanded="false">
+                                <span class="hs-dd-label">₱5,000 – ₱8,000 / month</span>
+                                <svg class="hs-dd-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div class="hs-dropdown-overlay"></div>
+                            <div class="hs-dropdown-panel" role="listbox">
+                                <div class="hs-dd-sheet-header">
+                                    <span style="font-size:13px;font-weight:800;color:#1C1917;">Select Electric
+                                        Bill</span>
+                                    <button type="button" class="hs-dd-sheet-close"
+                                        style="width:32px;height:32px;border-radius:10px;background:#f5f0e8;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#78716c"
+                                            stroke-width="2.5" stroke-linecap="round">
+                                            <path d="M18 6L6 18M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <button type="button" class="hs-dropdown-option" role="option"
+                                    data-value="₱3,000 – ₱5,000" data-label="₱3,000 – ₱5,000 / month">
+                                    <div>
+                                        <div class="hs-dd-opt-main">₱3,000 – ₱5,000</div>
+                                        <div class="hs-dd-opt-sub">1–2 ACs • Starter home</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option is-active" role="option"
+                                    data-value="₱5,000 – ₱8,000" data-label="₱5,000 – ₱8,000 / month">
+                                    <div>
+                                        <div class="hs-dd-opt-main">₱5,000 – ₱8,000</div>
+                                        <div class="hs-dd-opt-sub">⭐ Most Common • 2–3 ACs</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option"
+                                    data-value="₱8,000 – ₱12,000" data-label="₱8,000 – ₱12,000 / month">
+                                    <div>
+                                        <div class="hs-dd-opt-main">₱8,000 – ₱12,000</div>
+                                        <div class="hs-dd-opt-sub">3–4 ACs • High usage</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                                <button type="button" class="hs-dropdown-option" role="option" data-value="₱12,000+"
+                                    data-label="₱12,000+ / month">
+                                    <div>
+                                        <div class="hs-dd-opt-main">₱12,000+</div>
+                                        <div class="hs-dd-opt-sub">4+ ACs • Estate / Commercial</div>
+                                    </div>
+                                    <span class="hs-dd-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 6L9 17l-5-5" />
+                                        </svg></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitLeadBtn" class="lead-submit">
+                        <span>Request Free Assessment</span> &rarr;
+                    </button>
+                </form>
+
+                <!-- Success Screen (Replaces Form on submission) -->
+                <div id="leadSuccessScreen" class="hidden text-center py-4 space-y-5">
+                    <div
+                        class="w-16 h-16 bg-emerald-50 border border-emerald-200 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-8 h-8 stroke-[2.5]" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h4 class="text-2xl font-black text-[#1C1917]">Request Submitted</h4>
+                        <p class="text-xs sm:text-sm font-semibold text-stone-500 max-w-sm mx-auto leading-relaxed">
+                            Thank you, <span id="successUserName" class="text-stone-900 font-bold"></span>. A Hello Solar
+                            consultant will contact you within 24 hours.
+                        </p>
+                    </div>
+                    <dl
+                        class="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-4 text-left max-w-sm mx-auto divide-y divide-amber-200/70 text-xs sm:text-sm">
+                        <div class="flex items-start justify-between gap-4 pb-2.5">
+                            <dt class="font-bold text-stone-500">System</dt>
+                            <dd id="successPackageName" class="font-black text-stone-900 text-right"></dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-4 py-2.5">
+                            <dt class="font-bold text-stone-500">Payment</dt>
+                            <dd class="text-right">
+                                <span id="successPaymentType" class="block font-black text-stone-900"></span>
+                                <span id="successPaymentAmount" class="block font-bold text-amber-700"></span>
+                            </dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-4 pt-2.5">
+                            <dt class="font-bold text-stone-500">Monthly Bill</dt>
+                            <dd id="successBill" class="font-black text-stone-900 text-right"></dd>
+                        </div>
+                    </dl>
+                    <button type="button" onclick="closeModal('inquiryModal')"
+                        class="bg-[#1C1917] hover:bg-black text-white text-sm font-extrabold px-8 h-12 rounded-full transition cursor-pointer">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script src="js/icons.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

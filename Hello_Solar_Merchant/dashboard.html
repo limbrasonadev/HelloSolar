@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hello Solar Merchant Dashboard — Monitor solar installations, payouts, installer crews, and milestones.">
+    <title>Dashboard | Hello Solar Merchant</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+    <link rel="apple-touch-icon" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+</head>
+
+<body data-page="dashboard">
+    <div class="app" id="app">
+        <!-- Mobile Drawer Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" aria-label="Merchant navigation"></aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main" tabindex="-1">
+            <!-- Glassmorphism Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <a href="dashboard.html" class="topbar-logo" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar" class="topbar-logo-img">
+                    </a>
+                    <div class="topbar-subtitle">
+                        <span id="topbarMerchantName">SolarTech Manila</span> · <span>Merchant Hub</span>
+                    </div>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Interactive Merchant Profile Avatar -->
+                    <div class="profile" id="topbarProfile" role="button" tabindex="0" aria-haspopup="dialog"
+                        aria-label="Merchant Profile & Settings" title="Click to view and update merchant profile">
+                        <!-- Populated dynamically by dashboard.js -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Body Content -->
+            <div class="content" id="content">
+                <!-- Short Greeting Header -->
+                <div class="dashboard-greeting">
+                    <h1 id="welcomeHeading">Welcome back, <span id="bannerMerchantName">SolarTech Manila</span></h1>
+                </div>
+
+                <!-- 4 Summary Values with Short Labels Only -->
+                <section class="stats-grid" aria-label="Summary KPIs">
+                    <div class="stat-card">
+                        <span class="stat-label">Ongoing Installations</span>
+                        <div class="stat-value" id="kpiActiveInstalls">—</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Total Contract Value</span>
+                        <div class="stat-value" id="kpiPortfolioValue">—</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Pending Payouts</span>
+                        <div class="stat-value" id="kpiPendingPayouts">—</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">Installer Teams</span>
+                        <div class="stat-value" id="kpiActiveCrews">—</div>
+                    </div>
+                </section>
+
+                <!-- Solar Jobs (Simplified Table) -->
+                <section class="panel-card" aria-labelledby="projectsQueueHeading">
+                    <div class="panel-header">
+                        <div class="panel-title-group">
+                            <h2 id="projectsQueueHeading">Solar Jobs</h2>
+                        </div>
+                        <div class="panel-actions">
+                            <a href="installers.html" class="subtle-link-btn" id="seeTeamsAction">See Teams →</a>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Filter & Search Toolbar -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="search" id="projectSearch" placeholder="Find a customer or job..."
+                                aria-label="Search jobs">
+                        </div>
+
+                        <div class="filter-controls">
+                            <label for="projectStageFilter" class="sr-only" style="display:none;">Filter</label>
+                            <select class="filter-select" id="projectStageFilter" aria-label="Filter jobs">
+                                <option value="All">All Jobs</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Simplified Solar Jobs Data Table (Customer, Status, Open) -->
+                    <div class="table-container">
+                        <table aria-label="Solar Jobs List" class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col" style="text-align:right;">Open</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projectsTableBody">
+                                <!-- Populated dynamically from merchant.json -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- See More / See Less Toggle for Projects Table -->
+                    <div class="panel-card-footer" id="projectsSeeMoreWrap" style="display:none;margin-top:14px;">
+                        <button class="btn-toggle-expand" id="projectsToggleBtn" type="button" aria-expanded="false">
+                            <span id="projectsToggleText">See More</span>
+                            <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Next Up (Simplified 3 upcoming tasks) -->
+                <section class="panel-card next-up-panel" aria-labelledby="nextUpHeading">
+                    <div class="panel-header">
+                        <div class="panel-title-group">
+                            <h2 id="nextUpHeading">Next Up</h2>
+                        </div>
+                    </div>
+
+                    <div class="next-up-list" id="milestonesList">
+                        <!-- Populated dynamically from merchant.json -->
+                    </div>
+
+                    <div class="panel-card-footer next-up-footer" style="margin-top:16px;display:flex;justify-content:flex-start;">
+                        <button class="subtle-link-btn" id="viewAllMilestonesBtn" type="button">
+                            See all →
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Screens <= 768px) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+        <a href="dashboard.html" class="mobile-bottom-nav-item active" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                <path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z" />
+            </svg>
+            <span>Dashboard</span>
+        </a>
+        <a href="payments.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="3" />
+                <path d="M3 10h18M7 15h3" stroke-linecap="round" />
+            </svg>
+            <span>Payments</span>
+        </a>
+        <a href="installers.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m14.5 6.5 3-3 3 3-3 3m-2 0-6 6m-2 0-4 4 1 1 4-4m2-10 7 7" />
+            </svg>
+            <span>Installers</span>
+        </a>
+        <a href="support.html" class="mobile-bottom-nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                    d="M4 13v-2a8 8 0 0 1 16 0v2M6 18H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h1v5Zm12 0h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1v5Zm0 0c0 2-2 3-5 3" />
+            </svg>
+            <span>Support</span>
+        </a>
+    </nav>
+
+    <!-- All Milestones Modal Dialog -->
+    <div class="modal-backdrop" id="allMilestonesModal" role="dialog" aria-modal="true"
+        aria-labelledby="allMilestonesModalTitle">
+        <div class="modal-dialog" style="max-width: 720px;">
+            <div class="modal-header">
+                <div>
+                    <h2 id="allMilestonesModalTitle">All Upcoming Tasks & Dates</h2>
+                    <p style="font-size:12.5px;color:var(--gray-500);margin-top:2px;">Complete chronological timeline of
+                        project tasks, inspections, and payout clearances.</p>
+                </div>
+                <button class="modal-close" id="closeMilestonesModalBtn" type="button"
+                    aria-label="Close dialog">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="milestones-list" id="allMilestonesList">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm" id="closeMilestonesModalFooterBtn" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Activity Modal Dialog -->
+    <div class="modal-backdrop" id="allActivityModal" role="dialog" aria-modal="true"
+        aria-labelledby="allActivityModalTitle">
+        <div class="modal-dialog" style="max-width: 720px;">
+            <div class="modal-header">
+                <div>
+                    <h2 id="allActivityModalTitle">Operational Activity History</h2>
+                    <p style="font-size:12.5px;color:var(--gray-500);margin-top:2px;">Complete audit trail of
+                        engineering inspections, permits, and crew actions.</p>
+                </div>
+                <button class="modal-close" id="closeActivityModalBtn" type="button"
+                    aria-label="Close dialog">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="activity-feed" id="allActivityFeed">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm" id="closeActivityModalFooterBtn" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centralized Data Loading & Interactions -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="assets/js/merchant_data.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/notifications.js"></script>
+</body>
+
+</html>

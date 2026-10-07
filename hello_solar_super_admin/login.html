@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In | Hello Solar Super Admin</title>
+  <link rel="icon" href="assets/images/logofortab.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css" />
+  <script src="../shared/hello-solar-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <main class="login-card">
+    <img class="login-logo" src="assets/images/hello_solar.png" alt="Hello Solar" />
+    <div class="portal-label">Super Admin Portal</div>
+    <h1>Welcome <span>back.</span></h1>
+    <form id="loginForm">
+      <div class="login-field">
+        <label for="adminIdentifier">Email or Username</label>
+        <div class="input-wrap">
+          <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/></svg>
+          <input id="adminIdentifier" name="username" autocomplete="username" placeholder="Enter your email or username" required spellcheck="false" autocapitalize="none" />
+        </div>
+      </div>
+      <div class="login-field">
+        <label for="adminPassword">Password</label>
+        <div class="input-wrap">
+          <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+          <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+      <p id="loginError" class="login-error" role="alert" hidden></p>
+      <button class="login-submit" type="submit">Log In <span aria-hidden="true">→</span></button>
+    </form>
+  </main>
+</body>
+</html>

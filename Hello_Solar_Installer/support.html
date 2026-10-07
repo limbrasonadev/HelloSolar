@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script>
+        // Installer session guard: a valid installer session for an Active partner INS-### account is required
+        (function () {
+            try {
+                if (!window.HSShared || !window.HSShared.session.isValid("installer")) {
+                    if (window.HSShared) window.HSShared.session.clear("installer");
+                    window.location.replace("login.html");
+                }
+            } catch (e) {
+                window.location.replace("login.html");
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hello Solar Installer Portal — Support, dispatch assistance, and installer FAQs.">
+    <title>Hello Solar Installer — Support</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo_tab.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/workspace.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    <link rel="stylesheet" href="assets/css/support.css">
+    <link rel="stylesheet" href="assets/css/portal-polish.css">
+</head>
+
+<body class="support-page">
+    <div class="app" id="app">
+        <!-- Mobile Backdrop -->
+        <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a class="logo" href="myjob.html">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="portal-tag">Installer Portal</div>
+
+            <nav class="nav" id="nav" aria-label="Installer navigation">
+                <a class="nav-link" href="myjob.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    My Jobs
+                </a>
+
+                <a class="nav-link" href="profile.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile
+                </a>
+
+                <a class="nav-link" href="payout.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2" />
+                        <path d="M2 10h20" />
+                        <path d="M6 15h4" />
+                    </svg>
+                    Payout
+                </a>
+
+                <a class="nav-link active" href="support.html" aria-current="page">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M3 11a9 9 0 0 1 18 0" />
+                        <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                        <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                        <path d="M17 17c0 2-2 3-5 3" />
+                    </svg>
+                    Support
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Account / Logout -->
+            <div class="sidebar-bottom">
+                <a class="logout" id="logout" href="login.html">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main" id="main">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-title">Support</h1>
+                    <a class="mobile-logo" href="myjob.html" aria-label="Hello Solar">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="mobile-header">
+                    <button class="mobile-menu-button" id="menu" type="button" aria-label="Open navigation"
+                        aria-expanded="false" aria-controls="sidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round">
+                            <line x1="4" y1="6" x2="20" y2="6" />
+                            <line x1="4" y1="12" x2="20" y2="12" />
+                            <line x1="4" y1="18" x2="20" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="profile.html" class="profile" aria-label="View installer profile">
+                        <div class="profile-avatar" title="Installer Profile">SI</div>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="content" id="content">
+                <div class="support-container">
+                    <!-- Page Header with Compact Direct Dispatch Row -->
+                    <div class="support-head">
+                        <div class="support-head-info">
+                            <h1 class="support-title">Support</h1>
+                        </div>
+                    </div>
+
+                    <!-- Main Support Card: Single Focused Destination -->
+                    <section class="support-card-main" id="mainSupportCard" aria-label="Support Request Form">
+                        <div class="support-card-header">
+                            <h2 class="support-card-title">New request</h2>
+                            <div class="dispatch-compact-row">
+                                <a href="tel:+639178001234" class="btn-dispatch-call"
+                                    title="Call Hello Solar Dispatch Coordinator">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                    <span>Call Dispatch</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <form id="supportForm" class="support-form">
+                            <!-- Hidden Subject Input for schema and backend compatibility -->
+                            <input type="hidden" id="supportSubject" value="">
+
+                            <!-- FIELD 1: Topic -->
+                            <div class="support-field-group">
+                                <label for="supportTopicTrigger" class="support-label" id="supportTopicLabel">Topic</label>
+                                <div class="custom-dropdown" id="supportTopicDropdown">
+                                    <button type="button" class="custom-dropdown-trigger" id="supportTopicTrigger"
+                                        aria-haspopup="listbox" aria-expanded="false"
+                                        aria-labelledby="supportTopicLabel supportTopicSelected">
+                                        <span class="custom-dropdown-selected" id="supportTopicSelected">Site Access & Scheduling</span>
+                                        <svg class="custom-dropdown-arrow" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                    <ul class="custom-dropdown-menu" id="supportTopicMenu" role="listbox"
+                                        aria-labelledby="supportTopicLabel" tabindex="-1">
+                                        <li class="custom-dropdown-item active" role="option" aria-selected="true"
+                                            data-value="Site Access & Scheduling" tabindex="0">
+                                            <span class="custom-dropdown-item-text">Site Access & Scheduling</span>
+                                            <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-dropdown-item" role="option" aria-selected="false"
+                                            data-value="Payout & BIR 2307" tabindex="0">
+                                            <span class="custom-dropdown-item-text">Payout & BIR 2307</span>
+                                            <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-dropdown-item" role="option" aria-selected="false"
+                                            data-value="Equipment & Permits" tabindex="0">
+                                            <span class="custom-dropdown-item-text">Equipment & Permits</span>
+                                            <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-dropdown-item" role="option" aria-selected="false"
+                                            data-value="Profile & Credentials" tabindex="0">
+                                            <span class="custom-dropdown-item-text">Profile & Credentials</span>
+                                            <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                        <li class="custom-dropdown-item" role="option" aria-selected="false"
+                                            data-value="Other" tabindex="0">
+                                            <span class="custom-dropdown-item-text">Other</span>
+                                            <svg class="custom-dropdown-check" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                    <select id="supportTopic" name="supportTopic" class="support-native-select-hidden"
+                                        tabindex="-1" aria-hidden="true">
+                                        <option value="Site Access & Scheduling" selected>Site Access & Scheduling</option>
+                                        <option value="Payout & BIR 2307">Payout & BIR 2307</option>
+                                        <option value="Equipment & Permits">Equipment & Permits</option>
+                                        <option value="Profile & Credentials">Profile & Credentials</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- FIELD 2: Job Reference (Optional) -->
+                            <div class="support-field-group">
+                                <label for="supportRef" class="support-label">
+                                    Job Reference <span class="label-optional">(optional)</span>
+                                </label>
+                                <input type="text" id="supportRef" class="support-input" placeholder="e.g. APP-1024"
+                                    autocomplete="off">
+                            </div>
+
+                            <!-- FIELD 3: What happened? -->
+                            <div class="support-field-group">
+                                <label for="supportDetails" class="support-label">What happened?</label>
+                                <textarea id="supportDetails" class="support-input support-textarea" rows="4" required
+                                    placeholder="Tell us what you need help with..."></textarea>
+                            </div>
+
+                            <!-- PRIMARY CTA -->
+                            <div class="support-action-wrap">
+                                <button type="submit" class="btn-send-request" id="btnSendRequest">
+                                    Send Request
+                                </button>
+                                <!-- Preserves programmatic draft saving without cluttering UI -->
+                                <button type="button" id="btnSaveDraft" style="display: none;" aria-hidden="true">Save
+                                    Draft</button>
+                                <button type="button" id="btnDownloadDraft" style="display: none;"
+                                    aria-hidden="true">Download Request</button>
+                            </div>
+
+                            <!-- Status Message Notification -->
+                            <div id="supportStatusMsg" role="status" aria-live="polite" aria-atomic="true"></div>
+                        </form>
+                    </section>
+
+                    <!-- SECONDARY HELP: Common Answers Modal Trigger -->
+                    <div class="support-secondary-help">
+                        <span class="secondary-help-text">Quick answers:</span>
+                        <button type="button" class="btn-link-faq" id="btnToggleFaq" aria-haspopup="dialog"
+                            aria-controls="faqModal">View FAQs</button>
+                    </div>
+
+                    <!-- Progressive Disclosure: Headless Data Loader (preserves background dev testing) -->
+                    <div id="previewDataContainer" style="display: none;" aria-hidden="true">
+                        <input type="file" id="jsonFileInput" accept=".json,application/json">
+                        <button type="button" id="btnResetJsonOverride">Restore Default Data</button>
+                        <div id="jsonStatusAlert"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Common Answers FAQ Modal -->
+        <div class="installer-modal-backdrop" id="faqModal" role="dialog" aria-modal="true" aria-hidden="true"
+            aria-labelledby="modalFaqTitle">
+            <div class="installer-modal-card faq-modal-dialog">
+                <div class="installer-modal-header">
+                    <div>
+                        <h3 class="installer-modal-title" id="modalFaqTitle">Common Answers</h3>
+                        <p class="installer-modal-sub">Site access, payouts, permits and credentials</p>
+                    </div>
+                    <button type="button" class="installer-modal-close" id="closeFaqModal"
+                        aria-label="Close common answers">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="installer-modal-body faq-modal-body">
+                    <div class="support-faq-search">
+                        <div class="toolbar-search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <input type="search" id="faqSearchInput" aria-label="Search common answers"
+                                placeholder="Search common answers…" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="faq-list" id="faqList">
+                        <!-- Populated dynamically by workspace.js from data.faqs -->
+                    </div>
+                </div>
+
+                <div class="installer-modal-footer faq-modal-footer">
+                    <button type="button" class="btn-action" id="faqToggle" aria-expanded="false"
+                        aria-controls="faqList" hidden>See more</button>
+                    <button type="button" class="btn-action" id="btnCloseFaqModalFooter">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+            <a href="myjob.html" class="mobile-bottom-nav-item" aria-label="My Jobs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>My Jobs</span>
+            </a>
+            <a href="profile.html" class="mobile-bottom-nav-item" aria-label="Profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="payout.html" class="mobile-bottom-nav-item" aria-label="Payout">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <path d="M2 10h20" />
+                    <path d="M6 15h4" />
+                </svg>
+                <span>Payout</span>
+            </a>
+            <a href="support.html" class="mobile-bottom-nav-item active" aria-current="page" aria-label="Support">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 11a9 9 0 0 1 18 0" />
+                    <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                    <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                    <path d="M17 17c0 2-2 3-5 3" />
+                </svg>
+                <span>Support</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/installer_data.js"></script>
+    <script src="assets/js/workspace.js"></script>
+    <script src="assets/js/notifications.js"></script>
+</body>
+
+</html>

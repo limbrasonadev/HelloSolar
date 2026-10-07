@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See what’s installed in your home and what your warranty covers.">
+    <title>Hello Solar — Equipment &amp; Warranty</title>
+
+    <!-- Immediate Authentication Guard -->
+    <script src="../shared/hello-solar-config.js"></script>
+    <script src="../hello_solar_super_admin/data.js"></script>
+    <script src="../shared/hello-solar-shared.js"></script>
+    <script src="js/energy-page.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon / Tab Icon -->
+    <link rel="icon" type="image/png" href="assets/images/logofortab.png">
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="css/dashboard-theme.css">
+
+    <link rel="stylesheet" href="css/energy-page.css">
+    <link rel="stylesheet" href="css/customer-polish.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <a href="mysystem.html" class="logo">
+                <img src="assets/images/hello_solar.png" alt="Hello Solar">
+            </a>
+
+            <div class="nav-label">Customer Portal</div>
+
+            <nav class="nav" aria-label="Portal navigation">
+                <a href="mysystem.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                    My System
+                </a>
+                <a href="energy.html" class="nav-link active" aria-current="page">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                    Equipment
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                    My Payments
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                    Documents
+                </a>
+                <a href="support.html" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                    Support
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="logout-button" id="logoutButton" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Backdrop -->
+        <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+        <!-- MAIN VIEW -->
+        <main class="main">
+            <!-- TOPBAR -->
+            <header class="topbar">
+                <div class="mobile-header">
+                    <a href="mysystem.html" class="mobile-logo">
+                        <img src="assets/images/hello_solar.png" alt="Hello Solar">
+                    </a>
+                </div>
+
+                <div class="topbar-right">
+                    <a href="support.html" class="quick-support-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 11a9 9 0 0 1 18 0" />
+                            <path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" />
+                            <path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" />
+                            <path d="M17 17c0 2-2 3-5 3" />
+                        </svg>
+                        Need Help?
+                    </a>
+
+                    <div class="profile">
+
+                        <div class="profile-avatar" id="profileAvatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <section class="page-intro">
+                    <div>
+                        <h1>Equipment &amp; <span>Warranty</span></h1>
+
+                    </div>
+                    <div class="cta-group">
+                        <div class="package-selector-slot" id="pagePackageSelector"></div>
+                        <a href="support.html?type=warranty" class="btn btn-primary btn-sm" id="warrantySupportBtn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            Get warranty help
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Before ACTIVE: Locked Equipment Details Notice Banner -->
+                <div class="equipment-activation-notice" id="equipmentActivationNotice" style="display: none; background: #fffbeb; border: 1px solid #fed7aa; border-radius: var(--radius-md); padding: 14px 20px; margin-bottom: 24px; color: #9a3412;" aria-live="polite">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; color: var(--solar-orange);">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <div>
+                            <strong style="font-size: 14px; display: block; color: var(--navy); margin-bottom: 2px;">Purchased Solar Model &amp; System Overview</strong>
+                            <span style="font-size: 13px; color: #475569;">Full equipment serial numbers and warranty registration certificates are <strong>Available after system activation</strong>. Current Stage: <span id="equipmentStageText" style="font-weight: 700; color: var(--solar-orange-dark);">Installation In Progress</span>.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equipment-grid">
+                    <!-- Card 1: Solar Panels -->
+                    <div class="equipment-card" id="equipmentPanelsCard">
+                        <div class="equipment-card-top">
+                            <div class="equipment-card-header">
+                                <div class="equipment-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="13" rx="2" />
+                                        <path d="M3 10h18M9 4v13M15 4v13M8 21h8M12 17v4" />
+                                    </svg>
+                                </div>
+                                <div class="equipment-card-badges">
+                                    <span class="equipment-model-pill" id="specPanelsModel">Trina Solar Vertex S+
+                                        450W</span>
+                                    <span class="equipment-metric-pill" id="panelCountPill">12 Panels</span>
+                                </div>
+                            </div>
+                            <div class="equipment-card-body">
+                                <h3 class="equipment-title">Solar Panels</h3>
+                                <p class="equipment-purpose">Make electricity from sunlight.</p>
+                                <div class="equipment-warranty-preview">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                    <span id="warrantyPanelsTerm">25-Year Performance · 12-Year Product</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="equipment-card-footer">
+                            <button type="button" class="btn-view-details" data-equipment="panels" id="viewPanelsBtn"
+                                aria-haspopup="dialog" aria-controls="equipmentModalBackdrop">
+                                View Details
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Inverter -->
+                    <div class="equipment-card" id="equipmentInverterCard">
+                        <div class="equipment-card-top">
+                            <div class="equipment-card-header">
+                                <div class="equipment-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="5" y="3" width="14" height="18" rx="3" />
+                                        <path d="m13 7-4 6h6l-4 5" />
+                                    </svg>
+                                </div>
+                                <div class="equipment-card-badges">
+                                    <span class="equipment-model-pill" id="specInverterModel">Solis 5kW Hybrid
+                                        Inverter</span>
+                                    <span class="equipment-metric-pill" id="inverterTypePill">System Inverter</span>
+                                </div>
+                            </div>
+                            <div class="equipment-card-body">
+                                <h3 class="equipment-title">Inverter</h3>
+                                <p class="equipment-purpose">Turns electricity from your panels into power your home can
+                                    use.</p>
+                                <div class="equipment-warranty-preview">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                    <span id="warrantyInverterTerm">5-Year Warranty</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="equipment-card-footer">
+                            <button type="button" class="btn-view-details" data-equipment="inverter"
+                                id="viewInverterBtn" aria-haspopup="dialog" aria-controls="equipmentModalBackdrop">
+                                View Details
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Battery Storage -->
+                    <div class="equipment-card" id="equipmentBatteryCard">
+                        <div class="equipment-card-top">
+                            <div class="equipment-card-header">
+                                <div class="equipment-icon" id="specBatteryIconWrap">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="6" width="17" height="12" rx="3" />
+                                        <path d="M23 10v4M7 12h3M14 10v4M12 12h4" />
+                                    </svg>
+                                </div>
+                                <div class="equipment-card-badges">
+                                    <span class="equipment-model-pill" id="specBatteryModel">10 kWh Lithium-ion
+                                        Reserve</span>
+                                    <span class="equipment-metric-pill" id="batteryCapacityPill">10 kWh Storage</span>
+                                </div>
+                            </div>
+                            <div class="equipment-card-body">
+                                <h3 class="equipment-title">Battery Storage</h3>
+                                <p class="equipment-purpose" id="batteryPurposeText">Stores electricity for later use.
+                                </p>
+                                <div class="equipment-warranty-preview">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                    <span id="warrantyBatteryTerm">10-Year / 6,000 Cycles</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="equipment-card-footer">
+                            <button type="button" class="btn-view-details" data-equipment="battery" id="viewBatteryBtn"
+                                aria-haspopup="dialog" aria-controls="equipmentModalBackdrop">
+                                View Details
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Workmanship & Installation -->
+                    <div class="equipment-card" id="equipmentInstallationCard">
+                        <div class="equipment-card-top">
+                            <div class="equipment-card-header">
+                                <div class="equipment-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z" />
+                                        <path d="m8 12 3 3 5-6" />
+                                    </svg>
+                                </div>
+                                <div class="equipment-card-badges">
+                                    <span class="equipment-model-pill" id="warrantyInstallerName">Carlos
+                                        Villanueva</span>
+                                    <span class="equipment-metric-pill">Certified Workmanship</span>
+                                </div>
+                            </div>
+                            <div class="equipment-card-body">
+                                <h3 class="equipment-title">Workmanship &amp; Installation</h3>
+                                <p class="equipment-purpose">Covers roof weather-sealing, mounting structural integrity,
+                                    and electrical wiring.</p>
+                                <div class="equipment-warranty-preview">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                    <span id="warrantyWorkmanshipTerm">5-Year Coverage</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="equipment-card-footer">
+                            <button type="button" class="btn-view-details" data-equipment="workmanship"
+                                id="viewWorkmanshipBtn" aria-haspopup="dialog" aria-controls="equipmentModalBackdrop">
+                                View Details
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="portal-footer">
+                <span>© 2026 Hello Solar Inc.</span>
+                <span>hellosolarph.com · support@hellosolarph.com</span>
+            </footer>
+        </main>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION (5-PILLAR CUSTOMER APP NAV) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+        <div class="mobile-bottom-nav-inner">
+            <a href="mysystem.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+                <span>System</span>
+            </a>
+            <a href="energy.html" class="mobile-nav-item active" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+                <span>Equipment</span>
+            </a>
+            <a href="payments.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M6 15h4" /></svg>
+                <span>Payments</span>
+            </a>
+            <a href="documents.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h5" /></svg>
+                <span>Documents</span>
+            </a>
+            <a href="support.html" class="mobile-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11a9 9 0 0 1 18 0" /><path d="M3 11v4a2 2 0 0 0 2 2h2v-6H5a2 2 0 0 0-2 2" /><path d="M21 11v4a2 2 0 0 1-2 2h-2v-6h2a2 2 0 0 1 2 2" /><path d="M17 17c0 2-2 3-5 3" /></svg>
+                <span>Support</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- EQUIPMENT SPECIFICATIONS & WARRANTY TERMS MODAL -->
+    <div class="equipment-modal-backdrop" id="equipmentModalBackdrop" role="dialog" aria-modal="true"
+        aria-labelledby="modalEquipmentTitle" aria-hidden="true">
+        <div class="equipment-modal-panel" id="equipmentModalPanel">
+            <div class="equipment-modal-header">
+                <div class="equipment-modal-header-info">
+                    <div class="equipment-modal-icon" id="modalEquipmentIcon">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="equipment-modal-title-group">
+                        <h3 class="equipment-modal-title" id="modalEquipmentTitle">Equipment Details</h3>
+                        <p class="equipment-modal-model" id="modalEquipmentModel">Hardware Model &amp; Specifications
+                        </p>
+                    </div>
+                </div>
+                <button type="button" class="equipment-modal-close-btn" id="modalCloseBtn"
+                    aria-label="Close details dialog">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="equipment-modal-body" id="modalEquipmentBody">
+                <!-- 1. Specifications Section -->
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Equipment Specifications</h4>
+                    <div class="modal-spec-grid" id="modalSpecGrid">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- 2. Warranty Terms Section -->
+                <div class="modal-section">
+                    <h4 class="modal-section-title">Warranty Terms &amp; Protection</h4>
+                    <div class="warranty-breakdown-card" id="modalWarrantyCard">
+                        <!-- Populated dynamically by JS: Duration, Coverage -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="equipment-modal-footer">
+                <button type="button" class="modal-secondary-btn" id="modalSecondaryCloseBtn">Close</button>
+                <a href="support.html?type=warranty" class="modal-primary-btn" id="modalWarrantyHelpBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    Get Warranty Help
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Data Loader -->
+    <script src="js/data-loader.js"></script>
+
+    <!-- Core Portal JavaScript -->
+    <script src="js/portal.js"></script>
+
+    <!-- System Details & Warranty Page Controller -->
+    <script src="js/energy-page-2.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+
+</html>
