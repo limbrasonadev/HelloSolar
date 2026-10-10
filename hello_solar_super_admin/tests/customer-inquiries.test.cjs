@@ -40,7 +40,7 @@ function environment(customers = [], partners = []) {
   };
   context.window = context;
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/data.js'), 'utf8'), context);
   return { db: context.HELLO_SOLAR_DB, local, context };
 }
 
@@ -81,7 +81,7 @@ test('no duplicates on repeated sync or reload', () => {
   db.getInquiries();
   assert.equal(count(), 1);
   // Reload Super Admin from the saved store: still one copy
-  vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/data.js'), 'utf8'), context);
   assert.equal(context.HELLO_SOLAR_DB.getInquiries().filter(i => i.id === form.id).length, 1);
   assert.ok(local.get('HELLO_SOLAR_SUPER_ADMIN_DATA_V2'));
 });
@@ -117,6 +117,6 @@ test('Contact Us customer payment is never guessed from the message', () => {
   assert.equal(db.getInquiries().find(i => i.id === c.id).paymentPreference, 'Not specified');
   assert.equal(db.getInquiries().find(i => i.id === legacy.id).paymentPreference, 'Not specified');
   // Still "Not specified" after Super Admin reloads its saved data
-  vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/data.js'), 'utf8'), context);
   assert.equal(context.HELLO_SOLAR_DB.getInquiries().find(i => i.id === c.id).paymentPreference, 'Not specified');
 });

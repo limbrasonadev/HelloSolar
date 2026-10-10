@@ -20,7 +20,7 @@ function makeFinancerContext(sharedStorage = {}, financerId = 'FIN-005') {
     };
     context.window = context;
     vm.createContext(context);
-    vm.runInContext(fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/data.js'), 'utf8'), context);
+    vm.runInContext(fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/js/data.js'), 'utf8'), context);
     vm.runInContext(fs.readFileSync(path.join(ROOT, 'shared/hello-solar-shared.js'), 'utf8'), context);
     vm.runInContext(fs.readFileSync(path.join(ROOT, 'Hello_Solar_Financer/js/portal_data.js'), 'utf8'), context);
     const account = context.HSShared.getAccount('financer', financerId);

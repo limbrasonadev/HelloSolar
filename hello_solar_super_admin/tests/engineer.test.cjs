@@ -18,8 +18,8 @@ function environment() {
   };
   context.window = context;
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
-  vm.runInContext(fs.readFileSync(path.join(root, 'auth.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/auth.js'), 'utf8'), context);
   return context;
 }
 

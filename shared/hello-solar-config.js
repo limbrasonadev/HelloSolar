@@ -1,7 +1,7 @@
 /**
  * Hello Solar — runtime configuration, API client and shared-record cache.
  *
- * Load this file FIRST on every page (before hello_solar_super_admin/data.js, shared/hello-solar-shared.js,
+ * Load this file FIRST on every page (before hello_solar_super_admin/js/data.js, shared/hello-solar-shared.js,
  * Super Admin auth.js and the landing-page scripts). See BACKEND_INTEGRATION.md.
  *
  * Modes

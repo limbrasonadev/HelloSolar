@@ -5,10 +5,16 @@ A central monitoring and management control center connecting the Customer, Fina
 Built with Vanilla HTML, CSS, and JavaScript only.
 
 Files:
-- index.html   : Main application markup, layout, modals, and slide-over drawers
-- styles.css   : Complete design system (Plus Jakarta Sans, warm ivory palette, collapsible sidebar, responsive layout)
-- data.js      : Centralized relational data model and state engine (persisted via localStorage)
-- app.js       : Application controller, live filtering, KPI recomputations, and Hello Solar Direct workflow
+- index.html                 : Main application markup, layout, modals, and slide-over drawers
+- customer_confirmation.html : Customer-facing inquiry confirmation page (opened from the dashboard)
+- login.html                 : Redirect to the shared login page (../login.html?portal=admin)
+- css/styles.css             : Complete design system (Plus Jakarta Sans, warm ivory palette, collapsible sidebar, responsive layout)
+- js/data.js                 : Centralized relational data model and state engine (persisted via localStorage).
+                               Also loaded by every other portal and the shared login as ../hello_solar_super_admin/js/data.js
+- js/auth.js                 : Super Admin / Direct Engineer session guard
+- js/app.js                  : Application controller, live filtering, KPI recomputations, and Hello Solar Direct workflow
+- assets/images/             : Logos, icons, and sidebar toggle images
+- tests/                     : Node tests (run: node tests/<name>.test.cjs)
 
 Sidebar Structure:
 - Overview

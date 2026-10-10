@@ -366,7 +366,7 @@ test('financer approval keeps financingStatus APPROVED and moves the application
   assert.equal(app.financing.financingStatus, 'APPROVED');
   assert.equal(fin.HelloSolarStore.getApplicationById('APP-1105').financingStatus, 'APPROVED', 'Financer still shows it as approved');
   // Super Admin's assignment panel unlocks (its eligibility rule is unchanged: Ready for Installation only)
-  const appJs = fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/app.js'), 'utf8');
+  const appJs = fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/js/app.js'), 'utf8');
   vm.runInContext(appJs.slice(appJs.indexOf('  function isDirectProject('), appJs.indexOf('  // ==================== 2. APPLICATIONS PAGE')), fin);
   assert.equal(fin.isEligibleForDirect(app), true);
   assert.equal(fin.isEligibleForDirect({ stage: 'Approved', installer: 'Unassigned', installerType: 'Partner Installer' }), false, 'generic Approved is not eligible');

@@ -21,7 +21,7 @@ function environment(preset) {
   };
   context.window = context;
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'hello_solar_super_admin/js/data.js'), 'utf8'), context);
   vm.runInContext(fs.readFileSync(path.join(ROOT, 'shared/hello-solar-shared.js'), 'utf8'), context);
   return { c: context, S: context.HSShared, store, redirects };
 }

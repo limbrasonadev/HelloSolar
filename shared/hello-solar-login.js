@@ -11,8 +11,8 @@
  * Sessions stay per role (HSShared.session / SuperAdminAuth), with the same payload each portal's own
  * auth.js used to write, so the dashboards need no changes.
  *
- * Load order: shared/hello-solar-config.js → hello_solar_super_admin/data.js → shared/hello-solar-shared.js
- *             → hello_solar_super_admin/auth.js → shared/hello-solar-login.js
+ * Load order: shared/hello-solar-config.js → hello_solar_super_admin/js/data.js → shared/hello-solar-shared.js
+ *             → hello_solar_super_admin/js/auth.js → shared/hello-solar-login.js
  *
  * api mode: POST /auth/login { identifier, password, role? } with no role (or the ?portal= hint) and the backend
  * answers with { token, account: { role, ... } }. See BACKEND_INTEGRATION.md §6.

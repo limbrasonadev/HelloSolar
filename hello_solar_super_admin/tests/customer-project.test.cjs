@@ -13,7 +13,7 @@ function environment() {
     addEventListener() {} };
   context.window = context;
   vm.createContext(context);
-  vm.runInContext(fs.readFileSync(path.join(root, 'data.js'), 'utf8'), context);
+  vm.runInContext(fs.readFileSync(path.join(root, 'js/data.js'), 'utf8'), context);
   vm.runInContext(fs.readFileSync(path.join(root, '../shared/hello-solar-shared.js'), 'utf8'), context);
   vm.runInContext(fs.readFileSync(path.join(root, '../Hello_Solar_Installer/assets/js/installer_data.js'), 'utf8'), context);
   return context;
@@ -124,7 +124,7 @@ test('inquiry prefill preserves contact data, full package text, location, subje
   c.document = { getElementById: id => inputs[id] };
   c.Option = function(text, value) { return { text, value }; };
   c.db = c.HELLO_SOLAR_DB;
-  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   vm.runInContext(app.slice(app.indexOf('  function prefillInquiry('), app.indexOf('  function renderCreateAccount(')), c);
   c.prefillInquiry('INQ-202');
   const inquiry = c.db.getInquiries().find(i => i.id === 'INQ-202');
@@ -184,7 +184,7 @@ test('inquiry prefill fills Linked Inquiry, Name, Email, Phone, Location, Select
   c.document = { getElementById: id => inputs[id] };
   c.Option = function(text, value) { return { text, value }; };
   c.db = c.HELLO_SOLAR_DB;
-  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   vm.runInContext(app.slice(app.indexOf('  function prefillInquiry('), app.indexOf('  function renderCreateAccount(')), c);
   c.prefillInquiry('INQ-201');
   const inquiry = c.db.getInquiries().find(i => i.id === 'INQ-201');
@@ -200,7 +200,7 @@ test('inquiry prefill fills Linked Inquiry, Name, Email, Phone, Location, Select
 
 test('modal button behavior conforms to customer response state', () => {
   const c = environment();
-  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   const createBtn = { style: {}, disabled: false, textContent: '', dataset: {} };
   const closeBtn = { textContent: '' };
   c.$ = selector => {
@@ -329,7 +329,7 @@ test('customer confirmation flow generates secure token link and only enables ac
   assert.equal(sendRes.inquiry.inquiryStatus, 'Awaiting Response');
 
   // Verify modal buttons for Awaiting Response (Create Account is hidden/disabled)
-  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const app = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   const createBtn = { style: {}, disabled: false, textContent: '', dataset: {} };
   const closeBtn = { textContent: '' };
   c.$ = selector => {
@@ -431,7 +431,7 @@ test('Super Admin Applications rules: Full Payment vs Installment, unified recor
   assert.equal(instApp.customerId, instRes.id);
 
   // 3. Test Direct Install eligibility rule in app.js
-  const appJs = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const appJs = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   // Extract isDirectProject, hasNoInstaller, and isEligibleForDirect
   const helperCode = appJs.slice(appJs.indexOf('  function isDirectProject('), appJs.indexOf('  // ==================== 2. APPLICATIONS PAGE'));
   vm.runInContext(helperCode, c);
@@ -501,7 +501,7 @@ test('Super Admin Payments: Full Payment flow verification and rejection', () =>
   assert.equal(app.financer, 'Not Required');
 
   // Load app.js helper functions
-  const appJs = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const appJs = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   const helperCode = appJs.slice(appJs.indexOf('  function isDirectProject('), appJs.indexOf('  // ==================== 2. APPLICATIONS PAGE'));
   vm.runInContext(helperCode, c);
 
@@ -589,7 +589,7 @@ test('Super Admin Payments: Installment customer monitoring and independence fro
   assert.ok(schedule.installments.length > 1, 'Installment customer must have multi-period schedule');
 
   // Installation readiness depends on Financer approval, not receipt verification
-  const appJs = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const appJs = fs.readFileSync(path.join(root, 'js/app.js'), 'utf8');
   const helperCode = appJs.slice(appJs.indexOf('  function isDirectProject('), appJs.indexOf('  // ==================== 2. APPLICATIONS PAGE'));
   vm.runInContext(helperCode, c);
 
